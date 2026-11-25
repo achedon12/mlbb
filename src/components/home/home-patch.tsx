@@ -116,7 +116,7 @@ export function HomePatch({ locale, className }: { locale: Locale; className?: s
             .map(([direction, shown]) => (
               <div key={direction}>
                 <Heading direction={direction} total={groups[direction].length} shown={shown} notes={notes} t={t} />
-                <ul className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))] gap-x-4 gap-y-6">
+                <ul className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(4.5rem,1fr))] gap-x-3 gap-y-6 sm:grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))] sm:gap-x-4">
                   {groups[direction].slice(0, shown).map((a) => {
                     const h = heroesBySlug.get(a.slug);
                     const impact = impacts[a.slug];
@@ -129,7 +129,7 @@ export function HomePatch({ locale, className }: { locale: Locale; className?: s
                             size="lg"
                             className="transition-transform duration-200 group-hover:-translate-y-0.5"
                           />
-                          <span className="mt-2 block max-w-full truncate font-heading text-base font-bold uppercase text-chalk-100 transition-colors group-hover:text-gold-300">
+                          <span className="mt-2 block max-w-full truncate font-heading text-sm font-bold sm:text-base uppercase text-chalk-100 transition-colors group-hover:text-gold-300">
                             {h?.name ?? a.name}
                           </span>
                           <Gap impact={impact} locale={locale} t={t} />

@@ -185,7 +185,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
       {/* The day's state of the game, as one line of text: each fact links to its page. */}
       <div className="border-y border-night-800 bg-night-950">
         <h2 className="sr-only">{t("home.rail.title")}</h2>
-        <ul className="page-wrap flex flex-wrap items-baseline gap-x-6 gap-y-2 py-4 text-sm text-chalk-400">
+        <ul className="page-wrap flex flex-wrap items-baseline gap-x-6 py-2 text-sm text-chalk-400 sm:gap-y-2 sm:py-4">
           {facts.map(({ href, label, value }) => (
             <li key={href}>
               <Link href={href} className="group inline-flex min-h-11 items-baseline gap-2 py-2 sm:min-h-0 sm:py-0">

@@ -52,7 +52,7 @@ export function HomeTools({ locale, className, roles }: { locale: Locale; classN
             ))}
           </ul>
           {rest.length > 0 && (
-            <ul className="mt-6 grid grid-cols-2 gap-x-10 sm:grid-cols-3">
+            <ul className="mt-6 flex flex-wrap gap-x-6 sm:grid sm:grid-cols-3 sm:gap-x-10">
               {rest.map(({ href, key }) => (
                 <li key={href} className="min-w-0">
                   <Link

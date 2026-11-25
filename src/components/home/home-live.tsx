@@ -87,7 +87,7 @@ export function HomeLive({ locale, className }: { locale: Locale; className?: st
             </div>
           )}
           <div className="page-wrap flex min-h-[28rem] flex-col justify-end py-14 sm:min-h-[36rem] lg:min-h-[clamp(36rem,80svh,48rem)] lg:py-20">
-            <h2 id="home-live" className="max-w-[min(100%,40rem)] text-chalk-100 max-sm:pr-[38vw]">
+            <h2 id="home-live" className={cn("max-w-[min(100%,40rem)] text-chalk-100", art && !art.wide && "max-sm:pr-[38vw]")}>
               <span className="block font-heading text-lg font-bold uppercase text-gold-400 sm:text-xl">
                 {month.starlight[0] === lead
                   ? t("home.rail.starlight", { month: monthText(locale, month.month) })

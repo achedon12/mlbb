@@ -102,7 +102,7 @@ export function HomeMeta({ locale, className }: { locale: Locale; className?: st
       {top.length > 0 && (
         <div className="mt-16 sm:mt-20">
           <h3 className="font-heading text-lg font-bold uppercase text-chalk-300">{t("home.meta.top5")}</h3>
-          <ol className={cn(SCROLL_ROW, "mt-4 gap-4 lg:grid lg:grid-cols-5 lg:gap-6")}>
+          <ol className={cn(SCROLL_ROW, "mt-4 gap-1 lg:grid lg:grid-cols-5 lg:gap-1")}>
             {top.map((e, i) => (
               <li key={e.hero.slug} className="w-[42vw] max-w-[13rem] shrink-0 snap-start sm:w-[28vw] lg:w-auto lg:max-w-none">
                 <TopPortrait entry={e} rank={i + 1} locale={locale} t={t} />
@@ -175,10 +175,10 @@ function TopPortrait({ entry: e, rank, locale, t }: { entry: RankedEntry; rank: 
       <span aria-hidden className="score score-outline relative -mt-14 block pl-1 text-[4.5rem] sm:-mt-16 sm:text-[5.5rem]">
         {rank}
       </span>
-      <span className="mt-2 block truncate font-heading text-xl font-bold uppercase leading-tight text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-2xl">
+      <span className="mt-2 block truncate pr-3 font-heading text-xl font-bold uppercase leading-tight text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-2xl">
         {e.hero.name}
       </span>
-      <span aria-hidden className="mt-1 flex flex-wrap gap-x-3 text-sm tabular-nums text-chalk-400">
+      <span aria-hidden className="mt-1 flex flex-wrap gap-x-3 pr-3 text-sm tabular-nums text-chalk-400">
         <span>
           <span className="font-semibold text-chalk-100">{percentage(locale, e.winRate)}</span> {t("home.meta.moverRate.winRate")}
         </span>
