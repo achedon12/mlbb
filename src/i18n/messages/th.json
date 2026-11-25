@@ -7011,6 +7011,7 @@
     "builtBy": "อยู่ในบิลด์ของ {heroes}",
     "minutes": "อ่าน {n} นาที",
     "skinsCount": "สกิน",
+    "buildsCount": "บิลด์ที่แชร์",
     "latestSkin": "ออกล่าสุด: {skin} ({hero})",
     "starlight": "StarLight ประจำเดือน: {skin} ({hero})",
     "games": "เกมที่วิเคราะห์",

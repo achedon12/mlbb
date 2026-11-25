@@ -7011,6 +7011,7 @@
     "builtBy": "In the builds of {heroes}",
     "minutes": "{n} min read",
     "skinsCount": "skins",
+    "buildsCount": "shared builds",
     "latestSkin": "Latest release: {skin} ({hero})",
     "starlight": "StarLight of the month: {skin} ({hero})",
     "games": "games analysed",

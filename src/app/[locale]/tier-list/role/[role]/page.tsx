@@ -1,7 +1,7 @@
-import { notFoundMetadata } from "@/i18n/seo";
+import { notFoundMetadata, withCard } from "@/i18n/seo";
 import type { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
-import { roleOfSlug, SLUGS_ROLE } from "@/lib/tier-list-filters";
+import { roleOfSlug, SLUGS_ROLE, pathFilter } from "@/lib/tier-list-filters";
 import { metaTierList, TierList } from "../../content";
 import { NotFoundPage } from "@/components/not-found-page";
 
@@ -15,7 +15,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, role } = await params;
   const value = roleOfSlug(role);
-  return value ? metaTierList(locale, "all", { type: "role", value }) : notFoundMetadata(locale);
+  if (!value) return notFoundMetadata(locale);
+  const filter = { type: "role", value } as const;
+  // Its own share card (`opengraph-image.tsx` next to this page), not the home one.
+  return withCard(metaTierList(locale, "all", filter), locale, pathFilter(filter));
 }
 
 export default async function TierListRolePage({ params }: Params) {

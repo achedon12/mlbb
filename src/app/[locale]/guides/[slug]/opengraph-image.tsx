@@ -1,10 +1,12 @@
 import { notFound } from "next/navigation";
 import { isLocale } from "@/i18n/config";
+import { asJpeg } from "@/lib/og/assets";
 import { guideCard } from "@/lib/og/cards";
 import { site } from "@/lib/site";
 
 export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+// Re-encoded from the engine's PNG: a fraction of its weight (`asJpeg`).
+export const contentType = "image/jpeg";
 // The page's metadata gives the translated text (`metaPage`, `card: true`).
 export const alt = site.title;
 
@@ -23,5 +25,5 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   if (!isLocale(locale)) notFound();
   const image = await guideCard(locale, slug);
   if (!image) notFound();
-  return image;
+  return asJpeg(image);
 }

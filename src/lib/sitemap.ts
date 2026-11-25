@@ -25,6 +25,8 @@ import { botPublished } from "@/lib/bot/public";
 import { CATEGORIES } from "@/lib/community/constants";
 import { advanceSyncedAt, advanceVersion, advanceVersionNumbers, advanceVersions } from "@/lib/advance-server";
 import { advanceDocumented } from "@/lib/advance-fresh";
+import { isHubIndexable } from "@/lib/community-builds";
+import { listBuilds } from "@/lib/community-builds-store";
 
 /**
  * Multilingual sitemap, split by page type.
@@ -65,8 +67,26 @@ function dateOf(iso: string | null | undefined): Date | undefined {
 const newest = (...isos: (string | null | undefined)[]) =>
   dateOf(isos.filter((d): d is string => !!d).sort().at(-1));
 
+/**
+ * What the sitemap reads from live data rather than from the game data:
+ * pages that stay `noindex` until their content is thick enough have no
+ * place in it before then.
+ */
+export interface LiveSignals {
+  /** The community builds hub is indexable: enough heroes have builds (`isHubIndexable`). */
+  buildsHub: boolean;
+}
+
+/** Without live data (tests, a store that cannot be read): those pages stay out. */
+const OFFLINE: LiveSignals = { buildsHub: false };
+
+/** The live signals, read when a child sitemap is (re)generated. */
+export async function liveSignals(): Promise<LiveSignals> {
+  return { buildsHub: isHubIndexable(await listBuilds().catch(() => [])) };
+}
+
 /** Every sitemap entry, all page types together, in a stable order. */
-export function sitemapEntries(): MetadataRoute.Sitemap {
+export function sitemapEntries(live: LiveSignals = OFFLINE): MetadataRoute.Sitemap {
   const measuredDate = dateOf(measure);
   const synced = dateOf(sync.date);
   const news = articles("news");
@@ -105,7 +125,8 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     { path: "/tools/draw-calculator", changeFrequency: "yearly", priority: 0.5 },
     { path: "/tools/build", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
     { path: "/tools/damage-calculator", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
-    { path: "/builds", changeFrequency: "daily", priority: 0.5 },
+    // The builds hub says `noindex` until enough heroes have builds (`metaBuilds`).
+    ...(live.buildsHub ? [{ path: "/builds", changeFrequency: "daily" as const, priority: 0.5 }] : []),
     // Community: the forum's hub and categories, the teammate finder. The
     // threads themselves are reached from the category pages.
     { path: "/community", changeFrequency: "daily", priority: 0.5 },
@@ -340,14 +361,17 @@ export function sitemapGroupOf(url: string): SitemapName {
   return SITEMAPS.find((s) => s.pattern?.test(path))?.name ?? "pages";
 }
 
-let grouped: Map<SitemapName, MetadataRoute.Sitemap> | null = null;
+/** One grouping per state of the live signals: the entries are otherwise fixed until the next deploy. */
+const grouped = new Map<string, Map<SitemapName, MetadataRoute.Sitemap>>();
 
 /** Entries of every child sitemap, keeping the order of `sitemapEntries`. */
-export function sitemapGroups(): Map<SitemapName, MetadataRoute.Sitemap> {
-  if (grouped) return grouped;
+export function sitemapGroups(live: LiveSignals = OFFLINE): Map<SitemapName, MetadataRoute.Sitemap> {
+  const key = JSON.stringify(live);
+  const known = grouped.get(key);
+  if (known) return known;
   const groups = new Map<SitemapName, MetadataRoute.Sitemap>(SITEMAPS.map((s) => [s.name, []]));
-  for (const entry of sitemapEntries()) groups.get(sitemapGroupOf(entry.url))!.push(entry);
-  grouped = groups;
+  for (const entry of sitemapEntries(live)) groups.get(sitemapGroupOf(entry.url))!.push(entry);
+  grouped.set(key, groups);
   return groups;
 }
 

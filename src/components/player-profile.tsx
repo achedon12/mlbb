@@ -70,7 +70,8 @@ export function StateProfile({ type, t }: { type: "expired" | "unavailable" | "e
 
   return (
     <Card className="dex-host flex flex-wrap items-end gap-5 bg-night-800 p-6 sm:flex-nowrap sm:p-8">
-      <span aria-hidden className="shrink-0">
+      {/* Not aria-hidden: Dex holds his "talk to Dex" button, which must stay reachable. */}
+      <span className="shrink-0">
         <Dex pose={({ expired: "reflexion", unavailable: "triste", empty: "pointe" } as const)[type]} height={150} still />
       </span>
       <div className="min-w-0">
