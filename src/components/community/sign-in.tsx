@@ -2,6 +2,7 @@ import { Gamepad2, LogOut } from "lucide-react";
 import { Flash } from "@/components/dex-states";
 import { DiscordMark } from "@/components/bot/discord-mark";
 import Link from "@/components/link";
+import { loginHref } from "@/lib/login-next";
 import { Dex } from "@/components/mascot";
 import type { Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
@@ -64,7 +65,7 @@ export function SignInChoice({
       <p className="font-heading text-xl font-bold leading-tight text-chalk-100">{t(`pages.community.signInChoice.${purpose}`)}</p>
       <p className="text-sm text-chalk-400">{t("pages.community.signInDex")}</p>
       <div className="flex flex-wrap gap-2">
-        <Link href="/login" className={`${BUTTON} btn-primary`}>
+        <Link href={loginHref(`/${locale}${back}`)} className={`${BUTTON} btn-primary`}>
           <Gamepad2 size={16} aria-hidden />
           {t("pages.community.signInChoice.game")}
         </Link>

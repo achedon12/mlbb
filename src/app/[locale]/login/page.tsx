@@ -8,6 +8,8 @@ import Link from "@/components/link";
 import { DiscordMark } from "@/components/bot/discord-mark";
 import { currentDiscordLogin, discordLoginEnabled } from "@/lib/community/server";
 import { databaseConfigured } from "@/lib/db";
+import { isCommunityReturn } from "@/lib/bot/oauth";
+import { safeNext } from "@/lib/login-next";
 import { LoginForm } from "@/components/login-form";
 import { Dex } from "@/components/mascot";
 import { heroArt } from "@/components/stage";
@@ -31,31 +33,40 @@ export const dynamic = "force-dynamic";
  * the Discord login as the one-tap alternative. Above the form, on every
  * screen, why sign in at all: streaks, favourites and reminders that follow
  * the visitor to every device, and a profile with badges. A visitor sent by
- * a prompt (`?from=prompt`) reads that their progress will be kept.
+ * a prompt (`?from=prompt`) reads that their progress will be kept, and
+ * `?next=` (a page of the site) is where the sign-in returns to. On a phone
+ * the welcome shrinks and the reasons move under the form, so the form
+ * shows on the first screen.
  */
 export default async function LoginPage({
   params,
   searchParams,
 }: {
   params: Promise<{ locale: Locale }>;
-  searchParams: Promise<{ from?: string | string[] }>;
+  searchParams: Promise<{ from?: string | string[]; next?: string | string[] }>;
 }) {
   const { locale } = await params;
-  const { from } = await searchParams;
+  const { from, next: rawNext } = await searchParams;
+  const next = safeNext(rawNext) ?? undefined;
   const t = createT(locale);
-  if (await tokenCurrent()) redirect(`/${locale}/account`);
+  if (await tokenCurrent()) redirect(next ?? `/${locale}/account`);
   const art = heroArt("miya");
   const syncing = databaseConfigured();
   const discordEnabled = syncing && discordLoginEnabled();
   const discord = discordEnabled ? await currentDiscordLogin().catch(() => null) : null;
   const fromPrompt = from === "prompt";
+  // The Discord login can only return to a community page; anything else lands on the account.
+  const nextPage = next?.replace(new RegExp(`^/${locale}(?=/)`), "");
+  const discordQuery: Record<string, string> = isCommunityReturn(nextPage)
+    ? { locale, next: "community", back: nextPage }
+    : { locale, next: "progress" };
 
   return (
     <div className="page-wrap py-6 sm:py-10">
       <Breadcrumb crumbs={[{ name: t("pages.login.title") }]} className="mb-5 [&_ol]:px-2 [&_ol]:py-1 [&_ol]:text-xs" />
       <div className="grid items-stretch gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-10">
         {/* The welcome: art, Dex and what an account opens. */}
-        <section aria-labelledby="login-welcome" className="art-tile bevel-lg relative isolate flex min-h-[19rem] flex-col justify-end bg-night-800 p-5 sm:p-8 lg:min-h-[36rem]">
+        <section aria-labelledby="login-welcome" className="art-tile bevel-lg relative isolate flex flex-col justify-end bg-night-800 p-5 sm:min-h-[19rem] sm:p-8 lg:min-h-[36rem]">
           {art && (
             <div aria-hidden className="absolute inset-0 -z-10">
               <Image src={art} alt="" fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="affiche-art object-cover object-[60%_18%]" />
@@ -63,19 +74,15 @@ export default async function LoginPage({
             </div>
           )}
           <div className="stage-dex dex-host flex items-end gap-3 sm:gap-5">
-            <span aria-hidden className="shrink-0">
-              <span className="hidden sm:block">
-                <Dex pose="salut" height={210} priority />
-              </span>
-              <span className="block sm:hidden">
-                <Dex pose="salut" height={120} still priority />
-              </span>
+            {/* Dex below sm would push the form off the first screen. */}
+            <span aria-hidden className="hidden shrink-0 sm:block">
+              <Dex pose="salut" height={210} priority />
             </span>
             <div className="dex-bubble mb-4 min-w-0 flex-1">
               <p id="login-welcome" className="display-caps text-[1.9rem] text-gold-400 sm:text-[2.4rem]">
                 {t("pages.login.welcome")}
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-chalk-200">{t("pages.login.welcomeText")}</p>
+              <p className="mt-2 hidden text-sm leading-relaxed text-chalk-200 sm:block">{t("pages.login.welcomeText")}</p>
             </div>
           </div>
           <ul className="mt-5 hidden gap-2 sm:grid">
@@ -98,7 +105,7 @@ export default async function LoginPage({
 
           {/* Why sign in: what the visitor keeps, on every screen size. */}
           {syncing && (
-            <section aria-labelledby="login-why" className="mt-6 max-w-lg border-l-2 border-gold-400 pl-4">
+            <section aria-labelledby="login-why" className="mt-6 max-w-lg border-l-2 border-gold-400 pl-4 max-lg:order-last">
               <h2 id="login-why" className="font-heading text-lg font-bold uppercase text-gold-400">
                 {fromPrompt ? t("pages.login.pitch.fromPrompt") : t("pages.login.pitch.title")}
               </h2>
@@ -129,7 +136,7 @@ export default async function LoginPage({
 
           <div className="bevel-lg mt-6 max-w-lg bg-night-900 p-5 sm:p-7">
             <ExtendMessages messages={messagesPage(locale, ["loginForm"])}>
-              <LoginForm />
+              <LoginForm next={next} />
             </ExtendMessages>
           </div>
 
@@ -137,7 +144,7 @@ export default async function LoginPage({
             <div className="mt-4 max-w-lg">
               <p className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.login.or")}</p>
               <a
-                href={`/api/discord/login?${new URLSearchParams({ locale, next: "progress" })}`}
+                href={`/api/discord/login?${new URLSearchParams(discordQuery)}`}
                 className="bevel-sm mt-2 inline-flex min-h-11 items-center gap-2 bg-blurple-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blurple-600"
               >
                 <DiscordMark />
