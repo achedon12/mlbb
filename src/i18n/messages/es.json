@@ -7292,5 +7292,15 @@
         "title": "Encuentra tus favoritos en todos tus dispositivos"
       }
     }
+  },
+  "support": {
+    "footer": "Apoyar MLBBDex",
+    "menuDesc": "Una donación mantiene el sitio gratis",
+    "title": "Apoyar el proyecto",
+    "body": "MLBBDex lo hace una sola persona, en su tiempo libre. Una donación ayuda a pagar el servidor, el dominio y las horas dedicadas a mantener los datos al día.",
+    "free": "El sitio sigue siendo gratuito y sin publicidad, dones o no.",
+    "cardTitle": "Dex funciona gracias a ti ☕",
+    "cardBody": "MLBBDex es gratis y sin anuncios. Una pequeña donación ayuda a pagar el servidor y el dominio.",
+    "later": "Más tarde"
   }
 }

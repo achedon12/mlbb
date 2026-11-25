@@ -66,6 +66,8 @@ import { trackEvent, trackShare } from "@/lib/analytics";
 import { SYNCED_EVENT } from "@/lib/progress-signal";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { SupportCard } from "@/components/support-links";
+import { recordSupportWin } from "@/lib/support-prompt";
 
 /**
  * MLBB quiz: the daily challenge, the same for everyone, and endless practice.
@@ -251,6 +253,7 @@ function ChallengeOfDay({ catalog, duel, onPractice }: { catalog: CatalogQuiz; d
         setStats(nextStats);
         writeStats(nextStats);
         trackEvent("Quiz", "Finish", "daily", points);
+        recordSupportWin();
         // One card at a time: the account prompt only when the Discord one stays away.
         if (!discord.offer("quiz", 2500)) prompt.offer("quiz", { streak: nextStats.serie }, 2500);
       }
@@ -579,6 +582,7 @@ function Summary({
               </li>
             ))}
           </ol>
+          <SupportCard placement="Quiz" className="mt-8" />
         </>
       )}
       </div>
