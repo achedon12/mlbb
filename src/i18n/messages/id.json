@@ -6149,7 +6149,9 @@
       "code": "Panjang kode harus empat digit.",
       "unknown": "Tidak ada akun yang cocok dengan nama pengguna dan server ini.",
       "unavailable": "Layanan ini untuk sementara tidak tersedia.",
-      "wrongCode": "Kode salah atau kedaluwarsa."
+      "wrongCode": "Kode salah atau kedaluwarsa.",
+      "tooMany": "Terlalu banyak percobaan. Tunggu beberapa menit, lalu coba lagi.",
+      "tooManyAttempts": "Terlalu banyak kode salah. Minta kode baru untuk mencoba lagi."
     },
     "steps": "Langkah-langkah koneksi",
     "step1": "tanda pengenal Anda",

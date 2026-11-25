@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { LogIn, UserRound } from "lucide-react";
 import Link from "@/components/link";
+import { LoginLink } from "@/components/login-link";
 import { useT } from "@/i18n/provider";
 import { readSession, type Session } from "@/lib/session-client";
 
@@ -44,12 +45,11 @@ export function AccountButton() {
       </span>
     </Link>
   ) : (
-    <Link
-      href="/login"
+    <LoginLink
       className="btn btn-primary btn-sm size-11 shrink-0 px-2 sm:h-9 sm:w-32 sm:px-3"
     >
       <LogIn size={18} aria-hidden className="sm:hidden" />
       <span className="min-w-0 truncate max-sm:sr-only">{t("account.signIn")}</span>
-    </Link>
+    </LoginLink>
   );
 }

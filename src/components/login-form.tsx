@@ -6,6 +6,7 @@ import { useActionState } from "react";
 import { ArrowLeft, KeyRound, Send } from "lucide-react";
 import { requestCode, checkCode, type State } from "@/lib/actions";
 import { useT } from "@/i18n/provider";
+import { loginHref } from "@/lib/login-next";
 import { cn } from "@/lib/utils";
 
 /**
@@ -16,7 +17,12 @@ import { cn } from "@/lib/utils";
  * first action carries the move to the second, so the same component chains
  * both without navigation.
  */
-export function LoginForm() {
+export function LoginForm({
+  next,
+}: {
+  /** Where to return once signed in, already checked by `safeNext`; the server checks it again. */
+  next?: string;
+} = {}) {
   const t = useT();
   const [state, send, inProgress] = useActionState<State, FormData>(requestCode, {});
   const [helpBefore, helpAfter = ""] = t("loginForm.serverHelp").split("{example}");
@@ -25,7 +31,7 @@ export function LoginForm() {
     return (
       <>
         <Steps current={2} />
-        <CodeForm roleId={state.roleId!} zoneId={state.zoneId!} />
+        <CodeForm roleId={state.roleId!} zoneId={state.zoneId!} next={next} />
       </>
     );
   }
@@ -120,7 +126,7 @@ function Steps({ current }: { current: 1 | 2 }) {
   );
 }
 
-function CodeForm({ roleId, zoneId }: { roleId: string; zoneId: string }) {
+function CodeForm({ roleId, zoneId, next }: { roleId: string; zoneId: string; next?: string }) {
   const t = useT();
   const [state, send, inProgress] = useActionState<State, FormData>(checkCode, {
     codeSent: true,
@@ -132,6 +138,7 @@ function CodeForm({ roleId, zoneId }: { roleId: string; zoneId: string }) {
     <form action={send} className="space-y-5">
       <input type="hidden" name="roleId" value={roleId} />
       <input type="hidden" name="zoneId" value={zoneId} />
+      {next && <input type="hidden" name="next" value={next} />}
 
       <div className="bevel-sm border border-azure-500/30 bg-azure-500/10 px-4 py-3 text-sm text-azure-400">
         {t("loginForm.codeSent")}
@@ -167,7 +174,7 @@ function CodeForm({ roleId, zoneId }: { roleId: string; zoneId: string }) {
 
       {/* Start over if the code does not arrive: reloading the page clears the form. */}
       <Link
-        href="/login"
+        href={loginHref(next)}
         className="flex items-center justify-center gap-1.5 text-sm text-chalk-500 transition-colors hover:text-gold-400"
       >
         <ArrowLeft size={14} aria-hidden />

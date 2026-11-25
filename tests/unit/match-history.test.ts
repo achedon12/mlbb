@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { historyMatches } from "@/lib/mlbb-auth";
+import { historyMatches, resetBreakers } from "@/lib/mlbb-auth";
 import { pageHistory, matchRaw } from "./player-samples";
 
 /**
@@ -37,7 +37,11 @@ function service(answer: (cursor: string) => ApiResponse | undefined) {
 let n = 0;
 const token = () => `history-token-${++n}`;
 
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => {
+  vi.unstubAllGlobals();
+  // A 502 in one test must not leave the breaker open for the next.
+  resetBreakers();
+});
 
 describe("historyMatches", () => {
   it("chains pages up to the cap, without duplicates", async () => {

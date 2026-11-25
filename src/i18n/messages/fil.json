@@ -6149,7 +6149,9 @@
       "code": "Apat na digit ang code.",
       "unknown": "Walang account na tugma sa ID at server na ito.",
       "unavailable": "Pansamantalang hindi available ang serbisyo.",
-      "wrongCode": "Mali o expired na ang code."
+      "wrongCode": "Mali o expired na ang code.",
+      "tooMany": "Masyadong maraming pagsubok. Maghintay ng ilang minuto, saka subukan ulit.",
+      "tooManyAttempts": "Masyadong maraming maling code. Humingi ng bagong code para subukan ulit."
     },
     "steps": "Mga hakbang sa koneksyon",
     "step1": "Iyong ID",

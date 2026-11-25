@@ -6149,7 +6149,9 @@
       "code": "Il codice deve essere lungo quattro cifre.",
       "unknown": "Nessun account corrisponde a questo ID e server.",
       "unavailable": "Il servizio è momentaneamente non disponibile.",
-      "wrongCode": "Codice errato o scaduto."
+      "wrongCode": "Codice errato o scaduto.",
+      "tooMany": "Troppi tentativi. Aspetta qualche minuto, poi riprova.",
+      "tooManyAttempts": "Troppi codici errati. Richiedi un nuovo codice per riprovare."
     },
     "steps": "Passaggi di connessione",
     "step1": "Il tuo documento d'identità",
