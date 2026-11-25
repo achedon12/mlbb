@@ -140,6 +140,90 @@
       }
     ]
   },
+  "aamon": {
+    "summary": "Magic assassin camouflaged sa pamamagitan ng bawat skill na tumama; ang kanyang ultimate finishes ang lahat ng mas mahusay kung ang target ay nasugatan.",
+    "analysis": "Pinapalitan ni Aamon ang pagbabalatkayo at pinalakas na pag-atake. Bawat skill na tumama sa isang kaaway ay nagbabalatkayo dito: hindi na ito maaaring ma-target, mabawi ang HP at makakuha ng bilis; sa paglabas sa estadong ito, ang kanyang mga basic attack para sa susunod na ilang segundo ay lumalakas, humarap sa magic damage at binabawasan ang kanyang mga cooldown. Ang kanyang empowered attacks ay naniningil ng mga shards. Ang pinakahuli ay naglulunsad ng lahat sa isang target: mas maraming shards ang nakalaan at nasa lupa, mas mahaba ang salvo, at tumataas ang damage nito habang ang target ay nawawala ang HP nito.\n\nAng kanyang mga sinusukat na numero ay bahagyang mas mababa sa average sa lahat ng mga ranggo, na walang malaking pagkakaiba depende sa haba ng laro; Gayunpaman, tumaas ang pick rate nito sa nakalipas na tatlumpung araw. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban sa Gloo, Lolita, Silvanna, Hayabusa at Masha, at maluwag laban kay Cici, Marcel, Claude at Bruno.",
+    "skills": [
+      "Bawat skill na humahawak sa kanya ay nagkukunwari sa kanya: imposibleng ma-target, nabawi niya ang HP at nakakakuha ng bilis na mabilis na bumababa. Kapag lumalabas sa camouflage, ang kanyang mga basic attack ay lumalakas sa loob ng ilang segundo, nagdudulot ng magic damage at binabawasan ang kanyang mga cooldown.",
+      "Bilang isang passive, ang kanyang reinforced attacks at camouflage ay sumisingil sa kanyang baluti; sa limang singil, ang susunod na pag-atake nito ay naglulunsad ng isang volley ng shards na pagkatapos ay mananatili sa lupa sa paligid ng target. Habang aktibo, naghahagis ng pagsabog sa isang kalapit na kaaway.",
+      "Nagpaputok ng pagsabog pasulong na nagpapabagal sa pagtama ng mga kaaway, pagkatapos ay bumalik sa kanila at ibinabalat sila; babalik agad siya kung may nahawakan siya maliban sa isang minion. Ang kakayahan upang lampasan ang kaaway sa ilalim ng pagbabalatkayo.",
+      "Ihagis ang lahat ng iyong mga shards sa isang kaaway at pabagalin ang mga ito; ang kanilang bilang ay depende sa mga singil nito at sa mga fragment sa lupa. Tumataas ang damage kapag nawala ang HP ng target, hanggang sa maximum na mas mababa sa tatlumpung porsyento ng HP nito."
+    ],
+    "strengths": [
+      "Imposibleng i-target sa ilalim ng camouflage, at inaalagaan sa panahong ito",
+      "Isang ultimate na nakakakuha ng damage sa isang nasugatan na target",
+      "Nababawasan ang mga recharge sa pamamagitan ng empowered attacks nito"
+    ],
+    "weaknesses": [
+      "Ang win rate ay bahagyang mas mababa sa average sa lahat ng mga ranggo",
+      "Isang pagbabalatkayo na nakasalalay sa mga kasanayang nakakaapekto",
+      "Sa kahirapan laban kay Gloo, Lolita at Silvanna ayon sa mga hakbang"
+    ],
+    "builds": [
+      {
+        "name": "Magic Jungle",
+        "context": "Ang pinakamaraming nilalaro na build sa jungle: Genius Wand binabawasan ang magic defense ng mga hero na hit at nagdaragdag ng penetration, Holy Crystal i-maximize ang magic power at Divine Glaive magic penetration, para sa reinforced attacks at isang ultimate na matatapos."
+      },
+      {
+        "name": "Pagbitay",
+        "context": "Sky Piercer bilang unang bagay, na nagpapatupad ng isang hero na bumagsak nang napakababa at ang threshold ay tumaas nang may mga eliminasyon: ang pangalawa sa pinakamaraming nilalaro na build, na may win rate na sinusukat malapit."
+      }
+    ]
+  },
+  "nolan": {
+    "summary": "Jungle assassin na pumutol ng mga lamat sa bawat skill: dalawang lamat na nakakaakit ng mga kaaway, sumasabog at nagbabalik ng HP.",
+    "analysis": "Pinaglalaruan ni Nolan ang kanyang mga kapintasan. Ang bawat skill ay nag-iiwan ng isa, na nagpapabagal sa mga kaaway; Kapag nagkadikit ang dalawang lamat, hinihila nila ang mga kalaban patungo sa kanilang sentro at pagkatapos ay sasabog, at bawat pagtama ng hero o halimaw ay nagpapanumbalik ng enerhiya at HP. Ang kanyang unang dalawang skill ay may napakaikling pag-recharge, ang isa ay tumama sa isang lugar sa harap niya, ang isa naman ay nagpapa-charge sa kanya, at sila ay magkakadena upang i-cross ang mga pagkakamali. Ang ultimate slash isang lugar ng tatlong beses, nag-iiwan ng tatlong lamat doon at nag-trigger sa kanila habang siya ay umatras. Pagkalipas ng ilang segundo nang hindi nagdulot o nakakatanggap ng damage, ang kanyang susunod na basic attack ay nagiging dahilan upang siya ay tumalon papunta sa target, na nagbukas ng isang lamat.\n\nMainit itong pinagtatalunan: ikalimang antas ng pagpili sa lahat ng mga hero, at isang pagbabawal na halos dumoble sa nakalipas na tatlumpung araw at umakyat sa ranggo. Ang kanyang sinusukat na win rate ay nananatiling nasa average, sa itaas sa mga laro na tumatagal ng wala pang labindalawang minuto pagkatapos ay mas mababa pagkatapos ng ikalabing-apat na minuto. Ang mga sukat ay malinaw na naglalagay sa kanya sa kahirapan laban kay Saber at Natalia, pagkatapos laban sa Jawhead at Hayabusa.",
+    "skills": [
+      "Ang kanyang mga skill ay nag-iiwan ng mga lamat na nagpapabagal sa kanya. Dalawang makabagbag-damdaming pagkakamali ang umaakit ng mga kaaway patungo sa kanilang sentro pagkatapos ay sumabog; bawat hero o monster hit ay nagpapanumbalik ng enerhiya at HP. Pagkatapos ng ilang segundo sa labas ng labanan, ang kanyang susunod na basic attack ay nagdudulot sa kanya ng suntok sa target.",
+      "Maghiwa ng hugis-parihaba na lugar sa harap niya at mag-iwan ng lamat sa unang tama ng kaaway. Napakaikling recharge.",
+      "Naniningil sa isang direksyon, naninira sa mga kaaway sa daan at nag-iiwan ng lamat: ang paggalaw nito, at ang paraan upang tumawid sa dalawang lamat.",
+      "I-slash ang isang lugar ng tatlong beses, pinapabagal ang hit target at nag-iiwan ng tatlong lamat, na mag-trigger sa kanilang sarili habang siya ay umatras."
+    ],
+    "strengths": [
+      "Napakaikling recharge sa kanyang unang dalawang skill",
+      "Mga rift explosion na nagpapanumbalik ng HP",
+      "Isang ultimate na tumama pagkatapos ay nagpatumba sa kanya pabalik",
+      "Mataas na win rate na sinusukat sa maikling laro"
+    ],
+    "weaknesses": [
+      "Ang win rate ay sinusukat sa ibaba ng average na lampas sa ikalabing-apat na minuto",
+      "Nabawasan ang damage kapag ang parehong target ay dumanas ng maraming pagsabog",
+      "Malinaw na nahihirapan laban kay Saber at Natalia ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "jungle",
+        "context": "Ang pinakamaraming nilalaro na build sa jungle: Hunter Strike nagdudulot ng atake, recharge reduction, penetration at acceleration pagkatapos ng ilang hit sa parehong target, Blade of the Heptaseas nagpapalakas sa unang pag-atake pagkatapos ng ilang segundo sa labas ng labanan, tulad ng jump sa passive nito, at Malefic Roar nagdaragdag ng pisikal na penetration. Ang Lethal Ignition ay pinipili nang kasingdalas ng Impure Rage."
+      }
+    ]
+  },
+  "saber": {
+    "summary": "Single Target Assassin: Ang kanyang ultimate ay nag-angat ng isang hero ng kaaway at tinamaan sila ng tatlong beses, na walang pinagkaiba ang Resilience.",
+    "analysis": "Ang Saber ay ginawa upang ibagsak ang isang partikular na hero. Ang damage nito ay binabawasan ang pisikal na baluti ng target, ang pagsasalansan. Ang kanyang skill 1 ay umiikot ng limang espada sa paligid niya; sa kanilang tagal, ang bawat hampas ng espada ay tumama sa target nito at binabawasan ang dalawang recharge nito. Ang kanyang skill 2 ay nagpapabilis sa kanya at pagkatapos ay pinalakas ang kanyang susunod na basic attack, na naglulunsad sa kanya sa target at lubos na nagpapabagal dito. Pinapa-charge siya ng ultimate sa isang hero ng kaaway, itinapon siya sa hangin nang mahigit isang segundo nang hindi binabawasan ng Resilience ang epekto, at tinamaan siya ng tatlong beses.\n\nAng mga sinusukat na numero nito ay kapansin-pansing nagbabago sa ranggo: mas mababa sa average na win rate sa Epic, mas mataas sa average sa Mythic Glory, at pinakamataas na pagbabawal sa Legend at Mythic. Ito ay lalo na malakas sa maikling laro, higit sa limampu't limang porsyento bago ang ikalabing-apat na minuto. Sa roam, ang pinakamaraming nilalaro na build nito ay may win rate na sinusukat sa ibaba ng average; ang kanyang pinakamahusay na sinusukat na mga kasosyo ay sina Diggie at Marcel. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban kay Balmond, Leomord, Baxia, Miya at Sun.",
+    "skills": [
+      "Sa bawat oras na magdudulot ito ng damage, binabawasan nito ang pisikal na baluti ng target, na nakasalansan ng hanggang limang beses.",
+      "Limang espada ang umiikot sa kanya at pumipinsala sa mga kalapit na kaaway. Sa kanilang tagal, ang bawat hampas ng espada ay tumama sa target at binabawasan ang mga cooldown ng mga skill 1 at 2 nito.",
+      "Sumugod sa isang direksyon; ang kanyang susunod na basic attack pagkatapos ay inihagis ito sa target, na nakakapinsala sa kanila at nagpapabagal sa kanila nang husto. Nagsisilbing mas marami upang makahabol bilang makisali.",
+      "Sisingilin ang isang hero ng kaaway, itinutulak sila sa hangin nang mahigit isang segundo, nang hindi binabawasan ng Resilience ang epekto, at tinamaan sila ng tatlong beses, ang huling hit ay mas malakas."
+    ],
+    "strengths": [
+      "Isang solong target na ultimate na hindi umiikli ang katatagan",
+      "Pinagsama-samang pagbabawas ng sandata sa target",
+      "Mataas na win rate na sinusukat sa maikling laro",
+      "Ang mga recharge ay nabawasan ng kanyang mga espada"
+    ],
+    "weaknesses": [
+      "Karamihan sa Nilalaro na Roam ay Bumuo sa Mas Mababa sa Average ayon sa Mga Sukatan",
+      "Very banned sa Legend at Mythic",
+      "Sa kahirapan laban sa Balmond, Leomord at Baxia ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "jungle",
+        "context": "Ang pinakamaraming nilalaro na build, sa jungle: Hunter Strike nagdudulot ng atake, recharge reduction at physical penetration, War Axe pinagsama-samang pag-atake sa labanan, HP at life steal, Endless Battle raw damage sa attack na sumusunod sa bawat skill."
+      }
+    ]
+  },
   "chou": {
     "summary": "Isolation fighter: kumukuha siya ng target mula sa kalabang grupo at pinapatay ito bago mag-react ang kanyang team.",
     "analysis": "Si Chou ang bayaning gumala na may pinakamataas na cap ng mastery. Ang ideya ay simple – ang pinakahuli ay nagtataboy sa isang target at hinahabol ito – ngunit ang pagpapatupad nito ay umaasa sa mga pagkansela ng animation na hindi ipinapaliwanag ng laro kahit saan. Ang reference na combo ay nakakabit ng skill 1, kinansela ang jump, ultimate, pagkatapos ay skill 2 para hawakan ang target sa landing.\n\nAng kanyang interes sa isang organisadong koponan ay nagmula doon: pinipili niya kung sino ang mamamatay. Laban sa isang manlalaro na nagpapanatili ng kanyang Purify, sa kabilang banda, ang ultimate ay nawawalan ng kalahati ng halaga nito, at si Chou ay naging isang average na fighter muli.",
@@ -313,6 +397,273 @@
       {
         "name": "Damage pagkatapos ng skill",
         "context": "Starlium Scythe sa halip na Queen's Wings, para sa karagdagang damage sa pag-atake na sumusunod sa bawat skill: hindi gaanong nilalaro, na may maihahambing na nasusukat na win rate."
+      }
+    ]
+  },
+  "masha": {
+    "summary": "Fighter na may tatlong HP bar: ang bawat sirang bar ay nagpapalaya sa kanya mula sa mga kontrol, at ang kanyang mga basic attack ay nagiging area-of-effect claw strike na nagpapagaling sa kanya.",
+    "analysis": "Naglalaro si Masha sa kanyang tatlong HP bar. Nabawi ng bawat isa ang kalahati ng HP na ibinigay ng mga item nito, at ang bawat bar na bumabagsak ay nag-aalis ng mga control effect nito, hinaharangan ang isang pag-atake at ni-reset ang recharge ng Claw Strike. Ang mga kasanayang tumama sa isang hero ay nagbukas ng sugat sa isang bahagi ng target; Ang pagsira sa sugat na ito gamit ang isang basic attack ay nagiging sanhi ng pagiging wild ni Masha, na may katatagan, attack speed, at movement speed, at binago ang kanyang susunod na tatlong pag-atake sa mga fan claw slash na humaharap sa damage batay sa HP at nagpapagaling sa kanya. The ultimate makes her charge an opposition hero, stunning them and pushing back enemies around them.\n\nAng mga sinusukat na numero nito ay ang pinakamataas sa laro: nangunguna sa win rate para sa lahat ng mga hero sa lahat ng ranggo, higit sa limampu't anim na porsyento anuman ang haba ng laro, at isang pagbabawal na tumataas nang may ranggo, na bihira sa Epic, sa dalawa sa tatlong laro sa Mythic Glory. Inilipat ng Patch 2.2.23 ang mabagal mula sa skill 1 hanggang sa skill 2 at binawasan ang damage at healing ng kanyang claw strike; bahagyang bumaba ang kanyang tagumpay sa nakalipas na tatlumpung araw. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban kina Freya, Estes, Bruno, Melissa at Floryn.",
+    "skills": [
+      "Tatlong HP bar, bawat isa ay kumukuha ng kalahati ng HP ng mga item nito. Inaalis ng sirang bar ang mga control effect nito at hinaharangan ang pag-atake. Ang kanyang mga skill ay nagbukas ng mga sugat sa mga hero na apektado: ang pagsira sa isa gamit ang isang basic attack ay nag-trigger ng ligaw na estado at mga claw strike sa lugar na nagpapagaling dito.",
+      "Isang pasulong na enerhiyang alon na pumipinsala sa mga kalaban sa dinaraanan nito at mas malakas na tumama sa mga alipores: ang tool upang maalis ang isang alon, at magbukas ng sugat mula sa malayo.",
+      "Isang paglukso patungo sa target na nagpapabagal sa pagtama ng mga hero. Nire-reset ang kanyang recharge sa tuwing may bumabagsak na HP bar, na agad na nagbibigay sa kanya ng paraan upang ituloy o makatakas.",
+      "Naniningil ang isang kalaban na hero, pinasindak sila at pinatumba ang mga kalapit na kaaway. Tumataas ang damage nito sa karagdagang HP: ito ang pagbubukas ng mga teamfight sa isang marupok na target."
+    ],
+    "strengths": [
+      "Unang nasukat na win rate ng lahat ng mga hero",
+      "Tatlong HP bar, bawat isa ay nagpapalaya sa kanya mula sa mga kontrol",
+      "Tumatama ang kuko sa lugar na nagpapagaling dito",
+      "Matatag na sinusukat na pagganap anuman ang tagal ng laro"
+    ],
+    "weaknesses": [
+      "Na-ban sa dalawa sa tatlong laro sa Mythic Glory",
+      "Nabawasan ng patch 2.2.23 ang claw hit at healing",
+      "Sa kahirapan laban kina Freya, Estes at Bruno ayon sa mga hakbang"
+    ],
+    "builds": [
+      {
+        "name": "EXP lane",
+        "context": "Ang tatlong pinakamadalas na nilalaro na build sa EXP lane ay nagbabahagi ng mga bagay na ito: Thunder Belt at Guardian Helmet nagbibigay ng HP na kinukuha ng tatlong bar nito at kung saan nakasalalay ang pinakahuli nito, Corrosion Scythe ang attack speed para maputol ang mga sugat at chain claw strike. Ang mga ito ay nauugnay sa tank emblem, ang War Cry talent at, kadalasan, ang Petrify spell."
+      }
+    ]
+  },
+  "argus": {
+    "summary": "Kritikal na fighter na ang pinakahuling ginagawa siyang hindi mapatay sa loob ng ilang segundo, pagkatapos ay pinagaling siya sa lahat ng pinsalang idinulot sa mga hero.",
+    "analysis": "Umaasa si Argus sa kritikal na hit: ang kanyang passive ay agad na nagbibigay sa kanya ng kritikal na pagkakataon, at ang bawat kritikal ay nagiging isang demonyong slash na hindi pinapansin ang bahagi ng armor at nagpapagaling sa kanya. Ang kanyang skill 1 ay naglulunsad ng isang kamay na nagpapatigil sa unang tama ng kalaban at naglalapit sa kanila sa isa't isa, pagkatapos ay naglulunsad ng pagmamadali na sinusundan ng isang malaking suntok; ang kanyang skill 2 ay binibilang bilang isang basic attack, sa madaling sabi na nakamamanghang ang hit na hero at nagbibigay sa kanya ng attack speed. Inalis ng ultimate ang kanyang mga control effect at ginagawa siyang imortal sa loob ng ilang segundo, pagkatapos ay ibinabalik ang HP na katumbas ng pinsalang naidulot sa mga hero sa panahong ito. Hangga't ito ay magagamit, nag-trigger ito nang mag-isa laban sa isang nakamamatay na suntok.\n\nIsa siya sa mga pinakamabisang hero ayon sa mga sukatan at isa sa pinakamababang pinagbawalan: pangatlo sa pinakamataas na win rate sa lahat ng mga hero, higit sa limampu't limang porsyento sa bawat ranggo, para sa pagbabawal ng halos isang laro sa isang daan. Ang kanyang pagganap ay umaakyat sa tagal ng laro, higit sa karaniwan bago ang ikalabindalawang minuto at lampas sa animnapung porsyento mula sa ika-labing-anim. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban sa Barats, Terizla, Uranus, Ruby at Fredrinn.",
+    "skills": [
+      "Nagsisimula ito sa isang kritikal na pagkakataon. Ang kanyang mga kritikal ay nagiging mga demonyong slash, na binabalewala ang ilan sa mga pisikal na baluti ng target at nagpapagaling sa kanya, habang nagpapalitaw ng mga epekto na nauugnay sa kritikal.",
+      "Isang demonyong kamay na nagpapatigil sa unang tama ng kaaway, nagpapabagal sa kanila at naglalapit sa kanila sa isa't isa; walang target, hinila si Argus sa dulo ng kanyang kurso. Muling inilunsad, ito ay naging pagmamadali na sinundan ng isang malawak na suntok.",
+      "Pagkatapos ng maikling pagsingil, ang isang sword swing ay binibilang bilang basic attack. Sa isang hero, ito ay panandaliang na-stun at nagbibigay ng attack speed; ang damage nito ay nakikinabang mula sa suwerte at kritikal na damage, at ang attack speed ay nagpapaikli sa singil.",
+      "Tinatanggal ang kanyang mga control effect, ginagawa siyang immortal sa loob ng ilang segundo at sinisira ang mga kalapit na kaaway, higit pa kapag mababa ang kanyang HP. Sa huli, nabawi niya ang HP na katumbas ng pinsalang natamo sa mga hero. Magagamit, nag-trigger ito nang mag-isa laban sa isang nakamamatay na suntok, nang walang damage."
+    ],
+    "strengths": [
+      "Pangatlong sinusukat na win rate ng lahat ng hero",
+      "Isang ultimate na ginagawa siyang imortal pagkatapos ay ibinalik ang kanyang HP",
+      "Ang pagganap ay sinusukat sa itaas ng animnapung porsyento sa mahabang laro",
+      "Bihirang pinagbawalan"
+    ],
+    "weaknesses": [
+      "Ang pagganap ay sinusukat malapit sa average sa maikling laro",
+      "Kapag nagamit na ang ultimate, wala nang makakaligtas sa kanya mula sa isang nakamamatay na suntok",
+      "Sa kahirapan laban sa Barats, Terizla at Uranus ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "Kritikal",
+        "context": "Ang pinakamaraming nilalaro na build sa EXP lane: ang attack speed at ang kritikal na pagkakataon, na na-convert ng mga demonyong slash nito; mula noong patch 2.2.16, ang kanyang mga kritikal ay nagti-trigger pa rin ng mga epekto ng Berserker's Fury at Windtalker. Haas' Claws nagdaragdag ng lifesteal. Ito ay nauugnay sa marksman emblem, ang War Cry talent at ang spell na Petrify."
+      }
+    ]
+  },
+  "lukas": {
+    "summary": "Fighter na nagiging isang sagradong hayop kapag puno na ang kanyang resolution gauge; ang kanyang skill 1 ay nagbabago depende sa mga pag-atake na ginawa noon.",
+    "analysis": "Tinupad ni Lukas ang kanyang pasiya sa paglipas ng panahon at, nang mas mabilis, sa pamamagitan ng pananakit sa mga hero. Buong buo, ito ay nagpapahintulot sa kanya na mag-transform sa isang sagradong hayop sa kanyang ultimate: lahat ng kanyang mga katangian ay tumaas, ang kanyang mga skill ay nakakakuha ng mga bagong epekto, at isang muling paglulunsad ay nagpaputok ng isang shock wave; ang form ay tumatagal hangga't may resolusyon. Sa parehong mga anyo, ang lahat ay dumadaan sa pagkakasunud-sunod: ang kanyang skill 2 ay nagpapatalon sa kanya at nagpapalakas sa kanyang susunod na pag-atake, na naglalagay sa kanya sa likod ng target at nagpapabilis nito; Sinisingil ng bawat basic attack ang kanyang skill 1, na panandaliang na-stun at, sa dalawang singil, ginagawa siyang immune sa mga pagsusuri habang siya ay umiikot.\n\nAng mga sinusukat na numero nito ay malapit sa average, na may malinaw na profile depende sa tagal: napakababa sa mga laro na tumatagal ng mas mababa sa labindalawang minuto, higit sa average mula sa ikalabing-apat. Ang ban rate nito, na tumataas nang may ranggo, ay bumagsak nang malaki sa nakalipas na tatlumpung araw. Ang Patch 2.2.23 ay nagbigay sa kanya ng mas maraming baseng HP at armor at inilipat ang kanyang skill 1 na damage sa kanyang base kaysa sa pisikal na pag-atake, upang gawing mas mabubuhay ang mga defensive build. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban sa Phoveus, Balmond, Baxia, Valentina at Minsitthar.",
+    "skills": [
+      "Makakuha ng Resolve sa paglipas ng panahon at sa pamamagitan ng mga nakakapinsalang hero. Buong buo, binubuksan nito ang pagbabago sa isang sagradong hayop, na kumonsumo ng resolusyon hanggang sa ito ay maubos.",
+      "Ang kanyang mga basic attack ay nagbibigay sa kanya ng hanggang dalawang stack ng stamina, na ginagamit ng skill para sa isang hit na nagpapagaling sa kanya kung tumama ito sa isang hero o minion. Sa pamamagitan ng isang singil, ito ay panandaliang natigilan at umaakit sa target habang umiikot; na may dalawa, nagdaragdag ito ng dalawang hit at ginagawa itong hindi tumutugon sa mga pagsusuri habang umiikot.",
+      "Isang paglukso na nagpapalakas sa kanyang susunod na basic attack: inilalagay siya nito sa likod ng kaaway, pagkatapos ay binibigyan siya ng movement speed at attack speed, at pinalawak ang saklaw ng susunod na pag-atake, na nag-trigger ng kidlat.",
+      "Binabago siya sa isang sagradong hayop, hindi tinatablan ng mga kontrol sa isang sandali: tumaas na bilis, tumaas na mga katangian at mga bagong epekto para sa kanyang mga skill. Muling inilunsad, nagpaputok ito ng shockwave na sumabog sa unang hit ng hero."
+    ],
+    "strengths": [
+      "Isang sagradong anyo ng hayop na nagpapataas ng lahat ng katangian nito",
+      "Hindi tumutugon sa mga kontrol habang umiikot sa dalawang load",
+      "Heal sa bawat hit ng skill 1",
+      "Ang win rate ay sinusukat sa itaas ng average sa mahabang laro"
+    ],
+    "weaknesses": [
+      "Napakahina sa maikling laro ayon sa mga sukat",
+      "Isang pagbabagong naghihintay na maging ganap ang resolusyon nito",
+      "Sa kahirapan laban sa Phoveus, Balmond at Baxia ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "jungle",
+        "context": "Ang pinakamaraming nilalaro na build sa jungle, sa ngayon: Hunter Strike nagbibigay ng atake, recharge reduction at physical penetration, War Axe pinagsama-samang pag-atake sa labanan, HP at life steal, Queen's Wings survival kapag bumaba ang HP nito."
+      },
+      {
+        "name": "EXP lane",
+        "context": "Ang parehong tatlong bagay sa EXP lane, na may spell na Vengeance: ito ang pinakapinatugtog na bersyon sa posisyong ito. Ang hindi gaanong nilalaro na variant ng Fighter Emblem ay may mas mataas na nasusukat na win rate."
+      }
+    ]
+  },
+  "freya": {
+    "summary": "Basic attack fighter, na naniningil ng mga orbs sa pamamagitan ng pagpindot at paggastos sa mga ito sa attack speed, HP at mga gitling nang walang base recharge.",
+    "analysis": "Umiikot si Freya sa isang mapagkukunan: ang bawat basic attack ay nagbibigay sa kanya ng isang banal na globo, at ang bawat orb na ginugol ay nagpapabilis sa kanyang susunod na pag-atake at nagpapagaling sa kanya. Ang kanyang skill 2 ay walang basic recharge ngunit nagkakahalaga ng dalawang orbs: ito ay isang pagmamadali na masakit at bumagal, upang humalili sa mga basic attack upang panatilihing puno ang reserba. Dahil sa kanyang skill 1, tumalon siya sa isang lugar na nagbibigay sa kanya ng kalasag at itinapon ang mga kaaway sa hangin. Ang pinakahuli ay isang control-insensitive dive na nagpapabagal sa pagtama ng mga kaaway, pagkatapos ay pumasok sa kanyang Valkyrie state: ang kanyang mga basic attack pagkatapos ay humaharap sa damage sa lugar.\n\nAng mga sinusukat na numero nito ay nakadepende sa ranggo at tagal: mas mababa sa average na win rate sa Epic at Mythic Honor, mas mataas sa average sa Mythic Glory, at mas mahusay sa mga laro na tumatagal ng wala pang labindalawang minuto kaysa lampas sa ika-labing-apat. Na-restore ng Patch 2.2.23 ang HP para sa bawat orb na ginastos at pinataas ang recharge ng kanyang ultimate. Halos dumoble ang ban rate nito sa nakalipas na tatlumpung araw. Ang mga hakbang ay naglalagay sa kanya sa kahirapan laban sa Minsitthar, Phoveus, Baxia, Edith at Franco.",
+    "skills": [
+      "Ang bawat basic attack ay nagbibigay sa kanya ng Holy Orb, hanggang anim. Ang paggastos ng isang orb ay ginagawang mas mabilis ang kanyang susunod na basic attack at nagpapagaling sa kanya; sa labas ng labanan, ang mga orbs ay unti-unting nabubuo.",
+      "Tumalon sa isang lugar at tumama sa lupa gamit ang kanyang kalasag: nakakuha siya ng kalasag, napinsala ang mga kaaway at panandaliang itinapon sila sa hangin. Ang pagsisimula at pangunahing kontrol nito.",
+      "Isang pagmamadali na sinundan ng isang kalabog na panandaliang bumagal. Walang base recharge, ngunit dalawang orbs bawat throw, at binawasan ang damage laban sa mga halimaw.",
+      "Sumisid sa isang lugar habang immune sa mga kontrol, nakakapinsala at nagpapabagal sa pagtama ng mga kaaway, pagkatapos ay pumasok sa estado ng Valkyrie: tumaas na bilis at nakakapinsala sa mga basic attack sa lugar sa loob ng ilang segundo."
+    ],
+    "strengths": [
+      "Isang skill 2 na walang base recharge",
+      "Shield at throw on skill 1",
+      "Basic attack ng damage sa AoE sa ilalim ng ultimate",
+      "Mataas na win rate na sinusukat sa maikling laro"
+    ],
+    "weaknesses": [
+      "Ang win rate ay sinusukat sa ibaba ng average mula sa Epic hanggang Mythic Honor",
+      "Nabawasan ang pagganap sa mahabang laro",
+      "Sa kahirapan laban sa Minsitthar, Phoveus at Baxia ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "EXP lane",
+        "context": "Ang pinakamaraming nilalaro na build sa EXP lane: Ang Golden Staff ay nagdadala ng attack speed at pag-atake at higit pang pinabilis ang isang basic attack sa tatlo, War Axe pinagsasama ang pag-atake sa labanan sa lifesteal, Rose Gold Meteor nagdaragdag ng lifesteal at isang shield kapag bumaba ang HP nito. Ang Endless Battle kapalit ng Rose Gold Meteor ay halos nilalaro din."
+      },
+      {
+        "name": "jungle",
+        "context": "Sa jungle, Corrosion Scythe ang mauuna para sa attack speed at pagpapabagal sa mga basic attack, na may Endless Battle, na nagpapalakas sa pag-atake kasunod ng bawat skill: ang pinaka-pinatugtog na bersyon sa posisyong ito, na may marksman emblem."
+      }
+    ]
+  },
+  "aulus": {
+    "summary": "Simpleng fighter upang matutunan: ang bawat kasanayang tumama ay nagpapalakas sa kanyang mga basic attack, at ang kanyang mga huling strike nang paulit-ulit sa paligid niya.",
+    "analysis": "Lumalaban si Aulus sa mga hampas ng palakol. Ang bawat skill na tumatalakay sa damage ay nagbibigay sa kanya ng ilang segundo ng pinalakas na mga basic attack: tumama sila sa isang linya, nagpapagaling sa kanya, bahagyang nagpapabagal sa kanya, at medyo pinahaba ang kanyang saklaw. Ang kanyang skill 1 ay nag-aalis ng kanyang mga slows at nagpapabilis sa kanya; kung hindi nakokontrol sa loob ng dalawang segundo, ito ay nagiging hindi tumutugon sa mga kontrol. Ang kanyang skill 2 ay tumama sa isang fan at na-stun sandali, pagkatapos ay bumabalik sa isang talon. Ang panghuli ay tumama nang apat na beses sa paligid niya pagkatapos ay isang malaking huling hit, na binabawasan ang pinsalang natatanggap niya.\n\nAng kanyang mga sinusukat na numero ay higit sa average, lalo na sa mga maikling laro: ang kanyang win rate ay pinakamataas bago ang ikalabindalawang minuto at bumaba pabalik sa average pagkatapos ng ikadalawampu. Ang ban rate nito, na tumataas nang may ranggo, ay bumagsak nang husto sa nakalipas na tatlumpung araw. Pinahina ng Patch 2.2.16a ang kanyang empowered attacks at pinahaba ang cooldown ng kanyang skill 1, habang pinapataas ang base damage ng kanyang ultimate. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban kina Alice, Floryn, Estes, Yve at Zhuxin.",
+    "skills": [
+      "Ang bawat skill na tumatalakay sa damage ay nagbibigay sa kanya ng ilang segundo ng pinalakas na mga basic attack: isang line axe swing na nagpapagaling sa kanya, bahagyang nagpapabagal sa kanya, at nagbibigay sa kanya ng kaunting saklaw at attack speed. Mas malakas pa laban sa mga halimaw.",
+      "Tinatanggal ang mga pagbagal nito at pinapabilis ito ng ilang segundo. Kung hindi siya sumailalim sa isang malaking kontrol sa loob ng dalawang segundo, siya ay napupunta sa galit at nagiging insensitive sa mga kontrol: sapat na upang tumawid sa isang linya ng kaaway.",
+      "Isang indayog na palakol na hugis pamaypay na panandaliang nagpapatigil sa mga kalaban. Nabuhayan muli, lumukso siya at tumama sa lupa sa paligid niya.",
+      "Saktan ang mga kaaway sa paligid niya ng apat na beses, pagkatapos ay magpakawala ng mas malaking suntok pagkatapos ng maikling pagsingil. Sa paglipas ng panahon, mas kaunting damage ang natatanggap niya at nakakakuha ng kaunting bilis sa bawat pagtama."
+    ],
+    "strengths": [
+      "Ang win rate ay sinusukat sa itaas ng average, lalo na sa unang bahagi ng laro",
+      "Immune to checks salamat sa skill 1, kung hindi makontrol sa oras",
+      "Mga pinalakas na pag-atake na nagpapagaling sa kanya",
+      "Simpleng kit, na walang mapagkukunan upang pamahalaan"
+    ],
+    "weaknesses": [
+      "Sinusukat ang pagganap na bumababa patungo sa average sa mahabang laro",
+      "Ang isang tseke na naranasan sa unang dalawang segundo ay nag-aalis sa kanya ng kanyang insensitivity",
+      "Sa kahirapan laban kina Alice, Floryn at Estes ayon sa mga hakbang"
+    ],
+    "builds": [
+      {
+        "name": "jungle",
+        "context": "Ang pinakamaraming nilalaro na build sa jungle: War Axe nagdudulot ng pinagsama-samang pag-atake, HP at lifesteal, Brute Force Breastplate HP, pagbabawas ng armor at recharge, Malefic Roar physical penetration. Ang parehong trio na may assassin emblem ay nilalaro nang kalahati, na may mas mataas na sinusukat na win rate."
+      },
+      {
+        "name": "EXP lane",
+        "context": "Ang parehong mga item sa EXP lane, na may emblem ng assassin at ang spell na Vengeance: ang pinakanaglarong bersyon sa posisyong ito."
+      }
+    ]
+  },
+  "alucard": {
+    "summary": "Jungle fighter na sumusugod sa kanyang target pagkatapos ng bawat skill, at ang ultimate ay nagbibigay sa kanya ng permanenteng lifesteal at hinahati ang kanyang mga recharge.",
+    "analysis": "Pinapalitan ni Alucard ang mga skill at basic attack: pagkatapos ng bawat skill, ang kanyang susunod na pag-atake ay nagpapalundag sa kanya sa target. Ang kanyang skill 1 ay nagpapalundag sa kanya sa isang lugar, nagpapabagal sa mga kaaway, ang kanyang skill 2 ay tumatama sa lahat ng nasa paligid niya. Ang kanyang ultimate permanenteng nagbibigay sa kanya ng hybrid lifesteal; Inilunsad, pinapabagal nito ang mga kaaway sa lugar at binabawasan ang kanilang mga paglaban, pinapalakas ang sarili nito para sa bawat hit ng hero at binabawasan ng kalahati ang recharge ng iba pang mga skill nito sa loob ng ilang segundo, bago ang muling paglulunsad na nagpapadala ng shock wave pasulong.\n\nIsa siya sa pinakakaunting pinagbawalan na mga hero, na may mga numero na medyo mababa sa average sa lahat ng ranggo. Ito ay mahina sa maikling laro at lumalampas lamang sa average mula sa ika-labing-apat na minuto, nang walang gaanong pagkakaiba pagkatapos noon. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban kay Fredrinn, Phoveus, Khufra, Barats at Thamuz, at komportable laban kay Natalia, Sun, Mathilda at Saber.",
+    "skills": [
+      "Pagkatapos ng bawat skill cast, ang kanyang susunod na basic attack ay nagdudulot sa kanya na sumunggab sa target na may karagdagang damage. Mas malakas din itong tumama sa mga halimaw.",
+      "Tumalon sa isang lugar, pumipinsala at nagpapabagal sa pagtama ng mga kaaway: ang pagsisimula nito, na sinusundan ng isang basic attack upang samantalahin ang passive.",
+      "Isang umiikot na shot na pumipinsala sa lahat ng mga kaaway sa paligid nito, na may maikling cooldown.",
+      "Permanenteng binibigyan siya ng hybrid lifesteal. I-cast, pinapabagal ang mga kaaway sa isang lugar at binabawasan ang kanilang mga resistensya, pinapataas ang kanilang resistensya para sa bawat hit ng hero at hinahati ang recharge ng iba pa nilang mga skill sa loob ng ilang segundo; nabuhay muli, nagpapadala ng shockwave pasulong."
+    ],
+    "strengths": [
+      "Permanenteng hybrid lifesteal salamat sa ultimate",
+      "Ang mga cooldown ay hinati sa ilalim ng ultimate",
+      "Ang win rate ay sinusukat sa itaas ng average sa mahabang laro",
+      "Tumalon sa kanyang target pagkatapos ng bawat skill"
+    ],
+    "weaknesses": [
+      "Mahina sa maikling laro ayon sa mga sukat",
+      "Walang kontrol sa kabila ng pagbagal",
+      "Sa kahirapan laban kay Fredrinn, Phoveus at Khufra ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "jungle",
+        "context": "Ang pinakamaraming nilalaro na build sa jungle: War Axe nag-iipon ng atake sa labanan, Endless Battle pinapalakas ang basic attack na sumusunod sa bawat skill, na tumutugma sa ritmo ng passive nito, at ang Blade of Despair ay nagdadala ng pinakamalaking pisikal na pag-atake, na pinalakas laban sa isang target na mas mababa sa kalahati ng HP nito."
+      }
+    ]
+  },
+  "aldous": {
+    "summary": "Fighter na nag-iipon ng mga permanenteng singil sa pamamagitan ng pagwawakas ng mga unit, at ang pinakahuling naghahayag ng lahat ng mga hero ng kaaway bago ito ilunsad sa isa sa kanila.",
+    "analysis": "Ang Aldous ay binuo sa paglipas ng panahon. Ang kanyang skill 1 ay nagpapalakas sa kanyang susunod na basic attack, at bawat nakumpletong yunit o hero na natamaan sa pag-atakeng ito ay nagbibigay sa kanya ng mga permanenteng singil na nagpapataas sa kanyang damage, hanggang sa isang libo; nagkakaroon din siya ng ilan kapag natapos ng kanyang mga kaalyado ang mga unit na malapit sa kanya. Ang kanyang skill 2 ay naglalagay sa kanya sa isang defensive na postura, na may pagbawas sa damage na nakuha, pagkatapos ay nakikitungo sa damage sa paligid niya at na-stun sila, habang tumatagal ang postura. Ang ultimate ay nagbibigay sa kanya ng pangitain ng lahat ng mga hero ng kalaban sa loob ng ilang segundo, pagkatapos ay ginagawa siyang sumugod patungo sa isa sa kanila upang itulak siya pabalik, na nakakaabala sa isang posibleng pagbalik sa base.\n\nWalang hero ang may ganoong markang gap depende sa haba ng laro: napakababa sa mga laro na tumatagal ng wala pang labindalawang minuto, ang kanyang sinusukat na win rate ay lumalapit sa animnapung porsyento mula sa ikalabing-walo. Ang lahat ng mga ranggo ay pinagsama, ito ay higit sa karaniwan at higit sa tatlumpung araw, para sa halos walang pagbabawal. Pinaikli ng Patch 2.2.23 ang cooldown ng kanyang skill 2 at pinataas ang kanyang damage reduction sa late game. Ang mga hakbang ay naglalagay sa kanya sa kahirapan laban kay Esmeralda, Karina, Cyclops, Estes at Popol at Kupa.",
+    "skills": [
+      "Bawat ilang segundo, ang kanyang susunod na basic attack ay nagbibigay sa kanya ng isang kalasag at isang maikling tulong.",
+      "Pinalalakas ang kanyang susunod na basic attack, na higit na tumama sa mga minions at monsters. Ang pagtapos sa isang unit o paghagupit sa isang hero ay nagbibigay ng permanenteng singil na nagpapataas ng damage nito: ang puso ng pagtaas ng kapangyarihan nito.",
+      "Isang defensive stance na binabawasan ang damage na kinuha ng hanggang dalawang segundo, pagkatapos ay nakakasira ng mga kalapit na kaaway at na-stun sa kanila, habang tumatagal ang stance.",
+      "Nagbibigay ng paningin sa lahat ng mga hero ng kaaway sa loob ng ilang segundo. Muling inilunsad, sumugod siya sa isa sa kanila, sinugatan siya ayon sa kanyang HP at itinulak siya pabalik; ang pagmamadali ay nakakagambala sa pagbabalik sa base."
+    ],
+    "strengths": [
+      "Mga permanenteng singil na nagpapataas ng damage nito sa buong laro",
+      "Ang win rate ay sinusukat malapit sa animnapung porsyento sa mahabang laro",
+      "Isang ultimate na nagpapakita ng lahat ng mga hero ng kaaway at nakakagambala sa pagbabalik sa base",
+      "Bihirang pinagbawalan"
+    ],
+    "weaknesses": [
+      "Napakahina sa maikling laro ayon sa mga sukat",
+      "Depende sa mga singil na naipon bago ang mga laban",
+      "Sa kahirapan laban kay Esmeralda, Karina at Cyclops ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "EXP lane",
+        "context": "Ang pinakamaraming nilalaro na build sa EXP lane, sa ngayon: Blade of the Heptaseas nagpapalakas sa unang pag-atake pagkatapos ng ilang segundo sa labas ng labanan, Endless Battle ang pag-atake na sumusunod sa bawat skill, at Malefic Roar nagdaragdag ng pisikal na penetration. Ito ay nauugnay sa assassin emblem, ang mga talento Wilderness Blessing at Quantum Charge, at ang spell Flicker."
+      },
+      {
+        "name": "Depensibong bersyon",
+        "context": "Isang defensive na bersyon, na hindi gaanong nilalaro, na may mas mataas na nasusukat na win rate: Thunder Belt at Dominance Ice nagbibigay ng HP at mga panlaban, at binabawasan din ng Dominance Ice ang pagpapagaling at mga kalasag ng mga kalapit na kaaway."
+      }
+    ]
+  },
+  "badang": {
+    "summary": "Obstacle fighter: gumagawa siya ng pader sa likod ng kanyang target at itinapon siya doon para masindak siya, at maaaring laruin pareho sa roam at sa EXP lane.",
+    "analysis": "Naglalaro si Badang sa mga balakid. Pagkatapos ng apat na basic attack, ang susunod na isa ay tumutulak pabalik, at ang mga hininga mula sa kanyang mga skill ay direktang umuurong: ang isang kaaway na itinapon laban sa isang balakid ay natigilan. Ang kanyang skill 2 ay nagpapadali sa kanya habang nakakakuha ng isang kalasag; kung tumama ito sa isang hero, hihinto ito at gagawa ng balakid sa likuran nila. Ang skill 1 nito, sa dalawang singil, ay nagpapadala ng isang paghinga na masakit, bumagal at tumulak pabalik, sapat na upang i-pin ang target sa pader na ito. Ang pinakahuling kadena ay nagkakagulo ng mga suntok sa isang direksyon na ginagawa itong hindi tinatablan ng mga kontrol.\n\nAng kanyang mga sinusukat na numero ay katamtaman sa lahat ng mga ranggo, na may kaunting kalamangan sa mga maiikling laro, at madalas siyang mapili. Nilalaro sa roam pati na rin sa EXP lane, ito ay pangunahing nangangailangan ng mga bagay sa pagtatanggol: HP, armor at mga panlaban sa halip na damage. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban kay Karina, Lolita, Esmeralda, Khufra at Phoveus, at kalmado laban kay Fanny, Sun at Zilong.",
+    "skills": [
+      "Pagkatapos ng apat na basic attack, mas marami ang napipinsala ng susunod at babalik; ang isang kaaway na itinapon laban sa isang balakid ay natigilan. Ang mga hininga mula sa kanyang mga skill ay direktang nag-trigger ng epektong ito, at ang sa mga ultimate stuns nang mas matagal.",
+      "Isang putok ng kamao na pumipinsala, nagpapabagal at nagpapatumba sa mga kaaway, at sumasabog laban sa isang balakid. Dalawang singil, upang panatilihing i-pin ang target laban sa balakid ng skill 2.",
+      "Sumugod sa isang direksyon upang makakuha ng isang kalasag. Kung natamaan niya ang isang hero, hihinto siya, bahagyang itinulak siya pabalik at lumilikha ng isang balakid sa likod niya sa loob ng ilang segundo; na-restart, inaalis nito ang balakid.",
+      "Isang gulo ng mga suntok sa isang direksyon, hindi tinatablan ng mga kontrol sa tagal. Ang mga hininga ay sumasabog laban sa mga hadlang: itinapon sa mga kaaway na natigil sa isang pader, ito ay tumama sa kanila doon nang paulit-ulit."
+    ],
+    "strengths": [
+      "Paulit-ulit na stun laban sa sariling mga hadlang",
+      "Shield sa Skill 2",
+      "Hindi naaapektuhan ng mga kontrol sa panahon ng ultimate",
+      "Nape-play sa roam pati na rin sa EXP lane"
+    ],
+    "weaknesses": [
+      "Ang win rate ay sinusukat sa average, nang walang markang strong point",
+      "Mga kontrol na nangangailangan ng isang mahusay na inilagay na balakid",
+      "Sa kahirapan laban kina Karina, Lolita at Esmeralda ayon sa mga hakbang"
+    ],
+    "builds": [
+      {
+        "name": "gumala",
+        "context": "Ang pinakamaraming nilalaro na build in roam: Thunder Belt para sa HP, mga paglaban at pagbagal ng mga pag-atake nito, Dominance Ice para sa mga paglaban at pagbabawas ng paggaling ng mga kalapit na kaaway, Chastise Pauldron upang bawasan ang attack speed ng mga tumama dito. Ang Antique Cuirass kapalit ng Chastise Pauldron ay halos nilalaro din."
+      },
+      {
+        "name": "EXP lane",
+        "context": "Ang parehong mga bagay sa EXP lane: ito rin ang pinakapinatugtog na bersyon sa posisyong ito."
+      }
+    ]
+  },
+  "alpha": {
+    "summary": "Fighter sa pinakamababang opisyal na kahirapan, na nakikipaglaban gamit ang isang drone: ang bawat skill ay kinasasangkutan ng Beta, na ang mga putok ay nagdudulot ng tunay na damage.",
+    "analysis": "Ang Alpha ay nakikipaglaban sa mga pares na may Beta. Ang bawat kasanayang inilunsad ay nagsasangkot ng drone, na nagdudulot ng tunay na damage; Naka-lock ang isang kaaway na natamaan ng Beta nang dalawang beses, at ang bawat hit mula sa Alpha sa kanya ay nagti-trigger ng laser na lubos na nagpapabagal sa kanya. Ang kanyang skill 1 ay nagpapadala ng wave na bumagal, ang kanyang skill 2 ay tumama sa isang fan pagkatapos ng maikling pagkaantala at nagpapagaling sa kanya sa unang hit ng kaaway. Ang ultimate ay nagpapadala ng Beta upang ma-stun ang isang lugar, pagkatapos ay tumalon ang Alpha doon, itinapon ang mga kaaway sa landas nito sa hangin upang dalhin sila sa punto ng epekto.\n\nAng kanyang mga sinusukat na numero ay medyo mababa sa average, na walang kapansin-pansing pagkakaiba depende sa haba ng laro. Ito ay kadalasang nilalaro sa mababang ranggo: bumababa ang pick rate nito sa bawat rank mula Epic hanggang Mythic Glory, at ito ay napakabihirang pinagbawalan. Pinalakas ng Patch 2.2.16 ang paggaling ng kanyang skill 2. Ang mga hakbang ay naglalagay sa kanya sa kahirapan laban kay Benedetta, X.Borg, Valir, Lylia at Wanwan.",
+    "skills": [
+      "Ang bawat skill ay nagiging sanhi ng pag-atake ng Beta. Naka-lock ang isang kaaway na dalawang beses na tinamaan ng drone: sa tuwing mapipinsala ito ng Alpha, magpapaputok si Beta ng laser na humaharap sa totoong damage at lubos itong nagpapabagal sa isang iglap.",
+      "Isang alon ng enerhiya na pumipinsala at nagpapabagal sa mga kaaway sa landas nito, na sinusundan ng pagsabog ng Beta sa parehong landas.",
+      "Pagkatapos ng maikling pagkaantala, isang suntok ng fan; ang unang natamaan ng kaaway ay nagpapagaling sa kanya, ang mga sumusunod ay paunti-unti. Beta pagkatapos ay strafes ang lugar.",
+      "Si Beta ay sumisid sa napiling lugar at na-stun ang mga kaaway; Sumunod sa kanya si Alpha, ibinabato ang mga madadaanan niya sa hangin, dinadala ang mga ito hanggang sa matamaan at pinabagal ang mga ito habang nahuhulog siya."
+    ],
+    "strengths": [
+      "Beta raw damage sa bawat skill",
+      "Isang ultimate na nagpapatigil at nagpapangkat ng mga kaaway",
+      "Pagalingin sa skill 2",
+      "Opisyal na kahirapan sa pinakamababang antas"
+    ],
+    "weaknesses": [
+      "Ang win rate ay sinusukat nang mas mababa sa average",
+      "Maliit na nilalaro sa matataas na ranggo",
+      "Sa kahirapan laban sa Benedetta, X.Borg at Valir ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "jungle",
+        "context": "Ang pinakamaraming nilalaro na build sa jungle: War Axe nag-iipon ng atake sa labanan gamit ang PV at life steal, Sky Piercer nagbibigay ng pag-atake, bilis at pagbitay sa mga hero na nahulog nang napakababa, Queen's Wings kaligtasan kapag bumaba ang kanilang PV."
+      },
+      {
+        "name": "EXP lane",
+        "context": "Ang parehong tatlong bagay sa EXP lane, na may spell na Vengeance: ito ang pinakapinatugtog na bersyon sa posisyong ito."
       }
     ]
   },
@@ -544,6 +895,33 @@
       }
     ]
   },
+  "valir": {
+    "summary": "Kontrolin ang mage na paulit-ulit na umuurong at na-stun, at ang mga bolang apoy ay nagre-recharge sa bawat hit ng hero.",
+    "analysis": "Ang mga string ng Valir na magkakasama ay kumokontrol nang higit pa kaysa sa pagsabog niya sa kanyang mga target. Ang bawat skill na tumama ay naglalagay ng paso sa target; sa tatlong paso, ang apoy ay sumasabog at natigilan siya, hindi hihigit sa isang beses bawat pitong segundo sa parehong target. Ang kanyang skill 1 ay tumatagal ng dalawang singil at nabawi ang isa sa sandaling matamaan nito ang isang hero, na nagbibigay-daan sa kanya na muling i-recast ito nang halos walang paghinto hangga't tama ang kanyang layunin; ang kanyang skill 2 ay nagtataboy sa mga kaaway hanggang sa katapusan ng kanyang jet of flames. Pinalalaya siya ng ultimate mula sa kanyang mga negatibong epekto, pinapabilis siya at pinalalakas ang kanyang dalawang skill sa loob ng ilang segundo: tumaas na saklaw para sa bolang apoy, pader ng apoy na bumabagal para sa skill 2.\n\nAng mga sinusukat na numero nito ay pare-pareho: higit sa average na win rate sa bawat ranggo, mababang pagbabawal. Ito ay pinaka-epektibo sa maikling laro, at ang bentahe nito ay nababawasan habang ang laro ay humahaba. Sa Mid lane, ang parehong build ay malinaw na nangingibabaw sa iba. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban kay Rafaela, Helcurt, Kaja, Mathilda at Natalia, at maluwag laban kay Fredrinn, Alice, Balmond at Leomord.",
+    "skills": [
+      "Ang bawat skill na tumama ay nagdudulot ng paso na nagdudulot ng damage batay sa HP ng target. Sa tatlong paso, ang apoy ay sumasabog at natigilan, hindi hihigit sa isang beses bawat pitong segundo sa parehong target.",
+      "Isang bolang apoy na sumasabog sa unang puntirya at nagpapabagal nito, pagkatapos ay ang apoy sa lupa ay sumabog naman. Dalawang singil; Ang pagpindot sa isang maalamat na hero o halimaw ay gumagawa ng isa kaagad, ang pagpindot sa isang minion ay nagpapabilis sa susunod.",
+      "Isang jet ng apoy na nagtataboy sa mga kaaway hanggang sa katapusan ng kurso nito: ang tool upang itakwil ang isang umaatake. Sa ilalim ng panghuli, nag-iiwan ito ng dingding ng apoy na masakit at bumagal.",
+      "Tinatanggal ang lahat ng negatibong epekto nito, saglit na pinapabilis at pinapalakas ang parehong kakayahan nito sa loob ng ilang segundo. Upang panatilihing palayain ang iyong sarili mula sa isang negatibong epekto pati na rin ang pag-atake."
+    ],
+    "strengths": [
+      "Paulit-ulit na pagsusuri: knockback, slows at stuns",
+      "Halos walang tigil ang pagputok ng mga bolang apoy nang tumama",
+      "Isang ultimate na nagpapalaya sa kanya mula sa kanyang mga negatibong epekto",
+      "Ang win rate ay sinusukat sa itaas ng average sa bawat ranggo"
+    ],
+    "weaknesses": [
+      "Isang nasusukat na kalamangan na nababawasan sa mahabang laro",
+      "Isang limitadong stun sa parehong target",
+      "Sa kahirapan laban kay Rafaela, Helcurt at Kaja ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "kalagitnaan ng lane",
+        "context": "Ang pinakamaraming nilalaro na build sa Mid lane, sa ngayon: Glowing Wand nasusunog ang mga target at binabawasan ang kanilang healing at shields, Ice Queen Wand nagdaragdag ng mabagal sa bawat skill na tumatama at lifesteal mula sa mga spell, at Wishing Lantern nagpaparusa sa mga target na may maraming HP. Ito ay nauugnay sa karaniwang emblem at ang mga talento Festival of Blood at Impure Rage."
+      }
+    ]
+  },
   "granger": {
     "summary": "Magazine Shooter: Ang kanyang damage ay nagmumula sa kanyang mga skill, hindi ang kanyang attack speed.",
     "analysis": "Ang Granger ay hindi binuo tulad ng isang klasikong marksman. Ang kanyang skill 1 ay nagpaputok ng anim na bala, ang huli ay palaging kritikal, at ang kanyang passive ay nagko-convert ng recharge reduction sa isang pisikal na pag-atake, na ginagawang halos walang silbi sa kanya ang attack speed: bumili ka ng attack damage at penetration.\n\nNagbibigay ito ng napakaagang peak ng kapangyarihan, na magagamit sa jungle mula sa unang bagay. Ang kanyang karupukan ay nananatiling tulad ng isang marksman, na pinalala ng kawalan ng kontrol, bukod sa panandaliang paghina ng kanyang ultimate: hindi maganda ang posisyon, mayroon lang siyang skill 2 at ang mga rolyo ng kanyang ultimate para umasang makatakas.",
@@ -714,6 +1092,91 @@
       }
     ]
   },
+  "obsidia": {
+    "summary": "Shooter na nag-iipon ng bone shards sa bawat shot, at ang ultimate ay nag-attach sa kanya sa kanyang target, na pumipigil sa anumang pagtakas sa pamamagitan ng isang skill sa paggalaw.",
+    "analysis": "Sinisingil ni Obsidia ang kanyang passive sa pamamagitan ng pagpindot: bawat pag-atake o skill sa isang kaaway ay pumupuno ng enerhiya na bumubuo ng bone shards, hanggang dalawampu't lima, at bawat isa sa kanyang mga basic attack ay nagpapadala ng lahat ng shards na tumatama sa target. Ang kanyang skill 1, isang karayom ​​na itinapon mula sa malayo, ay nagdudulot ng tatlong beses na mas maraming enerhiya kaysa sa isang pag-atake at nag-trigger ng mga shards sa unang hit ng hero; ang kanyang skill 2 ay nagbibigay sa kanya ng isang maikling tulong. Ang ultimo ay panandaliang natigilan ang unang natamaan ng hero, hinila siya papunta sa kanya at iniugnay ang mga ito sa loob ng tatlong segundo: hindi na magagamit ng target ang mga skill sa paggalaw, nakakakuha si Obsidia ng isang kalasag at pansamantalang shards, at maaaring umatake habang gumagalaw.\n\nIsa siya sa mga pinaka-pinaglalabanang hero sa kasalukuyan: ikatlong ban rate at ikaapat na antas ng pagpili ng lahat ng mga hero, na may pagbabawal na lumampas sa kalahati ng mga laro mula sa Mythic Honor at mas tumaas sa nakalipas na tatlumpung araw. Ang kanyang sinusukat na win rate ay higit sa average, mas mataas sa mga laro sa ilalim ng labing-anim na minuto kaysa lampas sa labing-walo. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban kay Baxia, Diggie, Estes, Miya at Bruno.",
+    "skills": [
+      "Ang pagtama sa isang kaaway ay nagbibigay sa kanila ng enerhiya, higit pa sa isang hero at tatlong beses na higit pa sa isang skill; walang ibinibigay ang mga halimaw. Ang enerhiya ay bumubuo ng bone shards, at ang bawat basic attack ay nagpapadala ng lahat ng shards na tumatama sa target.",
+      "Isang karayom ​​na itinapon mula sa isang distansya na pumipinsala sa mga kaaway na tamaan at nag-trigger ng mga shards sa unang naabot na hero: na madalas ihagis sa lane upang singilin ang passive.",
+      "Sumisid sa mga anino at makakuha ng napakataas na movement speed sa isang iglap: ang kanyang repositioning tool. Pinalakas sa panahon ng ultimate, ito ay tumatagal ng mas matagal at bumalik nang mas mabilis.",
+      "Panandalian na natigilan ang unang natamaan ng hero at hinila ang sarili sa kanila para idikit sa kanila. Sa loob ng tatlong segundo, hindi na magagamit ng target ang isang kilusang skill at sanayin ito sa pamamagitan ng paggalaw; Ang Obsidia ay nakakakuha ng isang kalasag at pansamantalang shards, dumaan sa mga hadlang at pag-atake habang gumagalaw."
+    ],
+    "strengths": [
+      "Isang ultimate na pumipigil sa target na tumakas gamit ang isang skill sa paggalaw",
+      "Mga shards na nagpapalakas sa bawat basic attack",
+      "Ang win rate ay sinusukat sa itaas ng average, lalo na bago ang ikalabing-anim na minuto",
+      "Shield at ilipat ang pag-atake sa panahon ng ultimate"
+    ],
+    "weaknesses": [
+      "Pinagbawalan sa mahigit kalahati ng mga laro simula sa Mythic Honor",
+      "Ang pagganap ay sinusukat na bumababa sa mahabang laro",
+      "Sa kahirapan laban sa Baxia, Diggie at Estes ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "Pagsusuri ng Gold Lane",
+        "context": "Ang pinakamaraming nilalaro na build sa Gold lane: Ang Windtalker at Haas' Claws ay nagbibigay ng attack speed at kritikal na pagkakataong paramihin ang mga basic attack na nagpapadala ng mga shards, Haas' Claws lifesteal, at Sky Piercer nagpapatupad ng isang hero na napakababa. Ito ay nauugnay sa fighter emblem at talento Weakness Finder."
+      },
+      {
+        "name": "Malakas na pag-atake",
+        "context": "Corrosion Scythe at Demon Hunter Sword sa halip na Windtalker at Haas' Claws: Mga basic attack na nagpapabagal, humaharap sa damage batay sa kasalukuyang HP ng target, at nagpapagaling sa kanila. Hindi gaanong nilalaro, na may bahagyang mas mataas na sinusukat na win rate."
+      }
+    ]
+  },
+  "bruno": {
+    "summary": "Kritikal na marksman na naglalaro ng bola: ang kanyang mga skill ay nagbibigay sa kanya ng kritikal na pagkakataon, at ang kanyang pinakahuling mga bounce mula sa kaaway patungo sa kaaway.",
+    "analysis": "Si Bruno ay nakakakuha ng kritikal na pagkakataon sa bawat oras na ang isang skill ay humaharap sa damage, stacking; bilang kapalit, mas marami siyang pisikal na pag-atake ngunit hindi gaanong nakikinabang sa attack speed. Ang kanyang skill 1 ay nagpapatibay sa kanyang susunod na pag-atake sa pamamagitan ng balloon shot na bumagal, pagkatapos ay bumagsak ang bola sa lupa: ang pagbawi nito ay nagbibigay ng bagong pag-atake at binabawasan ang recharge ng kanyang skill 2. Ito ay isang slide na panandaliang nabigla sa mga kaaway sa landas nito at nagbabalik ng isang lobo sa kanya. Ang ultimo ay tumama sa isang hero, nagpapatumba sa kanila pabalik sa dulo ng saklaw nito, na-stun at nagpapabagal sa kanila nang husto, pagkatapos ay tumalbog sa iba pang mga kaaway, na tinatarget muna ang mga hero.\n\nAng mga sinusukat na numero nito ay solid at pare-pareho: ang win rate sa itaas ng average sa bawat ranggo at anuman ang tagal ng laro, mas mahusay sa Mythic Glory, para sa halos walang pagbabawal. Ang kanyang pinakamahusay na sinusukat na kasosyo ay si Harith. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban kay Lolita, malinaw, pagkatapos ay laban kay Lesley, Aamon, Karina at Saber.",
+    "skills": [
+      "Ang bawat skill na nagdudulot ng damage ay nagbibigay sa kanya ng kaunting kritikal na pagkakataon, na maaaring isalansan. Mas marami siyang pisikal na pag-atake kaysa sa karaniwan, ngunit nakikinabang lamang sa isang bahagi ng mga bonus sa attack speed.",
+      "Ang susunod na basic attack nito ay nagpaputok ng bola na puminsala at nagpapabagal sa target, pagkatapos ay bumagsak sa lupa. Ang pagkuha sa kanya o isang kaalyado ay nagbibigay-daan sa isang bagong pag-atake at binabawasan ang recharge ng slide.",
+      "Isang slide na panandaliang nabigla sa mga kalaban sa dinaraanan nito at binibigyan ito ng lobo sa pagdating: ang tool sa pagtakas at pagkumpleto nito.",
+      "Tinamaan ang isang hero ng kaaway, ibinalik siya sa dulo ng kanyang hanay, nakamamanghang at pinabagal siya nang husto, pagkatapos ay tumalbog sa pagitan ng mga kalaban nang maraming beses, na unang nagpuntirya sa mga hero."
+    ],
+    "strengths": [
+      "Ang win rate ay sinusukat sa itaas ng average sa bawat ranggo",
+      "Isang slide na nakakabigla at nagsisilbing pagtakas",
+      "Isang ultimate na nagtutulak pabalik, natigilan pagkatapos ay rebound",
+      "Bihirang pinagbawalan"
+    ],
+    "weaknesses": [
+      "Mga benepisyo lamang mula sa isang bahagi ng mga bonus sa attack speed",
+      "Depende sa mga lobo na makokolekta sa kadena",
+      "Nakikibaka laban kina Lolita, Lesley at Aamon ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "Pagsusuri ng Gold Lane",
+        "context": "Ang pinakamaraming nilalaro na build sa Gold lane: Haas' Claws at Berserker's Fury tumuon sa kritikal, kung saan ang passive fuel nito, Haas' Claws nagdaragdag ng lifesteal at Malefic Gun pisikal na penetration at range. Ang tatlong pinaka-pinatugtog na bersyon ay nagbabahagi ng mga item na ito; ang may fighter emblem na may Flicker ay nagpapakita ng pinakamahusay na nasusukat na win rate."
+      }
+    ]
+  },
+  "layla": {
+    "summary": "Range shooter na ang damage ay tumataas sa distansya, malawak na nilalaro sa mga ranggo sa harap at paunti-unti habang umaakyat ka.",
+    "analysis": "Si Layla ay bumaril mula sa malayo at may interes na manatili doon: pinapataas ng kanyang passive ang kanyang damage sa distansya, hanggang sa maximum sa mahabang hanay. Ang kanyang skill 1 ay naglulunsad ng isang bomba na, kung ito ay tumama, ay magpapalawak sa hanay ng kanyang mga basic attack at kanyang skill 2 sa loob ng ilang segundo at pinabilis ito. Ang kanyang skill 2 ay nagmamarka ng target; pagkatapos ay ang pagpindot sa isang minarkahang target ay nagdudulot ng damage sa paligid nito at na-stun ito nang napakadaling. Ang ultimate ay permanenteng pinalawak ang saklaw ng mga pag-atake nito at ang skill 2 nito, at naglulunsad nang may malakas na shot sa isang tuwid na linya.\n\nAng sinusukat na pick rate nito ay mataas sa Epic at Legend ranks at bumababa sa bawat rank hanggang Mythic Glory, kung saan ang win rate nito ay pinakamababa rin. Ito ay napakahina sa mga laro na wala pang labindalawang minuto, pagkatapos ay higit sa average sa pagitan ng ikalabing-apat at ikadalawampu. Hindi siya tumatalon o nagteleport. Ang mga sukat ay naglagay sa kanya sa kahirapan laban sa Atlas, Johnson, Sun, Khufra at Hylos.",
+    "skills": [
+      "Ang damage nito ay tumataas sa distansya mula sa target, na umaabot sa maximum sa mahabang hanay. Ang epekto ay hindi nalalapat sa mga turrets.",
+      "Isang bomba na pumipinsala sa unang natamaan ng kaaway at maaaring kritikal na tamaan. Kung siya ay tumama, ang kanyang mga basic attack at skill 2 ay magpapatuloy sa loob ng ilang segundo, at makakakuha siya ng boost na dalawang beses na mas matagal sa isang hero.",
+      "Isang globo na pumipinsala sa target at sa mga kapitbahay nito at minarkahan sila ng ilang segundo. Pagkatapos, ang pagpindot sa isang minarkahang target ay nagdudulot ng damage sa paligid nito at na-stun ito nang napakadaling.",
+      "Permanenteng pinalawak ang saklaw ng kanyang mga basic attack at ang kanyang skill 2, at ang kanyang paningin nang kaunti. Inilunsad, isang malakas na putok sa isang tuwid na linya na puminsala sa lahat ng mga kaaway tumawid."
+    ],
+    "strengths": [
+      "Mahabang hanay, pinalawak pa ng skill 1 at ultimate",
+      "Tumaas na saklaw ng damage",
+      "Ang win rate ay sinusukat sa itaas ng average sa pagitan ng ikalabing-apat at ikadalawampu minuto"
+    ],
+    "weaknesses": [
+      "Ni tumalon o teleport para makatakas",
+      "Napakahina sa maikling laro ayon sa mga sukat",
+      "Pinakamababang nasusukat na win rate sa Mythic Glory",
+      "Sa kahirapan laban sa Atlas, Johnson at Sun ayon sa mga panukala"
+    ],
+    "builds": [
+      {
+        "name": "Pagsusuri ng Gold Lane",
+        "context": "Ang pinakamaraming nilalaro na build sa Gold lane, sa ngayon: Ang Windtalker ay nagbibigay ng attack speed, kritikal at movement speed, Berserker's Fury kritikal na damage, Haas' Claws lifesteal at attack speed sa kritikal. Ito ay nauugnay sa Assassin Emblem, Talent Quantum Charge, at Spell Flicker."
+      }
+    ]
+  },
   "estes": {
     "summary": "Ang pinakamasamang pagpapagaling sa laro: ang pinakahuling nito ay muling bumubuo sa buong koponan sa loob ng ilang segundo.",
     "analysis": "Walang ginawa si Estes kundi magpagaling, ngunit ginagawa niya ito sa volume na hindi naaabot ng ibang suporta. Sa isang matagal na pakikipaglaban sa isang layunin, ang kanyang ultimate ay maaaring magpawalang-bisa sa halaga ng isang buong komposisyon ng matagal na damage.\n\nGinagawa rin nitong siya ang pinakanakadepende sa konteksto na hero sa buong laro. Laban sa isang team na bumibili ng healing reduction, o may initiation na kayang alisin muna siya, halos wala na siyang silbi. Nagbibigay lamang ito ng paghina ng lugar, kaunting damage at walang kadaliang kumilos: kung hindi ito gumaling, hindi ito umiiral.",
@@ -870,6 +1333,37 @@
       {
         "name": "Maggala sa contact",
         "context": "Ang pinakamaraming nilalaro na build, sa ngayon: Cursed Helmet sinusunog ang mga kaaway sa paligid niya at sa gayon ay pinapanatili ang paglipad ng mga depensa mula sa kanyang passive, Dominance Ice binabawasan ang kanilang paggaling, Antique Cuirass pinapahina ang pisikal na damage ng mga humahawak sa kanya ng mga skill."
+      }
+    ]
+  },
+  "marcel": {
+    "summary": "Kontrolin ang suporta na ang pinakahuling nag-freeze ng lahat sa isang malaking lugar, maliban sa kanya at sa mga kaalyado na kanyang pinoprotektahan.",
+    "analysis": "Si Marcel ay nakikipaglaro kay Clemar, ang kanyang kaluluwang photographer. Awtomatikong kinukunan ng passive nito ang mga kalapit na hero ng kaaway, pinalamig sila saglit, nagdudulot ng tunay na damage sa kanila at nagbibigay ng kalasag na may parehong halaga kay Marcel at isang kalapit na kaalyado; ang kanyang mga basic attack ay tumataas sa kanyang mga resistensya, at ang kanyang karagdagang HP ay nagiging hybrid resistance. Ang kanyang skill 2 ay nagpapabilis sa kanya, higit pa kapag siya ay tumakbo patungo sa isang kaaway na hero, pagkatapos ay pinatalon siya sa pag-alis sa lugar ng kanyang skill 1, na lubos na nagpapabagal sa mga hero pagkatapos ay tinamaan sila pagkatapos ng maikling pagkaantala. Pina-freeze ng ultimate ang lahat ng unit sa isang malaking lugar sa loob ng dalawang segundo, kabilang ang mga projectiles, at iniiwan lamang si Marcel at ang mga kaalyado na bitbit ang kanyang kalasag.\n\nAng mga sukatan nito ay kabilang sa pinakamalakas sa laro: pangalawang panalo rate ng lahat ng mga hero, at isang pagbabawal na tumataas nang may ranggo, bihira sa Epic, sa higit sa dalawang laro sa tatlo sa Mythic Glory. Siya ay lalo na kakila-kilabot sa maaga: ang kanyang tagumpay rate ay pinakamataas sa pinakamaikling laro at pagkatapos ay bumababa sa bawat yugto ng tagal. Pinalawig ng Patch 2.2.16 ang mga cooldown ng kanyang skills 1 at 2 at ang kanyang ultimate. Ang mga hakbang ay naglalagay sa kanya sa kahirapan laban kay Floryn, Angela, Lesley, Esmeralda at Cyclops; ang best measured partner niya ay si Kalea.",
+    "skills": [
+      "Awtomatikong kinukunan ng larawan ni Clemar ang mga hero ng kaaway na malapit kay Marcel: ang target ay nagyelo sa isang iglap at dumaranas ng hilaw na damage, at si Marcel, tulad ng isang malapit na kaalyado, ay tumatanggap ng isang kalasag na may parehong halaga, isang beses bawat target sa mga regular na pagitan. Ang kanyang mga basic attack ay tumataas sa kanyang mga pagtutol.",
+      "Isang lugar sa paligid ng Marcel na lubos na nagpapabagal sa mga hero ng kaaway, pagkatapos ay tinatamaan sila pagkatapos ng maikling pagkaantala. Ang damage nito ay tumataas sa pisikal at mahiwagang pagtutol nito.",
+      "Pinapabilis ito ng ilang segundo, higit pa patungo sa isang hero ng kaaway. Muling inilunsad, tumalon siya na nag-iiwan ng doble, habang ang lugar ng skill 1 ay nananatili sa lugar nito: sapat na upang makapasok, ilagay ang lugar at lumabas.",
+      "Pagkatapos ng maikling pagkaantala, nag-freeze ng dalawang segundo ang lahat ng unit sa isang malaking lugar, na dumaranas lamang ng mga epekto ni Marcel; nag-freeze din ang projectiles doon. Nire-reset ang kanyang passive para sa bawat hero ng kaaway na kinuha, at mananatiling libre ang mga kaalyado na may dalang kanyang kalasag."
+    ],
+    "strengths": [
+      "Pangalawang sinusukat na win rate ng lahat ng mga hero",
+      "Isang ultimate na nagpapalamig ng buong lugar, kabilang ang mga projectiles",
+      "Isang awtomatikong kalasag para sa kanya at isang kakampi",
+      "Napakalakas sa maikling laro ayon sa mga sukat"
+    ],
+    "weaknesses": [
+      "Pinagbawalan sa higit sa dalawa sa tatlong laro sa Mythic Glory",
+      "Nasusukat ang yield na bumababa habang humahaba ang laro",
+      "Nakikibaka laban kina Floryn, Angela at Lesley ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "gumala",
+        "context": "Ang pinakamaraming nilalaro na build in roam: Thunder Belt at Dominance Ice nagbibigay ng mga panlaban na nakikinabang sa kanyang mga pag-atake at sa kanyang skill 1, Dominance Ice din binabawasan ang pagpapagaling at mga kalasag ng mga kalapit na kaaway, at Flask of the Oasis pinapataas ang pagpapagaling na ibinigay at pinoprotektahan ang isang kaalyado na nasa panganib."
+      },
+      {
+        "name": "Maggala Flicker",
+        "context": "Ang parehong mga bagay na may Quantum Charge at Flicker: halos tulad ng nilalaro, para sa win rate na sinusukat na mas mababa kaysa sa Revitalize na bersyon."
       }
     ]
   },
@@ -1073,6 +1567,37 @@
       {
         "name": "Natanggap ang pangangalaga",
         "context": "Ang Oracle sa halip na Radiant Armor ay nagpapatibay sa pagpapagaling at mga kalasag na natatanggap niya, kabilang ang kanyang sarili: hindi gaanong nilalaro, na may mas mataas na win rate."
+      }
+    ]
+  },
+  "alice": {
+    "summary": "Tank mage na naninirahan sa mga kaaway: hangga't tama ang kanyang mga kakayahan, sinusunog niya ang lahat sa paligid niya at nagpapagaling sa sarili.",
+    "analysis": "Naglaro si Alice ng contact sa kabila ng kanyang magic damage. Dalawang kasanayang sunod-sunod na tumama ang nag-a-activate sa passive nito, isang aura na pumipinsala sa mga kalapit na kaaway sa mga regular na pagitan, nagpapagaling at nagpapabilis nito, at kung saan ang bawat skill na tumama sa isang hero ay nagpapatagal. Ang kanyang skill 1 ay naglulunsad ng isang sabog ng dugo na maaari niyang samahan sa pamamagitan ng pag-teleport; ang kanyang skill 2, na may maikling recharge, masakit at bumagal nang husto sa paligid niya, at mas nasusunog kapag aktibo ang aura. Ang ultimate ay ginagawa itong immune sa mga kontrol at binabawasan ang damage na nakuha sa panahon ng pagsingil nito, pagkatapos ay bumabalik ito sa lugar, na hindi kumikilos ang mga kaaway.\n\nAng mga sinusukat na numero nito ay karaniwan, na may win rate na bahagyang bumubuti sa mahabang laro at mas madalas na pagbabawal sa Mythic kaysa sa Mythic Glory. Sa jungle, ang pinakamaraming nilalaro na build ay malinaw na mas nilalaro kaysa sa lahat ng iba pa. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban kay Angela, Floryn, Karrie, Estes at Valir, at kumportable laban sa Chip, Gloo, Tigreal, Barats at Atlas.",
+    "skills": [
+      "Ang bawat kasanayang tumama ay nagbibigay sa kanya ng bayad; sa dalawang singil, ang isang aura ay pumipinsala sa mga kalapit na kaaway sa mga regular na pagitan, nagpapagaling at nagpapabilis sa paggalaw nito. Ang pagpindot sa isang hero na may skill ay nagpapalawak ng aura.",
+      "Naglulunsad ng isang sabog ng dugo pasulong; nabuhay muli bago ito mawala, nag-teleport si Alice sa kanyang punto ng pagdating. Ito ang kanyang pagsisimula, at ang tanging kakayahan na magagamit pa rin sa panahon ng pagsingil ng ultimate.",
+      "Isang sayaw na pumipinsala sa mga kaaway sa paligid niya at makabuluhang nagpapabagal sa kanila. Aktibong aura, sinusunog din nito ang mga target at pinapagaling ang mga ito nang naaayon: na muling ilulunsad sa sandaling ito ay magagamit, ang recharge nito ay maikli.",
+      "Sa isang maikling singil, si Alice ay immune sa mga kontrol at tumatagal ng mas kaunting damage, ngunit gumagalaw nang mas mabagal; pagkatapos ay bumagsak ito pabalik sa lugar, nasugatan at hindi kumikilos ang lahat ng mga kaaway na naroroon."
+    ],
+    "strengths": [
+      "Patuloy na pagpapagaling basta't ang kanyang kakayahan ay nakakaapekto",
+      "Hindi naaapektuhan ng mga tseke habang nagcha-charge ang ultimate",
+      "Isang maikling cooldown skill 2 na bumagal nang husto",
+      "Kumportable laban sa Chip, Gloo at Tigreal ayon sa mga sukat"
+    ],
+    "weaknesses": [
+      "Isang aura na lumalabas kapag nabigo ang kanyang kakayahan",
+      "Mas mababa ang win rate sa maikling laro",
+      "Nakikibaka laban kina Angela, Floryn at Karrie ayon sa mga sukat"
+    ],
+    "builds": [
+      {
+        "name": "jungle",
+        "context": "Ang pinakamaraming nilalaro na build sa jungle, malinaw na nauuna sa iba: Brute Force Breastplate at Oracle nagbibigay ng HP, armor at recharge reduction, at Oracle ay nagpapatibay sa pagpapagaling na natanggap, kasama ang aura nito; Concentrated Energy nagdaragdag ng magic power, HP at hybrid lifesteal."
+      },
+      {
+        "name": "EXP lane",
+        "context": "Ang parehong tatlong bagay sa EXP lane, na may spell na Revitalize sa halip na Retribution: ito ang pinakapinaglarong bersyon sa posisyong ito."
       }
     ]
   }

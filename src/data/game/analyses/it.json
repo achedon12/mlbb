@@ -140,6 +140,90 @@
       }
     ]
   },
+  "aamon": {
+    "summary": "Assassino magico mimetizzato da ogni abilità che colpisce; la sua ultima finisce tanto meglio se il bersaglio è ferito.",
+    "analysis": "Aamon alterna mimetismo e attacchi rinforzati. Ogni abilità che colpisce un nemico lo mimetizza: non può più essere preso di mira, recupera HP e guadagna velocità; all'uscita da questo stato, i suoi attacchi base per i successivi secondi vengono rafforzati, infliggono danni magici e riducono i tempi di recupero. I suoi attacchi potenziati caricano i frammenti. La Ultimate li lancia tutti contro un bersaglio: più frammenti ha in riserva e a terra, più lunga è la salva e il suo danno aumenta man mano che il bersaglio perde i suoi HP.\n\nI suoi numeri misurati sono leggermente inferiori alla media a tutti i livelli, senza grandi differenze a seconda della durata della partita; Tuttavia, il suo tasso di selezione è aumentato negli ultimi trenta giorni. Le misurazioni lo mettono in difficoltà contro Gloo, Lolita, Silvanna, Hayabusa e Masha, e a suo agio contro Cici, Marcel, Claude e Bruno.",
+    "skills": [
+      "Ogni abilità che lo tocca lo mimetizza: impossibile da prendere di mira, recupera HP e guadagna velocità che diminuisce rapidamente. Quando esce dalla mimetizzazione, i suoi attacchi base vengono potenziati per alcuni secondi, infliggono danni magici e riducono i tempi di recupero.",
+      "Come passivo, i suoi attacchi rinforzati e il camuffamento caricano la sua armatura; con cinque cariche, il suo attacco successivo lancia una raffica di schegge che poi rimangono a terra attorno al bersaglio. Mentre è attivo, lancia una raffica contro un nemico vicino.",
+      "Spara una raffica in avanti che rallenta i nemici colpiti, poi ritorna verso di loro e li mimetizza; ritorna immediatamente se tocca qualcosa di diverso da un servitore. L'abilità di aggirare il nemico sotto mimetizzazione.",
+      "Lancia tutti i tuoi frammenti contro un nemico e rallentalo; il loro numero dipende dalle sue cariche e dai frammenti presenti al suolo. Il danno aumenta con la perdita degli HP del bersaglio, fino a un massimo inferiore al trenta percento dei suoi HP."
+    ],
+    "strengths": [
+      "Impossibile da prendere di mira sotto mimetizzazione e curato durante questo periodo",
+      "Una suprema che infligge danni su un bersaglio ferito",
+      "Ricarica ridotta dai suoi attacchi potenziati"
+    ],
+    "weaknesses": [
+      "Il tasso di vincita è stato misurato leggermente al di sotto della media a tutti i livelli",
+      "Un camuffamento che dipende dalle abilità che colpiscono",
+      "In difficoltà contro Gloo, Lolita e Silvanna secondo le misure"
+    ],
+    "builds": [
+      {
+        "name": "Giungla magica",
+        "context": "La build più giocata nella giungla: Genius Wand riduce la difesa magica degli eroi colpiti e aggiunge penetrazione, Holy Crystal massimizza il potere magico e Divine Glaive penetrazione magica, per attacchi rinforzati e una suprema che finisce."
+      },
+      {
+        "name": "Esecuzione",
+        "context": "Sky Piercer come primo oggetto, che giustizia un eroe caduto molto in basso e la cui soglia aumenta con le eliminazioni: la seconda build più giocata, con un tasso di vittoria misurato vicino."
+      }
+    ]
+  },
+  "nolan": {
+    "summary": "Assassino della giungla che crea fessure con ogni abilità: due fessure che si toccano attirano i nemici, esplodono e ripristinano HP.",
+    "analysis": "Nolan gioca sui suoi difetti. Ogni abilità ne lascia una, che rallenta i nemici; Quando due spaccature si toccano, trascinano i nemici verso il loro centro, poi esplodono e ogni eroe o mostro colpito ripristina energia e HP. Le sue prime due abilità hanno ricariche molto brevi, una colpisce un'area davanti a lui, l'altra lo fa caricare e si concatenano insieme per far incrociare le faglie. Il colpo finale su un'area tre volte, lascia tre spaccature lì e le attiva mentre si ritira. Dopo alcuni secondi senza infliggere o ricevere danni, il suo successivo attacco base lo fa saltare sul bersaglio, aprendo una spaccatura.\n\nÈ molto contestato: quinto tasso di selezione tra tutti gli eroi e un divieto che è quasi raddoppiato negli ultimi trenta giorni e sale con la classifica. Il suo tasso di vittorie misurato rimane intorno alla media, superiore nelle partite che durano meno di dodici minuti e inferiore dopo il quattordicesimo minuto. Le misurazioni lo mettono nettamente in difficoltà contro Saber e Natalia, poi contro Jawhead e Hayabusa.",
+    "skills": [
+      "Le sue abilità lasciano spaccature che lo rallentano. Due faglie toccanti attirano i nemici verso il loro centro poi esplodono; ogni eroe o mostro colpito ripristina energia e HP. Dopo alcuni secondi fuori dal combattimento, il suo successivo attacco base lo fa balzare verso il bersaglio.",
+      "Taglia un'area rettangolare di fronte a lui e lascia una spaccatura sul primo nemico colpito. Ricarica molto breve.",
+      "Carica in una direzione, danneggiando i nemici nel suo cammino e lascia una spaccatura: il suo movimento e il modo per attraversare due spaccature.",
+      "Taglia un'area tre volte, rallentando il bersaglio colpito e lasciando tre spaccature, che si attivano da sole mentre indietreggia."
+    ],
+    "strengths": [
+      "Ricarica molto breve delle sue prime due abilità",
+      "Esplosioni di spaccature che ripristinano HP",
+      "Un ultimo che colpisce e poi lo respinge",
+      "Tasso di vincita elevato misurato nelle partite brevi"
+    ],
+    "weaknesses": [
+      "Tasso di vittorie misurato sotto la media oltre il quattordicesimo minuto",
+      "Danni ridotti quando lo stesso bersaglio subisce più esplosioni",
+      "Nettamente in difficoltà contro Saber e Natalia secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Giungla",
+        "context": "La build più giocata nella giungla: Hunter Strike apporta attacco, riduzione della ricarica, penetrazione e accelerazione dopo diversi colpi sullo stesso bersaglio, Blade of the Heptaseas rafforza il primo attacco dopo alcuni secondi fuori dal combattimento, come il salto nella sua passiva, e Malefic Roar aggiunge penetrazione fisica. Lethal Ignition viene scelto tanto spesso quanto Impure Rage."
+      }
+    ]
+  },
+  "saber": {
+    "summary": "Assassino a bersaglio singolo: la sua suprema solleva un eroe nemico e lo colpisce tre volte, senza che la Resilienza faccia alcuna differenza.",
+    "analysis": "Sabre è progettato per abbattere un eroe specifico. Il suo danno riduce l'armatura fisica del bersaglio, accumulandosi. La sua abilità 1 fa roteare cinque spade attorno a sé; durante la loro durata, ogni colpo di spada colpisce il suo bersaglio e riduce le sue due ricariche. La sua abilità 2 lo fa scattare e poi rafforza il suo successivo attacco base, che lo lancia verso il bersaglio rallentandolo notevolmente. La suprema gli fa caricare un eroe nemico, lo lancia in aria per poco più di un secondo senza che la Resilienza riduca l'effetto e lo colpisce tre volte.\n\nI suoi numeri misurati cambiano notevolmente con il grado: percentuale di vittorie inferiore alla media in Epica, superiore alla media in Mythic Glory e divieti più alti in Legend e Mythic. È particolarmente forte nelle partite brevi, sopra il cinquantacinque per cento prima del quattordicesimo minuto. In roaming, le build più giocate hanno un tasso di vittoria misurato al di sotto della media; i suoi partner più misurati sono Diggie e Marcel. Le misurazioni lo mettono in difficoltà contro Balmond, Leomord, Baxia, Miya e Sun.",
+    "skills": [
+      "Ogni volta che infligge danni, riduce l'armatura fisica del bersaglio, accumulandosi fino a cinque volte.",
+      "Cinque spade lo circondano e danneggiano i nemici vicini. Durante la loro durata, ogni colpo di spada colpisce il bersaglio e riduce i tempi di recupero delle sue abilità 1 e 2.",
+      "Corri in una direzione; il suo successivo attacco base lo lancia poi contro il bersaglio, danneggiandolo e rallentandolo notevolmente. Serve tanto per recuperare quanto per impegnarsi.",
+      "Carica un eroe nemico, lo lancia in aria per poco più di un secondo, senza che la Resilienza riduca l'effetto, e lo colpisce tre volte, l'ultimo colpo più forte."
+    ],
+    "strengths": [
+      "Un unico obiettivo finale che la resilienza non accorcia",
+      "Riduzione cumulativa dell'armatura sul bersaglio",
+      "Tasso di vincita elevato misurato nelle partite brevi",
+      "Ricariche ridotte dalle sue spade"
+    ],
+    "weaknesses": [
+      "Le build di roaming più giocate sono inferiori alla media in base ai parametri",
+      "Molto vietato in Legend e Mythic",
+      "In difficoltà contro Balmond, Leomord e Baxia secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Giungla",
+        "context": "La build più giocata, nella giungla: Hunter Strike porta attacco, riduzione della ricarica e penetrazione fisica, War Axe attacco cumulativo in combattimento, HP e furto di vita, Endless Battle danno grezzo sull'attacco che segue ogni abilità."
+      }
+    ]
+  },
   "chou": {
     "summary": "Combattente dell'isolamento: estrae un bersaglio dal gruppo avversario e lo uccide prima che la sua squadra reagisca.",
     "analysis": "Chou è l'eroe vagabondo con il limite di maestria più alto. L'idea è semplice – l'Ultimate respinge un bersaglio e lo insegue – ma la sua esecuzione si basa su cancellazioni di animazioni che il gioco non spiega da nessuna parte. La combo di riferimento concatena l'abilità 1, il salto annullato, la suprema, quindi l'abilità 2 per trattenere il bersaglio all'atterraggio.\n\nIl suo interesse per una squadra organizzata nasce da lì: sceglie chi muore. Contro un giocatore che mantiene il suo Purify, invece, la Ultimate perde metà del suo valore e Chou torna ad essere un combattente medio.",
@@ -313,6 +397,273 @@
       {
         "name": "Danni dopo l'abilità",
         "context": "Starlium Scythe invece di Queen's Wings, per danni aggiuntivi sull'attacco che segue ogni abilità: meno giocato, con una percentuale di vincita misurata comparabile."
+      }
+    ]
+  },
+  "masha": {
+    "summary": "Combattente con tre barre HP: ogni barra rotta la libera dai controlli e i suoi attacchi base diventano colpi con gli artigli ad area d'effetto che la curano.",
+    "analysis": "Masha gioca sulle sue tre barre dei PS. Ognuno recupera la metà degli HP forniti dai suoi oggetti, e ogni barra che cade rimuove i suoi effetti di controllo, blocca un attacco e azzera la ricarica di Claw Strike. Le abilità che colpiscono un eroe aprono una ferita su un lato del bersaglio; rompere questa ferita con un attacco base fa impazzire Masha, con resilienza, velocità di attacco e velocità di movimento, e cambia i suoi tre attacchi successivi in ​​colpi di artigli a ventaglio che infliggono danni in base agli HP e la curano. L'ultima le fa caricare un eroe avversario, stordendolo e respingendo i nemici intorno a lui.\n\nI suoi numeri misurati sono i più alti del gioco: tasso di vittorie leader per tutti gli eroi a tutti i livelli, superiore al cinquantasei per cento indipendentemente dalla durata della partita, e un divieto che sale con il grado, raro in Epic, in due partite su tre in Mythic Glory. La patch 2.2.23 ha spostato il rallentamento dall'abilità 1 all'abilità 2 e ha ridotto il danno e la guarigione dei suoi colpi con gli artigli; la sua percentuale di vittorie è leggermente diminuita negli ultimi trenta giorni. Le misurazioni la mettono in difficoltà contro Freya, Estes, Bruno, Melissa e Floryn.",
+    "skills": [
+      "Tre barre HP, ciascuna delle quali assorbe la metà degli HP dei suoi oggetti. Una barra rotta rimuove i suoi effetti di controllo e blocca un attacco. Le sue abilità aprono ferite sugli eroi colpiti: rompendone una con un attacco base innesca lo stato selvaggio e colpi di artiglio nella zona che la guariscono.",
+      "Un'onda di energia in avanti che danneggia i nemici sul suo cammino e colpisce più duramente i servitori: lo strumento per eliminare un'onda e per aprire una ferita a distanza.",
+      "Un balzo verso il bersaglio che rallenta gli eroi colpiti. La sua ricarica viene ripristinata ogni volta che cade una barra degli HP, il che le dà immediatamente la possibilità di inseguire o scappare.",
+      "Carica un eroe avversario, stordendolo e respingendo i nemici vicini. Il suo danno aumenta con gli HP aggiuntivi: è l'inizio dei combattimenti di squadra su un bersaglio fragile."
+    ],
+    "strengths": [
+      "Prima misurazione della percentuale di vittorie di tutti gli eroi",
+      "Tre barre HP, ciascuna delle quali la libera dai controlli",
+      "Gli artigli colpiscono l'area curandola",
+      "Prestazioni misurate stabili indipendentemente dalla durata del gioco"
+    ],
+    "weaknesses": [
+      "Bandita in due partite su tre in Mythic Glory",
+      "Colpi con gli artigli e cure ridotte dalla patch 2.2.23",
+      "In difficoltà contro Freya, Estes e Bruno secondo le misure"
+    ],
+    "builds": [
+      {
+        "name": "Corsia EXP",
+        "context": "Le tre build più giocate nella corsia EXP condividono questi oggetti: Thunder Belt e Guardian Helmet forniscono gli HP che le sue tre barre prendono e da cui dipende la sua suprema, Corrosion Scythe la velocità di attacco per rompere ferite e colpi con artigli a catena. Sono associati all'emblema del carro armato, al talento Grido di guerra e, molto spesso, all'incantesimo Petrify."
+      }
+    ]
+  },
+  "argus": {
+    "summary": "Combattente critico la cui suprema lo rende immortale per alcuni secondi, quindi lo cura da tutti i danni inflitti agli eroi.",
+    "analysis": "Argus fa affidamento sul colpo critico: la sua passiva gli dà immediatamente una possibilità critica, e ogni critico diventa un fendente demoniaco che ignora parte dell'armatura e lo cura. La sua abilità 1 lancia una mano che stordisce il primo nemico colpito e lo avvicina l'uno all'altro, poi si lancia in una corsa seguita da un grande colpo; la sua abilità 2 conta come un attacco base, stordendo brevemente l'eroe colpito e dandogli velocità di attacco. L'ultimo rimuove i suoi effetti di controllo e lo rende immortale per alcuni secondi, quindi ripristina HP pari al danno inflitto agli eroi durante questo periodo. Finché è disponibile, si attiva da solo contro un colpo fatale.\n\nÈ uno degli eroi più efficaci secondo i parametri e uno dei meno bannati: il terzo tasso di vincita più alto di tutti gli eroi, superiore al cinquantacinque per cento per ogni grado, per un ban di circa una partita su cento. Il suo rendimento sale con la durata della partita, poco sopra la media prima del dodicesimo minuto e oltre il sessanta per cento dal sedicesimo. Le misurazioni lo mettono in difficoltà contro Barats, Terizla, Uranus, Ruby e Fredrinn.",
+    "skills": [
+      "Si inizia con una possibilità critica. I suoi critici diventano fendenti demoniaci, che ignorano parte dell'armatura fisica del bersaglio e lo curano, innescando gli effetti legati al critico.",
+      "Una mano demoniaca che stordisce il primo nemico colpito, lo rallenta e lo avvicina l'uno all'altro; senza un bersaglio, Argo viene trascinato alla fine del suo percorso. Rilanciato, diventa uno slancio seguito da un ampio colpo.",
+      "Dopo una breve carica, un colpo con la spada conta come un attacco base. Su un eroe, stordisce brevemente e garantisce velocità d'attacco; il suo danno beneficia della fortuna e del danno critico, e la velocità di attacco accorcia la carica.",
+      "Rimuove i suoi effetti di controllo, lo rende immortale per alcuni secondi e danneggia i nemici vicini, soprattutto quando i suoi HP sono bassi. Alla fine recupera HP pari ai danni inflitti agli eroi. Disponibile, si attiva da solo contro un colpo fatale, senza danni."
+    ],
+    "strengths": [
+      "Terza percentuale di vincita misurata di tutti gli eroi",
+      "Un ultimo che lo rende immortale e poi ripristina i suoi HP",
+      "Le prestazioni sono state misurate oltre il sessanta per cento nelle partite lunghe",
+      "Raramente vietato"
+    ],
+    "weaknesses": [
+      "Prestazioni misurate vicino alla media nei giochi brevi",
+      "Una volta utilizzato l'ultimo, nulla lo salva da un colpo fatale",
+      "In difficoltà contro Barats, Terizla e Urano secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Critico",
+        "context": "La build più giocata nella corsia EXP: velocità di attacco e probabilità critica, che i suoi fendenti demoniaci convertono; dalla patch 2.2.16, i suoi critici attivano ancora gli effetti di Berserker's Fury e Windtalker. Haas' Claws aggiunge il rubavita. È associato all'emblema del tiratore scelto, al talento Grido di guerra e all'incantesimo Petrify."
+      }
+    ]
+  },
+  "lukas": {
+    "summary": "Guerriero che si trasforma in una bestia sacra una volta che la sua barra di risoluzione è piena; la sua abilità 1 cambia a seconda degli attacchi effettuati in precedenza.",
+    "analysis": "Lukas realizza la sua determinazione nel tempo e, più rapidamente, ferendo gli eroi. Pieno, gli permette di trasformarsi in una bestia sacra con la sua suprema: tutti i suoi attributi aumentano, le sue abilità ottengono nuovi effetti e un rilancio scatena un'onda d'urto; la forma dura finché c'è risoluzione. In entrambe le forme, tutto avviene in sequenza: la sua abilità 2 lo fa saltare e rinforza il suo attacco successivo, che lo posiziona dietro al bersaglio e lo accelera; ogni attacco base carica la sua abilità 1, che stordisce brevemente e, con due cariche, lo rende immune ai controlli mentre gira.\n\nI suoi valori misurati sono vicini alla media, con un profilo chiaro in funzione della durata: molto basso nelle partite che durano meno di dodici minuti, sopra la media dal quattordicesimo. Il suo tasso di ban, che aumenta con il grado, è diminuito significativamente negli ultimi trenta giorni. La patch 2.2.23 gli ha dato più HP base e armatura e ha spostato la sua abilità di 1 danno sulla base anziché sull'attacco fisico, per rendere più praticabili le build difensive. Le misurazioni lo mettono in difficoltà contro Phoveus, Balmond, Baxia, Valentina e Minsitthar.",
+    "skills": [
+      "Ottieni Risolutezza nel tempo e danneggiando gli eroi. Pieno, sblocca la trasformazione in bestia sacra, che consuma la risoluzione fino al suo esaurimento.",
+      "I suoi attacchi base gli danno fino a due accumuli di resistenza, che l'abilità consuma per un colpo che lo cura se colpisce un eroe o un servitore. Con una carica, stordisce brevemente e attira il bersaglio mentre ruota; con due aggiunge due colpi e lo rende insensibile ai controlli durante la rotazione.",
+      "Un balzo che rafforza il suo prossimo attacco base: lo posiziona dietro il nemico, poi gli dà velocità di movimento e velocità di attacco, ed estende la portata dell'attacco successivo, che innesca un fulmine.",
+      "Lo trasforma in una bestia sacra, impermeabile ai controlli per un attimo: velocità aumentata, attributi aumentati e nuovi effetti per le sue abilità. Rilanciato, spara un'onda d'urto che esplode al primo eroe colpito."
+    ],
+    "strengths": [
+      "Una forma di bestia sacra che aumenta tutti i suoi attributi",
+      "Non risponde ai comandi durante la rotazione con due carichi",
+      "Guarisci con ogni colpo dell'abilità 1",
+      "Tasso di vittorie misurato sopra la media nelle partite lunghe"
+    ],
+    "weaknesses": [
+      "Molto debole nelle partite corte secondo le misurazioni",
+      "Una trasformazione che attende la sua piena risoluzione",
+      "In difficoltà contro Phoveus, Balmond e Baxia secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Giungla",
+        "context": "La build di gran lunga più giocata nella giungla: Hunter Strike fornisce attacco, riduzione della ricarica e penetrazione fisica, War Axe attacco cumulativo in combattimento, HP e furto di vita, Queen's Wings sopravvivenza quando i suoi HP diminuiscono."
+      },
+      {
+        "name": "Corsia EXP",
+        "context": "Gli stessi tre oggetti nella corsia EXP, con l'incantesimo Vengeance: questa è la versione più giocata in questa posizione. La variante Fighter Emblem meno giocata ha una percentuale di vincita misurata più alta."
+      }
+    ]
+  },
+  "freya": {
+    "summary": "Combattente con attacco base, che carica le sfere colpendo e le spende in velocità di attacco, HP e scatti senza ricarica base.",
+    "analysis": "Freya ruota attorno a una risorsa: ogni attacco base le dà una sfera sacra e ogni sfera spesa rende il suo attacco successivo molto più veloce e la cura. La sua abilità 2 non ha ricarica base ma costa due sfere: è una corsa che fa male e rallenta, da alternare ad attacchi base per mantenere la riserva piena. La sua abilità 1 la fa saltare sopra un'area fornendole uno scudo e lanciando i nemici in aria. L'ultima è un'immersione insensibile al controllo che rallenta i nemici colpiti, quindi entra nel suo stato di Valchiria: i suoi attacchi base infliggono danni ad area.\n\nI suoi numeri misurati dipendono dal grado e dalla durata: un tasso di vittoria inferiore alla media in Epic e Mythic Honor, superiore alla media in Mythic Glory e significativamente migliore nelle partite che durano meno di dodici minuti rispetto a quelle oltre il quattordicesimo. La patch 2.2.23 ripristina gli HP per ogni sfera spesa e aumenta la ricarica della sua suprema. Il suo tasso di ban è quasi raddoppiato negli ultimi trenta giorni. I provvedimenti la mettono in difficoltà nei confronti di Minsitthar, Phoveus, Baxia, Edith e Franco.",
+    "skills": [
+      "Ogni attacco base le garantisce una Sfera sacra, fino a sei. Spendere una sfera rende il suo prossimo attacco base molto più veloce e la cura; al di fuori del combattimento, le sfere vengono gradualmente ricostituite.",
+      "Salta un'area e colpisce il suolo con il suo scudo: ottiene uno scudo, danneggia i nemici e li lancia brevemente in aria. Il suo avvio e il controllo principale.",
+      "Una corsa seguita da un tonfo che rallenta brevemente. Nessuna ricarica base, ma due sfere per lancio e danni ridotti contro i mostri.",
+      "Immergiti in un'area rimanendo immune ai controlli, danneggiando e rallentando i nemici colpiti, quindi entra nello stato di Valchiria: velocità e danni ad area aumentati negli attacchi base per diversi secondi."
+    ],
+    "strengths": [
+      "Un'abilità 2 senza ricarica base",
+      "Scudo e lancio sull'abilità 1",
+      "Attacchi di danno AoE di base in modalità Ultimate",
+      "Tasso di vincita elevato misurato nelle partite brevi"
+    ],
+    "weaknesses": [
+      "Percentuale di vittorie misurata al di sotto della media da Epic a Mythic Honor",
+      "Prestazioni ridotte nelle partite lunghe",
+      "In difficoltà contro Minsitthar, Phoveus e Baxia secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Corsia EXP",
+        "context": "La build più giocata nella corsia EXP: Golden Staff porta attacco e velocità d'attacco e accelera ulteriormente un attacco base su tre, War Axe combina l'attacco in combattimento con il lifesteal, Rose Gold Meteor aggiunge lifesteal e uno scudo quando i suoi HP scendono. Si gioca quasi anche Endless Battle al posto di Rose Gold Meteor."
+      },
+      {
+        "name": "Giungla",
+        "context": "Nella giungla, Corrosion Scythe viene prima per velocità di attacco e rallentamento degli attacchi base, con Endless Battle, che rafforza l'attacco dopo ogni abilità: la versione più giocata in questa posizione, con l'emblema del tiratore."
+      }
+    ]
+  },
+  "aulus": {
+    "summary": "Combattente semplice da imparare: ogni abilità che colpisce rafforza i suoi attacchi base e i suoi colpi finali ripetutamente intorno a lui.",
+    "analysis": "Aulo combatte con ondate di colpi d'ascia. Ogni abilità che infligge danni gli dà qualche secondo di attacchi base potenziati: colpiscono in linea, lo curano, lo rallentano leggermente ed estendono un po' la sua portata. La sua abilità 1 rimuove i suoi rallentamenti e lo accelera; se non controllato entro due secondi, non risponde ai controlli. La sua abilità 2 colpisce a ventaglio e stordisce brevemente, poi ritorna con un balzo. Il colpo finale colpisce quattro volte attorno a lui, poi un grande colpo finale, riducendo il danno che subisce.\n\nI suoi numeri misurati sono sopra la media, soprattutto nelle partite brevi: la sua percentuale di vittorie è più alta prima del dodicesimo minuto e torna alla media dopo il ventesimo. Il suo tasso di ban, che aumenta con il grado, è diminuito drasticamente negli ultimi trenta giorni. La patch 2.2.16a ha indebolito i suoi attacchi potenziati e ha allungato il tempo di recupero della sua abilità 1, aumentando al contempo il danno base della sua suprema. Le misurazioni lo mettono in difficoltà contro Alice, Floryn, Estes, Yve e Zhuxin.",
+    "skills": [
+      "Ogni abilità che infligge danni gli dà alcuni secondi di attacchi base potenziati: un'oscillazione dell'ascia di linea che lo cura, lo rallenta leggermente e gli dà un po' di portata e velocità di attacco. Ancora più forte contro i mostri.",
+      "Rimuove i suoi rallentamenti e lo accelera per alcuni secondi. Se non subisce un controllo maggiore entro due secondi, va su tutte le furie e diventa insensibile ai controlli: abbastanza per oltrepassare una linea nemica.",
+      "Un'ascia a forma di ventaglio che stordisce brevemente i nemici. Rianimato, balza in avanti e colpisce il terreno intorno a lui.",
+      "Colpisci i nemici attorno a lui quattro volte, poi sferra un colpo più potente dopo una breve carica. Nel corso della durata, subisce meno danni e guadagna un po' di velocità ad ogni colpo."
+    ],
+    "strengths": [
+      "Tasso di vincita misurato sopra la media, soprattutto all'inizio del gioco",
+      "Immune ai controlli grazie all'abilità 1, se non controllato in tempo",
+      "Attacchi potenziati che lo curano",
+      "Kit semplice, senza risorse da gestire"
+    ],
+    "weaknesses": [
+      "Prestazione misurata che scende verso la media nelle partite lunghe",
+      "Un check subito nei primi due secondi lo priva della sua insensibilità",
+      "In difficoltà contro Alice, Floryn ed Estes secondo le misure"
+    ],
+    "builds": [
+      {
+        "name": "Giungla",
+        "context": "La build più giocata nella giungla: War Axe porta attacco cumulativo, HP e rubavita, Brute Force Breastplate HP, riduzione dell'armatura e della ricarica, Malefic Roar penetrazione fisica. Lo stesso trio con l'emblema dell'assassino viene giocato la metà, con una percentuale di vincita misurata più alta."
+      },
+      {
+        "name": "Corsia EXP",
+        "context": "Gli stessi oggetti nella corsia EXP, con l'emblema dell'assassino e l'incantesimo Vengeance: la versione più giocata in questa posizione."
+      }
+    ]
+  },
+  "alucard": {
+    "summary": "Combattente della giungla che si avventa sul suo bersaglio dopo ogni abilità e la cui suprema gli garantisce un rubavita permanente e divide le sue ricariche.",
+    "analysis": "Alucard alterna abilità e attacchi base: dopo ogni abilità, il suo attacco successivo lo fa saltare sul bersaglio. La sua abilità 1 lo fa saltare sopra un'area, rallentando i nemici, la sua abilità 2 colpisce tutto ciò che lo circonda. La sua suprema gli conferisce permanentemente un furto vitale ibrido; lanciato, rallenta i nemici nell'area e riduce le loro resistenze, rafforza le proprie per ogni eroe colpito e dimezza la ricarica delle altre sue abilità per qualche secondo, prima di un rilancio che manda in avanti un'onda d'urto.\n\nÈ uno degli eroi meno bannati, con numeri leggermente inferiori alla media a tutti i livelli. È debole nelle partite brevi e supera la media solo dal quattordicesimo minuto, senza poi fare grandi differenze. Le misurazioni lo pongono in difficoltà contro Fredrinn, Phoveus, Khufra, Barats e Thamuz, e a suo agio contro Natalia, Sun, Mathilda e Saber.",
+    "skills": [
+      "Dopo ogni abilità lanciata, il suo successivo attacco base gli fa balzare sul bersaglio con danni aggiuntivi. Colpisce anche più duramente i mostri.",
+      "Salta su un'area, danneggia e rallenta i nemici colpiti: la sua iniziazione, seguita da un attacco base per sfruttare la passiva.",
+      "Un colpo rotante che danneggia tutti i nemici circostanti, con un breve tempo di recupero.",
+      "Gli conferisce in modo permanente un rubavita ibrido. Cast, rallenta i nemici in un'area e riduce le loro resistenze, aumenta la loro resistenza per ogni eroe colpito e dimezza la ricarica delle altre abilità per alcuni secondi; rianimato, invia un'onda d'urto in avanti."
+    ],
+    "strengths": [
+      "Rubavita ibrida permanente grazie al massimo",
+      "I tempi di recupero sono dimezzati in modalità Ultimate",
+      "Tasso di vittorie misurato sopra la media nelle partite lunghe",
+      "Balza verso il suo bersaglio dopo ogni abilità"
+    ],
+    "weaknesses": [
+      "Debole nelle partite corte secondo le misurazioni",
+      "Nessun controllo al di là dei rallentamenti",
+      "In difficoltà contro Fredrinn, Phoveus e Khufra secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Giungla",
+        "context": "La build più giocata nella giungla: War Axe accumula attacco in combattimento, Endless Battle rinforza l'attacco base che segue ogni abilità, che corrisponde al ritmo della sua passiva, e Blade of Despair porta l'attacco fisico più grande, rinforzato contro un bersaglio con meno della metà dei suoi HP."
+      }
+    ]
+  },
+  "aldous": {
+    "summary": "Combattente che accumula cariche permanenti finendo le unità e la cui suprema rivela tutti gli eroi nemici prima di lanciarla su uno di essi.",
+    "analysis": "Aldous si costruisce nel tempo. La sua abilità 1 rafforza il suo successivo attacco base, e ogni unità completata o eroe colpito con questo attacco gli conferisce cariche permanenti che aumentano il suo danno, fino a mille; ne guadagna anche alcuni quando i suoi alleati finiscono le unità vicino a lui. La sua abilità 2 lo mette in una postura difensiva, con una riduzione dei danni subiti, poi infligge danni intorno a lui e li stordisce, quanto più a lungo dura la postura. La Ultimate gli concede la visione di tutti gli eroi nemici per qualche secondo, poi lo fa precipitare verso uno di essi per respingerlo, interrompendo un possibile ritorno alla base.\n\nNessun eroe ha un divario così marcato a seconda della durata della partita: molto basso nelle partite che durano meno di dodici minuti, la sua percentuale di vittorie misurata si avvicina al sessanta per cento dal diciottesimo. Considerando tutti i livelli, è superiore alla media e in crescita nell'arco di trenta giorni, con quasi zero divieti. La patch 2.2.23 ha accorciato il tempo di recupero della sua abilità 2 e aumentato la riduzione del danno a fine partita. Le misure lo mettono in difficoltà contro Esmeralda, Karina, Ciclope, Estes e Popol e Kupa.",
+    "skills": [
+      "Ogni pochi secondi, il suo successivo attacco base gli fornisce uno scudo e un breve potenziamento.",
+      "Rafforza il suo prossimo attacco base, che colpisce servitori e mostri molto più duramente. Finire un'unità o colpire un eroe con esso fornisce cariche permanenti che ne aumentano il danno: il cuore della sua crescita di potere.",
+      "Una posizione difensiva che riduce i danni subiti fino a due secondi, quindi danneggia i nemici vicini e li stordisce, più a lungo viene mantenuta la posizione.",
+      "Fornisce visione a tutti gli eroi nemici per alcuni secondi. Rilanciato, si precipita verso uno di essi, lo ferisce secondo i suoi HP e lo respinge; la fretta interrompe il ritorno alla base."
+    ],
+    "strengths": [
+      "Cariche permanenti che ne aumentano i danni durante il gioco",
+      "La percentuale di vittorie è stata pari a quasi il sessanta per cento nelle partite lunghe",
+      "Una suprema che rivela tutti gli eroi nemici e interrompe il ritorno alla base",
+      "Raramente vietato"
+    ],
+    "weaknesses": [
+      "Molto debole nelle partite corte secondo le misurazioni",
+      "Dipende dalle cariche accumulate prima dei combattimenti",
+      "In difficoltà contro Esmeralda, Karina e Ciclope secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Corsia EXP",
+        "context": "La build di gran lunga più giocata nella corsia EXP: Blade of the Heptaseas rafforza il primo attacco dopo alcuni secondi fuori dal combattimento, Endless Battle l'attacco che segue ogni abilità e Malefic Roar aggiunge penetrazione fisica. È associato all'emblema dell'assassino, ai talenti Wilderness Blessing e Quantum Charge e all'incantesimo Flicker."
+      },
+      {
+        "name": "Versione difensiva",
+        "context": "Una versione difensiva, molto meno giocata, con un tasso di vittoria misurato più elevato: Thunder Belt e Dominance Ice forniscono HP e resistenze, e Dominance Ice riduce anche la guarigione e gli scudi dei nemici vicini."
+      }
+    ]
+  },
+  "badang": {
+    "summary": "Combattente con ostacoli: crea un muro dietro il suo bersaglio e lo lancia lì per stordire, e può essere giocato sia in roaming che in corsia EXP.",
+    "analysis": "Badang gioca con gli ostacoli. Dopo quattro attacchi base, quello successivo respinge, e i soffi delle sue abilità respingono direttamente: un nemico scagliato contro un ostacolo resta stordito. La sua abilità 2 lo fa correre mentre ottiene uno scudo; se colpisce un eroe, si ferma e crea un ostacolo proprio dietro di lui. La sua abilità 1, su due cariche, manda un soffio che fa male, rallenta e respinge, quanto basta per inchiodare il bersaglio contro questo muro. La Ultimate concatena una raffica di pugni in una direzione rendendola impermeabile ai controlli.\n\nI suoi numeri misurati sono nella media a tutti i livelli, con un leggero vantaggio nelle partite brevi, e viene scelto abbastanza spesso. Giocato in roaming così come in corsia EXP, richiede principalmente oggetti di difesa: HP, armature e resistenze piuttosto che danni. Le misurazioni lo mettono in difficoltà contro Karina, Lolita, Esmeralda, Khufra e Phoveus, e a suo agio contro Fanny, Sun e Zilong.",
+    "skills": [
+      "Dopo quattro attacchi base, il successivo danneggia di più e respinge; un nemico scagliato contro un ostacolo rimane stordito. I soffi delle sue abilità attivano direttamente questo effetto e quello della suprema stordisce più a lungo.",
+      "Un pugno che danneggia, rallenta e respinge i nemici ed esplode contro un ostacolo. Due cariche, per continuare a inchiodare il bersaglio contro l'ostacolo dell'abilità 2.",
+      "Correte in una direzione ottenendo uno scudo. Se colpisce un eroe, si ferma, lo spinge leggermente indietro e crea un ostacolo dietro di lui per qualche secondo; riavviato rimuove l'ostacolo.",
+      "Una raffica di pugni in una direzione, impermeabile ai controlli per tutta la durata. I soffi esplodono contro gli ostacoli: lanciato contro i nemici bloccati contro un muro, li colpisce ripetutamente."
+    ],
+    "strengths": [
+      "Stordimenti ripetuti contro i propri ostacoli",
+      "Scudo sull'abilità 2",
+      "Non viene influenzato dai controlli durante la finale",
+      "Giocabile sia in roaming che in corsia EXP"
+    ],
+    "weaknesses": [
+      "Tasso di vittoria misurato nella media, senza punti di forza marcati",
+      "Controlli che richiedono un ostacolo ben posizionato",
+      "In difficoltà contro Karina, Lolita ed Esmeralda secondo i provvedimenti"
+    ],
+    "builds": [
+      {
+        "name": "Roam",
+        "context": "La build più giocata in roaming: Thunder Belt per HP, resistenze e rallentamento dei suoi attacchi, Dominance Ice per resistenze e riduzione della guarigione dei nemici vicini, Chastise Pauldron per ridurre la velocità di attacco di chi lo colpisce. Si gioca quasi anche Antique Cuirass al posto di Chastise Pauldron."
+      },
+      {
+        "name": "Corsia EXP",
+        "context": "Gli stessi oggetti nella corsia EXP: questa è anche la versione più giocata in questa posizione."
+      }
+    ]
+  },
+  "alpha": {
+    "summary": "Combattente alla difficoltà ufficiale più bassa, che combatte con un drone: ogni abilità coinvolge Beta, i cui colpi infliggono danni reali.",
+    "analysis": "Alpha combatte in coppia con Beta. Ogni abilità lanciata coinvolge il drone, che infligge veri e propri danni; Un nemico colpito due volte da Beta viene bloccato e ogni colpo di Alpha su di lui attiva un laser che lo rallenta notevolmente. La sua abilità 1 invia un'onda che rallenta, la sua abilità 2 colpisce a ventaglio dopo un breve ritardo e lo cura al primo nemico colpito. L'ultimo invia Beta a stordire un'area, quindi Alpha salta lì, lanciando in aria i nemici sul suo cammino per trasportarli fino al punto di impatto.\n\nI suoi numeri misurati sono leggermente al di sotto della media, senza differenze degne di nota a seconda della durata della partita. Viene giocato principalmente ai gradi bassi: il suo tasso di scelta scende con ogni grado da Epico a Gloria mitica, ed è molto raramente bannato. La patch 2.2.16 ha rafforzato la guarigione della sua abilità 2. Le misure lo mettono in difficoltà contro Benedetta, X.Borg, Valir, Lylia e Wanwan.",
+    "skills": [
+      "Ogni abilità fa sì che Beta attacchi. Un nemico colpito due volte dal drone viene bloccato: ogni volta che Alpha lo danneggia, Beta spara un laser che infligge danni veri e lo rallenta notevolmente per un istante.",
+      "Un'ondata di energia che danneggia e rallenta i nemici sul suo cammino, seguita da un'esplosione di Beta sullo stesso percorso.",
+      "Dopo un breve ritardo, un ventilatore soffia; il primo nemico colpito lo cura, i successivi sempre meno. Beta quindi mitraglia l'area.",
+      "Beta si tuffa nell'area prescelta e stordisce i nemici colpiti; Alpha gli salta dietro, lanciando in aria quelli che incontra, trasportandoli fino al punto di impatto e rallentandoli mentre cade."
+    ],
+    "strengths": [
+      "Danni grezzi beta per abilità",
+      "Una suprema che stordisce e raggruppa i nemici",
+      "Guarisci con l'abilità 2",
+      "Difficoltà ufficiale al livello più basso"
+    ],
+    "weaknesses": [
+      "Il tasso di vincita misurato è leggermente inferiore alla media",
+      "Ha giocato poco nelle alte classifiche",
+      "In difficoltà contro Benedetta, X.Borg e Valir secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Giungla",
+        "context": "La build più giocata nella giungla: War Axe accumula attacco in combattimento con PV e furto di vita, Sky Piercer fornisce attacco, velocità ed esecuzione degli eroi che sono caduti molto in basso, Queen's Wings sopravvivenza quando il loro PV diminuisce."
+      },
+      {
+        "name": "Corsia EXP",
+        "context": "Gli stessi tre oggetti nella corsia EXP, con l'incantesimo Vengeance: questa è la versione più giocata in questa posizione."
       }
     ]
   },
@@ -544,6 +895,33 @@
       }
     ]
   },
+  "valir": {
+    "summary": "Controlla il mago che respinge e stordisce ripetutamente e le cui palle di fuoco si ricaricano ad ogni eroe colpito.",
+    "analysis": "Valir mette insieme i controlli più di quanto faccia esplodere i suoi bersagli. Ogni abilità che colpisce provoca una bruciatura sul bersaglio; a tre bruciature il fuoco esplode e lo stordisce, al massimo una volta ogni sette secondi sullo stesso bersaglio. La sua abilità 1 dura due cariche e ne recupera una non appena colpisce un eroe, il che gli permette di rilanciarla quasi senza sosta purché miri correttamente; la sua abilità 2 respinge i nemici fino alla fine del suo getto di fiamme. La suprema lo libera dai suoi effetti negativi, lo accelera e potenzia per qualche secondo le sue due abilità: portata aumentata per la palla di fuoco, muro di fiamme che rallenta per l'abilità 2.\n\nLe sue cifre misurate sono coerenti: tasso di vincita superiore alla media ad ogni livello, divieti bassi. È più efficace nelle partite brevi e il suo vantaggio si riduce man mano che il gioco si allunga. Nella corsia centrale, la stessa build domina chiaramente sulle altre. Le misurazioni lo mettono in difficoltà contro Rafaela, Helcurt, Kaja, Mathilda e Natalia, e a suo agio contro Fredrinn, Alice, Balmond e Leomord.",
+    "skills": [
+      "Ogni abilità che colpisce provoca un'ustione che infligge danni in base agli HP del bersaglio. A tre colpi, il fuoco esplode e stordisce, al massimo una volta ogni sette secondi, sullo stesso bersaglio.",
+      "Una palla di fuoco che esplode sul primo bersaglio rallentandolo, poi esplodono a loro volta le fiamme a terra. Due accuse; toccare un eroe o un mostro leggendario ne crea immediatamente uno, toccare un servitore accelera quello successivo.",
+      "Un getto di fiamma che respinge i nemici fino alla fine della sua corsa: lo strumento per respingere un aggressore. Sotto la suprema, lascia un muro di fiamme che ferisce e rallenta.",
+      "Rimuove tutti i suoi effetti negativi, lo accelera brevemente e rafforza entrambe le sue abilità per alcuni secondi. Per continuare a liberarsi da un effetto negativo così come per attaccare."
+    ],
+    "strengths": [
+      "Controlli ripetuti: respingimento, rallentamento e stordimento",
+      "Le palle di fuoco sparavano quasi senza sosta quando colpivano",
+      "Un ultimo che lo libera dai suoi effetti negativi",
+      "Tasso di vincita misurato sopra la media ad ogni livello"
+    ],
+    "weaknesses": [
+      "Un vantaggio misurato che si riduce nelle partite lunghe",
+      "Uno stordimento limitato sullo stesso bersaglio",
+      "In difficoltà contro Rafaela, Helcurt e Kaja secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Mid lane",
+        "context": "La build di gran lunga più giocata nella corsia centrale: Glowing Wand brucia i bersagli e riduce le loro cure e scudi, Ice Queen Wand aggiunge un rallentamento a ogni abilità che colpisce e ruba vita dagli incantesimi e Wishing Lantern punisce i bersagli con molti HP. È associato all'emblema comune e ai talenti Festival of Blood e Impure Rage."
+      }
+    ]
+  },
   "granger": {
     "summary": "Tiratore di riviste: il suo danno deriva dalle sue abilità, non dalla sua velocità di attacco.",
     "analysis": "Granger non è costruito come uno sparatutto classico. La sua abilità 1 spara sei proiettili, l'ultimo dei quali è sempre critico, e la sua passiva converte la riduzione della ricarica in un attacco fisico, il che rende la velocità d'attacco quasi inutile su di lui: acquisti danno da attacco e penetrazione.\n\nCiò gli conferisce un picco di potenza molto precoce, sfruttabile nella giungla dal primo oggetto. La sua fragilità resta quella di un tiratore, aggravata dalla mancanza di controllo, a parte il breve rallentamento della sua suprema: mal posizionato, ha solo la sua abilità 2 e i tiri della sua suprema per sperare di scappare.",
@@ -714,6 +1092,91 @@
       }
     ]
   },
+  "obsidia": {
+    "summary": "Tiratrice che accumula frammenti di ossa a ogni colpo e la cui suprema si attacca al bersaglio, impedendo qualsiasi fuga attraverso un'abilità di movimento.",
+    "analysis": "Obsidia carica la sua passiva colpendo: ogni attacco o abilità su un nemico riempie di energia che forma schegge di ossa, fino a venticinque, e ciascuno dei suoi attacchi base manda tutte le schegge a colpire il bersaglio. La sua abilità 1, un ago lanciato a distanza, porta tre volte più energia di un attacco e innesca i frammenti al primo eroe colpito; la sua abilità 2 le dà una breve spinta. La Ultimate stordisce brevemente il primo eroe colpito, si tira fino a lui e li collega per tre secondi: il bersaglio non può più usare abilità di movimento, Obsidia ottiene uno scudo e frammenti temporanei e può attaccare mentre si muove.\n\nÈ una delle eroine più contestate del momento: terzo tasso di ban e quarto tasso di selezione tra tutti gli eroi, con un ban che supera la metà dei giochi di Mythic Honor e che è ulteriormente aumentato negli ultimi trenta giorni. La sua percentuale di vittorie misurata è superiore alla media, più alta nelle partite sotto i sedici minuti che oltre i diciotto. Le misurazioni la mettono in difficoltà contro Baxia, Diggie, Estes, Miya e Bruno.",
+    "skills": [
+      "Colpire un nemico dà loro energia, di più con un eroe e tre volte di più con un'abilità; i mostri non ne danno. L'energia forma frammenti di ossa e ogni attacco base fa sì che tutti i frammenti colpiscano il bersaglio.",
+      "Un ago lanciato a distanza che danneggia i nemici colpiti e innesca schegge sul primo eroe raggiunto: da lanciare spesso in corsia per caricare la passiva.",
+      "Immergiti nell'ombra e ottieni per un istante una velocità di movimento molto elevata: il suo strumento di riposizionamento. Rafforzato durante l'ultimate, dura più a lungo e ritorna molto più velocemente.",
+      "Stordisce brevemente il primo eroe colpito e si avvicina a lui per attaccarsi a lui. Per tre secondi, il bersaglio non può più utilizzare un'abilità di movimento e la trascina muovendosi; Obsidia ottiene uno scudo e frammenti temporanei, attraversa gli ostacoli e attacca mentre si muove."
+    ],
+    "strengths": [
+      "Una suprema che impedisce al bersaglio di fuggire con un'abilità di movimento",
+      "Frammenti che rafforzano ogni attacco base",
+      "Tasso di vittorie misurato sopra la media, soprattutto prima del sedicesimo minuto",
+      "Scudo e attacco in movimento durante la Ultimate"
+    ],
+    "weaknesses": [
+      "Bandita in più della metà dei giochi a partire da Mythic Honor",
+      "Prestazioni misurate in diminuzione nelle partite lunghe",
+      "In difficoltà contro Baxia, Diggie ed Estes secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Recensione sulla corsia d'oro",
+        "context": "La build più giocata nella corsia d'oro: Windtalker e Haas' Claws forniscono velocità di attacco e possibilità critica di moltiplicare gli attacchi base che inviano schegge, Haas' Claws rubavita e Sky Piercer giustizia un eroe caduto molto in basso. È associato all'emblema del combattente e al talento Weakness Finder."
+      },
+      {
+        "name": "Attacchi pesanti",
+        "context": "Corrosion Scythe e Demon Hunter Sword invece di Windtalker e Haas' Claws: attacchi base che rallentano, infliggono danni in base agli HP attuali del bersaglio e lo curano. Meno giocato, con una percentuale di vincita misurata leggermente più alta."
+      }
+    ]
+  },
+  "bruno": {
+    "summary": "Tiratore critico che gioca con la palla: le sue abilità gli danno possibilità critiche e la sua abilità rimbalza da un nemico all'altro.",
+    "analysis": "Bruno ottiene una probabilità critica ogni volta che un'abilità infligge danni, accumulandosi; in cambio, ha più attacco fisico ma beneficia meno della velocità di attacco. La sua abilità 1 rinforza il suo attacco successivo con un tiro di palloncino che rallenta, poi la palla cade a terra: recuperandola dà un nuovo attacco e riduce la ricarica della sua abilità 2. Si tratta di una scivolata che stordisce brevemente i nemici sul suo cammino e gli restituisce un palloncino. L'ultimo colpisce un eroe, lo respinge alla fine del suo raggio d'azione, lo stordisce e lo rallenta notevolmente, quindi rimbalza sugli altri nemici, prendendo di mira prima gli eroi.\n\nI suoi dati misurati sono solidi e coerenti: tasso di vittoria superiore alla media ad ogni livello e qualunque sia la durata del gioco, migliore in Mythic Glory, per quasi zero ban. Il suo partner più misurato è Harith. Le misurazioni lo mettono in difficoltà contro Lolita, chiaramente, poi contro Lesley, Aamon, Karina e Saber.",
+    "skills": [
+      "Ogni abilità che infligge danni gli dà una piccola possibilità critica, che può essere accumulata. Ha un attacco fisico maggiore del normale, ma beneficia solo di una parte dei bonus alla velocità di attacco.",
+      "Il suo successivo attacco base lancia una palla che danneggia e rallenta il bersaglio, quindi cade a terra. Raccogliere lui o un alleato consente un nuovo attacco e riduce la ricarica dello scivolo.",
+      "Uno scivolo che stordisce brevemente i nemici sul suo cammino e all'arrivo gli regala un palloncino: il suo strumento di fuga e completamento.",
+      "Colpisce un eroe nemico, respingendolo fino alla fine della sua portata, stordendolo e rallentandolo notevolmente, quindi rimbalza tra i nemici più volte, mirando prima agli eroi."
+    ],
+    "strengths": [
+      "Tasso di vincita misurato sopra la media ad ogni livello",
+      "Uno scivolo che stordisce e funge da via di fuga",
+      "Una definitiva che respinge, stordisce e poi rimbalza",
+      "Raramente vietato"
+    ],
+    "weaknesses": [
+      "Beneficia solo di una parte dei bonus alla velocità di attacco",
+      "Dipende dai palloncini da raccogliere in catena",
+      "Lottando contro Lolita, Lesley e Aamon secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Recensione sulla corsia d'oro",
+        "context": "La build più giocata in Gold Lane: Haas' Claws e Berserker's Fury si concentrano sul critico, che la sua passiva alimenta, Haas' Claws aggiunge lifesteal e Malefic Gun penetrazione fisica e portata. Le tre versioni più giocate condividono questi elementi; quello con l'emblema del combattente con Flicker mostra la migliore percentuale di vincita misurata."
+      }
+    ]
+  },
+  "layla": {
+    "summary": "Tiratrice a distanza il cui danno aumenta con la distanza, ampiamente giocato nelle prime file e sempre meno man mano che si sale.",
+    "analysis": "Layla spara da lontano e ha interesse a restare lì: la sua passiva aumenta i suoi danni con la distanza, fino a un massimo a lungo raggio. La sua abilità 1 lancia una bomba che, se colpisce, estende per qualche secondo la portata dei suoi attacchi base e della sua abilità 2 e la accelera. La sua abilità 2 segna il bersaglio; quindi colpire un bersaglio contrassegnato infligge danni attorno ad esso e lo stordisce molto brevemente. L'ultimo estende permanentemente la portata dei suoi attacchi e della sua abilità 2 e si lancia con un tiro potente in linea retta.\n\nIl suo tasso di scelta misurato è elevato ai livelli Epico e Leggendario e diminuisce con ogni grado fino a Gloria Mitica, dove anche il suo tasso di vincita è più basso. È molto debole nelle partite inferiori ai dodici minuti, poi sopra la media tra il quattordicesimo e il ventesimo. Non salta né si teletrasporta. Le misurazioni la mettono in difficoltà contro Atlas, Johnson, Sun, Khufra e Hylos.",
+    "skills": [
+      "Il suo danno aumenta con la distanza dal bersaglio, raggiungendo il massimo a lungo raggio. L'effetto non si applica alle torrette.",
+      "Una bomba che danneggia il primo nemico colpito e può colpire in modo critico. Se colpisce, i suoi attacchi base e l'abilità 2 vengono protratti per alcuni secondi e ottiene un potenziamento che dura il doppio del tempo su un eroe.",
+      "Una sfera che danneggia il bersaglio e i suoi vicini e li marchia per alcuni secondi. Quindi colpire un bersaglio contrassegnato infligge danni attorno ad esso e lo stordisce molto brevemente.",
+      "Estende permanentemente la portata dei suoi attacchi base, della sua abilità 2 e un po' della sua visione. Lanciato, un potente colpo in linea retta che danneggia tutti i nemici attraversati."
+    ],
+    "strengths": [
+      "Lungo raggio, ulteriormente esteso dall'abilità 1 e suprema",
+      "Danni a distanza aumentati",
+      "Tasso di vittorie misurato sopra la media tra il quattordicesimo e il ventesimo minuto"
+    ],
+    "weaknesses": [
+      "Né saltare né teletrasportarsi per scappare",
+      "Molto debole nelle partite corte secondo le misurazioni",
+      "Tasso di vincita più basso misurato in Mythic Glory",
+      "In difficoltà contro Atlas, Johnson e Sun secondo i provvedimenti"
+    ],
+    "builds": [
+      {
+        "name": "Recensione sulla corsia d'oro",
+        "context": "La build più giocata in Gold Lane, di gran lunga: Windtalker fornisce velocità di attacco, velocità critica e di movimento, Berserker's Fury danno critico, Haas' Claws rubavita e velocità di attacco in caso critico. È associato all'emblema dell'assassino, al talento Quantum Charge e all'incantesimo Flicker."
+      }
+    ]
+  },
   "estes": {
     "summary": "La cura più crudele del gioco: la sua abilità suprema rigenera l'intera squadra per diversi secondi.",
     "analysis": "Estes non fa altro che guarire, ma lo fa a un volume che nessun altro supporto raggiunge. In un combattimento prolungato attorno a un obiettivo, la sua suprema può annullare i danni sostenuti di un'intera composizione.\n\nQuesto lo rende anche l'eroe più dipendente dal contesto dell'intero gioco. Contro una squadra che acquista la riduzione della guarigione, o che ha un'iniziazione in grado di rimuoverlo per prima, diventa quasi inutile. Fornisce solo rallentamento ad area, pochi danni e nessuna mobilità: se non guarisce, non esiste.",
@@ -870,6 +1333,37 @@
       {
         "name": "Vagare al contatto",
         "context": "La build più giocata, in assoluto: Cursed Helmet brucia i nemici intorno a lei e mantiene così la fuga delle difese dalla sua passiva, Dominance Ice riduce la loro guarigione, Antique Cuirass indebolisce il danno fisico di coloro che la toccano con le abilità."
+      }
+    ]
+  },
+  "marcel": {
+    "summary": "Supporto di controllo la cui suprema congela tutto in una vasta area, tranne lui e gli alleati che ha protetto.",
+    "analysis": "Marcel gioca con Clemar, la sua anima da fotografo. La sua passiva fotografa automaticamente gli eroi nemici vicini, li congela per un momento, infligge loro danni reali e fornisce uno scudo dello stesso valore a Marcel e a un alleato vicino; i suoi attacchi base aumentano con le sue resistenze e i suoi HP aggiuntivi diventano resistenza ibrida. La sua abilità 2 lo accelera, di più quando corre verso un eroe nemico, poi lo fa saltare lasciandosi dietro l'area della sua abilità 1, che rallenta notevolmente gli eroi per poi colpirli dopo un breve ritardo. L'ultimo congela tutte le unità in una vasta area per due secondi, compresi i proiettili, e lascia liberi solo Marcel e gli alleati che portano il suo scudo.\n\nI suoi parametri sono tra i più forti del gioco: seconda percentuale di vittorie di tutti gli eroi e un ban che sale con il grado, raro in Epic, in più di due partite su tre in Mythic Glory. È particolarmente formidabile all'inizio: la sua percentuale di vittorie è più alta nelle partite più brevi e poi diminuisce con ogni periodo di durata. La patch 2.2.16 ha esteso i tempi di recupero delle sue abilità 1 e 2 e della sua suprema. I provvedimenti lo mettono in difficoltà contro Floryn, Angela, Lesley, Esmeralda e Ciclope; il suo partner più misurato è Kalea.",
+    "skills": [
+      "Clemar fotografa automaticamente gli eroi nemici vicini a Marcel: il bersaglio viene congelato per un istante e subisce danni gravi, e Marcel, come uno stretto alleato, riceve uno scudo dello stesso valore, una volta per bersaglio a intervalli regolari. I suoi attacchi base aumentano con le sue resistenze.",
+      "Un'area attorno a Marcel che rallenta notevolmente gli eroi nemici, per poi colpirli dopo un breve ritardo. Il suo danno aumenta con la sua resistenza fisica e magica.",
+      "Lo accelera per alcuni secondi, molto di più verso un eroe nemico. Rilanciato, salta lasciando un doppio, mentre l'area della skill 1 resta al suo posto: basta entrare, posizionare l'area ed uscire.",
+      "Dopo un breve ritardo, congela per due secondi tutte le unità in una vasta area, che subiscono solo gli effetti di Marcel; anche lì i proiettili si congelano. Reimposta la sua passiva per ogni eroe nemico catturato e gli alleati che portano il suo scudo rimangono liberi."
+    ],
+    "strengths": [
+      "Seconda percentuale di vincita misurata di tutti gli eroi",
+      "Un'abilità suprema che congela un'intera area, compresi i proiettili",
+      "Uno scudo automatico per lui e un alleato",
+      "Molto forte nelle partite corte secondo le misurazioni"
+    ],
+    "weaknesses": [
+      "Bandito in più di due giochi su tre in Mythic Glory",
+      "Rendimento misurato in diminuzione man mano che il gioco si allunga",
+      "Lottando contro Floryn, Angela e Lesley secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Roam",
+        "context": "La build più giocata in roaming: Thunder Belt e Dominance Ice forniscono le resistenze che avvantaggiano i suoi attacchi e la sua abilità 1, Dominance Ice riduce anche la guarigione e gli scudi dei nemici vicini e Flask of the Oasis aumenta la guarigione fornita e protegge un alleato in pericolo."
+      },
+      {
+        "name": "Vagare Flicker",
+        "context": "Gli stessi oggetti con Quantum Charge e Flicker: quasi come giocati, per un tasso di vittoria misurato inferiore rispetto alla versione Revitalize."
       }
     ]
   },
@@ -1073,6 +1567,37 @@
       {
         "name": "Cura ricevuta",
         "context": "Oracle invece di Radiant Armor rafforza le cure e gli scudi che riceve, incluso il suo: meno giocato, con un tasso di vittoria misurato più alto."
+      }
+    ]
+  },
+  "alice": {
+    "summary": "Maga tank che si annida tra i nemici: finché le sue abilità colpiscono, brucia tutto ciò che la circonda e guarisce se stessa.",
+    "analysis": "Alice gioca a contatto nonostante il suo danno magico. Due abilità che colpiscono in rapida successione attivano la sua passiva, un'aura che danneggia i nemici vicini a intervalli regolari, la cura e la accelera, e che ogni abilità che colpisce un eroe prolunga. La sua abilità 1 lancia un'esplosione di sangue a cui può unirsi teletrasportandosi; la sua abilità 2, con ricarica breve, fa male e rallenta pesantemente intorno a lei, e brucia di più quando l'aura è attiva. La Ultimate la rende immune ai controlli e riduce i danni subiti durante la carica, quindi ricade nell'area, immobilizzando i nemici.\n\nI suoi valori misurati sono nella media, con un tasso di vittoria che migliora leggermente nelle partite lunghe e un ban più frequente in Mythic che in Mythic Glory. Nella giungla, la build più giocata è chiaramente più giocata di tutte le altre. Le misurazioni la pongono in difficoltà contro Angela, Floryn, Karrie, Estes e Valir, e a suo agio contro Chip, Gloo, Tigreal, Barats e Atlas.",
+    "skills": [
+      "Ogni abilità che va a segno le dà una carica; con due cariche, un'aura danneggia i nemici vicini a intervalli regolari, la cura e ne accelera il movimento. Colpire un eroe con un'abilità estende l'aura.",
+      "Lancia un'esplosione di sangue in avanti; rianimata prima che si dissolva, Alice si teletrasporta al suo punto di arrivo. Questa è la sua iniziazione e l'unica abilità ancora utilizzabile durante la carica della Ultimate.",
+      "Una danza che danneggia i nemici intorno a lei e li rallenta in modo significativo. Aura attiva, brucia anche i bersagli e la cura di altrettanto: da rilanciare appena sarà disponibile, la sua ricarica è breve.",
+      "Durante una carica breve, Alice è immune ai controlli e subisce meno danni, ma si muove più lentamente; poi ricade sull'area, ferendo e immobilizzando tutti i nemici presenti."
+    ],
+    "strengths": [
+      "Guarigione continua finché le sue abilità influenzano",
+      "Non viene influenzata dai controlli mentre la Ultimate è in carica",
+      "Un'abilità con tempo di recupero breve 2 che rallenta in modo significativo",
+      "A suo agio contro Chip, Gloo e Tigreal secondo le misurazioni"
+    ],
+    "weaknesses": [
+      "Un'aura che si spegne se le sue abilità falliscono",
+      "La percentuale di vittorie è misurata più in basso nelle partite brevi",
+      "Lottando contro Angela, Floryn e Karrie secondo le misurazioni"
+    ],
+    "builds": [
+      {
+        "name": "Giungla",
+        "context": "La build più giocata nella giungla, nettamente davanti alle altre: Brute Force Breastplate e Oracle forniscono HP, armatura e riduzione della ricarica, e Oracle rinforza le cure ricevute, inclusa quella della sua aura; Concentrated Energy aggiunge potere magico, HP e rubavita ibrido."
+      },
+      {
+        "name": "Corsia EXP",
+        "context": "Gli stessi tre oggetti nella corsia EXP, con l'incantesimo Revitalize invece di Retribution: questa è la versione più giocata in questa posizione."
       }
     ]
   }

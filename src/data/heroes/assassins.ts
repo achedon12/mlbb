@@ -326,4 +326,186 @@ export const assassins: HeroAnalysis[] = [
       },
     ],
   },
+  {
+    slug: "aamon",
+    summary:
+      "Assassin magique camouflé par chaque compétence qui touche ; son ultime achève d'autant mieux que la cible est blessée.",
+    analysis:
+      "Aamon alterne camouflage et attaques renforcées. Chaque compétence qui touche un ennemi le camoufle : il ne peut plus être ciblé, récupère des PV et gagne de la vitesse ; en sortant de cet état, ses attaques de base des secondes suivantes sont renforcées, infligent des dégâts magiques et réduisent ses recharges. Ses attaques renforcées chargent des éclats. L'ultime les lance tous sur une cible : plus il a d'éclats en réserve et au sol, plus la salve est longue, et ses dégâts montent à mesure que la cible perd ses PV.\n\n" +
+      "Ses chiffres mesurés sont légèrement sous la moyenne à tous les rangs, sans grand écart selon la durée de partie ; son taux de sélection a en revanche monté sur les trente derniers jours. Les mesures le placent en difficulté face à Gloo, Lolita, Silvanna, Hayabusa et Masha, et à l'aise face à Cici, Marcel, Claude et Bruno.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Invisible Armor",
+        description:
+          "Chaque compétence qui touche le camoufle : impossible à cibler, il récupère des PV et gagne une vitesse qui décroît vite. En sortant du camouflage, ses attaques de base sont renforcées quelques secondes, infligent des dégâts magiques et réduisent ses recharges.",
+      },
+      {
+        type: "Skill 1",
+        name: "Soul Shards",
+        description:
+          "En passif, ses attaques renforcées et le camouflage chargent son armure ; à cinq charges, sa prochaine attaque lance une volée d'éclats qui restent ensuite au sol autour de la cible. En actif, lance un éclat sur un ennemi proche.",
+      },
+      {
+        type: "Skill 2",
+        name: "Slayer Shards",
+        description:
+          "Lance un éclat vers l'avant qui ralentit les ennemis touchés, puis revient vers lui et le camoufle ; il revient aussitôt s'il touche autre chose qu'un sbire. La compétence pour contourner l'ennemi sous camouflage.",
+      },
+      {
+        type: "Ultimate",
+        name: "Endless Shards",
+        description:
+          "Lance tous ses éclats sur un ennemi et le ralentit ; leur nombre dépend de ses charges et des éclats au sol. Les dégâts augmentent avec les PV perdus de la cible, au maximum sous trente pour cent de ses PV.",
+      },
+    ],
+    strengths: [
+      "Impossible à cibler sous camouflage, et soigné pendant ce temps",
+      "Un ultime qui gagne en dégâts sur une cible blessée",
+      "Recharges réduites par ses attaques renforcées",
+    ],
+    weaknesses: [
+      "Taux de victoire mesuré légèrement sous la moyenne à tous les rangs",
+      "Un camouflage qui dépend de compétences qui touchent",
+      "En difficulté face à Gloo, Lolita et Silvanna selon les mesures",
+    ],
+    strongAgainst: ["cici", "marcel", "claude", "bruno", "xavier"],
+    weakAgainst: ["gloo", "lolita", "silvanna", "hayabusa", "masha"],
+    builds: [
+      {
+        name: "Jungle magique",
+        context:
+          "Le build le plus joué en jungle : Genius Wand réduit la défense magique des héros touchés et ajoute de la pénétration, Holy Crystal maximise la puissance magique et Divine Glaive la pénétration magique, pour des attaques renforcées et un ultime qui achèvent.",
+        items: ["Genius Wand", "Holy Crystal", "Divine Glaive"],
+        emblem: "Emblème de mage",
+        talent: "Killing Spree",
+        spell: "Retribution",
+      },
+      {
+        name: "Exécution",
+        context:
+          "Sky Piercer en premier objet, qui exécute un héros tombé très bas et dont le seuil monte avec les éliminations : le deuxième build le plus joué, avec un taux de victoire mesuré proche.",
+        items: ["Sky Piercer", "Genius Wand", "Holy Crystal"],
+        emblem: "Emblème de mage",
+        talent: "Killing Spree",
+        spell: "Retribution",
+      },
+    ],
+  },
+  {
+    slug: "nolan",
+    summary:
+      "Assassin de jungle qui découpe des failles avec chaque compétence : deux failles qui se touchent attirent les ennemis, explosent et lui rendent des PV.",
+    analysis:
+      "Nolan joue sur ses failles. Chaque compétence en laisse une, qui ralentit les ennemis ; quand deux failles se touchent, elles attirent les ennemis vers leur centre puis explosent, et chaque héros ou monstre touché lui rend de l'énergie et des PV. Ses deux premières compétences ont des recharges très courtes, l'une frappe une zone devant lui, l'autre le fait charger, et s'enchaînent pour faire se croiser les failles. L'ultime taillade trois fois une zone, y laisse trois failles et les déclenche pendant qu'il recule. Après quelques secondes sans infliger ni subir de dégâts, sa prochaine attaque de base le fait bondir sur la cible en ouvrant une faille.\n\n" +
+      "Il est très disputé : cinquième taux de sélection de tous les héros, et un bannissement qui a presque doublé sur les trente derniers jours et grimpe avec le rang. Son taux de victoire mesuré, lui, reste autour de la moyenne, au-dessus dans les parties de moins de douze minutes puis en dessous au-delà de la quatorzième. Les mesures le placent nettement en difficulté face à Saber et Natalia, puis face à Jawhead et Hayabusa.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Dimensional Rift",
+        description:
+          "Ses compétences laissent des failles qui ralentissent. Deux failles qui se touchent attirent les ennemis vers leur centre puis explosent ; chaque héros ou monstre touché lui rend énergie et PV. Après quelques secondes hors combat, sa prochaine attaque de base le fait bondir sur la cible.",
+      },
+      {
+        type: "Skill 1",
+        name: "Expansion",
+        description:
+          "Tranche une zone rectangulaire devant lui et laisse une faille sur le premier ennemi touché. Recharge très courte.",
+      },
+      {
+        type: "Skill 2",
+        name: "Gauge",
+        description:
+          "Charge dans une direction en blessant les ennemis sur son trajet et laisse une faille : son déplacement, et le moyen de croiser deux failles.",
+      },
+      {
+        type: "Ultimate",
+        name: "Fracture",
+        description:
+          "Taillade trois fois une zone, ralentit la cible touchée et laisse trois failles, qui se déclenchent d'elles-mêmes pendant qu'il recule.",
+      },
+    ],
+    strengths: [
+      "Des recharges très courtes sur ses deux premières compétences",
+      "Des explosions de failles qui lui rendent des PV",
+      "Un ultime qui frappe puis le fait reculer",
+      "Fort taux de victoire mesuré dans les parties courtes",
+    ],
+    weaknesses: [
+      "Taux de victoire mesuré sous la moyenne au-delà de la quatorzième minute",
+      "Des dégâts réduits quand une même cible subit plusieurs explosions",
+      "Nettement en difficulté face à Saber et Natalia selon les mesures",
+    ],
+    strongAgainst: ["estes", "yve", "zhuxin", "x-borg", "baxia"],
+    weakAgainst: ["saber", "natalia", "jawhead", "hayabusa", "arlott"],
+    builds: [
+      {
+        name: "Jungle",
+        context:
+          "Le build le plus joué en jungle : Hunter Strike apporte attaque, réduction de recharge, pénétration et une accélération après plusieurs coups sur la même cible, Blade of the Heptaseas renforce la première attaque après quelques secondes hors combat, comme le bond de son passif, et Malefic Roar ajoute la pénétration physique. Lethal Ignition est choisi aussi souvent qu'Impure Rage.",
+        items: ["Hunter Strike", "Blade of the Heptaseas", "Malefic Roar"],
+        emblem: "Emblème d'assassin",
+        talent: "Impure Rage",
+        spell: "Retribution",
+      },
+    ],
+  },
+  {
+    slug: "saber",
+    summary:
+      "Assassin à cible unique : son ultime soulève un héros ennemi et le frappe trois fois, sans que la résilience n'y change rien.",
+    analysis:
+      "Saber est construit pour éliminer un héros précis. Ses dégâts réduisent l'armure physique de la cible, en se cumulant. Sa compétence 1 fait tourner cinq épées autour de lui ; pendant leur durée, chaque coup d'épée frappe sa cible et réduit ses deux recharges. Sa compétence 2 le fait foncer puis renforce sa prochaine attaque de base, qui le lance sur la cible et la ralentit fortement. L'ultime le fait charger un héros ennemi, le projette en l'air un peu plus d'une seconde sans que la résilience ne réduise l'effet, et le frappe trois fois.\n\n" +
+      "Ses chiffres mesurés changent nettement avec le rang : taux de victoire sous la moyenne en Épique, au-dessus en Gloire mythique, et bannissement au plus haut en Légende et en Mythique. Il est surtout fort dans les parties courtes, au-dessus de cinquante-cinq pour cent avant la quatorzième minute. En roam, ses builds les plus joués ont un taux de victoire mesuré sous la moyenne ; ses meilleurs partenaires mesurés sont Diggie et Marcel. Les mesures le placent en difficulté face à Balmond, Leomord, Baxia, Miya et Sun.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Enemy's Bane",
+        description:
+          "Chaque fois qu'il inflige des dégâts, il réduit l'armure physique de la cible, en se cumulant jusqu'à cinq fois.",
+      },
+      {
+        type: "Skill 1",
+        name: "Orbiting Swords",
+        description:
+          "Cinq épées tournent autour de lui et blessent les ennemis proches. Pendant leur durée, chaque coup d'épée frappe la cible et réduit les recharges de ses compétences 1 et 2.",
+      },
+      {
+        type: "Skill 2",
+        name: "Charge",
+        description:
+          "Fonce dans une direction ; sa prochaine attaque de base le lance ensuite sur la cible, la blesse et la ralentit fortement. Sert autant à rattraper qu'à engager.",
+      },
+      {
+        type: "Ultimate",
+        name: "Triple Sweep",
+        description:
+          "Charge un héros ennemi, le projette en l'air un peu plus d'une seconde, sans que la résilience ne réduise l'effet, et le frappe trois fois, le dernier coup plus fort.",
+      },
+    ],
+    strengths: [
+      "Un ultime de cible unique que la résilience ne raccourcit pas",
+      "Réduction d'armure cumulée sur la cible",
+      "Fort taux de victoire mesuré dans les parties courtes",
+      "Recharges réduites par ses épées",
+    ],
+    weaknesses: [
+      "Builds de roam les plus joués sous la moyenne selon les mesures",
+      "Très banni en Légende et en Mythique",
+      "En difficulté face à Balmond, Leomord et Baxia selon les mesures",
+    ],
+    strongAgainst: ["ling", "nolan", "natalia", "lunox", "yve"],
+    weakAgainst: ["balmond", "leomord", "baxia", "miya", "sun"],
+    builds: [
+      {
+        name: "Jungle",
+        context:
+          "Le build le plus joué, en jungle : Hunter Strike apporte attaque, réduction de recharge et pénétration physique, War Axe de l'attaque cumulée en combat, des PV et du vol de vie, Endless Battle des dégâts bruts sur l'attaque qui suit chaque compétence.",
+        items: ["Hunter Strike", "War Axe", "Endless Battle"],
+        emblem: "Emblème d'assassin",
+        talent: "Temporal Reign",
+        spell: "Retribution",
+      },
+    ],
+  },
 ];
