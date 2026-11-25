@@ -1,10 +1,12 @@
 import { notFound } from "next/navigation";
 import { isLocale } from "@/i18n/config";
+import { asJpeg } from "@/lib/og/assets";
 import { skinsCard } from "@/lib/og/cards";
 import { site } from "@/lib/site";
 
 export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+// Re-encoded from the engine's PNG: a fraction of its weight (`asJpeg`).
+export const contentType = "image/jpeg";
 // The page's metadata gives the translated text (`metaPage`, `card: true`).
 export const alt = site.title;
 
@@ -21,5 +23,5 @@ export function generateStaticParams() {
 export default async function Image({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  return skinsCard(locale);
+  return asJpeg(await skinsCard(locale));
 }

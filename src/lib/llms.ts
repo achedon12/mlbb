@@ -3,7 +3,7 @@ import { ranksByPair } from "@/lib/pairs";
 import { botPublished } from "@/lib/bot/public";
 import { guides } from "@/lib/guides";
 import { site } from "@/lib/site";
-import { measure, rankingFull, RANKS_CLASSES, type RankedEntry } from "@/lib/tier-list";
+import { leaderOf, leadersOf, measure, rankingFull, RANKS_CLASSES, type RankedEntry } from "@/lib/tier-list";
 import { FILTERS_LANE, FILTERS_ROLE, filterRanking, pathFilter, type FilterTier } from "@/lib/tier-list-filters";
 import { countAdjustments, patchCurrent } from "@/lib/freshness";
 import { visualItem } from "@/lib/build-visuals";
@@ -43,7 +43,7 @@ const entryText = (e: RankedEntry) => `${e.hero.name} (${e.tier} tier, ${percent
 /** Freshness and citation paragraphs, shared by both files. */
 function freshness(): string {
   // The example quotes the real No. 1, not invented figures.
-  const first = rankingFull[0];
+  const first = leaderOf(rankingFull);
   const example = first
     ? `"${first.hero.name} is ${first.tier} tier with a ${percent(first.winRate)} win rate on patch ${patchCurrent?.version ?? "?"} (${site.name}, measured ${dateData ?? "?"}, ${link(`/heroes/${first.hero.slug}`)})."`
     : `"(hero) is (tier) tier with a (rate) win rate on patch (version) (${site.name}, measured (date), (page URL))."`;
@@ -74,10 +74,9 @@ export function llmsIndex(): string {
   // Sample duel taken from those in the sitemap (measured at two ranks at least):
   // a hard-coded pair can drop out of the measurements and return a 404.
   const duel = [...ranksByPair(counters, (s) => allHeroes.some((h) => h.slug === s))].find(([, n]) => n >= 2)?.[0];
-  const top = rankingFull.slice(0, 5);
-  const leaderOf = (f: FilterTier) => filterRanking(rankingFull, f)[0];
+  const top = leadersOf(rankingFull, 5);
   const filterLine = (f: FilterTier) => {
-    const leader = leaderOf(f);
+    const leader = leaderOf(filterRanking(rankingFull, f));
     return `- [${nameFilter(f)} tier list](${link(pathFilter(f))})${leader ? `: No. 1 right now is ${entryText(leader)}.` : "."}`;
   };
   const ranks = RANKS_CLASSES.filter((r) => r !== "all");
@@ -194,7 +193,7 @@ function heroLines(): string[] {
 /** The full file, `/llms-full.txt`: the index's description, then the figures. */
 export function llmsFull(): string {
   const leaders = (f: FilterTier) => {
-    const top = filterRanking(rankingFull, f).slice(0, 5);
+    const top = leadersOf(filterRanking(rankingFull, f), 5);
     return `- [${nameFilter(f)}](${link(pathFilter(f))}): ${top.length ? list(top.map(entryText)) : "not measured yet"}.`;
   };
   const patch = patchCurrent;

@@ -7,7 +7,7 @@ import { heroArt } from "@/components/hero-art";
 import { PosterHeader } from "@/components/poster-header";
 import { Score } from "@/components/ui";
 import { allHeroes, heroAnalyses, countSkins } from "@/lib/data";
-import { rankingFull, rateBySlug } from "@/lib/tier-list";
+import { leadersOf, rankingFull, rateBySlug } from "@/lib/tier-list";
 import { longDate, dateMeasure, listNames, patchCurrent } from "@/lib/freshness";
 import type { Locale } from "@/i18n/config";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -35,7 +35,7 @@ function descriptionCatalog(locale: Locale): string {
     n: allHeroes.length,
     v: patchCurrent.version,
     date: longDate(locale),
-    top: listNames(locale, rankingFull.slice(0, 3).map((e) => e.hero.name)),
+    top: listNames(locale, leadersOf(rankingFull, 3).map((e) => e.hero.name)),
     skins: countSkins,
     analyses: heroAnalyses.length,
   });
@@ -84,7 +84,7 @@ export function Heroes({ locale, page = 1 }: { locale: Locale; page?: number }) 
   });
 
   // The poster: the five strongest heroes of the patch, side by side.
-  const poster = rankingFull.slice(0, 5).map((e) => heroArt(e.hero.slug));
+  const poster = leadersOf(rankingFull, 5).map((e) => heroArt(e.hero.slug));
   // The role filter's art: the strongest hero of each role.
   const roleArt: Partial<Record<Role, string>> = {};
   for (const e of rankingFull) {

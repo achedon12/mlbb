@@ -22,6 +22,7 @@ import { monthByKey, monthKeys, referenceDate, sourcesForMonth } from "@/lib/eve
 import { serializeJsonLd } from "@/lib/html";
 import { eventMonthData } from "@/lib/structured-data";
 import { NotFoundPage } from "@/components/not-found-page";
+import { cn } from "@/lib/utils";
 
 type Params = { params: Promise<{ locale: Locale; month: string }> };
 
@@ -54,6 +55,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       summary: monthSummary(t, locale, m).join(" "),
     }),
     path: `/events/${m.month}`,
+    card: true,
     keywords: [`MLBB Starlight ${english}`, `MLBB events ${english}`, `Mobile Legends skins ${english}`, "MLBB Collector skin"],
   });
 }
@@ -189,39 +191,49 @@ export default async function EventMonthPage({ params }: Params) {
             {t("pages.events.month.next.title")}
           </h2>
           <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
-          {featured.length > 0 && (
-            <>
-              <h3 className="mt-6 type-subtitle text-chalk-200">{t("pages.events.month.next.heroes")}</h3>
-              <ul className="mt-3 grid max-w-3xl grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3">
-                {featured.map((slug) => {
-                  const h = heroesBySlug.get(slug)!;
-                  return (
-                    <li key={slug}>
-                      <HeroTile
-                        href={`/heroes/${slug}`}
-                        name={h.name}
-                        portrait={h.images.portrait}
-                        sizes="(min-width: 640px) 11rem, 30vw"
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-            </>
-          )}
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {[
-              { href: "/events", label: t("pages.events.month.allMonths"), name: "events" },
-              { href: calendarHref, label: t("nav.skinsCalendar.label"), name: "calendar" },
-              { href: "/tier-list", label: t("nav.tierList.label"), name: "tier-list" },
-            ].map((l) => (
-              <li key={l.name}>
-                <Link href={l.href} className="btn btn-secondary btn-sm">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* The heroes of the month on one side, the other calendars on the
+              other: the block fills the row instead of a lone portrait. */}
+          <div className={cn("mt-6 grid gap-6", featured.length > 0 && "lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-10")}>
+            {featured.length > 0 && (
+              <div>
+                <h3 className="type-subtitle text-chalk-200">{t("pages.events.month.next.heroes")}</h3>
+                <ul className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3">
+                  {featured.map((slug) => {
+                    const h = heroesBySlug.get(slug)!;
+                    return (
+                      <li key={slug}>
+                        <HeroTile
+                          href={`/heroes/${slug}`}
+                          name={h.name}
+                          portrait={h.images.portrait}
+                          sizes="(min-width: 1024px) 11rem, (min-width: 640px) 22vw, 30vw"
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+            <ul className={cn("grid content-start gap-2.5", featured.length > 0 ? "sm:grid-cols-3 lg:mt-10 lg:grid-cols-1" : "sm:grid-cols-3")}>
+              {[
+                { href: "/events", label: t("pages.events.month.allMonths"), name: "events" },
+                { href: calendarHref, label: t("nav.skinsCalendar.label"), name: "calendar" },
+                { href: "/tier-list", label: t("nav.tierList.label"), name: "tier-list" },
+              ].map((l) => (
+                <li key={l.name}>
+                  <Link
+                    href={l.href}
+                    className="bevel group flex items-center justify-between gap-3 bg-night-800 px-4 py-3.5 font-heading text-base font-bold uppercase text-chalk-100 transition-colors hover:bg-night-700 hover:text-gold-300"
+                  >
+                    {l.label}
+                    <span aria-hidden className="text-gold-400 transition-transform group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         <section className="space-y-3">

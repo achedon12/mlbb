@@ -10,7 +10,7 @@ import { historyStart } from "@/lib/evolution";
 import { dateMeasure, longDate } from "@/lib/freshness";
 import { SOURCE_HOMES } from "@/lib/page-sources";
 import { legal, site } from "@/lib/site";
-import { THRESHOLD_RELIABILITY, TIERS, WEIGHT_BAN } from "@/lib/tier-list";
+import { GAP_FRAGILE, THRESHOLD_RELIABILITY, TIERS, WEIGHT_BAN } from "@/lib/tier-list";
 import { DAYS_IMPACT, MEASURES_MIN_IMPACT, THRESHOLD_IMPACT, THRESHOLD_NOTABLE } from "@/lib/trends";
 import { DAILY_DAYS } from "../../../../scripts/measures.mjs";
 
@@ -70,6 +70,7 @@ export default async function MethodologyPage({ params }: Params) {
           tierA: bound("A"),
           tierB: bound("B"),
           reliability: number.format(THRESHOLD_RELIABILITY),
+          gapFragile: number.format(GAP_FRAGILE),
           notable: number.format(THRESHOLD_NOTABLE),
           daysImpact: String(DAYS_IMPACT),
           minImpact: String(MEASURES_MIN_IMPACT),

@@ -12,7 +12,7 @@ import { allHeroes, counters, heroesBySlug } from "@/lib/data";
 import { longDate, patchCurrent } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { coverage, gapOf, measuredGaps, SIZE_SIDE } from "@/lib/matchups";
-import { rankingFull, RANKS_CLASSES } from "@/lib/tier-list";
+import { leaderOf, rankingFull, RANKS_CLASSES } from "@/lib/tier-list";
 import { ToolLayout } from "@/components/tool-layout";
 
 type Params = { params: Promise<{ locale: Locale }> };
@@ -49,7 +49,7 @@ const roster = allHeroes.map((h) => ({
  */
 function exampleLineups(): { rows: string[]; columns: string[] } {
   const gaps = measuredGaps(counters, "all", exists);
-  const first = rankingFull[0]?.hero.slug;
+  const first = leaderOf(rankingFull)?.hero.slug;
   if (!first) return { rows: [], columns: [] };
   const columns = allHeroes
     .flatMap((h) => {

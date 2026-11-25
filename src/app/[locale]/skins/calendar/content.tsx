@@ -76,6 +76,7 @@ export function metaCalendar(locale: Locale, page = 1): Metadata {
       title: t("pages.seo.skinsCalendar.title"),
       description: description(locale),
       path: PATH,
+      card: true,
       keywords: ["MLBB skins", "skin release date", "Mobile Legends skins", "Collector", "StarLight", "Epic", "Legend"],
     }),
     locale,

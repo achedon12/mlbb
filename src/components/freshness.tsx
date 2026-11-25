@@ -12,14 +12,15 @@ import { cn } from "@/lib/utils";
 /**
  * The same facts as `FreshnessLine`, split into the small chips a page header
  * takes as `meta`: on a phone they wrap instead of stretching the header with
- * a third line of prose.
+ * a third line of prose. `date` replaces the rate snapshot's on a page whose
+ * data is not the measurement (the community builds: the latest build).
  */
-export function freshnessFacts(locale: Locale, before?: string): React.ReactNode[] {
+export function freshnessFacts(locale: Locale, before?: string, date: string = dateMeasure): React.ReactNode[] {
   const t = createT(locale);
   return [
     before,
-    <time key="date" dateTime={dateMeasure}>
-      {t("pages.freshness.updatedOn", { date: longDate(locale) })}
+    <time key="date" dateTime={date}>
+      {t("pages.freshness.updatedOn", { date: longDate(locale, date) })}
     </time>,
     patchCurrent ? t("pages.freshness.patch", { v: patchCurrent.version }) : null,
   ];

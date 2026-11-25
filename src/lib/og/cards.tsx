@@ -11,8 +11,10 @@ import { countAdjustments, longDate, monthYear, patchCurrent, percentage } from 
 import { guide, readingMinutes } from "@/lib/guides";
 import { lastSkins, gallerySkinCount } from "@/lib/hero-skins";
 import type { MeasuredRank } from "@/lib/measured-ranks";
-import { rankingOfRank, rateBySlug } from "@/lib/tier-list";
-import { filterRanking } from "@/lib/tier-list-filters";
+import { leaderOf, rankingOfRank, rateBySlug } from "@/lib/tier-list";
+import { filterRanking, type FilterTier } from "@/lib/tier-list-filters";
+import { groupByDate, readRelease } from "@/lib/skin-catalog";
+import { calendarYears, releasedSkins } from "@/lib/skin-catalog-server";
 import visuals from "@/data/game/visuals.json";
 import { C, Crest, Eclat, Figure, bevel, ogImage, portraitRow, type OgFrameProps } from "./frame";
 import { ogPicture } from "./assets";
@@ -130,10 +132,22 @@ export function heroCard(locale: Locale, slug: string) {
 
 const rankLabel = (t: T, rank: MeasuredRank) => t(`measuredRanks.${rank}`);
 
-/** The tier list of a rank: the S+ heroes in portraits, with their win rate. */
-export async function tierListCard(locale: Locale, rank: MeasuredRank) {
+/** Title of a tier list card: "Tier list Mythic", "Tier list gold lane", "Tier list tanks". */
+function tierListTitle(t: T, rank: MeasuredRank, filter: FilterTier | null): string {
+  const label = t("nav.tierList.label");
+  if (filter) {
+    return `${label} ${t(filter.type === "lane" ? `pages.tierList.laneSeo.${filter.value}` : `pages.tierList.rolePlural.${filter.value}`)}`;
+  }
+  return rank === "all" ? label : `${label} ${rankLabel(t, rank)}`;
+}
+
+/**
+ * The tier list of a rank, or of a lane or role (all ranks combined): the
+ * S+ heroes in portraits, with their win rate.
+ */
+export async function tierListCard(locale: Locale, rank: MeasuredRank, filter: FilterTier | null = null) {
   const t = createT(locale);
-  const ranking = rankingOfRank(rank);
+  const ranking = filterRanking(rankingOfRank(rank), filter);
   const top = ranking.filter((e) => e.tier === "S+");
   const shown = (top.length >= 3 ? top : ranking).slice(0, 4);
   const aside = await portraitRow(
@@ -143,7 +157,7 @@ export async function tierListCard(locale: Locale, rank: MeasuredRank) {
   return card({
     locale,
     kicker: `${patchLine(t)} · ${monthYear(locale)}`,
-    title: rank === "all" ? t("nav.tierList.label") : `${t("nav.tierList.label")} ${rankLabel(t, rank)}`,
+    title: tierListTitle(t, rank, filter),
     titleWidth: 470,
     titleLines: 3,
     titleMax: 112,
@@ -327,7 +341,7 @@ export function guideCard(locale: Locale, slug: string) {
   if (!g) return null;
   const t = createT(locale);
   // A lane's guide stands on the artwork of that lane's strongest hero right now.
-  const lead = g.lane ? filterRanking(rankingOfRank("all"), { type: "lane", value: g.lane })[0]?.hero.slug : null;
+  const lead = g.lane ? leaderOf(filterRanking(rankingOfRank("all"), { type: "lane", value: g.lane }))?.hero.slug : null;
   return card({
     locale,
     kicker: `${t("nav.guides.label")} · ${t("og.minutes", { n: readingMinutes(g.content) })}`,
@@ -442,6 +456,127 @@ export async function eventsCard(locale: Locale) {
     art: star ? (illustrations[star.hero]?.[star.name] ?? heroArt(star.hero)) : null,
     dex: ogPose("events"),
     dexHeight: 230,
+  });
+}
+
+/**
+ * The poster of a list of skins: the artwork of the first one that has
+ * one, in the list's order (the caller puts the headline skins first).
+ */
+export function skinPoster(skins: readonly { hero: string; name: string }[]): { hero: string; name: string; art: string } | null {
+  for (const s of skins) {
+    const art = illustrations[s.hero]?.[s.name];
+    if (art) return { hero: s.hero, name: s.name, art };
+  }
+  return null;
+}
+
+const count = (locale: Locale, n: number) => new Intl.NumberFormat(LOCALE_INTL[locale]).format(n);
+const capitalized = (locale: Locale, text: string) => text.charAt(0).toLocaleUpperCase(LOCALE_INTL[locale]) + text.slice(1);
+
+/** A month of events: the month in giant, its StarLight skin's artwork, its count of skins. */
+export async function eventMonthCard(locale: Locale, key: string) {
+  // Read only here: the events catalogue is large and server side.
+  const { monthByKey } = await import("@/lib/events-server");
+  const { OTHER_MODES } = await import("@/lib/events");
+  const m = monthByKey(key);
+  if (!m) return null;
+  const t = createT(locale);
+  const headline = [...m.starlight, ...m.collector];
+  const skins = [...headline, ...OTHER_MODES.flatMap((k) => m.others[k])];
+  const star = m.starlight[0];
+  const poster = skinPoster(headline) ?? skinPoster(skins);
+  return card({
+    locale,
+    kicker: t("nav.events.label"),
+    title: capitalized(locale, monthYear(locale, `${m.month}-01`)),
+    titleMax: 128,
+    subtitle: star ? t("og.starlight", { skin: star.name, hero: heroName(star.hero) }) : null,
+    art: poster?.art ?? heroArt(headline[0]?.hero ?? skins[0]?.hero),
+    dex: ogPose("events"),
+    dexHeight: 220,
+    data: skins.length ? <Figure value={count(locale, skins.length)} label={t("og.skinsCount")} /> : undefined,
+  });
+}
+
+/**
+ * The skins calendar, or one of its years: the latest (or the year's
+ * rarest) skin's artwork and the count of skins released.
+ */
+export function calendarCard(locale: Locale, year: number | null) {
+  const t = createT(locale);
+  const released = releasedSkins();
+  if (year === null) {
+    const years = calendarYears();
+    const last = lastSkins(1)[0];
+    return card({
+      locale,
+      kicker: [t("nav.skins.label"), years.length ? `${years.at(-1)} – ${years[0]}` : null].filter(Boolean).join(" · "),
+      title: t("nav.skinsCalendar.label"),
+      titleLines: 3,
+      titleMax: 112,
+      subtitle: last ? t("og.latestSkin", { skin: last.skin.name, hero: last.hero.name }) : null,
+      art: last ? (illustrations[last.hero.slug]?.[last.skin.name] ?? heroArt(last.hero.slug)) : null,
+      dex: ogPose("skins"),
+      dexHeight: 220,
+      data: <Figure value={count(locale, released.length)} label={t("og.skinsCount")} />,
+    });
+  }
+  const y = groupByDate(released.filter((s) => readRelease(s.release)?.year === year), "chronological")[0];
+  if (!y) return null;
+  // The year's rarest skins first, as on its page's poster.
+  const rarest = y.month.flatMap((m) => m.skins).sort((a, b) => b.rarity - a.rarity);
+  return card({
+    locale,
+    kicker: t("nav.skinsCalendar.label"),
+    title: t("pages.skinsCalendar.year.title", { year: y.year }),
+    titleLines: 3,
+    titleMax: 112,
+    art: skinPoster(rarest)?.art ?? heroArt(rarest[0]?.hero),
+    dex: ogPose("skins"),
+    dexHeight: 220,
+    data: <Figure value={count(locale, y.total)} label={t("og.skinsCount")} />,
+  });
+}
+
+// ── Community builds ─────────────────────────────────────────────────
+
+/** Heroes by number of builds, most first, ties by name; unknown heroes left out. */
+export function heroesByBuilds(builds: readonly { build: { hero: string } }[]): [string, number][] {
+  const counts = new Map<string, number>();
+  for (const b of builds) if (heroesBySlug.has(b.build.hero)) counts.set(b.build.hero, (counts.get(b.build.hero) ?? 0) + 1);
+  return [...counts].sort((a, b) => b[1] - a[1] || heroName(a[0]).localeCompare(heroName(b[0]), "en"));
+}
+
+/** The community builds hub: the heroes with the most builds in portraits, the count of builds. */
+export async function buildsCard(locale: Locale) {
+  const t = createT(locale);
+  // Read only here: the store is a server file, read the same way as the hub's page.
+  const { listBuilds } = await import("@/lib/community-builds-store");
+  const builds = await listBuilds().catch(() => []);
+  const heroes = heroesByBuilds(builds).slice(0, 4);
+  const aside =
+    heroes.length >= 3
+      ? await portraitRow(
+          heroes.map(([slug, n]) => ({ portrait: portraitOf(slug), name: heroName(slug), figure: String(n) })),
+          { width: 128, height: 330 },
+        )
+      : undefined;
+  return card({
+    locale,
+    kicker: patchLine(t),
+    title: t("nav.communityBuilds.label"),
+    titleWidth: aside ? 470 : undefined,
+    titleLines: 3,
+    titleMax: 112,
+    subtitle: aside ? null : t("nav.communityBuilds.desc"),
+    aside,
+    // Before enough heroes have builds: the artwork of the one with the most, else the build tool's.
+    art: aside ? null : (heroArt(heroes[0]?.[0]) ?? toolArt("/tools/build").art),
+    dex: ogPose("tool"),
+    dexHeight: aside ? 170 : 240,
+    dexPlace: aside ? "cut" : "right",
+    data: builds.length ? <Figure value={count(locale, builds.length)} label={t("og.buildsCount")} size={80} /> : undefined,
   });
 }
 

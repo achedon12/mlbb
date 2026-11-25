@@ -374,8 +374,8 @@
       },
       "strengths": "Forces",
       "weaknesses": "Faiblesses",
-      "analysisPending": "Pas encore d'analyse écrite",
-      "analysisText": "Personne n'a encore écrit d'analyse de {name} : façon de jouer, objets à acheter, matchups favorables. En attendant, les autres onglets donnent les chiffres mesurés en partie classée.",
+      "overviewTitle": "L'essentiel",
+      "overviewNote": "Personne n'a encore écrit d'analyse de {name} : ce résumé est tiré des mesures en partie classée.",
       "analysisTranslated": "Analyse rédigée en français, traduite automatiquement.",
       "contribute": "Contribuer à cette analyse →",
       "overview": {
@@ -465,6 +465,7 @@
         "pick": "Sélection",
         "ban": "Ban",
         "build": "Build le plus joué",
+        "emblem": "Emblème",
         "buildWin": "{rate} % de victoire",
         "counteredBy": "Contré par",
         "jump": "Raccourcis vers les sections"
@@ -2459,7 +2460,6 @@
       },
       "noStarlight": "Le wiki ne liste aucune apparence StarLight pour ce mois.",
       "noCollector": "D'après le wiki, aucune apparence Collector n'est sortie ce mois-là.",
-      "rarityUnknown": "Rareté non renseignée",
       "skinOf": "{skin} ({hero})",
       "summary": {
         "starlight": "Apparence StarLight du mois : {list}.",
@@ -5620,7 +5620,8 @@
   },
   "featured": {
     "seeSheet": "Voir sa fiche",
-    "topMeta": "N°1 de la méta"
+    "topMeta": "N°1 de la méta",
+    "topMetaHint": "classement victoires + bans"
   },
   "access": {
     "account": "{n} héros"
@@ -5978,7 +5979,7 @@
           "ul": [
             "Paliers de la tier list : score = taux de victoire + {weightBan} × taux de ban. S+ à partir de {tierSPlus} points, S à partir de {tierS}, A à partir de {tierA}, B à partir de {tierB}, C en dessous. Le taux de sélection n'entre pas dans le score.",
             "Le même calcul est refait pour chaque tranche de rang (Épique, Légende, Mythique, Honneur mythique, Gloire mythique), pour chaque lane et pour chaque rôle.",
-            "Fiabilité : un héros choisi dans moins de {reliability} % des parties reste classé, mais il est marqué d'un astérisque, ses taux étant trop instables.",
+            "Fiabilité : un taux de victoire mesuré sur peu de parties est ramené vers 50 % en proportion de son échantillon (l'écart à 50 % garde la part sélection / (sélection + {reliability})). Un héros choisi dans moins de {reliability} % des parties, ou à qui cette correction retire plus de {gapFragile} points, reste classé avec ses propres chiffres, mais il est marqué d'un astérisque et placé après les héros mesurés de façon fiable de son palier. Dans un palier, l'ordre suit le score corrigé, et le n°1 comme le podium ne reviennent qu'à des héros mesurés de façon fiable.",
             "Tendances : l'évolution du taux de victoire sur sept jours n'est affichée qu'à partir de {notable} point d'écart ; en dessous, elle se confond avec l'arrondi.",
             "Effet d'un patch : pour chaque héros modifié, le taux de victoire moyen des {daysImpact} jours qui suivent le patch, comparé à celui des {daysImpact} jours qui le précèdent, sans le jour même. Il faut au moins {minImpact} jours mesurés de chaque côté ; un écart de moins de {thresholdImpact} point est affiché en gris, comme non significatif.",
             "Historique : l'API ne sert que les trente derniers jours. Le site garde chaque relevé depuis le {historyStart}, jour par jour sur les {dailyDays} derniers jours, puis en moyenne par semaine. Les semaines anciennes ne servent pas à mesurer l'effet d'un patch.",
@@ -7011,6 +7012,7 @@
     "builtBy": "Dans les builds de {heroes}",
     "minutes": "{n} min de lecture",
     "skinsCount": "apparences",
+    "buildsCount": "builds partagés",
     "latestSkin": "Dernière sortie : {skin} ({hero})",
     "starlight": "StarLight du mois : {skin} ({hero})",
     "games": "matchs analysés",

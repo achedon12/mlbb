@@ -31,6 +31,8 @@ export interface PropsCardSkin {
   details: string[];
   /** Badge of a skin whose visual may still change, already translated (`ProvisionalBadge`). */
   provisional?: { label: string; hint: string } | null;
+  /** Shown dimmed when the skin has no portrait yet: the hero's own portrait. */
+  fallback?: string | null;
 }
 
 export function propsCardSkin(
@@ -56,12 +58,37 @@ export function propsCardSkin(
   };
 }
 
-export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rarity, details, provisional }: PropsCardSkin) {
+/**
+ * The frame of a skin without a portrait yet: the hero's portrait blurred and
+ * dimmed when there is one, else a night panel lit by the rarity's colour
+ * with the brand's slashes. Never an empty frame that reads as a broken image.
+ */
+export function MissingSkinArt({ fallback, color, sizes = "8rem" }: { fallback?: string | null; color: string; sizes?: string }) {
+  return (
+    <span aria-hidden className="absolute inset-0 overflow-hidden">
+      <span
+        className="absolute inset-0"
+        style={{ background: `radial-gradient(120% 80% at 50% 20%, ${color}38, transparent 65%), repeating-linear-gradient(115deg, transparent 0 18px, rgb(255 255 255 / 0.025) 18px 20px)` }}
+      />
+      {fallback && (
+        <Image
+          src={fallback}
+          alt=""
+          fill
+          sizes={sizes}
+          className="scale-110 object-cover object-top opacity-45 blur-[3px] grayscale-[35%]"
+        />
+      )}
+    </span>
+  );
+}
+
+export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rarity, details, provisional, fallback }: PropsCardSkin) {
   return (
     <article className="group relative h-full transition-[translate] duration-200 hover:-translate-y-0.5">
       <div className="bevel-sm relative aspect-[240/390] overflow-hidden bg-night-800">
         <Link href={href} className="absolute inset-0 z-10" aria-label={name} />
-        {image && (
+        {image ? (
           <Image
             src={image}
             alt=""
@@ -69,6 +96,8 @@ export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rar
             height={195}
             className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
           />
+        ) : (
+          <MissingSkinArt fallback={fallback} color={color} />
         )}
         <span aria-hidden className="absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-night-950 via-night-950/80 to-transparent" />
         <RarityGem color={color} className="absolute left-1.5 top-1.5" />
@@ -85,10 +114,10 @@ export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rar
             {heroes}
           </Link>
           <p className="truncate text-[0.65rem] leading-snug">
-            <span style={{ color }}>{rarity}</span>
-            {details.map((d) => (
+            {rarity && <span style={{ color }}>{rarity}</span>}
+            {details.map((d, i) => (
               <span key={d} className="text-chalk-400">
-                {" · "}
+                {(rarity || i > 0) && " · "}
                 {d}
               </span>
             ))}

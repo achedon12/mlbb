@@ -8,7 +8,7 @@ import { historyOf, historyStart } from "@/lib/evolution";
 import { dateMeasure, longDate, patchCurrent } from "@/lib/freshness";
 import { EPOCH } from "@/lib/mlbbdle";
 import { ADJUSTMENT_DIRECTIONS, groupAdjustments } from "@/lib/meta-report";
-import { rankingFull } from "@/lib/tier-list";
+import { leaderOf, rankingFull } from "@/lib/tier-list";
 import { DAYS_IMPACT, daysBetween, impactsOfPatch } from "@/lib/trends";
 import { cn } from "@/lib/utils";
 import { DAILY_DAYS } from "../../../scripts/measures.mjs";
@@ -35,7 +35,7 @@ export function HomeWhy({ locale, className }: { locale: Locale; className?: str
   const measured = dateMeasure.slice(0, 10);
   const start = historyStart();
   const days = start ? daysBetween(start, measured) + 1 : 0;
-  const top = rankingFull[0]?.hero ?? null;
+  const top = leaderOf(rankingFull)?.hero ?? null;
 
   const patch = detailedPatches(locale)[patchCurrent.version] ?? patchCurrent;
   const groups = groupAdjustments(patch.adjustments);
