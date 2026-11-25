@@ -11,13 +11,15 @@ import { Foldable } from "@/components/foldable";
 import { EditorialPoster, ENTRANCE } from "@/components/editorial-poster";
 import { PageLead } from "@/components/page-lead";
 import { BalanceFigures, balanceOf, patchArt } from "@/components/patch-visuals";
-import { Sparkles, TrendingUp } from "lucide-react";
+import { BookOpen, Sparkles, TrendingUp } from "lucide-react";
 import Link from "@/components/link";
 import { NewHero } from "@/components/new-hero";
 import { HeroPatch } from "@/components/hero-patch";
 import { PatchToc } from "@/components/patch-toc";
 import { heroesBySlug, illustrations, patchDetails, detailedPatches } from "@/lib/data";
-import { article, articleBody, articles } from "@/lib/content";
+import { article, articleBody, articles, patchAnalysis } from "@/lib/content";
+import { hasRecap } from "@/lib/patch-recap";
+import { recapOf } from "@/lib/patch-recap-server";
 import { countAdjustments, longDate, listNames, patchCurrent } from "@/lib/freshness";
 import { absoluteUrl, site } from "@/lib/site";
 import { ogPath } from "@/lib/og/layout";
@@ -121,6 +123,10 @@ export default async function PatchPage({ params }: Params) {
   if (patch) {
     // A patch not yet translated is served in its original language.
     const translated = patch !== patchDetails[slug];
+    // The recap is linked only once measured: without data it is a noindex page.
+    const found = patch.adjustments.length > 0 ? recapOf(slug) : null;
+    const measured = found !== null && hasRecap(found.recap);
+    const analysis = patchAnalysis(patch.version, locale);
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -179,14 +185,25 @@ export default async function PatchPage({ params }: Params) {
               ))}
           </ul>
           {patch.adjustments.length > 0 && <BalanceFigures balance={balanceOf(patch)} t={t} size="lg" className="mt-7" />}
-          {/* The measured story of the patch: winners, losers, surprises. */}
-          {patch.adjustments.length > 0 && patch.date && (
+          {/* The measured story of the patch (winners, losers, surprises), once
+            the history measures it, and the written analysis when there is one. */}
+          {(measured || analysis) && (
             <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
-              <Link href={`/patch-notes/${slug}/bilan`} className="btn btn-secondary btn-sm">
-                <TrendingUp size={14} aria-hidden />
-                {t("pages.patchRecap.link")}
-              </Link>
-              <span className="text-sm text-chalk-400">{t("pages.patchRecap.linkLead")}</span>
+              {analysis && (
+                <Link href={analysis.href} className="btn btn-secondary btn-sm">
+                  <BookOpen size={14} aria-hidden />
+                  {t("pages.patchNotes.analysisLink", { v: patch.version })}
+                </Link>
+              )}
+              {measured && (
+                <>
+                  <Link href={`/patch-notes/${slug}/bilan`} className="btn btn-secondary btn-sm">
+                    <TrendingUp size={14} aria-hidden />
+                    {t("pages.patchRecap.link")}
+                  </Link>
+                  <span className="text-sm text-chalk-400">{t("pages.patchRecap.linkLead")}</span>
+                </>
+              )}
             </p>
           )}
           {patch.newHeroes.length > 0 && (

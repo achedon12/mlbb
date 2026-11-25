@@ -80,7 +80,7 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
           </p>
         }
       >
-        <h1 className="display-caps text-[clamp(2.4rem,1.7rem+2.6vw,4rem)] text-chalk-100">{t("pages.patchNotes.title")}</h1>
+        <h1 className="display-caps text-[clamp(2.4rem,1.7rem+2.6vw,4rem)] text-chalk-100">{t("pages.patchNotes.heading")}</h1>
         <div aria-hidden className="eclat mt-4 h-[3px] w-24" />
         <PageLead lead={t("pages.patchNotes.lead")} />
 

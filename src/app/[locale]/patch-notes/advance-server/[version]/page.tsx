@@ -29,6 +29,7 @@ import { heroesBySlug } from "@/lib/data";
 import { longDate, listNames, patchCurrent } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
+import { advanceDocumented } from "@/lib/advance-fresh";
 import { NotFoundPage } from "@/components/not-found-page";
 import { ReportError } from "@/components/report-error";
 
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   // The date, the hero counts and the first heroes named fill the description.
   const names = [...new Set(v.heroes.map((h) => heroesBySlug.get(h.slug)?.name ?? h.name))].slice(0, 4);
   const label = v.date ? `${v.version} (${longDate(locale, v.date)})` : v.version;
-  return metaPage(locale, {
+  const meta = metaPage(locale, {
     title: t("pages.advanceServer.seo.title", { v: v.version }),
     description: names.length
       ? t("pages.advanceServer.seo.descriptionVersion", {
@@ -76,6 +77,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       .map((k) => k.trim())
       .filter(Boolean),
   });
+  // Frozen since the wiki stopped documenting the test server: kept as an
+  // archive, out of the index (`advanceDocumented`).
+  return advanceDocumented() ? meta : { ...meta, robots: { index: false, follow: true } };
 }
 
 export default async function AdvanceServerVersionPage({ params }: Params) {

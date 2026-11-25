@@ -74,10 +74,11 @@ import { MEASURED_RANKS, type MeasuredRank } from "@/lib/measured-ranks";
 import { pathRole } from "@/lib/tier-list-filters";
 import { site, absoluteUrl } from "@/lib/site";
 import type { Locale } from "@/i18n/config";
-import { createT, messagesPage, type T } from "@/i18n/translations";
+import { createT, messagesPage } from "@/i18n/translations";
 import { releaseDate, heroLabel } from "@/i18n/hero-data";
 import { normalizeNameSkin, mapValues } from "@/lib/utils";
-import { metaPage, TITLE_MAX, notFoundMetadata } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
+import { titleHero } from "@/lib/hero-title";
 import { FreshnessLine } from "@/components/freshness";
 import { longDate, dateMeasure, listNames, patchCurrent, percentage } from "@/lib/freshness";
 import { formatGap } from "@/lib/trends";
@@ -105,24 +106,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const tier = rateBySlug.get(h.slug)?.tier;
   const v = patchCurrent.version;
   return metaPage(locale, {
-    // Title modeled on searches ("aamon build", "aamon emblem",
-    // "aamon counter"), with the tier and the patch: the results that
-    // carry a freshness marker are the ones that get clicked. The epithet stays
+    // Title modeled on searches, with "MLBB", the tier and the patch, each
+    // dropped in turn when the name is long (`titleHero`). The epithet stays
     // on the page.
-    // A long name ("Popol and Kupa") drops the tier rather than have the
-    // patch cut off in the results.
     title: titleHero(tm, h.name, tier, v),
     description: descriptionHero(locale, h),
     path: `/heroes/${slug}`,
     type: "article",
     image: `/${locale}/heroes/${slug}/opengraph-image`,
   });
-}
-
-/** Title with the tier when it fits in `TITLE_MAX`, otherwise without it. */
-function titleHero(t: T, name: string, tier: string | undefined, v: string): string {
-  const withTier = tier ? t("pages.seo.hero.title", { name, tier, v }) : null;
-  return withTier && withTier.length <= TITLE_MAX ? withTier : t("pages.seo.hero.titleNoTier", { name, v });
 }
 
 /** Most played build on the hero's main lane, all ranks. */
@@ -298,7 +290,7 @@ export default async function HeroPage({ params }: Params) {
         {reference && reference.items.length > 0 && (
           <Card>
             <div className="flex items-baseline justify-between gap-3">
-              <h2 className="type-subtitle uppercase text-chalk-100">{t("builds.played")}</h2>
+              <h3 className="type-subtitle uppercase text-chalk-100">{t("builds.played")}</h3>
               {reference.winRate !== null && (
                 <span className="text-xs tabular-nums text-gold-400">
                   {t("builds.win", { rate: percent.format(reference.winRate) })}
@@ -326,14 +318,14 @@ export default async function HeroPage({ params }: Params) {
         )}
         {countersAll && (
           <Card>
-            <h2 className="type-subtitle uppercase text-chalk-100">{t("pages.heroDetail.tab.counters")}</h2>
+            <h3 className="type-subtitle uppercase text-chalk-100">{t("pages.heroDetail.tab.counters")}</h3>
             <div className="mt-3 grid grid-cols-2 gap-4 text-sm">
               {[
                 { title: t("counters.strong"), list: countersAll.strong, tone: "text-azure-400" },
                 { title: t("counters.difficulty"), list: countersAll.weak, tone: "text-blood-400" },
               ].map(({ title, list, tone }) => (
                 <div key={title} className="min-w-0">
-                  <h3 className="text-xs text-chalk-500">{title}</h3>
+                  <p className="text-xs text-chalk-500">{title}</p>
                   <ul className="mt-2 space-y-1.5">
                     {list.slice(0, 3).map((c) => (
                       <li key={c.slug}>
@@ -419,6 +411,32 @@ export default async function HeroPage({ params }: Params) {
     date: longDate(locale),
   };
   const answer = heroAnswer(t, facts);
+
+  // Without a written analysis, its tab opens on what the measurements say:
+  // kind, tier and rate, the hardest and easiest matchups, the most played
+  // build and the best teammates, all ranks.
+  const overview: string[] = [];
+  if (!analysis) {
+    overview.push(answer[0]!);
+    const names = (list: { slug: string; name: string }[]) =>
+      listNames(locale, list.filter((c) => heroesBySlug.has(c.slug)).slice(0, 3).map((c) => c.name));
+    if (countersAll?.weak.length) {
+      overview.push(
+        countersAll.strong.length
+          ? t("pages.heroDetail.overview.matchups", { name: h.name, weak: names(countersAll.weak), strong: names(countersAll.strong) })
+          : t("pages.heroDetail.overview.matchupsWeak", { name: h.name, weak: names(countersAll.weak) }),
+      );
+    }
+    if (facts.build) {
+      overview.push(
+        facts.build.emblem
+          ? t("pages.heroDetail.answer.buildEmblem", { name: h.name, items: facts.build.items, emblem: facts.build.emblem })
+          : t("pages.heroDetail.answer.build", { name: h.name, items: facts.build.items }),
+      );
+    }
+    const mates = teammatesShown.all ?? Object.values(teammatesShown)[0];
+    if (mates?.length) overview.push(t("pages.heroDetail.overview.teammates", { teammates: names(mates) }));
+  }
   const faqData = faqPageData(locale, { path: `/heroes/${slug}`, items: heroFaq(t, facts), changed: dateMeasure });
 
   // Dex reacts to the hero's standing: cheers at the top of the tier list, worries at its foot.
@@ -718,11 +736,18 @@ export default async function HeroPage({ params }: Params) {
               ) : (
                 <div className="space-y-12">
                 <Card className="shadow-[inset_0_3px_0_var(--color-gold-400)]">
-                  <h2 className="flex items-center gap-2 type-subtitle uppercase text-gold-400">
+                  <p className="flex items-center gap-2 type-subtitle uppercase text-gold-400">
                     <ShieldAlert size={20} aria-hidden />
                     {t("pages.heroDetail.analysisPending")}
-                  </h2>
-                  <p className="mt-3 max-w-2xl leading-relaxed text-chalk-300">
+                  </p>
+                  {overview.length > 0 && (
+                    <div className="mt-3 max-w-2xl space-y-2 leading-relaxed text-chalk-200">
+                      {overview.map((line) => (
+                        <p key={line}>{line}</p>
+                      ))}
+                    </div>
+                  )}
+                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-chalk-400">
                     {t("pages.heroDetail.analysisText", { name: h.name })}
                   </p>
                   <Link

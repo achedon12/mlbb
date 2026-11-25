@@ -378,6 +378,11 @@
       "analysisText": "No one has yet written an analysis of {name}: how to play, items to buy, favorable matchups. In the meantime, the other tabs give the figures measured in ranked play.",
       "analysisTranslated": "Analysis written in French and machine-translated.",
       "contribute": "Contribute to this analysis →",
+      "overview": {
+        "matchups": "{name} struggles most against {weak} and fares best against {strong}.",
+        "matchupsWeak": "{name} struggles most against {weak}.",
+        "teammates": "Best teammates: {teammates}."
+      },
       "countersIntro": "Calculated from the game's win rates: the gap in points shows how much {name}'s win rate changes against each opponent.",
       "countersRef": "Baseline win rate: {rate}%.",
       "matchups": "Matchup breakdown",
@@ -571,7 +576,7 @@
       "all": "All news"
     },
     "tierList": {
-      "title": "Tier list",
+      "title": "MLBB tier list",
       "lead": "This ranking is not an opinion: it is calculated from the win and ban rates reported by the game, and recalculated at each sync.",
       "metaDescription": "Mobile Legends: Bang Bang tier list calculated from the win and ban rates reported by the game. Recalculated on every sync, no opinions.",
       "ogDescription": "Ranking calculated from the game's win and ban rates.",
@@ -670,6 +675,7 @@
     },
     "patchNotes": {
       "title": "Patch notes",
+      "heading": "MLBB patch notes",
       "lead": "The content of recent updates is reproduced here, section by section. Older patches are still listed, with a link to their original page.",
       "metaDescription": "The {n} Mobile Legends: Bang Bang patches, with the details of recent updates readable on the site.",
       "ogDescription": "The game's {n} patches, with details of the most recent ones.",
@@ -680,6 +686,7 @@
       "older": "Older patches aren't reproduced in full: their content would take up several megabytes for versions nobody plays anymore.",
       "officialDescription": "Official notes for the Mobile Legends: Bang Bang {version} update: new heroes, adjustments and item changes.",
       "officialShare": "Notes for the {version} update.",
+      "analysisLink": "Read our analysis of patch {v}",
       "official": "Official notes",
       "nSections": "{n} sections",
       "all": "All patch notes",
@@ -1176,10 +1183,11 @@
     },
     "seo": {
       "hero": {
-        "title": "{name}: build, emblem, counters (tier {tier}, patch {v})",
-        "titleNoTier": "{name}: build, emblem, counters (patch {v})",
-        "counters": "Best counters from {name} to {rank}: {counters}.",
-        "countersAll": "Best counters of {name}, all ranks combined: {counters}.",
+        "title": "{name} MLBB: build, emblem, counters (tier {tier}, patch {v})",
+        "titleNoTier": "{name} MLBB: build, emblem, counters (patch {v})",
+        "titleShort": "{name}: build, emblem, counters (patch {v})",
+        "counters": "Best counters to {name} in {rank}: {counters}.",
+        "countersAll": "Best counters to {name}, all ranks combined: {counters}.",
         "build": "Most played build: {items}.",
         "buildEmblem": "Most played build: {items}, {emblem} emblem.",
         "rate": "{winRate} win rate, {tier} tier."
@@ -1192,7 +1200,7 @@
       },
       "heroes": {
         "title": "All {n} MLBB Heroes: Roles, Lanes & Tiers (Patch {v})",
-        "description": "The {n} heroes of Mobile Legends: Bang Bang with role, lane, tier and victory rate (patch {v}, data from {date}). The strongest of the moment: {top}. Added to this are {skins} appearances and {analyses} written analyses."
+        "description": "The {n} heroes of Mobile Legends: Bang Bang with role, lane, tier and win rate (patch {v}, data from {date}). The strongest right now: {top}. Plus {skins} skins and {analyses} written analyses."
       },
       "items": {
         "title": "All {n} MLBB Items: Stats, Recipes & Prices (Patch {v})",
@@ -1250,7 +1258,7 @@
         "description": "MLBB meta report for {date} (patch {v}): {first} tops the tier list and {banned} is the most banned hero ({ban}). This week's risers and fallers, tier changes, bans, picks and best heroes per lane."
       },
       "serverTime": {
-        "title": "MLBB server time: daily discount and countdown",
+        "title": "MLBB server time: daily reset and countdowns",
         "description": "Live Mobile Legends server time (UTC−8) with countdowns to the daily reset ({utc} UTC), the Monday weekly reset, the next StarLight and the season end, plus the local reset time in your country."
       },
       "ranks": {
@@ -1264,7 +1272,7 @@
       },
       "quiz": {
         "title": "MLBB Quiz: Daily Hero Guessing Game",
-        "description": "A new Mobile Legends: Bang Bang challenge every day: guess the hero based on a skill, an appearance detail or an extract from his story, find the item based on his stats and choose the best win rate. Clues to each error, series and spoiler-free grid to share. Free, without registration."
+        "description": "A daily Mobile Legends quiz: guess the hero from a skill, a skin or its lore, find the item and pick the higher win rate. Free, with a score to share."
       },
       "tierMaker": {
         "title": "MLBB Tier List Maker: Create & Share Your Tier List",
@@ -1279,16 +1287,16 @@
         "description": "{region}: {n} Mobile Legends: Bang Bang heroes, including {names}. Their stories, factions and the ties between them, drawn from their lore sheets."
       },
       "skinsCalendar": {
-        "title": "MLBB Appearances Schedule: All Appearances by Release Date",
-        "description": "{n} appearances of Mobile Legends: Bang Bang releases from {start} to {end}, month by month, with heroes, rarity, series (Collector, StarLight, Epic, Legend…) and price. Most recent in our data: {latest} ({date})."
+        "title": "MLBB Skin Calendar: Every Skin by Release Date",
+        "description": "{n} Mobile Legends: Bang Bang skins released from {start} to {end}, month by month, with hero, rarity, series (Collector, StarLight, Epic, Legend…) and price. Latest in our data: {latest} ({date})."
       },
       "calendarYear": {
-        "title": "MLBB appearances released in {year}: the list month by month",
-        "description": "Mobile Legends: Bang Bang skins released in {year} ({n}), month by month, with rarity and price. Main series: {series}. Most served hero: {hero}."
+        "title": "MLBB skins released in {year}: the list month by month",
+        "description": "Mobile Legends: Bang Bang skins released in {year} ({n}), month by month, with rarity and price. Main series: {series}. Hero with the most skins: {hero}."
       },
       "collection": {
         "title": "MLBB Collection Value Calculator (Diamonds)",
-        "description": "Check the heroes and skins you own from {heroes} heroes and {skins} skins: see what they cost at the Mobile Legends: Bang Bang store price, in diamonds, by rarity and by series. Free, without registration, saved in your browser."
+        "description": "Tick the heroes and skins you own among {heroes} heroes and {skins} skins: see what they cost at the Mobile Legends: Bang Bang store price, in diamonds, by rarity and series. Free, no sign-up, saved in your browser."
       },
       "events": {
         "title": "MLBB Events: StarLight, Collector and Skins of the Month",
@@ -1303,7 +1311,7 @@
       },
       "drawCalculator": {
         "title": "MLBB Draw Calculator: Diamonds and Odds",
-        "description": "How many diamonds for an MLBB event appearance? Chances according to your budget, average number of draws with guarantee, thresholds of 50, 90 and 99% and curve. Free, in-browser, sourced presets."
+        "description": "How many diamonds for an MLBB event skin? Your odds for a given budget, the average number of draws with the guarantee, the 50, 90 and 99% thresholds and the curve. Free, in your browser, with sourced presets."
       },
       "mlbbdle": {
         "title": "MLBBdle: daily Mobile Legends hero guessing game",
@@ -1348,7 +1356,7 @@
       },
       "accountValue": {
         "title": "MLBB account value estimator",
-        "description": "How much did your Mobile Legends collection cost? Copy your appearances by Showcase category ({skins} catalog appearances), check your collection points and obtain an order of magnitude in diamonds, USD, EUR, PHP, IDR and MYR, with a displayed method."
+        "description": "How much did your Mobile Legends collection cost? Copy your skins by Showcase category ({skins} skins in the catalog), check your collection points and get a ballpark figure in diamonds, USD, EUR, PHP, IDR and MYR, with the method shown."
       },
       "quizDuel": {
         "title": "Can you beat {score} on MLBB Quiz #{n}?",
@@ -2471,7 +2479,13 @@
         "announced": "Announced month: these skins are on a community wiki list ahead of their in-game release. Dates and prices are still to be confirmed.",
         "navMonths": "Previous and next month",
         "allMonths": "All months",
-        "yearLink": "Every skin released in {year}"
+        "yearLink": "Every skin released in {year}",
+        "next": {
+          "title": "Keep exploring",
+          "heroes": "Heroes featured this month",
+          "heroLink": "{name} build",
+          "related": "Related pages"
+        }
       },
       "entry": {
         "starlight": "StarLight skin: {skin} ({hero})",
@@ -2883,6 +2897,14 @@
         "announcedNew": "New hero presented in version {v}: {name}.",
         "announcedRevamp": "A revamp of {name} is presented in version {v}.",
         "readVersion": "All notes for version {v}"
+      },
+      "archived": {
+        "title": "Advance Server notes archive",
+        "lead": "The Advance Server is Mobile Legends' test server. The community wiki stopped documenting it after version {v}: these pages keep the notes published until then, as an archive. For what is live today, see the current patch notes.",
+        "latest": "Last archived version",
+        "current": "Current patch notes ({v})",
+        "seoTitle": "MLBB Advance Server archive: test notes up to {v}",
+        "seoDescription": "Archive of the notes from the Advance Server, Mobile Legends' test server, up to version {version}. The wiki no longer documents this server."
       }
     },
     "esports": {

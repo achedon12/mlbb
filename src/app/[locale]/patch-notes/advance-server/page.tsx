@@ -14,6 +14,7 @@ import { metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { advanceArchive, advanceSource, advanceSyncedAt, advanceVersions, isUnderTest } from "@/lib/advance-server";
 import { longDate, patchCurrent } from "@/lib/freshness";
+import { advanceDocumented } from "@/lib/advance-fresh";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -23,12 +24,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = createT(locale);
   const latest = advanceVersions(locale)[0];
-  return metaPage(locale, {
+  // The wiki no longer documents the test server: the hub stays reachable as
+  // an archive, out of the index and the sitemap, until a source resumes.
+  const archived = !advanceDocumented();
+  const meta = metaPage(locale, {
     title: latest
-      ? t("pages.advanceServer.seo.titleHub", { v: latest.version })
+      ? t(archived ? "pages.advanceServer.archived.seoTitle" : "pages.advanceServer.seo.titleHub", { v: latest.version })
       : t("pages.advanceServer.seo.titleGeneric"),
     // The latest version, its date and its hero counts open the description.
-    description: latest
+    description: latest && archived
+      ? t("pages.advanceServer.archived.seoDescription", { version: latest.version })
+      : latest
       ? t("pages.advanceServer.seo.description", {
           version: latest.date ? `${latest.version} (${longDate(locale, latest.date)})` : latest.version,
           buffs: latest.balance.buff,
@@ -43,6 +49,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       .map((k) => k.trim())
       .filter(Boolean),
   });
+  return archived ? { ...meta, robots: { index: false, follow: true } } : meta;
 }
 
 export default async function AdvanceServerPage({ params }: Params) {
@@ -55,6 +62,7 @@ export default async function AdvanceServerPage({ params }: Params) {
   const heroCount = (n: number) =>
     t(`pages.advanceServer.heroCount.${new Intl.PluralRules(locale).select(n) === "one" ? "one" : "other"}`, { n });
   const art = latest ? advanceArt(latest.heroes) : null;
+  const archived = !advanceDocumented();
 
   return (
     <>
@@ -64,15 +72,19 @@ export default async function AdvanceServerPage({ params }: Params) {
         aside={<p className="text-sm text-chalk-400 lg:text-right">{t("pages.advanceServer.syncedAt", { date: longDate(locale, advanceSyncedAt) })}</p>}
       >
         <h1 className="display-caps max-w-4xl text-balance text-[clamp(2.4rem,1.6rem+2.8vw,4.25rem)] text-chalk-100">
-          {t("pages.advanceServer.title")}
+          {t(archived ? "pages.advanceServer.archived.title" : "pages.advanceServer.title")}
         </h1>
         <div aria-hidden className="eclat mt-4 h-[3px] w-24" />
-        <PageLead lead={t("pages.advanceServer.lead")} />
+        <PageLead
+          lead={
+            archived && latest ? t("pages.advanceServer.archived.lead", { v: latest.version }) : t("pages.advanceServer.lead")
+          }
+        />
         {latest && (
           <>
             <Link href={`${PATH}/${latest.version}`} className="group mt-8 block w-fit max-w-full">
               <span className="flex flex-wrap items-center gap-3 font-heading text-base font-bold uppercase text-gold-400">
-                {t("pages.advanceServer.latest")}
+                {t(archived ? "pages.advanceServer.archived.latest" : "pages.advanceServer.latest")}
                 <StatusBadge underTest={latestUnderTest} live={live} t={t} />
               </span>
               <span className="affiche-name score mt-2 block text-[clamp(5.5rem,3rem+9vw,11rem)] transition-colors group-hover:text-gold-300">
@@ -85,6 +97,11 @@ export default async function AdvanceServerPage({ params }: Params) {
                 {t("pages.advanceServer.readAll", { v: latest.version })}
                 <ArrowRight size={17} aria-hidden />
               </Link>
+              {archived && (
+                <Link href={`/patch-notes/${live}`} className="btn btn-secondary">
+                  {t("pages.advanceServer.archived.current", { v: live })}
+                </Link>
+              )}
             </div>
           </>
         )}

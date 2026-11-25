@@ -12,15 +12,17 @@ import { ExtendMessages } from "@/i18n/provider";
 import { metaPage, metaPaged } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import { buildNames } from "@/lib/build-catalog";
-import { INDEX_THRESHOLD, sortBuilds, toPublic, weekVotes } from "@/lib/community-builds";
+import { INDEX_THRESHOLD, isHubIndexable, sortBuilds, toPublic, weekVotes } from "@/lib/community-builds";
 import { readCommunity } from "@/lib/community-builds-server";
+import { listBuilds } from "@/lib/community-builds-store";
 import { heroesBySlug } from "@/lib/data";
 import { pageHref, paging, SIZE_CARDS, slicePage } from "@/lib/pager";
 
 /**
  * Community builds hub: the week's most voted builds, the heroes that have
  * some (as portraits, their count of builds in gold), and the latest ones. Rendered on each request - votes move all the
- * time - and indexable: it is the entry point of the section.
+ * time - and indexable once enough heroes have builds (`HUB_INDEX_HEROES`):
+ * it is the entry point of the section.
  */
 export const dynamic = "force-dynamic";
 
@@ -28,9 +30,11 @@ const PATH = "/builds";
 const WEEK_COUNT = 6;
 const LATEST_COUNT = 12;
 
-export function metaBuilds(locale: Locale, page = 1): Metadata {
+export async function metaBuilds(locale: Locale, page = 1): Promise<Metadata> {
   const t = createT(locale);
-  return metaPaged(
+  // Until enough heroes have builds, the hub stays out of the index.
+  const thin = !isHubIndexable((await listBuilds().catch(() => [])) ?? []);
+  const meta = metaPaged(
     metaPage(locale, {
       title: t("pages.seo.communityBuilds.title"),
       description: t("pages.seo.communityBuilds.description"),
@@ -41,6 +45,7 @@ export function metaBuilds(locale: Locale, page = 1): Metadata {
     PATH,
     page,
   );
+  return thin ? { ...meta, robots: { index: false, follow: true } } : meta;
 }
 
 export async function CommunityBuilds({ locale, page = 1 }: { locale: Locale; page?: number }) {
