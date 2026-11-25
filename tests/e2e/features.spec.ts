@@ -304,7 +304,7 @@ test("a hero page's share image is a JPEG", async ({ request }) => {
   expect(response.headers()["content-type"]).toContain("image/jpeg");
 });
 
-test("the branded share images answer in PNG, and an unknown page in 404", async ({ request }) => {
+test("the branded share images answer in JPEG, and an unknown page in 404", async ({ request }) => {
   for (const path of [
     "/opengraph-image",
     "/fr/opengraph-image",
@@ -314,10 +314,14 @@ test("the branded share images answer in PNG, and an unknown page in 404", async
     "/fr/items/opengraph-image",
     "/fr/guides/opengraph-image",
     "/en/draft/opengraph-image",
+    "/fr/tier-list/lane/jungle/opengraph-image",
+    "/en/tier-list/role/marksman/opengraph-image",
+    "/fr/skins/calendar/opengraph-image",
+    "/fr/builds/opengraph-image",
   ]) {
     const response = await request.get(path);
     expect(response.status(), path).toBe(200);
-    expect(response.headers()["content-type"], path).toContain("image/png");
+    expect(response.headers()["content-type"], path).toContain("image/jpeg");
   }
   expect((await request.get("/fr/items/not-an-item/opengraph-image")).status()).toBe(404);
 });

@@ -7012,6 +7012,7 @@
     "builtBy": "Sa mga build ni {heroes}",
     "minutes": "{n} min basahin",
     "skinsCount": "skin",
+    "buildsCount": "naibahaging build",
     "latestSkin": "Pinakabagong labas: {skin} ({hero})",
     "starlight": "StarLight ng buwan: {skin} ({hero})",
     "games": "larong nasuri",
