@@ -2459,7 +2459,6 @@
       },
       "noStarlight": "Вики не указывает скин StarLight за этот месяц.",
       "noCollector": "По данным вики, в этом месяце не выходило ни одного скина Collector.",
-      "rarityUnknown": "Редкость пока не указана",
       "skinOf": "{skin} ({hero})",
       "summary": {
         "starlight": "Скин StarLight месяца: {list}.",

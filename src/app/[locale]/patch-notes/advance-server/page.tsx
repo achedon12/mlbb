@@ -7,7 +7,7 @@ import { WikiCredit } from "@/components/wiki-credit";
 import { SectionTitle } from "@/components/ui";
 import { EditorialPoster, ENTRANCE } from "@/components/editorial-poster";
 import { PageLead } from "@/components/page-lead";
-import { Dex } from "@/components/mascot";
+import { DexSays } from "@/components/mascot";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
@@ -123,10 +123,9 @@ export default async function AdvanceServerPage({ params }: Params) {
         </div>
 
         {!latest && (
-          <div className="flex items-end gap-4">
-            <Dex pose="dodo" height={130} />
-            <p className="pb-4 text-chalk-300">{t("pages.advanceServer.empty")}</p>
-          </div>
+          <DexSays pose="dodo" height={130}>
+            <p className="text-chalk-200">{t("pages.advanceServer.empty")}</p>
+          </DexSays>
         )}
 
         {latest && (

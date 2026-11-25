@@ -1,7 +1,7 @@
 "use client";
 
 import { DexNotice } from "@/components/dex-states";
-import { DexLoading } from "@/components/dex-loading";
+import { GameSkeleton } from "@/components/game-skeleton";
 import { Flash } from "@/components/dex-states";
 import { useAccountPrompt } from "@/components/account-prompt";
 import { useDiscordMoment } from "@/components/discord-moment";
@@ -215,12 +215,8 @@ function ChallengeOfDay({ catalog, duel, onPractice }: { catalog: CatalogQuiz; d
   }, [current]);
 
   if (state === null || !day) {
-    // About the height of a round once drawn: the rules below stay put.
-    return (
-      <div className="grid min-h-[36rem] place-items-center sm:min-h-[32rem]">
-        <DexLoading dex={false} label={t("pages.quizUI.loading")} />
-      </div>
-    );
+    // The round drawn in skeletons, at its height once loaded: the rules below stay put.
+    return <GameSkeleton label={t("pages.quizUI.loading")} steps={6} className="min-h-[36rem] sm:min-h-[32rem]" />;
   }
   if (state === "error") {
     return (
@@ -808,9 +804,7 @@ function Practice({ catalog }: { catalog: CatalogQuiz }) {
 
   if (pool === null) {
     return (
-      <div className="grid place-items-center py-10">
-        <DexLoading dex={false} label={t("pages.quizUI.loading")} />
-      </div>
+      <GameSkeleton label={t("pages.quizUI.loading")} />
     );
   }
   if (pool === "error" || !round) {

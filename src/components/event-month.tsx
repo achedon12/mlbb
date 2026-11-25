@@ -1,6 +1,7 @@
 import { FeatureSkin } from "@/components/events/event-feature";
 import { SkinCard, propsCardSkin, type PropsCardSkin } from "@/components/skin-card";
 import { SkinGrid } from "@/components/skin-grid";
+import { DexNotice } from "@/components/dex-states";
 import { SectionTitle } from "@/components/ui";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
@@ -34,8 +35,10 @@ export function eventCard(s: EventSkin, t: T, htmlLang: string, numbers: Intl.Nu
   if (!s.anchor) card.href = `/heroes/${s.hero}/skins`;
   // Not confirmed out: its visual says so on itself.
   if (s.provisional) card.provisional = { label: t("visualStatus.provisional"), hint: t("visualStatus.provisionalHint") };
-  // The module does not give its rarity yet: say so, rather than showing the default skin's.
-  return s.notInCatalog ? { ...card, color: RARITY_ORIGIN.color, rarity: t("pages.events.rarityUnknown") } : card;
+  // No shop portrait yet: the card stands on the hero's own portrait, dimmed.
+  card.fallback = heroesBySlug.get(s.hero)?.images.portrait ?? null;
+  // The module does not give its rarity yet: none shown, rather than the default skin's.
+  return s.notInCatalog ? { ...card, color: RARITY_ORIGIN.color, rarity: "" } : card;
 }
 
 /** Sentences summing up a month, for its lead and meta description. */
@@ -106,14 +109,19 @@ export function MonthContent({
           const headline = mode === "starlight" || mode === "collector";
           const content =
             skins.length === 0 ? (
-              <p className="max-w-xs text-sm leading-relaxed text-chalk-400">{empty}</p>
+              <DexNotice pose="reflexion" className={variant === "page" ? "max-w-2xl" : "max-w-sm"}>
+                {empty}
+              </DexNotice>
             ) : headline ? (
               <ul
                 className={cn(
                   "grid gap-3",
-                  variant === "page"
-                    ? "sm:grid-cols-2 xl:grid-cols-3"
-                    : "w-full sm:w-auto sm:grid-flow-col sm:auto-cols-[minmax(0,22rem)]",
+                  variant === "timeline"
+                    ? "w-full sm:w-auto sm:grid-flow-col sm:auto-cols-[minmax(0,22rem)]"
+                    : // On the page the row is always full: one poster across it, two halves, then thirds.
+                      skins.length === 2
+                      ? "sm:grid-cols-2"
+                      : skins.length > 2 && "sm:grid-cols-2 xl:grid-cols-3",
                 )}
               >
                 {skins.map((s, i) => (
@@ -121,8 +129,15 @@ export function MonthContent({
                     <FeatureSkin
                       skin={s}
                       card={cards[i]}
+                      aspect={variant === "page" && skins.length === 1 ? "aspect-[16/9] lg:aspect-[21/8]" : undefined}
                       sizes={
-                        variant === "page" ? "(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 92vw" : "(min-width: 640px) 22rem, 92vw"
+                        variant === "timeline"
+                          ? "(min-width: 640px) 22rem, 92vw"
+                          : skins.length === 1
+                            ? "(min-width: 1280px) 80rem, 96vw"
+                            : skins.length === 2
+                              ? "(min-width: 640px) 46vw, 92vw"
+                              : "(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 92vw"
                       }
                     />
                   </li>

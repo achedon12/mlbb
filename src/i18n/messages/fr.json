@@ -2459,7 +2459,6 @@
       },
       "noStarlight": "Le wiki ne liste aucune apparence StarLight pour ce mois.",
       "noCollector": "D'après le wiki, aucune apparence Collector n'est sortie ce mois-là.",
-      "rarityUnknown": "Rareté non renseignée",
       "skinOf": "{skin} ({hero})",
       "summary": {
         "starlight": "Apparence StarLight du mois : {list}.",

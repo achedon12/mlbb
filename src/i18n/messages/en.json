@@ -2459,7 +2459,6 @@
       },
       "noStarlight": "The wiki lists no StarLight skin for this month.",
       "noCollector": "According to the wiki, no Collector skin was released that month.",
-      "rarityUnknown": "Rarity not listed yet",
       "skinOf": "{skin} ({hero})",
       "summary": {
         "starlight": "StarLight skin of the month: {list}.",
