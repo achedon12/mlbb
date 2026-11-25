@@ -297,6 +297,15 @@ describe("proxy", () => {
     expect(fetch).not.toHaveBeenCalled();
   });
 
+  it("never rate-limits the donation links, fetched on every page load", () => {
+    configure();
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(null, { status: 204 })));
+    for (let i = 0; i < 200; i++) {
+      const response = proxy(new NextRequest("http://127.0.0.1:3001/api/support", { headers: { "x-forwarded-for": "198.51.100.9" } }), event());
+      expect(response.status).not.toBe(429);
+    }
+  });
+
   it("counts the first refusal of a rate-limit window, not the flood behind it", async () => {
     configure();
     const fetch = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
