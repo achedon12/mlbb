@@ -12,7 +12,11 @@ import { limitByMinute } from "@/lib/push-server";
  *   using up their budget does not lock the player out of their own login;
  * - per account: 10 codes every 10 minutes whoever asks, against mailbox spam;
  * - per code: 5 attempts, whoever makes them, after which a new code must be
- *   requested. An attempt is reserved before the code goes to the service,
+ *   requested;
+ * - per account, across codes: 15 attempts every 10 minutes and 40 a day,
+ *   which a new code does not reset.
+ *
+ * An attempt is reserved before the code goes to the service,
  *   so parallel requests cannot slip past the limit while one is in flight.
  */
 
@@ -78,28 +82,51 @@ export function allowAccountCode(roleId: number, zoneId: number, address: string
 }
 
 /**
+ * The account's attempts over sliding windows, whatever the code: a new code
+ * resets the five per code, not these. Without them, ten codes of five
+ * attempts every ten minutes would find a four-digit code within a day.
+ */
+const ATTEMPTS_PER_ACCOUNT_SHORT = 15;
+const ATTEMPTS_SHORT_MS = 10 * 60_000;
+const ATTEMPTS_PER_ACCOUNT_DAY = 40;
+const DAY_MS = 24 * 3600_000;
+const accountAttempts = new Map<string, number[]>();
+
+/**
  * Reserves one attempt on the account's current code before it is checked;
- * false once five have been used. Synchronous, so two requests cannot both
- * read the same count.
+ * false once five have been used on this code, fifteen on the account in
+ * the last ten minutes or forty in the last day. Synchronous, so two
+ * requests cannot both read the same count.
  */
 export function reserveAttempt(roleId: number, zoneId: number, now = Date.now()): boolean {
   const key = accountKey(roleId, zoneId);
   const known = attempts.get(key);
   const count = known && known.until > now ? known.count : 0;
-  if (count >= ATTEMPTS_PER_CODE) return false;
+  const day = (accountAttempts.get(key) ?? []).filter((t) => now - t < DAY_MS);
+  const short = day.filter((t) => now - t < ATTEMPTS_SHORT_MS).length;
+  if (count >= ATTEMPTS_PER_CODE || short >= ATTEMPTS_PER_ACCOUNT_SHORT || day.length >= ATTEMPTS_PER_ACCOUNT_DAY) {
+    return false;
+  }
   attempts.delete(key);
   attempts.set(key, { count: count + 1, until: now + ATTEMPTS_KEPT_MS });
   cap(attempts, (a) => a.until <= now);
+  accountAttempts.delete(key);
+  accountAttempts.set(key, [...day, now]);
+  cap(accountAttempts, (times) => times.every((t) => now - t >= DAY_MS));
   return true;
 }
 
 /** Gives a reserved attempt back: the service was down, the code was not judged. */
 export function refundAttempt(roleId: number, zoneId: number): void {
-  const known = attempts.get(accountKey(roleId, zoneId));
+  const key = accountKey(roleId, zoneId);
+  const known = attempts.get(key);
   if (known && known.count > 0) known.count -= 1;
+  accountAttempts.get(key)?.pop();
 }
 
 /** A successful sign-in clears the account's attempts. */
 export function clearAccount(roleId: number, zoneId: number): void {
-  attempts.delete(accountKey(roleId, zoneId));
+  const key = accountKey(roleId, zoneId);
+  attempts.delete(key);
+  accountAttempts.delete(key);
 }

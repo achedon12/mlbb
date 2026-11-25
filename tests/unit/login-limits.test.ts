@@ -74,6 +74,49 @@ describe("login limits", () => {
     expect(reserveAttempt(25, 1, t)).toBe(true);
   });
 
+  /** Wrong attempts on fresh codes: a new code before each batch of five, until refused. */
+  function burn(roleId: number, now: number, codes: number): number {
+    let accepted = 0;
+    for (let c = 0; c < codes; c++) {
+      allowAccountCode(roleId, 1, `ip-${now}-${c}`, now);
+      for (let i = 0; i < 5; i++) if (reserveAttempt(roleId, 1, now)) accepted += 1;
+    }
+    return accepted;
+  }
+
+  it("keeps the account's budget across new codes: fifteen every ten minutes", () => {
+    const t = 4_000_000;
+    expect(burn(41, t, 4)).toBe(15);
+    // A fresh code does not buy more attempts.
+    allowAccountCode(41, 1, "fresh-ip", t + 1);
+    expect(reserveAttempt(41, 1, t + 1)).toBe(false);
+    // Ten minutes later, the short window has slid.
+    allowAccountCode(41, 1, "later-ip", t + 10 * 60_000);
+    expect(reserveAttempt(41, 1, t + 10 * 60_000)).toBe(true);
+  });
+
+  it("caps the account at forty attempts a day", () => {
+    const t = 5_000_000;
+    let accepted = 0;
+    // Fifteen every ten minutes would allow far more over a day.
+    for (let w = 0; w < 6; w++) accepted += burn(42, t + w * 10 * 60_000, 3);
+    expect(accepted).toBe(40);
+    const later = t + 23 * 3600_000;
+    allowAccountCode(42, 1, "late-ip", later);
+    expect(reserveAttempt(42, 1, later)).toBe(false);
+    // A day after the first attempts, room opens again.
+    allowAccountCode(42, 1, "next-day-ip", t + 24 * 3600_000);
+    expect(reserveAttempt(42, 1, t + 24 * 3600_000)).toBe(true);
+  });
+
+  it("does not count refunded attempts against the account", () => {
+    const t = 6_000_000;
+    for (let i = 0; i < 20; i++) {
+      expect(reserveAttempt(43, 1, t)).toBe(true);
+      refundAttempt(43, 1);
+    }
+  });
+
   it("forgets the attempts once the code is long expired, and on a sign-in", () => {
     const t = 3_000_000;
     for (let i = 0; i < 5; i++) reserveAttempt(31, 1, t);
