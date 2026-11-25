@@ -467,7 +467,9 @@ export function TierList({
       />
       {faqData && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqData) }} />}
       <MetaPoster
-        title={title}
+        // The heading names the live patch, as the searches do ("mlbb tier list patch …");
+        // the breadcrumb and the structured data keep the bare title.
+        title={patchCurrent ? t("pages.tierList.headingPatch", { title, v: patchCurrent.version }) : title}
         lead={lead}
         crumbs={crumbs}
         facts={freshnessFacts(locale, t("pages.freshness.heroesRanked", { n: ranking.length }))}

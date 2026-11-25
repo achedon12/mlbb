@@ -77,7 +77,7 @@ test("the analysis tab shows the written analysis, strengths and weaknesses", as
 });
 
 test("without a written analysis, the tab opens on the measured essentials", async ({ page }) => {
-  await page.goto("/fr/heroes/masha");
+  await page.goto("/fr/heroes/hirara");
   const panel = openPanel(page);
   await expect(panel.getByRole("heading", { name: /^l'essentiel$/i })).toBeVisible();
   await expect(panel).toContainText(/contré par/i);

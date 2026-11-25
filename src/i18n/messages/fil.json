@@ -626,6 +626,7 @@
       },
       "titleLane": "{lane} tier list: ang pinakamalakas na hero",
       "titleRole": "{role} tier list: ang pinakamalakas na {plural}",
+      "headingPatch": "{title} — patch {v}",
       "leadLane": "Ang {n} hero na nilalaro sa {lane}, niraranggo sa parehong patakaran ng main tier list: win at ban rate, lahat ng rank pinagsama.",
       "leadRole": "Lahat ng {n} {plural} sa laro, main o secondary role, niraranggo sa parehong patakaran ng main tier list: win at ban rate, lahat ng rank pinagsama.",
       "filterNote": "Ranking ng lahat ng rank pinagsama. Ang mga listahan ayon sa rank naman ay sumasaklaw sa bawat lane at bawat role.",
@@ -7021,7 +7022,13 @@
     "champion": "Nagwagi: {team}",
     "tool": "Libreng tool",
     "game": "Laro ng araw",
-    "toolsKicker": "Libreng mga tool"
+    "toolsKicker": "Libreng mga tool",
+    "heroesCount": "hero",
+    "regions": "rehiyon",
+    "sources": "pinagmulan",
+    "modesCount": "{n} game mode",
+    "ranksCount": "{n} rank",
+    "duelEdge": "puntos ng win rate para kay {hero} sa tapatan"
   },
   "visualStatus": {
     "provisional": "Pansamantala",

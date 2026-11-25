@@ -626,6 +626,7 @@
       },
       "titleLane": "Tier List {lane}: ฮีโร่ที่ดีที่สุด",
       "titleRole": "Tier List {role}: {plural} ที่ดีที่สุด",
+      "headingPatch": "{title} — แพตช์ {v}",
       "leadLane": "ฮีโร่ {n} ตัวที่เล่น {lane} จัดอันดับด้วยกฎเดียวกับ Tier List หลัก: Win Rate และ Ban Rate ทุกแรงก์รวมกัน",
       "leadRole": "{plural} ทั้ง {n} ตัวในเกม ทั้งบทบาทหลักและรอง จัดอันดับด้วยกฎเดียวกับ Tier List หลัก: Win Rate และ Ban Rate ทุกแรงก์รวมกัน",
       "filterNote": "การจัดอันดับนี้รวมทุกแรงก์ ส่วนลิสต์ตามแรงก์ครอบคลุมทุกเลนและทุกบทบาท",
@@ -7021,7 +7022,13 @@
     "champion": "ผู้ชนะ: {team}",
     "tool": "เครื่องมือฟรี",
     "game": "เกมประจำวันนี้",
-    "toolsKicker": "เครื่องมือฟรี"
+    "toolsKicker": "เครื่องมือฟรี",
+    "heroesCount": "ฮีโร่",
+    "regions": "ภูมิภาค",
+    "sources": "แหล่งข่าว",
+    "modesCount": "{n} โหมดเกม",
+    "ranksCount": "{n} แรงก์",
+    "duelEdge": "แต้มอัตราชนะของ {hero} ในการดวล"
   },
   "visualStatus": {
     "provisional": "ชั่วคราว",

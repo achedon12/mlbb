@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.accountValue.title"),
     description: description(t),
     path: PATH,
+    card: true,
     keywords: ["MLBB account value", "account worth", "skins value", "diamonds", "Mobile Legends", "calculator"],
   });
 }

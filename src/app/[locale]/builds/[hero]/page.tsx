@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       title: t("pages.seo.communityBuildsHero.title", { hero: h.name }),
       description: t("pages.seo.communityBuildsHero.description", { hero: h.name }),
       path: `/builds/${hero}`,
+      card: true,
     }),
     ...(count === 0 ? { robots: { index: false, follow: true } } : {}),
   };

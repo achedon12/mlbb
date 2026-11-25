@@ -318,12 +318,24 @@ test("the branded share images answer in JPEG, and an unknown page in 404", asyn
     "/en/tier-list/role/marksman/opengraph-image",
     "/fr/skins/calendar/opengraph-image",
     "/fr/builds/opengraph-image",
+    "/fr/heroes/opengraph-image",
+    "/en/heroes/role/tank/opengraph-image",
+    "/fr/compare/alucard-vs-zilong/opengraph-image",
+    "/en/tools/team/opengraph-image",
+    "/fr/tools/damage-calculator/opengraph-image",
+    "/fr/lore/opengraph-image",
+    "/fr/game-modes/opengraph-image",
+    "/fr/ranks/opengraph-image",
+    "/fr/watch/opengraph-image",
+    "/fr/community/general/opengraph-image",
   ]) {
     const response = await request.get(path);
     expect(response.status(), path).toBe(200);
     expect(response.headers()["content-type"], path).toContain("image/jpeg");
   }
   expect((await request.get("/fr/items/not-an-item/opengraph-image")).status()).toBe(404);
+  // A pair in reverse order has no page, so no card either.
+  expect((await request.get("/fr/compare/zilong-vs-alucard/opengraph-image")).status()).toBe(404);
 });
 
 test("a page's share card is its own, with a translated alt", async ({ page }) => {
@@ -332,6 +344,14 @@ test("a page's share card is its own, with a translated alt", async ({ page }) =
   await expect(image).toHaveAttribute("content", /\/fr\/tier-list\/opengraph-image(\?[\w-]+)?$/);
   await expect(page.locator('meta[property="og:image:alt"]').first()).toHaveAttribute("content", /MLBBDex/);
   await expect(page.locator('meta[name="twitter:image"]').first()).toHaveAttribute("content", /\/fr\/tier-list\/opengraph-image(\?[\w-]+)?$/);
+});
+
+test("a head to head page shares its own card", async ({ page }) => {
+  await page.goto("/fr/compare/alucard-vs-zilong");
+  await expect(page.locator('meta[property="og:image"]').first()).toHaveAttribute(
+    "content",
+    /\/fr\/compare\/alucard-vs-zilong\/opengraph-image(\?[\w-]+)?$/,
+  );
 });
 
 test("the PWA manifest declares a maskable icon", async ({ request }) => {

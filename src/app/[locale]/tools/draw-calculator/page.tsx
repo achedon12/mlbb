@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.drawCalculator.title"),
     description: t("pages.seo.drawCalculator.description"),
     path: PATH,
+    card: true,
     keywords: ["MLBB draw calculator", "diamonds", "event skin", "odds", "pity", "Mobile Legends", "MLBB"],
   });
 }

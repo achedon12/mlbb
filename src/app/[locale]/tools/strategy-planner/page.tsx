@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.strategyPlanner.title"),
     description: t("pages.seo.strategyPlanner.description"),
     path: PATH,
+    card: true,
     keywords: ["strategy planner", "MLBB map", "rotation", "whiteboard", "Turtle", "Lord", "Mobile Legends", "MLBB"],
   });
 }

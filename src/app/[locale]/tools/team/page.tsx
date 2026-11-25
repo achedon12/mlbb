@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description: t("pages.team.metaDescription"),
     share: t("pages.team.ogDescription"),
     path: "/tools/team",
+    card: true,
     keywords: ["team composition", "team comp", "analyzer", "synergy", "counter", "Mobile Legends", "MLBB"],
   });
 }

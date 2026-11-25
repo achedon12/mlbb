@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     description: t("pages.modes.metaDescription"),
     share: t("pages.modes.ogDescription"),
     path: "/game-modes",
+    card: true,
   });
 }
 

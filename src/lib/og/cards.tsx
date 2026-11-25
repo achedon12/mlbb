@@ -4,7 +4,7 @@ import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import type { T } from "@/i18n/t";
 import { article, articles } from "@/lib/content";
-import { allHeroes, heroesBySlug, illustrations, itemsFor, patchDetails } from "@/lib/data";
+import { allHeroes, counters, heroesBySlug, illustrations, itemsFor, modes, patchDetails } from "@/lib/data";
 import { emblemsSheets, spellSheets, textChoice, usage } from "@/lib/usage-sheets";
 import { proMeta, tournamentBySlug } from "@/lib/esports";
 import { countAdjustments, longDate, monthYear, patchCurrent, percentage } from "@/lib/freshness";
@@ -16,6 +16,16 @@ import { filterRanking, type FilterTier } from "@/lib/tier-list-filters";
 import { groupByDate, readRelease } from "@/lib/skin-catalog";
 import { calendarYears, releasedSkins } from "@/lib/skin-catalog-server";
 import visuals from "@/data/game/visuals.json";
+import { regionFaces } from "@/components/lore/lore-art";
+import { heroLabel } from "@/i18n/hero-data";
+import { simCatalog } from "@/lib/build-catalog";
+import { CATEGORY_ART, isCategory } from "@/lib/community/constants";
+import { playerProfile, rate, teamProfile } from "@/lib/esports-players";
+import { regionByKey, regionsLore } from "@/lib/lore";
+import { duelByRank, duelOfReference, readPair, THRESHOLD_BALANCE } from "@/lib/pairs";
+import { SCALE, tierAppearance } from "@/lib/rank-scale";
+import type { Role } from "@/lib/types";
+import { sources, watch } from "@/lib/watch";
 import { C, Crest, Eclat, Figure, bevel, ogImage, portraitRow, type OgFrameProps } from "./frame";
 import { ogPicture } from "./assets";
 import { nameInText, ogPose } from "./layout";
@@ -677,5 +687,300 @@ export function communityCard(locale: Locale) {
     art: artOf("layla"),
     dex: ogPose("community"),
     dexHeight: 280,
+  });
+}
+
+// ── Heroes hub and roles ─────────────────────────────────────────────
+
+/**
+ * The hero catalogue, or one role of it: the strongest heroes right now in
+ * portraits with their win rate, and the number of heroes.
+ */
+export async function heroesCard(locale: Locale, role: Role | null = null) {
+  const t = createT(locale);
+  const heroes = role ? allHeroes.filter((h) => h.roles.includes(role)) : allHeroes;
+  if (!heroes.length) return null;
+  const ranking = filterRanking(rankingOfRank("all"), role ? { type: "role", value: role } : null).filter((e) => !e.lowSample);
+  const aside =
+    ranking.length >= 3
+      ? await portraitRow(
+          ranking.slice(0, 4).map((e) => ({ portrait: e.hero.images.portrait, name: e.hero.name, figure: percentage(locale, e.winRate) })),
+          { width: 128, height: 330 },
+        )
+      : undefined;
+  return card({
+    locale,
+    kicker: role ? `${t("nav.heroes.label")} · ${patchLine(t)}` : patchLine(t),
+    title: role ? t(`pages.tierList.rolePlural.${role}`) : t("nav.heroes.label"),
+    titleWidth: aside ? 470 : undefined,
+    titleLines: 3,
+    titleMax: 112,
+    aside,
+    art: aside ? null : heroArt(heroes[0].slug),
+    dex: ogPose("hero"),
+    dexHeight: aside ? 170 : 220,
+    dexPlace: aside ? "cut" : "right",
+    data: <Figure value={count(locale, heroes.length)} label={t("og.heroesCount")} size={80} />,
+  });
+}
+
+// ── Head to head ─────────────────────────────────────────────────────
+
+/**
+ * "A vs B": both heroes side by side with their win rate, and the edge one
+ * holds over the other in the measured duel when it is not a draw.
+ */
+export async function compareCard(locale: Locale, pair: string) {
+  const p = readPair(pair);
+  const a = p?.canonical ? heroesBySlug.get(p.a) : undefined;
+  const b = p?.canonical ? heroesBySlug.get(p.b) : undefined;
+  if (!a || !b) return null;
+  const t = createT(locale);
+  const aside = await portraitRow(
+    [a, b].map((h) => {
+      const rate = rateBySlug.get(h.slug);
+      return { portrait: h.images.portrait, name: h.name, figure: rate ? percentage(locale, rate.win) : undefined };
+    }),
+    { width: 200, height: 370 },
+  );
+  const ref = duelOfReference(duelByRank(counters, a.slug, b.slug));
+  const edge = ref && Math.abs(ref.advantage) >= THRESHOLD_BALANCE ? ref : null;
+  const points = new Intl.NumberFormat(LOCALE_INTL[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  return card({
+    locale,
+    kicker: `${t("nav.compare.label")} · ${patchLine(t)}`,
+    title: t("pages.versus.title", { a: a.name, b: b.name }),
+    titleWidth: 560,
+    titleLines: 3,
+    titleMax: 104,
+    aside,
+    dex: ogPose("statistics"),
+    dexHeight: 170,
+    dexPlace: "cut",
+    data: edge ? (
+      <Figure
+        value={`+${points.format(Math.abs(edge.advantage))}`}
+        label={t("og.duelEdge", { hero: (edge.advantage >= 0 ? a : b).name })}
+        size={80}
+      />
+    ) : undefined,
+  });
+}
+
+// ── Lore, modes, ranks, watch ────────────────────────────────────────
+
+/** The lore hub, or one region: its most iconic hero's artwork, its count of regions or heroes. */
+export function loreCard(locale: Locale, key: string | null = null) {
+  const t = createT(locale);
+  if (key === null) {
+    const largest = [...regionsLore].sort((x, y) => y.heroes.length - x.heroes.length)[0];
+    return card({
+      locale,
+      title: t("nav.lore.label"),
+      titleMax: 140,
+      subtitle: t("nav.lore.desc"),
+      art: largest ? (regionFaces(largest)[0]?.art ?? null) : null,
+      dex: ogPose("guide"),
+      dexHeight: 220,
+      data: <Figure value={count(locale, regionsLore.length)} label={t("og.regions")} />,
+    });
+  }
+  const r = regionByKey.get(key);
+  if (!r) return null;
+  return card({
+    locale,
+    kicker: t("nav.lore.label"),
+    title: heroLabel(t, "region", r.name) ?? r.name,
+    titleMax: 128,
+    art: regionFaces(r)[0]?.art ?? null,
+    dex: ogPose("guide"),
+    dexHeight: 220,
+    data: <Figure value={count(locale, r.heroes.length)} label={t("og.heroesCount")} />,
+  });
+}
+
+/** The game modes, or one of them: the modes' own pictures. */
+export async function gameModesCard(locale: Locale, slug: string | null = null) {
+  const t = createT(locale);
+  const all = modes(locale);
+  if (slug === null) {
+    return card({
+      locale,
+      kicker: t("og.modesCount", { n: all.length }),
+      title: t("nav.gameModes.label"),
+      subtitle: t("nav.gameModes.desc"),
+      art: artOf("layla"),
+      dex: ogPose("sheet"),
+      dexHeight: 230,
+      data: await iconRow(
+        all
+          .map((m) => m.image)
+          .filter(Boolean)
+          .slice(0, 5),
+        96,
+      ),
+    });
+  }
+  const mode = all.find((m) => m.slug === slug);
+  if (!mode) return null;
+  return card({
+    locale,
+    kicker: t("nav.gameModes.label"),
+    title: mode.name,
+    titleMax: 128,
+    art: artOf("layla"),
+    dex: ogPose("sheet"),
+    dexHeight: 220,
+    data: mode.image ? await IconTile({ path: mode.image, size: 132 }) : undefined,
+  });
+}
+
+/** The ranks: the ladder's top emblems, and the hero who wins the most in Mythic. */
+export async function ranksCard(locale: Locale) {
+  const t = createT(locale);
+  const best = rankingOfRank("mythic")
+    .filter((e) => !e.lowSample)
+    .sort((x, y) => y.winRate - x.winRate)[0];
+  const emblems = SCALE.map((s) => tierAppearance(s).image)
+    .filter(Boolean)
+    .slice(-5);
+  return card({
+    locale,
+    kicker: t("og.ranksCount", { n: SCALE.length }),
+    title: t("nav.ranks.label"),
+    subtitle: best ? t("og.bestWin", { hero: best.hero.name }) : t("nav.ranks.desc"),
+    art: heroArt(best?.hero.slug),
+    dex: ogPose("ranking"),
+    dexHeight: 220,
+    data: emblems.length ? await iconRow(emblems, 96) : undefined,
+  });
+}
+
+/** The news roundup: its latest headline, on the artwork of the hero it names. */
+export function watchCard(locale: Locale) {
+  const t = createT(locale);
+  const latest = watch(1)[0];
+  return card({
+    locale,
+    kicker: t("nav.watch.label"),
+    title: t("pages.watch.metaTitle"),
+    titleLines: 3,
+    titleMax: 104,
+    subtitle: latest ? latest.title : t("nav.watch.desc"),
+    art: latest ? postArt(latest.title) : artOf("layla"),
+    dex: ogPose("article"),
+    dexHeight: 240,
+    data: <Figure value={count(locale, sources.length)} label={t("og.sources")} size={80} />,
+  });
+}
+
+// ── Pro players and teams ────────────────────────────────────────────
+
+/** A pro player: the heroes they play the most, their win rate. */
+export async function proPlayerCard(locale: Locale, slug: string) {
+  const p = playerProfile(slug);
+  if (!p) return null;
+  const t = createT(locale);
+  const heroes = p.heroes.filter((h) => heroesBySlug.has(h.slug)).slice(0, 3);
+  const aside = heroes.length
+    ? await portraitRow(
+        // Share of the player's games on each hero (a win rate over two games says little).
+        heroes.map((h) => ({
+          portrait: portraitOf(h.slug),
+          name: heroName(h.slug),
+          figure: p.games ? `${Math.round((h.games / p.games) * 100)} %` : undefined,
+        })),
+        { width: 132, height: 300 },
+      )
+    : undefined;
+  const winRate = rate(p.wins, p.games);
+  return card({
+    locale,
+    kicker: [t("nav.esports.label"), p.team?.name].filter(Boolean).join(" · "),
+    title: p.player.name,
+    titleWidth: aside ? 520 : 660,
+    titleMax: 128,
+    aside,
+    art: aside ? null : heroArt(proMeta().picked[0]?.slug),
+    dex: ogPose("esports"),
+    dexHeight: aside ? 170 : 260,
+    dexPlace: aside ? "cut" : "right",
+    data: winRate === null ? undefined : <Figure value={percentage(locale, winRate)} label={t("pages.esports.pro.player.facts.winRate")} size={80} />,
+  });
+}
+
+/** A pro team: the heroes it drafts the most, its win rate in games. */
+export async function proTeamCard(locale: Locale, slug: string) {
+  const p = teamProfile(slug);
+  if (!p) return null;
+  const t = createT(locale);
+  const picks = new Map<string, number>();
+  for (const m of p.matches) {
+    const side = m.teams.indexOf(slug);
+    if (side < 0) continue;
+    for (const g of m.games) for (const hero of g.picks[side] ?? []) if (heroesBySlug.has(hero)) picks.set(hero, (picks.get(hero) ?? 0) + 1);
+  }
+  const played = p.games[0] + p.games[1];
+  const top = [...picks].sort((x, y) => y[1] - x[1] || heroName(x[0]).localeCompare(heroName(y[0]), "en")).slice(0, 3);
+  const aside = top.length
+    ? await portraitRow(
+        // Share of the team's games in which it drafted the hero.
+        top.map(([hero, n]) => ({ portrait: portraitOf(hero), name: heroName(hero), figure: played ? `${Math.round((n / played) * 100)} %` : undefined })),
+        { width: 132, height: 300 },
+      )
+    : undefined;
+  const winRate = rate(p.games[0], played);
+  return card({
+    locale,
+    kicker: t("nav.esports.label"),
+    title: p.team.name,
+    titleWidth: aside ? 520 : 660,
+    titleMax: 128,
+    subtitle: t("pages.esports.pro.record", { wins: p.series[0], losses: p.series[1] }),
+    aside,
+    art: aside ? null : heroArt(proMeta().picked[0]?.slug),
+    dex: ogPose("esports"),
+    dexHeight: aside ? 170 : 260,
+    dexPlace: aside ? "cut" : "right",
+    data: winRate === null ? undefined : <Figure value={percentage(locale, winRate)} label={t("pages.esports.pro.player.facts.winRate")} size={80} />,
+  });
+}
+
+// ── Community categories, a hero's builds ────────────────────────────
+
+/** A forum category: its own hero's artwork, its name and what it is for. */
+export function communityCategoryCard(locale: Locale, category: string) {
+  if (!isCategory(category)) return null;
+  const t = createT(locale);
+  return card({
+    locale,
+    kicker: t("nav.community.label"),
+    title: t(`pages.community.categories.${category}.name`),
+    titleMax: 128,
+    subtitle: t(`pages.community.categories.${category}.description`),
+    art: artOf(CATEGORY_ART[category].hero),
+    dex: ogPose("community"),
+    dexHeight: 260,
+  });
+}
+
+/** A hero's community builds: the hero's artwork, the count of builds shared for them. */
+export async function heroBuildsCard(locale: Locale, slug: string) {
+  const h = simCatalog.heroes.has(slug) ? heroesBySlug.get(slug) : undefined;
+  if (!h) return null;
+  const t = createT(locale);
+  // Read only here: the store is a server file, read the same way as the page.
+  const { listBuilds } = await import("@/lib/community-builds-store");
+  const n = (await listBuilds().catch(() => [])).filter((b) => b.build.hero === slug).length;
+  return card({
+    locale,
+    kicker: `${t("nav.communityBuilds.label")} · ${patchLine(t)}`,
+    title: h.name,
+    titleMax: 140,
+    subtitle: t("nav.communityBuilds.desc"),
+    art: heroArt(slug) ?? h.images.portrait,
+    dex: ogPose("tool"),
+    dexHeight: 220,
+    data: <Figure value={count(locale, n)} label={t("og.buildsCount")} />,
   });
 }

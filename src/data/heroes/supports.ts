@@ -363,4 +363,71 @@ export const supports: HeroAnalysis[] = [
       },
     ],
   },
+  {
+    slug: "marcel",
+    summary:
+      "Soutien de contrôle dont l'ultime fige tout ce qui se trouve dans une large zone, sauf lui et les alliés qu'il a protégés.",
+    analysis:
+      "Marcel joue avec Clemar, son âme photographe. Son passif photographie automatiquement les héros ennemis proches, les fige un instant, leur inflige des dégâts bruts et donne un bouclier de même valeur à Marcel et à un allié proche ; ses attaques de base augmentent avec ses résistances, et ses PV supplémentaires deviennent de la résistance hybride. Sa compétence 2 l'accélère, davantage quand il court vers un héros ennemi, puis le fait bondir en laissant derrière lui la zone de sa compétence 1, qui ralentit fortement les héros puis les frappe après un court délai. L'ultime fige pendant deux secondes toutes les unités d'une large zone, projectiles compris, et ne laisse libres que Marcel et les alliés qui portent son bouclier.\n\n" +
+      "Ses mesures sont parmi les plus fortes du jeu : deuxième taux de victoire de tous les héros, et un bannissement qui grimpe avec le rang, rare en Épique, dans plus de deux parties sur trois en Gloire mythique. Il est surtout redoutable tôt : son taux de victoire est au plus haut dans les parties les plus courtes et baisse ensuite à chaque tranche de durée. Le patch 2.2.16 a allongé les recharges de ses compétences 1 et 2 et de son ultime. Les mesures le placent en difficulté face à Floryn, Angela, Lesley, Esmeralda et Cyclops ; son meilleur partenaire mesuré est Kalea.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Platinum Snap",
+        description:
+          "Clemar photographie automatiquement les héros ennemis proches de Marcel : la cible est figée un instant et subit des dégâts bruts, et Marcel comme un allié proche reçoivent un bouclier de même valeur, une fois par cible à intervalle régulier. Ses attaques de base augmentent avec ses résistances.",
+      },
+      {
+        type: "Skill 1",
+        name: "Framed Moment",
+        description:
+          "Une zone autour de Marcel qui ralentit fortement les héros ennemis, puis les frappe après un court délai. Ses dégâts augmentent avec ses résistances physique et magique.",
+      },
+      {
+        type: "Skill 2",
+        name: "Tracking Shot",
+        description:
+          "L'accélère quelques secondes, nettement plus en direction d'un héros ennemi. Relancée, il bondit en laissant un double, tandis que la zone de la compétence 1 reste à sa place : de quoi entrer, poser la zone et ressortir.",
+      },
+      {
+        type: "Ultimate",
+        name: "Golden Hour",
+        description:
+          "Après un court délai, fige pendant deux secondes toutes les unités d'une large zone, qui ne subissent plus que les effets de Marcel ; les projectiles s'y figent aussi. Réinitialise son passif pour chaque héros ennemi pris, et les alliés porteurs de son bouclier y restent libres.",
+      },
+    ],
+    strengths: [
+      "Deuxième taux de victoire mesuré de tous les héros",
+      "Un ultime qui fige toute une zone, projectiles compris",
+      "Un bouclier automatique pour lui et un allié",
+      "Très fort dans les parties courtes selon les mesures",
+    ],
+    weaknesses: [
+      "Banni dans plus de deux parties sur trois en Gloire mythique",
+      "Rendement mesuré en baisse à mesure que la partie s'allonge",
+      "En difficulté face à Floryn, Angela et Lesley selon les mesures",
+    ],
+    strongAgainst: ["atlas", "sun", "akai", "popol-and-kupa", "valentina"],
+    weakAgainst: ["floryn", "angela", "lesley", "esmeralda", "cyclops"],
+    builds: [
+      {
+        name: "Roam",
+        context:
+          "Le build le plus joué en roam : Thunder Belt et Dominance Ice apportent les résistances dont profitent ses attaques et sa compétence 1, Dominance Ice réduit en plus les soins et boucliers des ennemis proches, et Flask of the Oasis augmente les soins donnés et protège un allié en danger.",
+        items: ["Thunder Belt", "Dominance Ice", "Flask of the Oasis"],
+        emblem: "Emblème de soutien",
+        talent: "Concussive Blast",
+        spell: "Revitalize",
+      },
+      {
+        name: "Roam Flicker",
+        context:
+          "Les mêmes objets avec Quantum Charge et Flicker : presque aussi joués, pour un taux de victoire mesuré plus bas que la version Revitalize.",
+        items: ["Thunder Belt", "Dominance Ice", "Flask of the Oasis"],
+        emblem: "Emblème de soutien",
+        talent: "Quantum Charge",
+        spell: "Flicker",
+      },
+    ],
+  },
 ];

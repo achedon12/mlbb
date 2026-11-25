@@ -511,4 +511,62 @@ export const mages: HeroAnalysis[] = [
       },
     ],
   },
+  {
+    slug: "valir",
+    summary:
+      "Mage de contrôle qui repousse et étourdit à répétition, et dont les boules de feu se rechargent à chaque héros touché.",
+    analysis:
+      "Valir enchaîne les contrôles plus qu'il n'explose ses cibles. Chaque compétence qui touche pose une brûlure sur la cible ; à trois brûlures, le feu explose et l'étourdit, au plus une fois toutes les sept secondes sur une même cible. Sa compétence 1 tient sur deux charges et en récupère une aussitôt qu'elle touche un héros, ce qui permet de la relancer presque sans pause tant qu'il vise juste ; sa compétence 2 repousse les ennemis jusqu'au bout de son jet de flammes. L'ultime le libère de ses effets négatifs, l'accélère et renforce ses deux compétences quelques secondes : portée accrue pour la boule de feu, mur de flammes qui ralentit pour la compétence 2.\n\n" +
+      "Ses chiffres mesurés sont réguliers : taux de victoire au-dessus de la moyenne à chaque rang, bannissement faible. Il est le plus efficace dans les parties courtes, et son avantage se réduit à mesure que la partie s'allonge. En Mid lane, un même build domine nettement les autres. Les mesures le placent en difficulté face à Rafaela, Helcurt, Kaja, Mathilda et Natalia, et à l'aise face à Fredrinn, Alice, Balmond et Leomord.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Ashing",
+        description:
+          "Chaque compétence qui touche pose une brûlure qui inflige des dégâts selon les PV de la cible. À trois brûlures, le feu explose et étourdit, au plus une fois toutes les sept secondes sur une même cible.",
+      },
+      {
+        type: "Skill 1",
+        name: "Burst Fireball",
+        description:
+          "Une boule de feu qui explose sur la première cible et la ralentit, puis les flammes au sol explosent à leur tour. Deux charges ; toucher un héros ou un monstre légendaire en rend une aussitôt, toucher un sbire accélère la suivante.",
+      },
+      {
+        type: "Skill 2",
+        name: "Searing Torrent",
+        description:
+          "Un jet de flammes qui repousse les ennemis jusqu'au bout de sa course : l'outil pour écarter un assaillant. Sous l'ultime, il laisse un mur de flammes qui blesse et ralentit.",
+      },
+      {
+        type: "Ultimate",
+        name: "Vengeance Flame",
+        description:
+          "Retire tous ses effets négatifs, l'accélère brièvement et renforce ses deux compétences pendant quelques secondes. À garder pour se libérer d'un effet négatif autant que pour attaquer.",
+      },
+    ],
+    strengths: [
+      "Des contrôles répétés : repoussement, ralentissements et étourdissement",
+      "Des boules de feu relancées presque sans pause quand elles touchent",
+      "Un ultime qui le libère de ses effets négatifs",
+      "Taux de victoire mesuré au-dessus de la moyenne à chaque rang",
+    ],
+    weaknesses: [
+      "Un avantage mesuré qui se réduit dans les parties longues",
+      "Un étourdissement limité sur une même cible",
+      "En difficulté face à Rafaela, Helcurt et Kaja selon les mesures",
+    ],
+    strongAgainst: ["fredrinn", "alice", "balmond", "leomord", "hylos"],
+    weakAgainst: ["rafaela", "helcurt", "kaja", "mathilda", "natalia"],
+    builds: [
+      {
+        name: "Mid lane",
+        context:
+          "Le build le plus joué en Mid lane, et de loin : Glowing Wand brûle les cibles et réduit leurs soins et boucliers, Ice Queen Wand ajoute un ralentissement à chaque compétence qui touche et du vol de vie des sorts, et Wishing Lantern punit les cibles à beaucoup de PV. Il est associé à l'emblème commun et aux talents Festival of Blood et Impure Rage.",
+        items: ["Glowing Wand", "Ice Queen Wand", "Wishing Lantern"],
+        emblem: "All",
+        talent: "Impure Rage",
+        spell: "Flicker",
+      },
+    ],
+  },
 ];

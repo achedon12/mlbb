@@ -43,6 +43,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       tournaments: p.records.length,
     }),
     path: `/esports/teams/${slug}`,
+    card: true,
   });
 }
 

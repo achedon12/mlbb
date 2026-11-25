@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.retribution.title"),
     description: t("pages.seo.retribution.description"),
     path: PATH,
+    card: true,
     keywords: ["retribution", "retribution test", "jungle", "Lord", "Turtle", "timing", "Mobile Legends", "MLBB"],
   });
 }
