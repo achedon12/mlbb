@@ -98,7 +98,7 @@ describe("arena.rone.dev behind the breaker", () => {
     const ok = vi.fn<(url: string, init?: RequestInit) => Promise<Response>>(async () => answer(200, { code: 0, data: { jwt: "a.b.c" } }));
     vi.stubGlobal("fetch", ok);
     expect(await connect(1, 2, "0123")).toEqual({ ok: true, token: "a.b.c" });
-    expect(JSON.parse(String(ok.mock.calls[0]![1]!.body))).toEqual({ role_id: 1, zone_id: 2, vc: "0123" });
+    expect(JSON.parse(String(ok.mock.calls[0]![1]!.body))).toEqual({ role_id: 1, zone_id: 2, vc: 123 });
     expect(await connect(1, 2, "123")).toEqual({ ok: false, reason: "loginForm.errors.code" });
     expect(ok).toHaveBeenCalledTimes(1);
   });

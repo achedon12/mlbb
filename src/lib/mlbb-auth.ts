@@ -143,7 +143,7 @@ export async function connect(
   try {
     const response = await apiCall("/auth/login", {
       method: "POST",
-      body: JSON.stringify({ role_id: roleId, zone_id: zoneId, vc: code }),
+      body: JSON.stringify({ role_id: roleId, zone_id: zoneId, vc: Number(code) }),
     });
     // Overloaded or down: not a verdict on the code.
     if (!response || isOutage(response.status)) return { ok: false, reason: "loginForm.errors.unavailable" };
