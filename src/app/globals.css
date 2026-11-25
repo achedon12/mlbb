@@ -1077,7 +1077,7 @@ body {
 }
 
 /* ── Dex, the mascot (src/components/mascot.tsx) ───────────────────────── */
-.dex { display: inline-block; position: relative; flex: none; }
+@layer components { .dex { display: inline-block; position: relative; flex: none; } }
 .dex img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 14px rgb(0 0 0 / calc(0.45 * var(--shadow-strength)))); }
 .dex-idle { animation: dex-breathe 3.4s ease-in-out infinite; transform-origin: 50% 100%; }
 @keyframes dex-breathe { 0%, 100% { transform: translateY(0) scale(1, 1); } 50% { transform: translateY(-4px) scale(1.015, 0.985); } }
