@@ -1,11 +1,8 @@
 {
   "2.2.23": {
     "version": "2.2.23",
-    "title": "Patch 2.2.23",
-    "date": "2026-11-11",
-    "link": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
-    "source": "liquipedia",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
+    "title": "Patch Notes 2.2.23",
+    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.2.23",
     "toc": [
       {
         "level": 2,
@@ -16,6 +13,11 @@
         "level": 2,
         "title": "I. ฮีโร่ที่ปรับปรุงใหม่",
         "anchor": "i-revamped-hero"
+      },
+      {
+        "level": 3,
+        "title": "1. ฮีโร่ที่ปรับปรุงใหม่: Popol and Kupa สหายแห่งทุ่งน้ำแข็ง",
+        "anchor": "1-revamped-hero-popol-and-kupa-the-icefield-companions"
       },
       {
         "level": 2,
@@ -29,28 +31,28 @@
       },
       {
         "level": 3,
-        "title": "อุปกรณ์",
-        "anchor": "equipment"
+        "title": "A. อุปกรณ์",
+        "anchor": "a-equipment"
       },
       {
         "level": 3,
-        "title": "ความสามารถพิเศษ",
-        "anchor": "talents"
+        "title": "B. พรสวรรค์",
+        "anchor": "b-talents"
       },
       {
         "level": 3,
-        "title": "Battle Spell",
-        "anchor": "battle-spell"
+        "title": "C. Battle Spell",
+        "anchor": "c-battle-spells"
       },
       {
         "level": 3,
-        "title": "สนามรบ Mythical Honor",
-        "anchor": "mythical-honor-battlefield"
+        "title": "D. สนามรบแห่ง Mythical Honor",
+        "anchor": "d-mythical-honor-battlefield"
       },
       {
         "level": 3,
-        "title": "เอฟเฟกต์สนามรบ",
-        "anchor": "battlefield-effects"
+        "title": "E. เอฟเฟกต์สนามรบ",
+        "anchor": "e-battlefield-effects"
       },
       {
         "level": 2,
@@ -59,53 +61,63 @@
       },
       {
         "level": 3,
-        "title": "การเพิ่มประสิทธิภาพการประมูลบ้าน",
-        "anchor": "auction-house-optimizations"
+        "title": "A. การเพิ่มประสิทธิภาพการประมูลบ้าน",
+        "anchor": "a-auction-house-optimizations"
       },
       {
         "level": 3,
-        "title": "มีหน้าจอการเลือกโหมดใหม่",
-        "anchor": "new-mode-selection-screen-available"
+        "title": "B. หน้าจอเลือกโหมดใหม่พร้อมใช้งาน",
+        "anchor": "b-new-mode-selection-screen-available"
       },
       {
         "level": 3,
-        "title": "การสนับสนุนแท็บเล็ต",
-        "anchor": "tablet-support"
+        "title": "C. รองรับแท็บเล็ต",
+        "anchor": "c-tablet-support"
       },
       {
         "level": 2,
-        "title": "V. การปรับโหมด",
-        "anchor": "v-mode-adjustments"
+        "title": "V. โหมดเกม/การปรับเปลี่ยนโหมด",
+        "anchor": "v-game-modes-mode-adjustments"
       },
       {
         "level": 3,
-        "title": "การทะเลาะวิวาทการ์ด",
-        "anchor": "card-brawl"
+        "title": "A. การทะเลาะวิวาทการ์ด",
+        "anchor": "a-card-brawl"
       },
       {
         "level": 3,
-        "title": "ทะเลาะวิวาท",
-        "anchor": "brawl"
+        "title": "B. การทะเลาะวิวาท",
+        "anchor": "b-brawl"
+      },
+      {
+        "level": 2,
+        "title": "การเปลี่ยนแปลงที่ไม่มีเอกสาร",
+        "anchor": "undocumented-changes"
+      },
+      {
+        "level": 2,
+        "title": "อ้างอิง",
+        "anchor": "references"
       }
     ],
     "sections": [
       {
         "anchor": null,
         "title": null,
-        "html": "<p>ไฮไลท์ของแพตช์ 2.2.23:</p>\n<ul><li>ฮีโร่ที่ปรับปรุงใหม่ Popol and Kupa สหายแห่งทุ่งน้ำแข็ง คุณสมบัติฮีโร่: นักแม่นปืนที่ต่อสู้เคียงข้าง Kupa และใช้กับดักเพื่อควบคุมสนามรบ</li><li>การปรับเปลี่ยนฮีโร่</li><li>การปรับเปลี่ยนสนามรบ</li><li>การปรับระบบ</li><li>การปรับโหมด</li></ul>",
+        "html": "<dl><dd><i>หน้านี้ประกอบด้วยบันทึกการแก้ไขที่เผยแพร่บนเซิร์ฟเวอร์อย่างเป็นทางการ</i></dd></dl>\n\n<p><br>\nการอัปเดตสำหรับ <i><a href=\"https://mobilelegends.fandom.com/wiki/Mobile_Legends:_Bang_Bang\" title=\"Mobile Legends: Bang Bang\" rel=\"noreferrer nofollow\" target=\"_blank\">Mobile Legends: Bang Bang</a></i> ได้รับการเผยแพร่บนเซิร์ฟเวอร์ดั้งเดิมของเดือนพฤศจิกายน ปี 2026 ซึ่งรวมถึงฮีโร่ที่ปรับปรุงใหม่ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol and Kupa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Popol_and_Kupa\" title=\"Popol and Kupa\" rel=\"noreferrer nofollow\" target=\"_blank\">Popol and Kupa</a></span></span> พร้อมด้วยการปรับฮีโร่ การเปลี่ยนแปลงอุปกรณ์ และการเปิดตัวการ์ด โหมดวิวาท\n</p><p>การอัปเดตเปิดตัวเมื่อวันที่ 11 พฤศจิกายน 2026 เวลา 00:00 น. <a href=\"https://mobilelegends.fandom.com/wiki/Server_time\" title=\"Server time\" rel=\"noreferrer nofollow\" target=\"_blank\"> เวลาเซิร์ฟเวอร์</a>\n</p>",
         "role": null
       },
       {
         "anchor": "from-the-designers",
         "title": "จากนักออกแบบ",
-        "html": "<p>ในแพตช์นี้ เราได้ทำการปรับเปลี่ยนฮีโร่ที่แข็งแกร่งเกินไปบางตัวและเพิ่มประสิทธิภาพฮีโร่บางตัวที่ยังใช้งานน้อย</p>\n<p>นอกจากนี้เรายังได้ทำการเปลี่ยนแปลงเพื่อตอบสนองต่อกระแสที่เพิ่มขึ้นในการแข่งขันระดับสูง โดยที่ไฟท์เตอร์จะเข้าสู่ Gold Lane และ Tank โรมมิ่งจะเข้าสู่เลน EXP</p>\n<p>การเปลี่ยนแปลงเหล่านี้มีจุดมุ่งหมายเพื่อช่วยให้ฮีโร่ดั้งเดิมในทั้งสองเลนยึดตำแหน่งของตนกลับคืนมา เราจะติดตามผลกระทบของการเปลี่ยนแปลงเหล่านี้ต่อไป</p>",
+        "html": "<p>ในแพตช์นี้ เราได้ทำการปรับเปลี่ยนฮีโร่ที่แข็งแกร่งเกินไปบางตัวและเพิ่มประสิทธิภาพฮีโร่บางตัวที่ยังใช้งานน้อย\n</p><p>นอกจากนี้เรายังได้ทำการเปลี่ยนแปลงเพื่อตอบสนองต่อกระแสที่เพิ่มขึ้นในการแข่งขันระดับสูง โดยที่ไฟท์เตอร์จะเข้าสู่ Gold Lane และ Tank โรมมิ่งจะเข้าสู่เลน EXP การเปลี่ยนแปลงเหล่านี้มีจุดมุ่งหมายเพื่อช่วยให้ฮีโร่ดั้งเดิมในทั้งสองเลนยึดตำแหน่งของตนกลับคืนมา เราจะติดตามผลกระทบของการเปลี่ยนแปลงเหล่านี้ต่อไป\n</p>",
         "role": null
       },
       {
         "anchor": "i-revamped-hero",
         "title": "I. ฮีโร่ที่ปรับปรุงใหม่",
-        "html": "",
-        "role": "newHeroes"
+        "html": "<h3 id=\"1-revamped-hero-popol-and-kupa-the-icefield-companions\"><span></span><span>1. ฮีโร่ที่ปรับปรุงใหม่: Popol and Kupa สหายแห่งทุ่งน้ำแข็ง</span></h3>\n<p><b> คุณสมบัติฮีโร่: </b> นักแม่นปืนที่ต่อสู้เคียงข้างคูปาและใช้กับดักเพื่อควบคุมสนามรบ\n</p><p>ด้วยการปรับปรุงใหม่นี้ เรามุ่งมั่นที่จะแก้ไขปัญหาต่อไปนี้และปรับปรุงประสบการณ์การเล่นเกมโดยรวมของ Popol and Kupa:\n</p><p>Popol and Kupa ก่อนหน้านี้ขาดความคล่องตัวและมีศักยภาพในการคอมโบสกิลที่จำกัด เพื่อแก้ไขปัญหานี้ เราได้ปรับปรุงการโจมตีแบบประสานงานของพวกเขา และทำให้ Popol สามารถขี่ Kupa เพื่อไล่ตามศัตรูหรือล่าถอยได้\n</p><p>ก่อนหน้านี้ Popol ต้องต่อสู้โดยไม่มีเพื่อนเป็นเวลานานเกินไปหลังจากที่ Kupa พ่ายแพ้ เพื่อแก้ไขปัญหานี้ เราได้ปรับปรุงการปรับขนาดของ Kupa และ HP Regen\n</p><p>เราได้ปรับปรุงการปฏิเสธพื้นที่และประโยชน์ใช้สอยของกับดัก ทำให้พวกมันสามารถลดการป้องกันทางกายภาพของศัตรูได้ นอกจากนี้เรายังได้เพิ่มจำนวนกับดักสูงสุดที่สามารถใช้งานได้ในเวลาเดียวกันอีกด้วย\n</p><p><b>เฉยๆ - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"We Are Friends\"></span></span></span> <span><span>เราเป็นเพื่อนกัน</span></span></span></b>\n</p>\n<ul><li>HP ของ Kupa จะเพิ่มขึ้นตามเลเวลของ Popol และจะสืบทอดคุณลักษณะและเอฟเฟกต์อุปกรณ์อื่นๆ ของ Popol</li>\n<li>คูปาจะฟื้นฟู HP อย่างต่อเนื่องในขณะที่อยู่นอกการต่อสู้ หากคูปาล้ม โปปอลสามารถสวดภาวนาเพื่อนำคูปากลับคืนสู่สนามรบได้ Kupa สร้างความเสียหายจริงเพิ่มเติมแก่ครีป</li></ul>\n<p><b>สกิล 1 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bite &#39;em, Kupa!\"></span></span></span> <span><span>กัดพวกมันเลย คุปา!</span></span></span></b>\n</p>\n<ul><li>Popol ขว้างหอกไปที่ศัตรูเป้าหมาย สร้างความเสียหาย และสั่งให้ Kupa พุ่งไปที่เป้าหมายและกัดพวกมัน ซึ่งจะทำให้พวกมันช้าลงอย่างมาก</li>\n<li>ในร่าง Alpha Wolf นั้น Kupa โจมตีพื้นที่เป้าหมาย ทำให้ศัตรูที่อยู่ใกล้เคียงกระเด็นไปในอากาศ และสร้างความเสียหายเพิ่มขึ้น</li></ul>\n<p><b>สกิล 2 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kupa, Help!\"></span></span></span> <span><span>คูปา ช่วยด้วย!</span></span></span></b>\n</p>\n<ul><li>โปปอลเรียกคูปากลับมาหาเขาและได้รับโล่ จากนั้นเขาสามารถขี่คูปาเพื่อเคลื่อนที่อย่างรวดเร็ว ในระหว่างนั้นคูปาจะฟื้นฟู HP อย่างต่อเนื่อง</li>\n<li>ในรูปแบบหมาป่า Alpha โปปอลจะได้รับโล่ที่แข็งแกร่งขึ้น และคูปาจะฟื้นคืน HP เต็มขณะขี่ม้า</li></ul>\n<p><b>สกิล 3 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol&#39;s Surprise\"></span></span></span> <span><span>เซอร์ไพรส์ของโปปอล</span></span></span></b>\n</p>\n<ul><li>Popol วางกับดักที่ตำแหน่งเป้าหมาย ซึ่งจะทำให้ศัตรูที่เหยียบเข้าไปไม่สามารถเคลื่อนที่ได้ชั่วครู่ จากนั้นมันจะระเบิดและสร้างโซนน้ำแข็งที่จะสโลว์ศัตรูภายใน</li></ul>\n<p><b>สุดยอด - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"We Are Angry!\"></span></span></span> <span><span>เราโกรธ!</span></span></span></b>\n</p>\n<ul><li>Popol and Kupa เข้าสู่สถานะโกรธแค้นเป็นเวลา 9 วินาที</li>\n<li>คูปาจะฟื้นฟู HP เต็มทันทีและแปลงร่างเป็นร่างหมาป่า Alpha ได้รับ HP สูงสุดเพิ่มเติมและเสริมสกิลอื่นๆ ของเขา</li></ul>",
+        "role": null
       },
       {
         "anchor": "ii-hero-adjustments",
@@ -116,150 +128,165 @@
       {
         "anchor": "iii-battlefield-adjustments",
         "title": "III. การปรับเปลี่ยนสนามรบ",
-        "html": "<h3 id=\"equipment\">อุปกรณ์</h3>\n<p><b>Chastise Pauldron</b> <strong>▼ เนิร์ฟ</strong></p>\n<p><i> อุปกรณ์นี้มีประสิทธิภาพมากเกินไปในการตอบโต้ฮีโร่ที่ใช้ความเร็วโจมตี</i></p>\n<p><b>ติดตัวเฉพาะ - Chastise</b> <strong>▼ Nerf</strong><br>ลดความเร็วการโจมตีและความเร็วโจมตีของผู้โจมตีสูงสุดเป็น 75% → 80%</p>\n<p><b>Antique Cuirass</b> <strong>▲ บัฟ</strong></p>\n<p><i>อุปกรณ์นี้มีประสิทธิภาพต่ำกว่าเมื่อเทียบกับ Chastise Pauldron</i></p>\n<p><b>ติดตัวเฉพาะ - Deter</b> <strong>▲ บัฟ</strong><br> ลดความเสียหายกายภาพของผู้โจมตี 6% → 8%</p>\n<h3 id=\"talents\">ความสามารถพิเศษ</h3>\n<p><b>Concussive Blast</b> <strong>◆ ปรับ</strong></p>\n<p><i> เราพบว่าฮีโร่ Tank ที่โรมมิ่งจำนวนมากขึ้นกำลังเคลื่อนตัวไปที่เลน Exp ในช่วงต้นถึงกลางเกม พวกเขามีการควบคุมและความทนทานที่แข็งแกร่งกว่า Fighter ส่วนใหญ่ ขณะเดียวกันก็สร้างความเสียหายได้เกือบพอๆ กัน </i></p>\n<p>เรากำลังลดความสามารถในการเคลียร์มินเนี่ยนของฮีโร่สาย Tank บางตัวเพื่อนำ Fighter กลับมาที่เลน Exp<br>ความเสียหาย: 100 (+7% HP ทั้งหมด) → 100 (+8% HP ทั้งหมด) (สร้างความเสียหายให้กับมินเนี่ยนน้อยลง 50%)</p>\n<h3 id=\"battle-spell\">Battle Spell</h3>\n<p><b>Sprint</b> <strong>▲ บัฟ</strong></p>\n<p>คูลดาวน์: 100 วินาที → 75 วินาที</p>\n<h3 id=\"mythical-honor-battlefield\">สนามรบ Mythical Honor</h3>\n<p>มินเนี่ยนปิดล้อม Gold Lane <strong>▲ บัฟ</strong><br> เราสังเกตเห็นว่า Fighter ได้เข้ายึดครองโกลด์เลนทั้งในการแข่งขันจัดอันดับระดับสูงและการแข่งขันระดับมืออาชีพ เพื่อช่วยให้ Marksmen ฟาร์มเร็วขึ้น เราได้เพิ่มทองที่ได้รับจาก Gold Lane ในช่วงต้นเกม</p>\n<p>ทองพิเศษ: 40% → 60%</p>\n<h3 id=\"battlefield-effects\">เอฟเฟกต์สนามรบ</h3>\n<p><b>ป้อมปืนทองคำ</b> <strong>◆ ปรับ</strong></p>\n<p><i>เราสังเกตเห็นว่าทีมที่ตามหลังมีปัญหาในการคัมแบ็กด้วยเอฟเฟกต์สนามรบนี้ เราได้ปรับค่าบางอย่างในขณะที่ยังคงรักษาคุณสมบัติที่เป็นเอกลักษณ์ไว้</i></p>\n<p>HP ของป้อมปราการฐานเพิ่มขึ้น: 1,000 → 2,000<br> ทองทีมที่มอบให้โดยป้อมปืนด้านนอก: 100 → 90<br> ทองทีมที่มาจากป้อมปืนด้านใน: 140 → 120</p>\n<p><b>เต่ารักษา</b> <strong>◆ ปรับ</strong></p>\n<p><i> เราสังเกตเห็นว่ารายได้จากการฆ่าเต่าในเลนนั้นต่ำกว่ารายได้จากมินเนี่ยนอย่างมาก ส่งผลให้ทีมป้องกันเสียเปรียบทางเศรษฐกิจเพิ่มเติม ดังนั้นเราจึงเพิ่มทองและ EXP จากการฆ่าเต่าศัตรูอย่างมีนัยสำคัญ รายได้นี้จะถูกแบ่งให้กับฮีโร่ฝ่ายเดียวกันที่อยู่ในระยะ และตอนนี้ก็ใกล้เคียงกับรายได้ของมินเนี่ยนทุกชุดแล้ว</i></p>\n<p>ดังนั้นเราจึงเพิ่มทองและ EXP จากการฆ่าเต่าศัตรูอย่างมีนัยสำคัญ รายได้นี้จะถูกแบ่งให้กับฮีโร่ฝ่ายเดียวกันที่อยู่ในระยะ และตอนนี้ก็ใกล้เคียงกับรายได้ของมินเนียนแล้ว</p>",
+        "html": "<h3 id=\"a-equipment\"><span>A. อุปกรณ์</span></h3>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Chastise_Pauldron\" title=\"Chastise Pauldron\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span>&#160;<a href=\"https://mobilelegends.fandom.com/wiki/Chastise_Pauldron\" title=\"Chastise Pauldron\" rel=\"noreferrer nofollow\" target=\"_blank\">Chastise Pauldron</a> <span>NERF&#160;↓</span>\n</p>\n<dl><dd>อุปกรณ์นี้มีประสิทธิภาพมากเกินไปในการตอบโต้ฮีโร่ที่ใช้ความเร็วโจมตี</dd></dl>\n<ul><li><b>พาสซีฟเฉพาะ - Chastise <span>NERF ↓</span></b>\n<ul><li>ลดความเร็วการโจมตีและความเร็วการโจมตีของผู้โจมตีเป็น 75% → 80%</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Antique_Cuirass\" title=\"Antique Cuirass\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span>&#160;<a href=\"https://mobilelegends.fandom.com/wiki/Antique_Cuirass\" title=\"Antique Cuirass\" rel=\"noreferrer nofollow\" target=\"_blank\">Antique Cuirass</a> <span>BUFF&#160;↑</span>\n</p>\n<dl><dd>อุปกรณ์นี้มีประสิทธิภาพต่ำกว่าเมื่อเทียบกับ Chastise Pauldron</dd></dl>\n<ul><li><b>พาสซีฟเฉพาะ - Deter <span>BUFF ↑</span></b>\n<ul><li>ลดความเสียหายกายภาพของผู้โจมตี 6% → 8%</li></ul></li></ul>\n<h3 id=\"b-talents\"><span>B. พรสวรรค์</span></h3>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Concussive_Blast\" title=\"Concussive Blast\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span>&#160;<span title=\"Concussive Blast (page does not exist)\" data-uncrawlable-url=\"L3dpa2kvQ29uY3Vzc2l2ZV9CbGFzdD9hY3Rpb249ZWRpdCZyZWRsaW5rPTE=\">Concussive Blast</span> <span>ADJUST&#160;~</span><b></b>\n</p>\n<dl><dd>เราพบว่าฮีโร่ Tank ที่โรมมิ่งจำนวนมากขึ้นกำลังเคลื่อนตัวไปที่เลน Exp ในช่วงต้นถึงกลางเกม พวกเขามีการควบคุมและความทนทานที่แข็งแกร่งกว่า Fighter ส่วนใหญ่ ขณะเดียวกันก็สร้างความเสียหายได้เกือบพอๆ กัน</dd>\n<dd>เรากำลังลดความสามารถในการเคลียร์มินเนี่ยนของฮีโร่แทงค์บางตัวเพื่อนำ Fighter กลับมาที่เลน Exp</dd></dl>\n<ul><li>ความเสียหาย: 100 (+7% HP ทั้งหมด) → 100 (+8% HP ทั้งหมด) (สร้างความเสียหายต่อมิเนียนน้อยลง 50%)</li></ul>\n<h3 id=\"c-battle-spells\"><span>C. Battle Spell</span></h3>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Sprint\"></span></span></span> <span><span>Sprint</span></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>คูลดาวน์: 100 วินาที → 75 วินาที</li></ul>\n<h3 id=\"d-mythical-honor-battlefield\"><span>D. สมรภูมิ Mythical Honor</span></h3>\n<p><b>[มินเนี่ยนปิดล้อม Gold Lane] <span>BUFF ↑</span></b>\n</p>\n<dl><dd>เราสังเกตเห็นว่า Fighter ได้เข้ายึดครองโกลด์เลนทั้งในการแข่งขันจัดอันดับระดับสูงและการแข่งขันระดับมืออาชีพ เพื่อช่วยให้ Marksmen ฟาร์มเร็วขึ้น เราได้เพิ่มทองที่ได้รับจาก Gold Lane ในช่วงต้นเกม</dd></dl>\n<ul><li>ทองพิเศษ: 40% → 60%</li></ul>\n<h3 id=\"e-battlefield-effects\"><span>E. เอฟเฟกต์สนามรบ</span></h3>\n<p><b>[ป้อมปืนทองคำ] <span>ปรับ ~</span></b>\n</p>\n<dl><dd>เราสังเกตเห็นว่าทีมที่ตามหลังมีปัญหาในการกลับมาด้วยเอฟเฟกต์สนามรบนี้ เราได้ปรับค่าบางอย่างโดยยังคงรักษาคุณสมบัติที่เป็นเอกลักษณ์เอาไว้</dd></dl>\n<ul><li>HP ของป้อมปราการฐานเพิ่มขึ้น: 1,000 → 2,000</li>\n<li>ทองของทีมที่มอบให้โดยป้อมปืนด้านนอก: 100 → 90</li>\n<li>ทองของทีมที่มอบให้โดยป้อมปืนด้านใน: 140 → 120</li></ul>\n<p><b>[เต่ารักษา] <span>ADJUST ~</span></b>\n</p>\n<dl><dd>เราสังเกตเห็นว่ารายได้จากการฆ่าเต่าในเลนนั้นต่ำกว่ารายได้จากมินเนี่ยนอย่างมาก ส่งผลให้ทีมป้องกันเสียเปรียบทางเศรษฐกิจเพิ่มเติม ดังนั้นเราจึงเพิ่มทองและ EXP จากการฆ่าเต่าศัตรูอย่างมีนัยสำคัญ รายได้นี้จะถูกแบ่งให้กับฮีโร่พันธมิตรที่อยู่ในระยะ และตอนนี้ก็ใกล้เคียงกับรายได้ของมินเนี่ยนแล้ว</dd></dl>",
         "role": null
       },
       {
         "anchor": "iv-system-adjustments",
         "title": "IV. การปรับระบบ",
-        "html": "<h3 id=\"auction-house-optimizations\">การเพิ่มประสิทธิภาพการประมูลบ้าน</h3>\n<p>เพิ่มรายการแหล่งที่มาของรายการ Auction House ลงในหน้าจอ Auction House โดยแสดงรายการของรายการ Auction House ที่มีอยู่ในกิจกรรม Bang Bang Card</p>\n<h3 id=\"new-mode-selection-screen-available\">มีหน้าจอการเลือกโหมดใหม่</h3>\n<p>เพื่อให้ง่ายต่อการเพลิดเพลินกับโหมด Arcade เราได้ปรับหน้าจอการเลือกโหมดให้เหมาะสม อินเทอร์เฟซใหม่ยังช่วยให้คุณเข้าถึงโหมดมาตรฐานได้อย่างรวดเร็ว รวมถึงค้นหาโหมด Arcade ที่คุณต้องการเล่นได้อย่างง่ายดาย</p>\n<h3 id=\"tablet-support\">การสนับสนุนแท็บเล็ต</h3>\n<p>รูปแบบอินเทอร์เฟซที่ปรับให้เหมาะสมบนอุปกรณ์แท็บเล็ต</p>",
+        "html": "<h3 id=\"a-auction-house-optimizations\"><span>A. การเพิ่มประสิทธิภาพการประมูลบ้าน</span></h3>\n<ul><li>เพิ่มรายการแหล่งที่มาของรายการ Auction House ลงในหน้าจอ Auction House โดยแสดงรายการของรายการ Auction House ที่มีอยู่ในกิจกรรม Bang Bang Card</li></ul>\n<h3 id=\"b-new-mode-selection-screen-available\"><span>B. มีหน้าจอการเลือกโหมดใหม่</span></h3>\n<ul><li>เพื่อให้ง่ายต่อการเพลิดเพลินกับโหมด Arcade เราได้ปรับหน้าจอการเลือกโหมดให้เหมาะสม อินเทอร์เฟซใหม่ยังช่วยให้คุณเข้าถึงโหมดมาตรฐานได้อย่างรวดเร็ว รวมถึงค้นหาโหมด Arcade ที่คุณต้องการเล่นได้อย่างง่ายดาย</li></ul>\n<h3 id=\"c-tablet-support\"><span>C. รองรับแท็บเล็ต</span></h3>\n<ul><li>รูปแบบอินเทอร์เฟซที่ปรับให้เหมาะสมบนอุปกรณ์แท็บเล็ต</li></ul>",
         "role": null
       },
       {
-        "anchor": "v-mode-adjustments",
-        "title": "V. การปรับโหมด",
-        "html": "<h3 id=\"card-brawl\">การทะเลาะวิวาทการ์ด</h3>\n<p>ยินดีต้อนรับสู่ Card Brawl! ใน Necrokeep เลือกจากการ์ดที่นำเสนอแบบสุ่มในระดับฮีโร่ที่กำหนด สูงสุดห้าครั้ง รวมการ์ดเพื่อเพิ่มพลัง สร้างสไตล์การเล่นของคุณ และดึงการเล่นที่น่าตื่นเต้นออกมา! Card Brawl ยังช่วยให้คุณทำภารกิจกิจกรรม รับการ์ด Bangbang และเพิ่มระดับ StarLight ของคุณ!</p>\n<h3 id=\"brawl\">ทะเลาะวิวาท</h3>\n<h4 id=\"hero-balance-adjustments\">การปรับสมดุลฮีโร่</h4>\n<p>จาก Win Rate และเลือกฮีโร่ Brawl ล่าสุด เราได้ทำการปรับสมดุลดังต่อไปนี้</p>\n<p><strong>▼ เนิร์ฟ</strong><br>Aulus<br> รับความเสียหาย +4% → +8%</p>\n<p>Barats<br>(ใหม่) ความเสียหาย -2%</p>\n<p>Brody<br>(ใหม่) ความเสียหายที่ได้รับ +2%</p>\n<p>Bruno<br>ความเสียหาย -10% → -12%; (ใหม่) ความเสียหายที่ได้รับ +4%</p>\n<p>Cici<br>ความเสียหายที่ได้รับ -8% → -4%</p>\n<p>Cyclops<br>ความเสียหายที่ได้รับ +6% → +10%</p>\n<p>Edith<br>ความเสียหายที่ได้รับ +4% → +8%</p>\n<p>Hilda<br>ความเสียหายที่ได้รับ -8% → -6%</p>\n<p>Lukas<br>ความเสียหาย -2% → -6%</p>\n<p>Martis<br>ความเสียหาย +6% → +4%</p>\n<p>Minotaur<br>ความเสียหายที่ได้รับ +8% → +4%; (ใหม่) การรักษา -6%</p>\n<p>Natan<br>ความเสียหายที่ได้รับ +8% → +10%</p>\n<p>Phoveus<br>ความเสียหายที่ได้รับ +6% → +10%</p>\n<p>Popol and Kupa<br>(ใหม่) ความเสียหายที่ได้รับ +2%</p>\n<p>Rafaela<br>ความเสียหายที่ได้รับ +10% → +12%</p>\n<p>Roger<br>ความเสียหายที่ได้รับ -6% → -4%</p>\n<p>Terizla<br>ความเสียหายที่ได้รับ +14% → +18%</p>\n<p>Valir<br>(ใหม่) ได้รับความเสียหาย +2%</p>\n<p>Yu Zhong<br>ความเสียหายที่ได้รับ -4% → -2%</p>\n<p><strong>▲ บัฟ</strong><br>Aamon<br>(ใหม่) ความเสียหายที่ได้รับ -2%</p>\n<p>Chip<br>ความเสียหาย +6% → +8%</p>\n<p>Franco<br>สกิลสร้างความเสียหาย +10%</p>\n<p>Gatotkaca<br>ความเสียหายที่ได้รับ +10% → +8%</p>\n<p>Helcurt<br>ความเสียหาย +10% → +12%</p>\n<p>Joy<br>ความเสียหาย +10% → +12%</p>\n<p>Lancelot<br>ความเสียหายที่ได้รับ -4% → -6%</p>\n<p>Lunox<br>(ใหม่) ความเสียหายที่ได้รับ -2%</p>\n<p>Luo Yi<br>ความเสียหายที่ได้รับ -2% → -4%</p>\n<p>Masha<br>(ใหม่) ได้รับความเสียหาย -4%</p>\n<p>Melissa<br>ความเสียหาย -12% → -10%</p>\n<p>Nolan<br>ลดต้นทุนพลังงานของสกิล 1 และ 2</p>\n<p>Yi Sun-shin<br>(ใหม่) ความเสียหายที่ได้รับ -4%</p>\n<p>Zhuxin<br>ความเสียหาย +16% → +20%</p>",
+        "anchor": "v-game-modes-mode-adjustments",
+        "title": "V. โหมดเกม/การปรับเปลี่ยนโหมด",
+        "html": "<h3 id=\"a-card-brawl\"><span>A. เกมท้าประลองการ์ด</span></h3>\n<p><b>[ไกด์]</b>\nยินดีต้อนรับสู่ Card Brawl! ใน Necrokeep เลือกจากการ์ดที่นำเสนอแบบสุ่มในระดับฮีโร่ที่กำหนด สูงสุดห้าครั้ง รวมการ์ดเพื่อเพิ่มพลัง สร้างสไตล์การเล่นของคุณ และดึงการเล่นที่น่าตื่นเต้นออกมา! Card Brawl ยังช่วยให้คุณทำภารกิจกิจกรรม รับการ์ด Bangbang และเพิ่มระดับ StarLight ของคุณ!\n</p><p><b>[เวลาที่ว่าง]</b>\n</p>\n<ul><li>20/11 00:00:00 - 12/58 00:00:00 (เวลาเซิร์ฟเวอร์)</li></ul>\n<h3 id=\"b-brawl\"><span>B. ทะเลาะวิวาท</span></h3>\n<p><b>[การปรับสมดุลฮีโร่]</b>\n</p>\n<dl><dd>จาก Win Rate และเลือกฮีโร่ Brawl ล่าสุด เราได้ทำการปรับสมดุลดังต่อไปนี้:</dd></dl>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bruno\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Bruno\" title=\"Bruno\" rel=\"noreferrer nofollow\" target=\"_blank\">Bruno</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหาย -10% → -12%; (ใหม่) ความเสียหายที่ได้รับ +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Edith\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Edith\" title=\"Edith\" rel=\"noreferrer nofollow\" target=\"_blank\">Edith</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +4% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Phoveus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Phoveus\" title=\"Phoveus\" rel=\"noreferrer nofollow\" target=\"_blank\">Phoveus</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +6% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aulus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aulus\" title=\"Aulus\" rel=\"noreferrer nofollow\" target=\"_blank\">Aulus</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +4% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cyclops\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cyclops\" title=\"Cyclops\" rel=\"noreferrer nofollow\" target=\"_blank\">Cyclops</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +6% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lukas\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lukas\" title=\"Lukas\" rel=\"noreferrer nofollow\" target=\"_blank\">Lukas</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหาย -2% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Terizla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Terizla\" title=\"Terizla\" rel=\"noreferrer nofollow\" target=\"_blank\">Terizla</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +14% → +18%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cici\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cici\" title=\"Cici\" rel=\"noreferrer nofollow\" target=\"_blank\">Cici</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ -8% → -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Martis\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Martis\" title=\"Martis\" rel=\"noreferrer nofollow\" target=\"_blank\">Martis</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหาย +6% → +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yu Zhong\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Yu_Zhong\" title=\"Yu Zhong\" rel=\"noreferrer nofollow\" target=\"_blank\">Yu Zhong</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ -4% → -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Rafaela\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Rafaela\" title=\"Rafaela\" rel=\"noreferrer nofollow\" target=\"_blank\">Rafaela</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +10% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Natan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Natan\" title=\"Natan\" rel=\"noreferrer nofollow\" target=\"_blank\">Natan</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +8% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Barats\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Barats\" title=\"Barats\" rel=\"noreferrer nofollow\" target=\"_blank\">Barats</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(ใหม่) ความเสียหาย -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Minotaur\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Minotaur\" title=\"Minotaur\" rel=\"noreferrer nofollow\" target=\"_blank\">Minotaur</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +8% → +4%; (ใหม่) การรักษา -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hilda\" title=\"Hilda\" rel=\"noreferrer nofollow\" target=\"_blank\">Hilda</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ -8% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Brody\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Brody\" title=\"Brody\" rel=\"noreferrer nofollow\" target=\"_blank\">Brody</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(ใหม่) ความเสียหายที่ได้รับ +2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Valir\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Valir\" title=\"Valir\" rel=\"noreferrer nofollow\" target=\"_blank\">Valir</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(ใหม่) ความเสียหายที่ได้รับ +2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Roger\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Roger\" title=\"Roger\" rel=\"noreferrer nofollow\" target=\"_blank\">Roger</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ -6% → -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol and Kupa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Popol_and_Kupa\" title=\"Popol and Kupa\" rel=\"noreferrer nofollow\" target=\"_blank\">Popol and Kupa</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(ใหม่) ความเสียหายที่ได้รับ +2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lunox\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lunox\" title=\"Lunox\" rel=\"noreferrer nofollow\" target=\"_blank\">Lunox</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(ใหม่) ความเสียหายที่ได้รับ -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Melissa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Melissa\" title=\"Melissa\" rel=\"noreferrer nofollow\" target=\"_blank\">Melissa</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหาย -12% → -10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gatotkaca\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gatotkaca\" title=\"Gatotkaca\" rel=\"noreferrer nofollow\" target=\"_blank\">Gatotkaca</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +10% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Helcurt\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Helcurt\" title=\"Helcurt\" rel=\"noreferrer nofollow\" target=\"_blank\">Helcurt</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหาย +10% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Joy\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Joy\" title=\"Joy\" rel=\"noreferrer nofollow\" target=\"_blank\">Joy</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหาย +10% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lancelot\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lancelot\" title=\"Lancelot\" rel=\"noreferrer nofollow\" target=\"_blank\">Lancelot</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ -4% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aamon\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aamon\" title=\"Aamon\" rel=\"noreferrer nofollow\" target=\"_blank\">Aamon</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(ใหม่) ความเสียหายที่ได้รับ -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Luo Yi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Luo_Yi\" title=\"Luo Yi\" rel=\"noreferrer nofollow\" target=\"_blank\">Luo Yi</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ -2% → -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Chip\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Chip\" title=\"Chip\" rel=\"noreferrer nofollow\" target=\"_blank\">Chip</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหาย +6% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yi Sun-shin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Yi_Sun-shin\" title=\"Yi Sun-shin\" rel=\"noreferrer nofollow\" target=\"_blank\">Yi Sun-shin</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(ใหม่) ความเสียหายที่ได้รับ -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zhuxin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Zhuxin\" title=\"Zhuxin\" rel=\"noreferrer nofollow\" target=\"_blank\">Zhuxin</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหาย +16% → +20%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Franco\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Franco\" title=\"Franco\" rel=\"noreferrer nofollow\" target=\"_blank\">Franco</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>สกิลสร้างความเสียหาย +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Masha\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Masha\" title=\"Masha\" rel=\"noreferrer nofollow\" target=\"_blank\">Masha</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(ใหม่) ความเสียหายที่ได้รับ -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Nolan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Nolan\" title=\"Nolan\" rel=\"noreferrer nofollow\" target=\"_blank\">Nolan</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ลดต้นทุนพลังงานของสกิล 1 และ 2</li></ul>\n\n<p><br>\n</p>\n―Mobile Legends: Bang Bang",
+        "role": null
+      },
+      {
+        "anchor": "undocumented-changes",
+        "title": "การเปลี่ยนแปลงที่ไม่มีเอกสาร",
+        "html": "<p>-\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "references",
+        "title": "อ้างอิง",
+        "html": "",
         "role": null
       }
     ],
-    "newHeroes": [
-      {
-        "name": "Popol and Kupa",
-        "epithet": "Icefield Companions",
-        "anchor": "revamp-icefield-companions-popol-and-kupa",
-        "lore": [
-          "Popol and Kupa ก่อนหน้านี้ขาดความคล่องตัวและมีศักยภาพในการคอมโบสกิลที่จำกัด เพื่อแก้ไขปัญหานี้ เราได้ปรับปรุงการโจมตีแบบประสานงานของพวกเขา และทำให้ Popol สามารถขี่ Kupa เพื่อไล่ตามศัตรูหรือล่าถอยได้",
-          "ก่อนหน้านี้ Popol ต้องต่อสู้โดยไม่มีเพื่อนเป็นเวลานานเกินไปหลังจากที่ Kupa พ่ายแพ้ เพื่อแก้ไขปัญหานี้ เราได้ปรับปรุงการปรับขนาดของ Kupa และ HP Regen"
-        ],
-        "feature": "นักแม่นปืนที่ต่อสู้เคียงข้าง Kupa และใช้กับดักเพื่อควบคุมสนามรบ ด้วยการปรับปรุงใหม่นี้ เรามุ่งมั่นที่จะแก้ไขปัญหาต่อไปนี้และปรับปรุงประสบการณ์การเล่นเกมโดยรวมของ Popol and Kupa:",
-        "skills": [
-          {
-            "role": "เฉยๆ",
-            "name": "We are friends V2",
-            "description": [
-              "HP ของ Kupa จะเพิ่มขึ้นตามเลเวลของ Popol และจะสืบทอดคุณลักษณะและเอฟเฟกต์อุปกรณ์อื่นๆ ของ Popol",
-              "คูปาจะฟื้นฟู HP อย่างต่อเนื่องในขณะที่อยู่นอกการต่อสู้ หากคูปาล้ม โปปอลสามารถสวดภาวนาเพื่อนำคูปากลับคืนสู่สนามรบได้ Kupa สร้างความเสียหายจริงเพิ่มเติมแก่ครีป"
-            ]
-          },
-          {
-            "role": "สกิล 1",
-            "name": "Bite 'em, Kupa! V2",
-            "description": [
-              "Popol ขว้างหอกไปที่ศัตรูเป้าหมาย สร้างความเสียหาย และสั่งให้ Kupa พุ่งไปที่เป้าหมายและกัดพวกมัน ซึ่งจะทำให้พวกมันช้าลงอย่างมาก",
-              "ในร่าง Alpha Wolf นั้น Kupa โจมตีพื้นที่เป้าหมาย ทำให้ศัตรูที่อยู่ใกล้เคียงกระเด็นไปในอากาศ และสร้างความเสียหายเพิ่มขึ้น"
-            ]
-          },
-          {
-            "role": "สกิล 2",
-            "name": "Kupa, Help! V2",
-            "description": [
-              "โปปอลเรียกคูปากลับมาหาเขาและได้รับโล่ จากนั้นเขาสามารถขี่คูปาเพื่อเคลื่อนที่อย่างรวดเร็ว ในระหว่างนั้นคูปาจะฟื้นฟู HP อย่างต่อเนื่อง",
-              "ในรูปแบบหมาป่า Alpha โปปอลจะได้รับโล่ที่แข็งแกร่งขึ้น และคูปาจะฟื้นคืน HP เต็มขณะขี่ม้า"
-            ]
-          },
-          {
-            "role": "สกิล 3",
-            "name": "Popol's Surprise V2",
-            "description": [
-              "Popol วางกับดักที่ตำแหน่งเป้าหมาย ซึ่งจะทำให้ศัตรูที่เหยียบเข้าไปไม่สามารถเคลื่อนที่ได้ชั่วครู่ จากนั้นมันจะระเบิดและสร้างโซนน้ำแข็งที่จะสโลว์ศัตรูภายใน"
-            ]
-          },
-          {
-            "role": "สุดยอด",
-            "name": "We Are Angry! V2",
-            "description": [
-              "Popol and Kupa เข้าสู่สถานะโกรธแค้นเป็นเวลา 9 วินาที",
-              "คูปาจะฟื้นฟู HP เต็มทันทีและแปลงร่างเป็นร่างหมาป่า Alpha ได้รับ HP สูงสุดเพิ่มเติมและเสริมสกิลอื่นๆ ของเขา"
-            ]
-          }
-        ],
-        "slug": "popol-and-kupa"
-      }
-    ],
+    "newHeroes": [],
     "adjustments": [
       {
-        "name": "Aldous",
+        "name": "Xavier",
         "type": "buff",
-        "intro": "ลดการหยุดทำงานของ Aldous ระหว่างการแลกเปลี่ยนระหว่างช่วงการยืนเลน และเพิ่มการลดความเสียหายในช่วงท้ายเกม",
+        "intro": "",
+        "sections": [],
+        "slug": "xavier"
+      },
+      {
+        "name": "Xavier",
+        "type": "buff",
+        "intro": "เพื่อช่วยให้ Xavier สร้างความเสียหาย AOE ได้มากขึ้นในทีมไฟต์ เราได้เปลี่ยนความเสียหายของสกิล 2 (Mystic Barrier) ไปเป็นการเปิดใช้งาน Mystic Field นอกจากนี้เรายังได้ปรับความรู้สึกของสกิลของเขาให้เรียบขึ้นเพื่อปรับปรุงความคล่องตัวของเขาด้วย",
         "sections": [
           {
-            "name": "Contract: Explosion",
-            "category": "สกิล 2",
+            "name": "เฉยๆ",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "label": "คูลดาวน์",
-                "before": "12-9.5s",
-                "after": "8s at all levels"
+                "label": "โบนัสความเร็วในการเคลื่อนที่",
+                "before": "50%",
+                "after": "60%. The bonus now decays more slowly."
+              }
+            ]
+          },
+          {
+            "name": "สกิล 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "ลดเวลาแบ็คสวิงลง 50%"
+              }
+            ]
+          },
+          {
+            "name": "สกิล 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "ลดเวลาแบ็คสวิงลง 50%"
               },
               {
-                "label": "การลดความเสียหาย",
-                "before": "30% at all levels",
-                "after": "30%-55%"
+                "text": "นำความเสียหายโดยตรงของ Mystic Barrier ออก"
+              },
+              {
+                "label": "ความเสียหายของสนามลึกลับ",
+                "before": "220-345 (+65% Total Magic Power)",
+                "after": "440-690 (+130% Total Magic Power)"
+              },
+              {
+                "text": "แก้ไขปัญหาที่ Mystic Field Damage ไม่สามารถกระตุ้นโบนัสความเร็วเคลื่อนที่ของพาสซีฟได้"
               }
             ]
           }
         ],
-        "slug": "aldous"
+        "slug": "xavier"
       },
       {
-        "name": "Atlas",
-        "type": "nerf",
-        "intro": "Passive ของ Atlas ทำให้ศัตรูแช่แข็งบ่อยเกินไป ดังนั้นเราจึงลดระยะเวลาของ Frigid Breath และเพิ่มคูลดาวน์แช่แข็ง เพื่อเป็นการชดเชย เราได้เพิ่มโบนัสการป้องกันกายภาพและเวทมนตร์เพื่อช่วยให้เขาทนต่อความเสียหายได้มากขึ้นหลังจากมีส่วนร่วม",
+        "name": "Lunox",
+        "type": "buff",
+        "intro": "Passive ของ Lunox ส่งผลกระทบเพียงเล็กน้อยจนถึงช่วงท้ายเกม และอุปกรณ์ไม่กี่อย่างก็ใช้งานได้ดีกับการแปลงค่าสถานะ เราได้ปรับให้เหมาะสมแล้ว นอกจากนี้เรายังได้เพิ่มความเสียหายในช่วงต้นเกมของสกิล 2 ของ Lunax และปรับปรุงความรู้สึกในการควบคุมของท่าไม้ตายของเธอด้วย การเปลี่ยนแปลงเหล่านี้มีจุดมุ่งหมายเพื่อให้แน่ใจว่าเธอได้รับความเสียหายเพียงพอในช่วงต้นถึงกลางเกม",
         "sections": [
           {
-            "name": "Frigid Breath",
-            "category": "เฉยๆ",
+            "name": "เฉยๆ",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "เมื่อสมดุลถูกเปลี่ยนไปสู่พลังแห่งคำสั่ง จะได้รับ Spell Vamp 10% ทันที"
+              },
+              {
+                "text": "เมื่อสมดุลถูกเปลี่ยนไปสู่พลังแห่งความโกลาหล จะได้รับการเจาะเกราะเวทย์ 10% ทันที"
+              }
+            ]
+          },
+          {
+            "name": "สกิล 2 (พลังแห่งความโกลาหล)",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "เปอร์เซ็นต์ความเสียหายพิเศษ",
+                "before": "2.5%-5%",
+                "after": "3.5%-5%"
+              },
+              {
+                "label": "เปอร์เซ็นต์ของความเสียหายเพิ่มเติมต่อครีป",
+                "before": "1.5%-3%",
+                "after": "2.1%-3%"
+              }
+            ]
+          },
+          {
+            "name": "อัลติเมท (พลังแห่งความโกลาหล)",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
-                "label": "ระยะเวลาลมหายใจเยือกแข็ง",
-                "before": "5s",
-                "after": "4s"
+                "text": "ลดเวลาในการคาดการณ์ของเส้นประลง 50%"
               },
               {
-                "label": "แช่แข็งคูลดาวน์",
-                "before": "2.5s",
-                "after": "4s"
-              },
-              {
-                "label": "พลังป้องกันกายภาพและเวทมนตร์ที่ได้รับระหว่างลมหายใจเยือกแข็ง",
-                "before": "20 (+0.5% Extra HP)",
-                "after": "20 (+0.7% Extra HP)"
+                "label": "ความเสียหาย",
+                "before": "250-450 (+ 100% Total Magic Power)",
+                "after": "150-300 (+135% Total Magic Power)"
               }
             ]
           }
         ],
-        "slug": "atlas"
+        "slug": "lunox"
       },
       {
         "name": "Freya",
         "type": "buff",
-        "intro": "",
+        "intro": "เพื่อช่วยให้ Freya โดดเด่นในเลน Exp เราได้เพิ่มความแข็งแกร่งของเธอนอกท่าไม้ตายของเธอ ในขณะเดียวกันก็ลดความถี่ที่เธอสามารถใช้ได้",
         "sections": [
           {
-            "name": "Power of Einherjar",
-            "category": "เฉยๆ",
+            "name": "เฉยๆ",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "การใช้ Sacred Orb จะทำให้การโจมตีปกติครั้งถัดไปฟื้นฟู HP 20 (+3* ระดับฮีโร่) (+20% การโจมตีกายภาพทั้งหมด)"
+                "text": "การใช้ Sacred Orb จะทำให้การโจมตีปกติครั้งถัดไปฟื้นฟู HP 20 (+ 3 x ระดับฮีโร่) (+20% การโจมตีกายภาพทั้งหมด)"
               }
             ]
           },
           {
-            "name": "Valkyrie Descent",
-            "category": "สุดยอด",
+            "name": "สุดยอด",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
@@ -272,7 +299,7 @@
               },
               {
                 "label": "ความเสียหายจากการโจมตีพื้นฐานขั้นสูง (ระหว่างอัลติเมท)",
-                "before": "30-60 (+100% Total Physical Attack)",
+                "before": "30-60 (+ 100% Total Physical Attack)",
                 "after": "100-200 (+70% Total Physical Attack)"
               },
               {
@@ -286,11 +313,11 @@
       {
         "name": "Gloo",
         "type": "nerf",
-        "intro": "",
+        "intro": "เราสังเกตเห็นว่า Gloo ค่อนข้างแข็งแกร่งเกินไป ทำให้ยากสำหรับคู่ต่อสู้ที่จะตอบโต้เขา เราตัดสินใจลดความแข็งแกร่งของเขาลง",
         "sections": [
           {
-            "name": "Slam, Slam",
-            "category": "สกิล 1",
+            "name": "สกิล 1",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
@@ -306,8 +333,8 @@
             ]
           },
           {
-            "name": "Split, Split",
-            "category": "สกิล 3",
+            "name": "สกิล 3",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
@@ -321,114 +348,70 @@
         "slug": "gloo"
       },
       {
-        "name": "Kagura",
-        "type": "adjust",
-        "intro": "",
+        "name": "Masha",
+        "type": "nerf",
+        "intro": "เพื่อปรับปรุงเลนของ Masha ให้ชัดเจนและช่วยให้เธอดันคลื่นมินเนี่ยนเร็วขึ้น เราได้ย้ายเอฟเฟกต์การสโลว์ไปที่สกิล 2 ซึ่งทำให้เธอสามารถไล่ตามหลังจากพุ่งไปหาศัตรู และติดตามด้วยการโจมตีพื้นฐานเพื่อสร้างความเสียหายด้วยการทำลายบาดแผล นอกจากนี้เรายังจำกัดเส้นทางของสกิล 2 ให้แคบลง เพื่อลดกรณีที่ศัตรูที่อยู่ใกล้เคียงบล็อกการพุ่งของเธอเมื่อถอย เพื่อรักษาสมดุลนี้ เราได้ลดความเสียหายของสกิล 1 และสกิล 2 นอกจากนี้เรายังได้ปรับปรุงวิธีการทริกเกอร์บาดแผลอีกด้วย เราได้ลดประสิทธิภาพของการโจมตีด้วยกรงเล็บของเธอลงเล็กน้อย",
         "sections": [
           {
-            "name": "Seimei Umbrella Open",
-            "category": "สกิล 1",
+            "name": "เฉยๆ",
+            "category": null,
             "type": "adjust",
             "changes": [
               {
-                "text": "ปรับการมองเห็นให้เหมาะสมสำหรับระยะห่างสูงสุดระหว่างร่ม Seimei และ Kagura"
-              }
-            ]
-          }
-        ],
-        "slug": "kagura"
-      },
-      {
-        "name": "Kaja",
-        "type": "buff",
-        "intro": "ปรับวิธีที่ฮีโร่ศัตรูสามารถตอบสนองต่อท่าไม้ตายของ Kaja ได้ ตอนนี้พวกเขามีเวลามากขึ้นในการออกจากพื้นที่ก่อนที่ท่าไม้ตายจะมีผล แต่จะไม่สามารถใช้สกิลการควบคุมภูมิคุ้มกันเพื่อหลีกเลี่ยงการจำกัดพื้นที่ได้อีกต่อไป เราได้เพิ่มวิธีต่างๆ มากขึ้นเพื่อให้ Kaja อยู่ในสถานะ Soaring ได้นานขึ้น และเพิ่มความคล่องตัวในขณะที่ Soaring",
-        "sections": [
-          {
-            "name": "Soaring Wings",
-            "category": "สกิล 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "เพิ่มความเร็วในการหมุนของ Kaja ในขณะที่ทะยานเพื่อการควบคุมที่ตอบสนองได้ดียิ่งขึ้น"
+                "text": "เอฟเฟกต์ใหม่: การโจมตีด้วยสกิลจะสุ่มแทนที่หนึ่งในบาดแผลที่มีอยู่ของเป้าหมายด้วยอันใหม่ไปในทิศทางของการโจมตี"
               },
               {
-                "text": "เอฟเฟกต์ใหม่: ขณะที่ทะยานทะยาน การโจมตีพื้นฐานที่ได้รับการปรับปรุงจะขยายระยะเวลาของสถานะเล็กน้อยเมื่อโจมตีโดนศัตรู"
+                "label": "ความเสียหายทางกายภาพเพิ่มเติม",
+                "before": "(3 + 1% Extra Physical Attack + 0.3 x Hero Level)% Max HP",
+                "after": "(2 + 0.5% Extra Physical Attack + 0.2 x Hero Level)% Max HP"
               },
               {
-                "text": "เอฟเฟกต์ใหม่: ขณะทะยาน การโจมตีมินเนี่ยนศัตรูด้วยสกิล 2 ตอนนี้จะขยายระยะเวลาของสถานะด้วย"
+                "label": "HP รีเจน",
+                "before": "4-10% Max HP",
+                "after": "3-6% Max HP"
               }
             ]
           },
           {
-            "name": "Divine Binding",
-            "category": "สุดยอด",
+            "name": "สกิล 1",
+            "category": null,
             "type": "adjust",
             "changes": [
               {
-                "text": "เพิ่มดีเลย์ของ Ultimate เล็กน้อย"
+                "label": "โบนัสความเสียหาย",
+                "before": "70%",
+                "after": "55%"
               },
               {
-                "text": "เอฟเฟกต์ใหม่: เป้าหมายที่มีภูมิคุ้มกันควบคุมจะไม่สามารถหลบหนีพื้นที่ของอัลติเมทได้อีกต่อไปเมื่อมีผล"
-              }
-            ]
-          }
-        ],
-        "slug": "kaja"
-      },
-      {
-        "name": "Karrie",
-        "type": "adjust",
-        "intro": "ปรับปรุงความสามารถในการต่อสู้ของ Karrie ในระหว่างท่าไม้ตายของเธอ และปรับสกิล 1 เพื่อมุ่งเน้นไปที่การทำให้ศัตรูช้าลงและบังคับให้พวกเขาเปลี่ยนตำแหน่งในช่วงท้ายเกม นอกจากนี้เรายังได้ปรับปรุงความชัดเจนและตรรกะของสกิลบางอย่างของเธออีกด้วย",
-        "sections": [
-          {
-            "name": "Spinning Light Wheel",
-            "category": "สกิล 1",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "ปรับเอฟเฟกต์ภาพของทรงกลมและความถี่ในการตรวจจับการชนให้เหมาะสม ทำให้ทั้งพันธมิตรและศัตรูสามารถบอกได้ง่ายขึ้นว่าสกิล 1 จะโจมตีพวกเขาหรือไม่"
+                "label": "สร้างความเสียหายให้กับมินเนี่ยน",
+                "before": "100%-150%",
+                "after": "150%-200%"
               },
               {
-                "label": "โบนัสการโจมตีทางกายภาพ (ความเสียหายพื้นฐาน)",
-                "before": "90%",
-                "after": "20%"
-              },
-              {
-                "label": "โบนัสการโจมตีทางกายภาพ (ความเสียหายต่อเนื่อง)",
-                "before": "20%",
-                "after": "10%"
+                "text": "เอฟเฟกต์ที่ถูกลบออก: การโจมตีฮีโร่ศัตรูจะทำให้พวกเขาช้าลง 50% เป็นเวลา 1 วินาที"
               }
             ]
           },
           {
-            "name": "Phantom Step",
-            "category": "สกิล 2",
+            "name": "สกิล 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "ตอนนี้ตรวจจับฮีโร่ศัตรูที่อยู่ใกล้เคียงตลอดการพุ่ง หากตรวจไม่พบฮีโร่ศัตรู มันจะตรวจจับครีปและมินเนี่ยนเมื่อสิ้นสุดการพุ่ง"
-              }
-            ]
-          },
-          {
-            "name": "Speedy Lightwheel",
-            "category": "สุดยอด",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "ความเสียหายพื้นฐานต่อ Lightwheel",
-                "before": "40",
-                "after": "50"
+                "text": "เอฟเฟกต์ใหม่: การฟันฮีโร่ศัตรูด้วยการฟันจะทำให้พวกมันช้าลง 50% เป็นเวลา 1 วินาที"
               },
               {
-                "label": "เพิ่มความเร็วในการเคลื่อนที่ระหว่างท่าไม้ตาย",
-                "before": "20%",
-                "after": "30%"
+                "text": "การปรับเอฟเฟกต์: ลดความกว้างเส้นทางของสกิล 2 ลง 20%"
+              },
+              {
+                "label": "ความเสียหาย",
+                "before": "120-240 (+ 80% Extra Physical Attack)",
+                "after": "60-240 (+40% Extra Physical Attack)"
               }
             ]
           }
         ],
-        "slug": "karrie"
+        "slug": "masha"
       },
       {
         "name": "Lukas",
@@ -453,14 +436,14 @@
             ]
           },
           {
-            "name": "Flash Combo",
-            "category": "สกิล 1",
+            "name": "สกิล 1",
+            "category": null,
             "type": "adjust",
             "changes": [
               {
                 "label": "ทำลายความเสียหาย",
-                "before": "280-580 (+120% Total Physical Attack)",
-                "after": "400-800 (+60% Total Physical Attack)"
+                "before": "280-580 (+ 120% Total Physical Attack)",
+                "after": "400-800 (+ 60% Total Physical Attack)"
               },
               {
                 "label": "สปินดาเมจ",
@@ -478,123 +461,158 @@
         "slug": "lukas"
       },
       {
-        "name": "Lunox",
+        "name": "Aldous",
         "type": "buff",
-        "intro": "Passive ของ Lunox ส่งผลกระทบเพียงเล็กน้อยจนถึงช่วงท้ายเกม และอุปกรณ์ไม่กี่อย่างก็ใช้งานได้ดีกับการแปลงค่าสถานะ เราได้ปรับให้เหมาะสมแล้ว นอกจากนี้เรายังได้เพิ่มความเสียหายในช่วงต้นเกมของสกิล 2 ของ Lunax และปรับปรุงความรู้สึกในการควบคุมของท่าไม้ตายของเธอด้วย การเปลี่ยนแปลงเหล่านี้มีจุดมุ่งหมายเพื่อให้แน่ใจว่าเธอได้รับความเสียหายเพียงพอในช่วงต้นถึงกลางเกม",
+        "intro": "ลดการหยุดทำงานของ Aldous ระหว่างการแลกเปลี่ยนระหว่างช่วงการยืนเลน และเพิ่มการลดความเสียหายในช่วงท้ายเกม",
         "sections": [
           {
-            "name": "Dreamland Twist",
-            "category": "เฉยๆ",
+            "name": "สกิล 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "เมื่อสมดุลถูกเปลี่ยนไปสู่พลังแห่งคำสั่ง จะได้รับ Spell Vamp 10% ทันที"
+                "label": "คูลดาวน์",
+                "before": "12-9.5s",
+                "after": "8s at all levels"
               },
               {
-                "text": "เมื่อสมดุลถูกเปลี่ยนไปสู่พลังแห่งความโกลาหล จะได้รับการเจาะเกราะเวทย์ 10% ทันที"
+                "label": "การลดความเสียหาย",
+                "before": "30% at all levels",
+                "after": "30%-55%"
               }
             ]
-          },
+          }
+        ],
+        "slug": "aldous"
+      },
+      {
+        "name": "Atlas",
+        "type": "nerf",
+        "intro": "Passive ของ Atlas ทำให้ศัตรูแช่แข็งบ่อยเกินไป ดังนั้นเราจึงลดระยะเวลาของ Frigid Breath และเพิ่มคูลดาวน์แช่แข็ง เพื่อเป็นการชดเชย เราได้เพิ่มโบนัสการป้องกันกายภาพและเวทมนตร์เพื่อช่วยให้เขาทนต่อความเสียหายได้มากขึ้นหลังจากมีส่วนร่วม",
+        "sections": [
           {
-            "name": "Chaos Assault",
-            "category": "สกิล 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "เปอร์เซ็นต์ความเสียหายพิเศษ",
-                "before": "2.5%-5%",
-                "after": "3.5%-5%"
-              },
-              {
-                "label": "เปอร์เซ็นต์ของความเสียหายเพิ่มเติมต่อครีป",
-                "before": "1.5%-3%",
-                "after": "2.1%-3%"
-              }
-            ]
-          },
-          {
-            "name": "Power of Chaos: Darkening",
-            "category": "สุดยอด",
+            "name": "เฉยๆ",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
-                "text": "ลดเวลาในการคาดการณ์ของเส้นประลง 50%"
+                "label": "ระยะเวลาลมหายใจเยือกแข็ง",
+                "before": "5s",
+                "after": "4s"
               },
               {
-                "label": "ความเสียหาย",
-                "before": "250-450 (+100% Total Magic Power)",
-                "after": "150-300 (+135% Total Magic Power)"
+                "label": "แช่แข็งคูลดาวน์",
+                "before": "2.5s",
+                "after": "4s"
+              },
+              {
+                "label": "พลังป้องกันกายภาพและเวทมนตร์ที่ได้รับระหว่างลมหายใจเยือกแข็ง",
+                "before": "20 (+0.5% Extra HP)",
+                "after": "20 (+0.7% Extra HP)"
               }
             ]
           }
         ],
-        "slug": "lunox"
+        "slug": "atlas"
       },
       {
-        "name": "Masha",
-        "type": "nerf",
-        "intro": "เพื่อปรับปรุงเลนของ Masha ให้ชัดเจนและช่วยให้เธอดันคลื่นมินเนี่ยนเร็วขึ้น เราได้ย้ายเอฟเฟกต์การสโลว์ไปที่สกิล 2 ซึ่งทำให้เธอสามารถไล่ตามหลังจากพุ่งไปหาศัตรู และติดตามด้วยการโจมตีพื้นฐานเพื่อสร้างความเสียหายด้วยการทำลายบาดแผล นอกจากนี้เรายังจำกัดเส้นทางของสกิล 2 ให้แคบลง เพื่อลดกรณีที่ศัตรูที่อยู่ใกล้เคียงบล็อกการพุ่งของเธอเมื่อถอย เพื่อรักษาสมดุลนี้ เราได้ลดความเสียหายของสกิล 1 และสกิล 2 นอกจากนี้เรายังได้ปรับปรุงวิธีการทริกเกอร์บาดแผลอีกด้วย เราได้ลดประสิทธิภาพของการโจมตีด้วยกรงเล็บของเธอลงเล็กน้อย",
+        "name": "Karrie",
+        "type": "adjust",
+        "intro": "ปรับปรุงความสามารถในการต่อสู้ของ Karrie ในระหว่างท่าไม้ตายของเธอ และปรับสกิล 1 เพื่อมุ่งเน้นไปที่การทำให้ศัตรูช้าลงและบังคับให้พวกเขาเปลี่ยนตำแหน่งในช่วงท้ายเกม นอกจากนี้เรายังได้ปรับปรุงความชัดเจนและตรรกะของสกิลบางอย่างของเธออีกด้วย",
         "sections": [
           {
-            "name": "Primal Pact",
-            "category": "เฉยๆ",
-            "type": "adjust",
+            "name": "สกิล 1",
+            "category": null,
+            "type": "nerf",
             "changes": [
               {
-                "text": "เอฟเฟกต์ใหม่: การโจมตีด้วยสกิลจะสุ่มแทนที่หนึ่งในบาดแผลที่มีอยู่ของเป้าหมายด้วยอันใหม่ไปในทิศทางของการโจมตี"
+                "text": "ปรับเอฟเฟกต์ภาพของทรงกลมและความถี่ในการตรวจจับการชนให้เหมาะสม ทำให้ทั้งพันธมิตรและศัตรูสามารถบอกได้ง่ายขึ้นว่าสกิล 1 จะโจมตีพวกเขาหรือไม่"
               },
               {
-                "label": "ความเสียหายทางกายภาพเพิ่มเติม",
-                "before": "(3 + 1% Extra Physical Attack + 0.3 * Hero Level)% Max HP",
-                "after": "(2 + 0.5% Extra Physical Attack + 0.2 * Hero Level)% Max HP"
-              },
-              {
-                "label": "HP รีเจน",
-                "before": "4-10% Max HP",
-                "after": "3-6% Max HP"
+                "text": "โบนัสการโจมตีกายภาพ (ความเสียหายพื้นฐาน): 90% → 20%; โบนัสการโจมตีกายภาพ (ความเสียหายต่อเนื่อง): 20% → 10%"
               }
             ]
           },
           {
-            "name": "Feral Swipe",
-            "category": "สกิล 1",
-            "type": "adjust",
-            "changes": [
-              {
-                "label": "โบนัสความเสียหาย",
-                "before": "70%",
-                "after": "55%"
-              },
-              {
-                "label": "สร้างความเสียหายให้กับมินเนี่ยน",
-                "before": "100%-150%",
-                "after": "150%-200%"
-              },
-              {
-                "text": "เอฟเฟกต์ที่ถูกลบออก: การโจมตีฮีโร่ศัตรูจะทำให้พวกเขาช้าลง 50% เป็นเวลา 1 วินาที"
-              }
-            ]
-          },
-          {
-            "name": "Claw Strike",
-            "category": "สกิล 2",
+            "name": "สกิล 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "เอฟเฟกต์ใหม่: การฟันฮีโร่ศัตรูด้วยการฟันจะทำให้พวกมันช้าลง 50% เป็นเวลา 1 วินาที"
+                "text": "ตอนนี้ตรวจจับฮีโร่ศัตรูที่อยู่ใกล้เคียงตลอดการพุ่ง หากตรวจไม่พบฮีโร่ศัตรู มันจะตรวจจับครีปและมินเนี่ยนเมื่อสิ้นสุดการพุ่ง"
+              }
+            ]
+          },
+          {
+            "name": "สุดยอด",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "ความเสียหายพื้นฐานต่อ Lightwheel",
+                "before": "40",
+                "after": "50"
               },
               {
-                "text": "การปรับเอฟเฟกต์: ลดความกว้างเส้นทางของสกิล 2 ลง 20%"
-              },
-              {
-                "label": "ความเสียหาย",
-                "before": "120-240 (+80% Extra Physical Attack)",
-                "after": "60-240 (+40% Extra Physical Attack)"
+                "label": "เพิ่มความเร็วในการเคลื่อนที่ระหว่างท่าไม้ตาย",
+                "before": "20%",
+                "after": "30%"
               }
             ]
           }
         ],
-        "slug": "masha"
+        "slug": "karrie"
+      },
+      {
+        "name": "Kaja",
+        "type": "buff",
+        "intro": "ปรับวิธีที่ฮีโร่ศัตรูสามารถตอบสนองต่อท่าไม้ตายของ Kaja ได้ ตอนนี้พวกเขามีเวลามากขึ้นในการออกจากพื้นที่ก่อนที่ท่าไม้ตายจะมีผล แต่จะไม่สามารถใช้สกิลการควบคุมภูมิคุ้มกันเพื่อหลีกเลี่ยงการจำกัดพื้นที่ได้อีกต่อไป เราได้เพิ่มวิธีต่างๆ มากขึ้นเพื่อให้ Kaja อยู่ในสถานะ Soaring ได้นานขึ้น และเพิ่มความคล่องตัวในขณะที่ Soaring",
+        "sections": [
+          {
+            "name": "สกิล 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "เพิ่มความเร็วในการหมุนของ Kaja ในขณะที่ทะยานเพื่อการควบคุมที่ตอบสนองได้ดียิ่งขึ้น"
+              },
+              {
+                "text": "เอฟเฟกต์ใหม่: ขณะที่ทะยานทะยาน การโจมตีพื้นฐานที่ได้รับการปรับปรุงจะขยายระยะเวลาของสถานะเล็กน้อยเมื่อโจมตีโดนศัตรู"
+              },
+              {
+                "text": "เอฟเฟกต์ใหม่: ขณะทะยาน การโจมตีมินเนี่ยนศัตรูด้วยสกิล 2 ตอนนี้จะขยายระยะเวลาของสถานะด้วย"
+              }
+            ]
+          },
+          {
+            "name": "สุดยอด",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "เพิ่มดีเลย์ของ Ultimate เล็กน้อย"
+              },
+              {
+                "text": "เอฟเฟกต์ใหม่: เป้าหมายที่มีภูมิคุ้มกันควบคุมจะไม่สามารถหลบหนีพื้นที่ของอัลติเมทได้อีกต่อไปเมื่อมีผล"
+              }
+            ]
+          }
+        ],
+        "slug": "kaja"
+      },
+      {
+        "name": "Kagura",
+        "type": "adjust",
+        "intro": "ปรับการมองเห็นให้เหมาะสมสำหรับระยะห่างสูงสุดระหว่างร่ม Seimei และ Kagura",
+        "sections": [],
+        "slug": "kagura"
+      },
+      {
+        "name": "Uranus",
+        "type": "adjust",
+        "intro": "เปลี่ยนความเสียหายกระจายของการโจมตีพื้นฐานเป็นความเสียหายทางเวทมนตร์",
+        "sections": [],
+        "slug": "uranus"
       },
       {
         "name": "Melissa",
@@ -602,8 +620,8 @@
         "intro": "การปรับเปลี่ยนในแพตช์ที่แล้วทำให้ Melissa อ่อนแอลงเกินกว่าที่ตั้งใจไว้ ดังนั้นเราจึงนำการเปลี่ยนแปลงบางส่วนกลับคืนมา สิ่งนี้ควรรักษาความแข็งแกร่งในช่วงต้นเกมของเธอไว้ ในขณะเดียวกันก็รักษาความเสียหายในช่วงท้ายเกมของเธอไว้",
         "sections": [
           {
-            "name": "Eyes on You!",
-            "category": "สกิล 2",
+            "name": "สกิล 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
@@ -620,82 +638,16 @@
           }
         ],
         "slug": "melissa"
-      },
-      {
-        "name": "Uranus",
-        "type": "adjust",
-        "intro": "",
-        "sections": [
-          {
-            "name": "คุณสมบัติ",
-            "category": null,
-            "type": "adjust",
-            "changes": [
-              {
-                "text": "เปลี่ยนความเสียหายกระจายของการโจมตีพื้นฐานเป็นความเสียหายทางเวทมนตร์"
-              }
-            ]
-          }
-        ],
-        "slug": "uranus"
-      },
-      {
-        "name": "Xavier",
-        "type": "buff",
-        "intro": "เพื่อช่วยให้ Xavier สร้างความเสียหาย AOE ได้มากขึ้นในทีมไฟต์ เราได้เปลี่ยนความเสียหายของสกิล 2 (Mystic Barrier) ไปเป็นการเปิดใช้งาน Mystic Field นอกจากนี้เรายังได้ปรับความรู้สึกของสกิลของเขาให้เรียบขึ้นเพื่อปรับปรุงความคล่องตัวของเขาด้วย",
-        "sections": [
-          {
-            "name": "Transcendence",
-            "category": "เฉยๆ",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "โบนัสความเร็วในการเคลื่อนที่",
-                "before": "50%",
-                "after": "60%. The bonus now decays more slowly."
-              }
-            ]
-          },
-          {
-            "name": "Infinite Extension",
-            "category": "สกิล 1",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "ลดเวลาแบ็คสวิงลง 50%"
-              }
-            ]
-          },
-          {
-            "name": "Mystic Field",
-            "category": "สกิล 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "ลดเวลาแบ็คสวิงลง 50%"
-              },
-              {
-                "text": "นำความเสียหายโดยตรงของ Mystic Barrier ออก"
-              },
-              {
-                "label": "ความเสียหายของสนามลึกลับ",
-                "before": "220-345 (+65% Total Magic Power)",
-                "after": "440-690 (+130% Total Magic Power)"
-              },
-              {
-                "text": "แก้ไขปัญหาที่ Mystic Field Damage ไม่สามารถกระตุ้นโบนัสความเร็วเคลื่อนที่ของพาสซีฟได้"
-              }
-            ]
-          }
-        ],
-        "slug": "xavier"
       }
     ],
     "balance": {
-      "buff": 6,
+      "buff": 7,
       "nerf": 3,
       "adjust": 4
-    }
+    },
+    "date": "2026-11-11",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23"
   },
   "2.2.16a": {
     "version": "2.2.16a",

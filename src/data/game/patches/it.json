@@ -1,11 +1,8 @@
 {
   "2.2.23": {
     "version": "2.2.23",
-    "title": "Patch 2.2.23",
-    "date": "2026-11-11",
-    "link": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
-    "source": "liquipedia",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
+    "title": "Patch Notes 2.2.23",
+    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.2.23",
     "toc": [
       {
         "level": 2,
@@ -16,6 +13,11 @@
         "level": 2,
         "title": "I. Eroe rinnovato",
         "anchor": "i-revamped-hero"
+      },
+      {
+        "level": 3,
+        "title": "1. Eroe rinnovato: Popol and Kupa, i Compagni Icefield",
+        "anchor": "1-revamped-hero-popol-and-kupa-the-icefield-companions"
       },
       {
         "level": 2,
@@ -29,28 +31,28 @@
       },
       {
         "level": 3,
-        "title": "Attrezzatura",
-        "anchor": "equipment"
+        "title": "A. Attrezzatura",
+        "anchor": "a-equipment"
       },
       {
         "level": 3,
-        "title": "Talenti",
-        "anchor": "talents"
+        "title": "B. Talenti",
+        "anchor": "b-talents"
       },
       {
         "level": 3,
-        "title": "Incantesimo di battaglia",
-        "anchor": "battle-spell"
+        "title": "C. Incantesimi di battaglia",
+        "anchor": "c-battle-spells"
       },
       {
         "level": 3,
-        "title": "Mitico campo di battaglia dell'onore",
-        "anchor": "mythical-honor-battlefield"
+        "title": "D. Mitico campo di battaglia dell'onore",
+        "anchor": "d-mythical-honor-battlefield"
       },
       {
         "level": 3,
-        "title": "Effetti del campo di battaglia",
-        "anchor": "battlefield-effects"
+        "title": "E. Effetti del campo di battaglia",
+        "anchor": "e-battlefield-effects"
       },
       {
         "level": 2,
@@ -59,53 +61,63 @@
       },
       {
         "level": 3,
-        "title": "Ottimizzazioni della casa d'aste",
-        "anchor": "auction-house-optimizations"
+        "title": "A. Ottimizzazioni della casa d'aste",
+        "anchor": "a-auction-house-optimizations"
       },
       {
         "level": 3,
-        "title": "Nuova schermata di selezione della modalità disponibile",
-        "anchor": "new-mode-selection-screen-available"
+        "title": "B. Schermata di selezione della nuova modalità disponibile",
+        "anchor": "b-new-mode-selection-screen-available"
       },
       {
         "level": 3,
-        "title": "Supporto per tablet",
-        "anchor": "tablet-support"
+        "title": "C. Supporto tablet",
+        "anchor": "c-tablet-support"
       },
       {
         "level": 2,
-        "title": "V. Regolazioni della modalità",
-        "anchor": "v-mode-adjustments"
+        "title": "V. Modalità di gioco/Regolazioni della modalità",
+        "anchor": "v-game-modes-mode-adjustments"
       },
       {
         "level": 3,
-        "title": "Rissa di carte",
-        "anchor": "card-brawl"
+        "title": "A. Rissa di carte",
+        "anchor": "a-card-brawl"
       },
       {
         "level": 3,
-        "title": "Rissa",
-        "anchor": "brawl"
+        "title": "B. Rissa",
+        "anchor": "b-brawl"
+      },
+      {
+        "level": 2,
+        "title": "Modifiche non documentate",
+        "anchor": "undocumented-changes"
+      },
+      {
+        "level": 2,
+        "title": "Riferimenti",
+        "anchor": "references"
       }
     ],
     "sections": [
       {
         "anchor": null,
         "title": null,
-        "html": "<p>Punti salienti della patch 2.2.23:</p>\n<ul><li>Eroe rinnovato Popol and Kupa, Compagni Icefield. Caratteristica eroe: un tiratore scelto che combatte al fianco di Kupa e usa trappole per controllare il campo di battaglia.</li><li>Aggiustamenti dell'eroe</li><li>Aggiustamenti del campo di battaglia</li><li>Aggiustamenti del sistema</li><li>Regolazioni della modalità</li></ul>",
+        "html": "<dl><dd><i>Questa pagina contiene le note sulla patch rilasciate sul server ufficiale.</i></dd></dl>\n\n<p><br>\nUn aggiornamento per <i><a href=\"https://mobilelegends.fandom.com/wiki/Mobile_Legends:_Bang_Bang\" title=\"Mobile Legends: Bang Bang\" rel=\"noreferrer nofollow\" target=\"_blank\">Mobile Legends: Bang Bang</a></i> è stato rilasciato sul server originale per il mese di novembre, anno 2026. Questo include l'eroe rinnovato <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol and Kupa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Popol_and_Kupa\" title=\"Popol and Kupa\" rel=\"noreferrer nofollow\" target=\"_blank\">Popol and Kupa</a></span></span>, insieme alle modifiche agli eroi, ai cambiamenti all'equipaggiamento e all'introduzione della carta Modalità rissa.\n</p><p>L'aggiornamento è stato rilasciato l'11 novembre 2026, 00:00 <a href=\"https://mobilelegends.fandom.com/wiki/Server_time\" title=\"Server time\" rel=\"noreferrer nofollow\" target=\"_blank\">ora del server</a>.\n</p>",
         "role": null
       },
       {
         "anchor": "from-the-designers",
         "title": "Dai designer",
-        "html": "<p>In questa patch abbiamo apportato modifiche ad alcuni eroi eccessivamente forti e ottimizzato alcuni eroi sottoutilizzati.</p>\n<p>Abbiamo anche apportato modifiche in risposta a una tendenza crescente nelle partite di alto rango, in cui i combattenti prendono la corsia d'oro e i carri armati vaganti prendono la corsia EXP.</p>\n<p>Questi cambiamenti mirano ad aiutare gli eroi tradizionali in entrambe le corsie a riconquistare le loro posizioni. Continueremo a monitorare l'impatto di questi cambiamenti.</p>",
+        "html": "<p>In questa patch abbiamo apportato modifiche ad alcuni eroi eccessivamente forti e ottimizzato alcuni eroi sottoutilizzati.\n</p><p>Abbiamo anche apportato modifiche in risposta a una tendenza crescente nelle partite di alto rango, in cui i combattenti prendono la corsia d'oro e i carri armati vaganti prendono la corsia EXP. Questi cambiamenti mirano ad aiutare gli eroi tradizionali in entrambe le corsie a riconquistare le loro posizioni. Continueremo a monitorare l'impatto di questi cambiamenti.\n</p>",
         "role": null
       },
       {
         "anchor": "i-revamped-hero",
         "title": "I. Eroe rinnovato",
-        "html": "",
-        "role": "newHeroes"
+        "html": "<h3 id=\"1-revamped-hero-popol-and-kupa-the-icefield-companions\"><span></span><span>1. Eroe rinnovato: Popol and Kupa, i Compagni di Icefield</span></h3>\n<p><b>Caratteristica eroe: </b> Un tiratore scelto che combatte al fianco di Kupa e usa trappole per controllare il campo di battaglia.\n</p><p>Con questo rinnovamento miriamo a risolvere i seguenti problemi e a migliorare l'esperienza di gioco complessiva di Popol and Kupa:\n</p><p>Popol and Kupa in precedenza non aveva mobilità e aveva un potenziale di combo di abilità limitato. Per risolvere questo problema, abbiamo potenziato i loro attacchi coordinati e consentito a Popol di cavalcare Kupa per inseguire i nemici o ritirarsi.\n</p><p>In precedenza, Popol doveva combattere senza il suo compagno per troppo tempo dopo la sconfitta di Kupa. Per risolvere questo problema, abbiamo migliorato la scalabilità di Kupa e HP Regen.\n</p><p>Abbiamo migliorato la negazione dell'area e l'utilità delle trappole, consentendo loro di ridurre la difesa fisica dei nemici. Abbiamo anche aumentato il numero massimo di trappole che possono essere attive contemporaneamente.\n</p><p><b>Passivo - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"We Are Friends\"></span></span></span> <span><span>Siamo amici</span></span></span></b>\n</p>\n<ul><li>Gli HP di Kupa crescono con il livello di Popol ed eredita gli altri attributi ed effetti dell'equipaggiamento di Popol.</li>\n<li>Kupa recupera continuamente HP mentre è fuori dal combattimento. Se Kupa cade, Popol può pregare per riportare Kupa sul campo di battaglia. Kupa infligge danni veri extra ai creep.</li></ul>\n<p><b>Abilità 1 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bite &#39;em, Kupa!\"></span></span></span> <span><span>Mordili, Kupa!</span></span></span></b>\n</p>\n<ul><li>Popol lancia una lancia contro il nemico bersaglio, infliggendo danni, e ordina a Kupa di lanciarsi contro il bersaglio e morderlo, rallentandolo notevolmente.</li>\n<li>Nella forma Alpha Wolf, Kupa colpisce l'area bersaglio, lanciando in aria i nemici vicini e infliggendo danni aggiuntivi.</li></ul>\n<p><b>Abilità 2 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kupa, Help!\"></span></span></span> <span><span>Kupa, Aiuto!</span></span></span></b>\n</p>\n<ul><li>Popol richiama Kupa al suo fianco, ottenendo uno scudo. Può quindi cavalcare Kupa per muoversi rapidamente, durante il quale Kupa recupera continuamente HP.</li>\n<li>Nella forma del lupo Alpha, Popol ottiene uno scudo più forte e Kupa recupera tutti i HP mentre è in sella.</li></ul>\n<p><b>Abilità 3 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol&#39;s Surprise\"></span></span></span> <span><span>Popol's Surprise</span></span></span></b>\n</p>\n<ul><li>Popol piazza una trappola nel punto bersaglio che immobilizza brevemente il nemico che la calpesta. Quindi esplode e crea una zona gelata che rallenta i nemici all'interno.</li></ul>\n<p><b>Ultimate - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"We Are Angry!\"></span></span></span> <span><span>Siamo arrabbiati!</span></span></span></b>\n</p>\n<ul><li>Popol and Kupa entra nello stato Infuriato per 9 secondi.</li>\n<li>Kupa recupera immediatamente tutti gli HP e si trasforma nella Forma del Lupo Alpha, ottenendo HP massimi aggiuntivi e migliorando le sue altre abilità.</li></ul>",
+        "role": null
       },
       {
         "anchor": "ii-hero-adjustments",
@@ -116,150 +128,165 @@
       {
         "anchor": "iii-battlefield-adjustments",
         "title": "III. Aggiustamenti del campo di battaglia",
-        "html": "<h3 id=\"equipment\">Attrezzatura</h3>\n<p><b>Chastise Pauldron</b> <strong>▼ Nerf</strong></p>\n<p><i>Questo equipaggiamento era troppo efficace nel contrastare gli eroi basati sulla velocità d'attacco.</i></p>\n<p><b>Passiva unica - Chastise</b> <strong>▼ Nerf</strong><br>Riduce la velocità di attacco e il limite di velocità di attacco dell'attaccante al 75% → 80%.</p>\n<p><b>Antique Cuirass</b> <strong>▲ Buff</strong></p>\n<p><i>Questo equipaggiamento ha avuto prestazioni inferiori rispetto a Chastise Pauldron.</i></p>\n<p><b>Passiva unica - Deterre</b> <strong>▲ Buff</strong><br>Riduce il danno fisico dell'attaccante del 6% → 8%.</p>\n<h3 id=\"talents\">Talenti</h3>\n<p><b>Concussive Blast</b> <strong>◆ Rettificato</strong></p>\n<p><i>Abbiamo scoperto che un numero crescente di eroi carri armati vaganti si stanno spostando nella corsia di espansione. Nella prima parte della partita, hanno un controllo e una resistenza maggiori rispetto alla maggior parte dei combattenti, mentre infliggono quasi lo stesso danno.</i></p>\n<p>Stiamo riducendo l'abilità di alcuni eroi tank di eliminare i minion per riportare i combattenti nella corsia di espansione.<br>Danno: 100 (+7% HP totali) → 100 (+8% HP totali) (infligge il 50% in meno di danni ai minion)</p>\n<h3 id=\"battle-spell\">Incantesimo di battaglia</h3>\n<p><b>Sprint</b> <strong>▲ Buff</strong></p>\n<p>Tempo di recupero: 100 → 75 secondi</p>\n<h3 id=\"mythical-honor-battlefield\">Mitico campo di battaglia dell'onore</h3>\n<p>Servitore d'assedio della corsia d'oro <strong>▲ Buff</strong><br>Abbiamo notato che i combattenti hanno preso il controllo della corsia d'oro sia nelle partite classificate di alto livello che in quelle professionistiche. Per aiutare i tiratori a coltivare più velocemente, abbiamo aumentato l'oro fornito dalla corsia dell'oro all'inizio del gioco.</p>\n<p>Oro extra: 40% → 60%</p>\n<h3 id=\"battlefield-effects\">Effetti del campo di battaglia</h3>\n<p><b>Torretta dorata</b> <strong>◆ Modificato</strong></p>\n<p><i>Abbiamo notato che le squadre in svantaggio hanno difficoltà a risalire con questo effetto campo di battaglia. Abbiamo modificato alcuni valori preservandone le caratteristiche uniche.</i></p>\n<p>Aumento HP della torretta base: 1.000 → 2.000<br>Oro di squadra fornito dalla torretta esterna: 100 → 90<br>Oro di squadra fornito dalla torretta interna: 140 → 120</p>\n<p><b>Tartaruga Curativa</b> <strong>◆ Modificato</strong></p>\n<p><i>Abbiamo notato che il guadagno derivante dall'uccisione della Tartaruga in una corsia era significativamente inferiore a quello derivante da un'ondata di servitori, lasciando la squadra in difesa in un ulteriore svantaggio economico. Pertanto, abbiamo aumentato significativamente l'oro e l'EXP derivanti dall'uccisione di una tartaruga nemica. Questo reddito viene condiviso tra gli eroi alleati nel raggio d'azione e ora corrisponde più o meno a quello di un'ondata di servitori.</i></p>\n<p>Pertanto, abbiamo aumentato significativamente l'oro e l'EXP derivanti dall'uccisione di una tartaruga nemica. Questo reddito viene condiviso tra gli eroi alleati nel raggio d'azione e ora corrisponde più o meno a quello di un'ondata di servitori.</p>",
+        "html": "<h3 id=\"a-equipment\"><span>A. Attrezzatura</span></h3>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Chastise_Pauldron\" title=\"Chastise Pauldron\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span>&#160;<a href=\"https://mobilelegends.fandom.com/wiki/Chastise_Pauldron\" title=\"Chastise Pauldron\" rel=\"noreferrer nofollow\" target=\"_blank\">Chastise Pauldron</a> <span>NERF&#160;↓</span>\n</p>\n<dl><dd>Questo equipaggiamento era troppo efficace nel contrastare gli eroi basati sulla velocità d'attacco.</dd></dl>\n<ul><li><b>Passiva unica - Chastise <span>NERF ↓</span></b>\n<ul><li>Riduce la velocità d'attacco e il limite massimo della velocità d'attacco al 75% → 80%.</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Antique_Cuirass\" title=\"Antique Cuirass\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span>&#160;<a href=\"https://mobilelegends.fandom.com/wiki/Antique_Cuirass\" title=\"Antique Cuirass\" rel=\"noreferrer nofollow\" target=\"_blank\">Antique Cuirass</a> <span>BUFF&#160;↑</span>\n</p>\n<dl><dd>Questa apparecchiatura ha sottoperformato rispetto a Chastise Pauldron.</dd></dl>\n<ul><li><b>Passiva unica - Deter <span>BUFF ↑</span></b>\n<ul><li>Riduce il danno fisico dell'attaccante del 6% → 8%.</li></ul></li></ul>\n<h3 id=\"b-talents\"><span>B. Talenti</span></h3>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Concussive_Blast\" title=\"Concussive Blast\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <span title=\"Concussive Blast (page does not exist)\" data-uncrawlable-url=\"L3dpa2kvQ29uY3Vzc2l2ZV9CbGFzdD9hY3Rpb249ZWRpdCZyZWRsaW5rPTE=\">Concussive Blast</span> <span>REGOLA ~</span><b></b>\n</p>\n<dl><dd>Abbiamo scoperto che un numero crescente di eroi carri armati vaganti si stanno spostando nella corsia Exp. Nella prima parte del gioco, hanno un controllo e una resistenza maggiori rispetto alla maggior parte dei combattenti, pur infliggendo quasi lo stesso danno.</dd>\n<dd>Stiamo riducendo la capacità di eliminare i minion di alcuni eroi tank per riportare i combattenti nella corsia di espansione.</dd></dl>\n<ul><li>Danno: 100 (+7% HP totali) → 100 (+8% HP totali) (infligge il 50% in meno di danni ai minion)</li></ul>\n<h3 id=\"c-battle-spells\"><span>C. Incantesimi di battaglia</span></h3>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Sprint\"></span></span></span> <span><span>Sprint</span></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>Tempo di recupero: 100 → 75 secondi</li></ul>\n<h3 id=\"d-mythical-honor-battlefield\"><span>D. Mitico campo di battaglia dell'onore</span></h3>\n<p><b>[Seguace d'Assedio Corsia d'Oro] <span>BUFF ↑</span></b>\n</p>\n<dl><dd>Abbiamo notato che i combattenti hanno preso il controllo della Via dell'Oro sia nelle partite classificate di alto livello che in quelle professionistiche. Per aiutare i tiratori a coltivare più velocemente, abbiamo aumentato l'oro fornito dalla corsia dell'oro all'inizio del gioco.</dd></dl>\n<ul><li>Oro extra: 40% → 60%</li></ul>\n<h3 id=\"e-battlefield-effects\"><span>E. Effetti del campo di battaglia</span></h3>\n<p><b>[Torretta dorata] <span>REGOLA ~</span></b>\n</p>\n<dl><dd>Abbiamo notato che le squadre in svantaggio hanno difficoltà a recuperare con questo effetto campo di battaglia. Abbiamo modificato alcuni valori preservandone le caratteristiche uniche.</dd></dl>\n<ul><li>Aumento HP della torretta base: 1.000 → 2.000</li>\n<li>Oro di squadra fornito dalla torretta esterna: 100 → 90</li>\n<li>Oro di squadra fornito dalla torretta interna: 140 → 120</li></ul>\n<p><b>[Tartaruga curativa] <span>ADJUST ~</span></b>\n</p>\n<dl><dd>Abbiamo notato che il guadagno derivante dall'uccisione della Tartaruga in una corsia era significativamente inferiore a quello derivante da un'ondata di servitori, lasciando la squadra in difesa in un ulteriore svantaggio economico. Pertanto, abbiamo aumentato significativamente l'oro e l'EXP derivanti dall'uccisione di una tartaruga nemica. Questo reddito viene condiviso tra gli eroi alleati nel raggio d'azione e ora corrisponde più o meno a quello di un'ondata di servitori.</dd></dl>",
         "role": null
       },
       {
         "anchor": "iv-system-adjustments",
         "title": "IV. Aggiustamenti del sistema",
-        "html": "<h3 id=\"auction-house-optimizations\">Ottimizzazioni della casa d'aste</h3>\n<p>Aggiunta una voce Origini oggetti della casa d'aste alla schermata Casa d'aste, che mostra un elenco di oggetti della casa d'aste disponibili dall'evento Bang Bang Card.</p>\n<h3 id=\"new-mode-selection-screen-available\">Nuova schermata di selezione della modalità disponibile</h3>\n<p>Per rendere più semplice l'utilizzo della modalità Arcade, abbiamo ottimizzato la schermata di selezione della modalità. La nuova interfaccia ti consente comunque di accedere rapidamente alle modalità standard, nonché di trovare facilmente la modalità Arcade a cui desideri giocare.</p>\n<h3 id=\"tablet-support\">Supporto per tablet</h3>\n<p>Layout dell'interfaccia ottimizzati sui dispositivi tablet.</p>",
+        "html": "<h3 id=\"a-auction-house-optimizations\"><span>A. Ottimizzazioni della casa d'aste</span></h3>\n<ul><li>Aggiunta una voce Origini oggetti della casa d'aste alla schermata Casa d'aste, che mostra un elenco di oggetti della casa d'aste disponibili dall'evento Bang Bang Card.</li></ul>\n<h3 id=\"b-new-mode-selection-screen-available\"><span>B. Schermata di selezione della nuova modalità disponibile</span></h3>\n<ul><li>Per rendere più semplice l'utilizzo della modalità Arcade, abbiamo ottimizzato la schermata di selezione della modalità. La nuova interfaccia ti consente comunque di accedere rapidamente alle modalità standard, nonché di trovare facilmente la modalità Arcade a cui desideri giocare.</li></ul>\n<h3 id=\"c-tablet-support\"><span>C. Supporto tablet</span></h3>\n<ul><li>Layout dell'interfaccia ottimizzati sui dispositivi tablet.</li></ul>",
         "role": null
       },
       {
-        "anchor": "v-mode-adjustments",
-        "title": "V. Regolazioni della modalità",
-        "html": "<h3 id=\"card-brawl\">Rissa di carte</h3>\n<p>Benvenuti a Rissa di carte! In Necrokeep, scegli tra le carte offerte casualmente a specifici livelli di eroe, fino a cinque volte. Combina le carte per potenziarti, modellare il tuo stile di gioco e realizzare giocate emozionanti! Card Brawl ti consente anche di completare attività, guadagnare carte Bangbang e aumentare il tuo livello StarLight!</p>\n<h3 id=\"brawl\">Rissa</h3>\n<h4 id=\"hero-balance-adjustments\">Modifiche al bilanciamento dell'eroe</h4>\n<p>In base alle recenti percentuali di vittoria e scelta degli eroi di Brawl, abbiamo apportato le seguenti modifiche al bilanciamento.</p>\n<p><strong>▼ Nerf</strong><br>Aulus<br>DAN presi +4% → +8%</p>\n<p>Barats<br>(Nuovo) DAN -2%</p>\n<p>Brody<br>(Nuovo) DAN subiti +2%</p>\n<p>Bruno<br>DMG -10% → -12%; (Nuovo) DANNI subiti +4%</p>\n<p>Cici<br>DMG preso -8% → -4%</p>\n<p>Cyclops<br>DAN preso +6% → +10%</p>\n<p>Edith<br>DAN presi +4% → +8%</p>\n<p>Hilda<br>DMG presa -8% → -6%</p>\n<p>Lukas<br>DAN -2% → -6%</p>\n<p>Martis<br>DAN +6% → +4%</p>\n<p>Minotauro<br>DAN presi +8% → +4%; (Nuovo) Guarigione -6%</p>\n<p>Natan<br>DAN presi +8% → +10%</p>\n<p>Phoveus<br>DAN presi +6% → +10%</p>\n<p>Popol and Kupa<br>(Nuovo) DAN preso +2%</p>\n<p>Rafaela<br>DMG prese +10% → +12%</p>\n<p>Roger<br>DMG preso -6% → -4%</p>\n<p>Terizla<br>DAN presi +14% → +18%</p>\n<p>Valir<br>(Nuovo) DANNI subiti +2%</p>\n<p>Yu Zhong<br>DAN preso -4% → -2%</p>\n<p><strong>▲ Buff</strong><br>Aamon<br>(Nuovo) DAN subiti -2%</p>\n<p>Chip<br>DAN +6% → +8%</p>\n<p>Franco<br>DAN abilità +10%</p>\n<p>Gatotkaca<br>DAN presi +10% → +8%</p>\n<p>Helcurt<br>DAN +10% → +12%</p>\n<p>Joy<br>DAN +10% → +12%</p>\n<p>Lancelot<br>DAN preso -4% → -6%</p>\n<p>Lunox<br>(Nuovo) DAN presi -2%</p>\n<p>Luo Yi<br>DAN presi -2% → -4%</p>\n<p>Masha<br>(Nuovo) DAN presi -4%</p>\n<p>Melissa<br>DAN -12% → -10%</p>\n<p>Nolan<br>Ridotto il costo energetico delle abilità 1 e 2</p>\n<p>Yi Sun-shin<br>(Nuovo) DAN subiti -4%</p>\n<p>Zhuxin<br>DAN +16% → +20%</p>",
+        "anchor": "v-game-modes-mode-adjustments",
+        "title": "V. Modalità di gioco/Regolazioni della modalità",
+        "html": "<h3 id=\"a-card-brawl\"><span>A. Rissa di carte</span></h3>\n<p><b>[Guida]</b>\nBenvenuti a Rissa di carte! In Necrokeep, scegli tra le carte offerte casualmente a specifici livelli di eroe, fino a cinque volte. Combina le carte per potenziarti, modellare il tuo stile di gioco e realizzare giocate emozionanti! Card Brawl ti consente anche di completare attività, guadagnare carte Bangbang e aumentare il tuo livello StarLight!\n</p><p><b>[Tempo disponibile]</b>\n</p>\n<ul><li>20/11 00:00:00 - 15/12 00:00:00 (ora del server)</li></ul>\n<h3 id=\"b-brawl\"><span>B. Rissa</span></h3>\n<p><b>[Regolazioni del bilanciamento dell'eroe]</b>\n</p>\n<dl><dd>In base alle recenti percentuali di vittoria e scelta degli eroi di Brawl, abbiamo apportato le seguenti modifiche al bilanciamento:</dd></dl>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bruno\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Bruno\" title=\"Bruno\" rel=\"noreferrer nofollow\" target=\"_blank\">Bruno</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN -10% → -12%; (Nuovo) DANNI subiti +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Edith\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Edith\" title=\"Edith\" rel=\"noreferrer nofollow\" target=\"_blank\">Edith</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN subito +4% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Phoveus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Phoveus\" title=\"Phoveus\" rel=\"noreferrer nofollow\" target=\"_blank\">Phoveus</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN preso +6% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aulus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aulus\" title=\"Aulus\" rel=\"noreferrer nofollow\" target=\"_blank\">Aulus</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN subito +4% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cyclops\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cyclops\" title=\"Cyclops\" rel=\"noreferrer nofollow\" target=\"_blank\">Cyclops</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN preso +6% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lukas\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lukas\" title=\"Lukas\" rel=\"noreferrer nofollow\" target=\"_blank\">Lukas</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN -2% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Terizla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Terizla\" title=\"Terizla\" rel=\"noreferrer nofollow\" target=\"_blank\">Terizla</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN subiti +14% → +18%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cici\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cici\" title=\"Cici\" rel=\"noreferrer nofollow\" target=\"_blank\">Cici</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN presi -8% → -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Martis\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Martis\" title=\"Martis\" rel=\"noreferrer nofollow\" target=\"_blank\">Martis</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN +6% → +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yu Zhong\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Yu_Zhong\" title=\"Yu Zhong\" rel=\"noreferrer nofollow\" target=\"_blank\">Yu Zhong</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN preso -4% → -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Rafaela\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Rafaela\" title=\"Rafaela\" rel=\"noreferrer nofollow\" target=\"_blank\">Rafaela</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN subiti +10% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Natan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Natan\" title=\"Natan\" rel=\"noreferrer nofollow\" target=\"_blank\">Natan</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN preso +8% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Barats\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Barats\" title=\"Barats\" rel=\"noreferrer nofollow\" target=\"_blank\">Barats</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Nuovo) DAN -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Minotaur\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Minotaur\" title=\"Minotaur\" rel=\"noreferrer nofollow\" target=\"_blank\">Minotauro</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>DAN subito +8% → +4%; (Nuovo) Guarigione -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hilda\" title=\"Hilda\" rel=\"noreferrer nofollow\" target=\"_blank\">Hilda</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN preso -8% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Brody\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Brody\" title=\"Brody\" rel=\"noreferrer nofollow\" target=\"_blank\">Brody</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Nuovo) DAN preso +2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Valir\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Valir\" title=\"Valir\" rel=\"noreferrer nofollow\" target=\"_blank\">Valir</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Nuovo) DAN preso +2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Roger\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Roger\" title=\"Roger\" rel=\"noreferrer nofollow\" target=\"_blank\">Roger</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAN preso -6% → -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol and Kupa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Popol_and_Kupa\" title=\"Popol and Kupa\" rel=\"noreferrer nofollow\" target=\"_blank\">Popol and Kupa</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Nuovo) DAN preso +2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lunox\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lunox\" title=\"Lunox\" rel=\"noreferrer nofollow\" target=\"_blank\">Lunox</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(Nuovo) DAN presi -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Melissa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Melissa\" title=\"Melissa\" rel=\"noreferrer nofollow\" target=\"_blank\">Melissa</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DAN -12% → -10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gatotkaca\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gatotkaca\" title=\"Gatotkaca\" rel=\"noreferrer nofollow\" target=\"_blank\">Gatotkaca</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DANNI subiti +10% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Helcurt\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Helcurt\" title=\"Helcurt\" rel=\"noreferrer nofollow\" target=\"_blank\">Helcurt</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DAN +10% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Joy\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Joy\" title=\"Joy\" rel=\"noreferrer nofollow\" target=\"_blank\">Joy</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DAN +10% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lancelot\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lancelot\" title=\"Lancelot\" rel=\"noreferrer nofollow\" target=\"_blank\">Lancelot</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DAN preso -4% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aamon\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aamon\" title=\"Aamon\" rel=\"noreferrer nofollow\" target=\"_blank\">Aamon</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(Nuovo) DAN presi -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Luo Yi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Luo_Yi\" title=\"Luo Yi\" rel=\"noreferrer nofollow\" target=\"_blank\">Luo Yi</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DAN preso -2% → -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Chip\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Chip\" title=\"Chip\" rel=\"noreferrer nofollow\" target=\"_blank\">Chip</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DAN +6% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yi Sun-shin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Yi_Sun-shin\" title=\"Yi Sun-shin\" rel=\"noreferrer nofollow\" target=\"_blank\">Yi Sun-shin</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(Nuovo) DAN presi -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zhuxin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Zhuxin\" title=\"Zhuxin\" rel=\"noreferrer nofollow\" target=\"_blank\">Zhuxin</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DAN +16% → +20%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Franco\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Franco\" title=\"Franco\" rel=\"noreferrer nofollow\" target=\"_blank\">Franco</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>Danno abilità +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Masha\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Masha\" title=\"Masha\" rel=\"noreferrer nofollow\" target=\"_blank\">Masha</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(Nuovo) DAN presi -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Nolan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Nolan\" title=\"Nolan\" rel=\"noreferrer nofollow\" target=\"_blank\">Nolan</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>Ridotto il costo energetico delle abilità 1 e 2</li></ul>\n\n<p><br>\n</p>\n―Mobile Legends: Bang Bang",
+        "role": null
+      },
+      {
+        "anchor": "undocumented-changes",
+        "title": "Modifiche non documentate",
+        "html": "<p>-\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "references",
+        "title": "Riferimenti",
+        "html": "",
         "role": null
       }
     ],
-    "newHeroes": [
-      {
-        "name": "Popol and Kupa",
-        "epithet": "Icefield Companions",
-        "anchor": "revamp-icefield-companions-popol-and-kupa",
-        "lore": [
-          "Popol and Kupa in precedenza non aveva mobilità e aveva un potenziale di combo di abilità limitato. Per risolvere questo problema, abbiamo potenziato i loro attacchi coordinati e consentito a Popol di cavalcare Kupa per inseguire i nemici o ritirarsi.",
-          "In precedenza, Popol doveva combattere senza il suo compagno per troppo tempo dopo la sconfitta di Kupa. Per risolvere questo problema, abbiamo migliorato la scalabilità di Kupa e HP Regen."
-        ],
-        "feature": "Un tiratore scelto che combatte al fianco di Kupa e usa trappole per controllare il campo di battaglia. Con questo rinnovamento miriamo a risolvere i seguenti problemi e a migliorare l'esperienza di gioco complessiva di Popol and Kupa:",
-        "skills": [
-          {
-            "role": "Passivo",
-            "name": "We are friends V2",
-            "description": [
-              "Gli HP di Kupa crescono con il livello di Popol ed eredita gli altri attributi ed effetti dell'equipaggiamento di Popol.",
-              "Kupa recupera continuamente HP mentre è fuori dal combattimento. Se Kupa cade, Popol può pregare per riportare Kupa sul campo di battaglia. Kupa infligge danni veri extra ai creep."
-            ]
-          },
-          {
-            "role": "Abilità 1",
-            "name": "Bite 'em, Kupa! V2",
-            "description": [
-              "Popol lancia una lancia contro il nemico bersaglio, infliggendo danni, e ordina a Kupa di lanciarsi contro il bersaglio e morderlo, rallentandolo notevolmente.",
-              "Nella forma Alpha Wolf, Kupa colpisce l'area bersaglio, lanciando in aria i nemici vicini e infliggendo danni aggiuntivi."
-            ]
-          },
-          {
-            "role": "Abilità 2",
-            "name": "Kupa, Help! V2",
-            "description": [
-              "Popol richiama Kupa al suo fianco, ottenendo uno scudo. Può quindi cavalcare Kupa per muoversi rapidamente, durante il quale Kupa recupera continuamente HP.",
-              "Nella forma del lupo Alpha, Popol ottiene uno scudo più forte e Kupa recupera tutti i HP mentre è in sella."
-            ]
-          },
-          {
-            "role": "Abilità 3",
-            "name": "Popol's Surprise V2",
-            "description": [
-              "Popol piazza una trappola nel punto bersaglio che immobilizza brevemente il nemico che la calpesta. Quindi esplode e crea una zona gelata che rallenta i nemici all'interno."
-            ]
-          },
-          {
-            "role": "Definitivo",
-            "name": "We Are Angry! V2",
-            "description": [
-              "Popol and Kupa entra nello stato Infuriato per 9 secondi.",
-              "Kupa recupera immediatamente tutti gli HP e si trasforma nella Forma del Lupo Alpha, ottenendo HP massimi aggiuntivi e migliorando le sue altre abilità."
-            ]
-          }
-        ],
-        "slug": "popol-and-kupa"
-      }
-    ],
+    "newHeroes": [],
     "adjustments": [
       {
-        "name": "Aldous",
+        "name": "Xavier",
         "type": "buff",
-        "intro": "Ridotto il tempo morto di Aldous tra gli scambi durante la fase in corsia e aumentata la sua riduzione del danno a fine partita.",
+        "intro": "",
+        "sections": [],
+        "slug": "xavier"
+      },
+      {
+        "name": "Xavier",
+        "type": "buff",
+        "intro": "Per aiutare Xavier a infliggere danni AOE più consistenti nei combattimenti di squadra, abbiamo spostato il danno dell'abilità 2 (Barriera mistica) all'attivazione del Campo mistico. Abbiamo anche migliorato la sensazione delle sue abilità per migliorare la sua mobilità.",
         "sections": [
           {
-            "name": "Contract: Explosion",
-            "category": "Abilità 2",
+            "name": "Passivo",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "label": "Raffreddare",
-                "before": "12-9.5s",
-                "after": "8s at all levels"
+                "label": "Bonus velocità di movimento",
+                "before": "50%",
+                "after": "60%. The bonus now decays more slowly."
+              }
+            ]
+          },
+          {
+            "name": "Abilità 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Ridotto il tempo di backswing del 50%."
+              }
+            ]
+          },
+          {
+            "name": "Abilità 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Ridotto il tempo di backswing del 50%."
               },
               {
-                "label": "Riduzione dei danni",
-                "before": "30% at all levels",
-                "after": "30%-55%"
+                "text": "Rimosso il danno diretto di Mystic Barrier."
+              },
+              {
+                "label": "Danno del campo mistico",
+                "before": "220-345 (+65% Total Magic Power)",
+                "after": "440-690 (+130% Total Magic Power)"
+              },
+              {
+                "text": "Risolto un problema per cui il danno del campo mistico non poteva attivare il bonus alla velocità di movimento della passiva."
               }
             ]
           }
         ],
-        "slug": "aldous"
+        "slug": "xavier"
       },
       {
-        "name": "Atlas",
-        "type": "nerf",
-        "intro": "La passiva di Atlas congelava i nemici troppo spesso, quindi abbiamo ridotto la durata di Soffio Frigido e aumentato il tempo di recupero del congelamento. Per compensare, abbiamo aumentato i suoi bonus di difesa fisica e magica per aiutarlo a sopportare più danni dopo l'ingaggio.",
+        "name": "Lunox",
+        "type": "buff",
+        "intro": "La passiva di Lunox ha avuto un impatto minimo fino alla fine della partita e poche opzioni di equipaggiamento hanno funzionato bene con la conversione delle statistiche. Lo abbiamo adattato di conseguenza. Abbiamo anche aumentato i danni a inizio partita dell'abilità 2 di Lunox e migliorato la sensazione di controllo della sua Ultimate. Queste modifiche mirano a garantire che abbia abbastanza danni nella prima metà del gioco.",
         "sections": [
           {
-            "name": "Frigid Breath",
-            "category": "Passivo",
+            "name": "Passivo",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Quando l'equilibrio viene spostato sul Potere dell'Ordine, ottieni immediatamente il 10% di Vamp Magico."
+              },
+              {
+                "text": "Quando l'equilibrio si sposta sul Potere del Caos, ottieni immediatamente il 10% di Penetrazione magica."
+              }
+            ]
+          },
+          {
+            "name": "Abilità 2 (Potere del caos)",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Danno percentuale extra",
+                "before": "2.5%-5%",
+                "after": "3.5%-5%"
+              },
+              {
+                "label": "Percentuale di danni extra ai creep",
+                "before": "1.5%-3%",
+                "after": "2.1%-3%"
+              }
+            ]
+          },
+          {
+            "name": "Definitivo (Potere del Caos)",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
-                "label": "Durata del respiro gelido",
-                "before": "5s",
-                "after": "4s"
+                "text": "Ridotto il tempo di oscillazione anteriore del cruscotto del 50%."
               },
               {
-                "label": "Congelamento del tempo di recupero",
-                "before": "2.5s",
-                "after": "4s"
-              },
-              {
-                "label": "Difesa fisica e magica ottenuta durante Respiro Frigido",
-                "before": "20 (+0.5% Extra HP)",
-                "after": "20 (+0.7% Extra HP)"
+                "label": "Danno",
+                "before": "250-450 (+ 100% Total Magic Power)",
+                "after": "150-300 (+135% Total Magic Power)"
               }
             ]
           }
         ],
-        "slug": "atlas"
+        "slug": "lunox"
       },
       {
         "name": "Freya",
         "type": "buff",
-        "intro": "",
+        "intro": "Per aiutare Freya a brillare nella corsia Exp, abbiamo aumentato la sua forza al di fuori della sua Ultimate riducendo al contempo la frequenza con cui può usarla.",
         "sections": [
           {
-            "name": "Power of Einherjar",
-            "category": "Passivo",
+            "name": "Passivo",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "Consumare una sfera sacra fa sì che il successivo attacco base recuperi 20 (+3* livello eroe) (+20% attacco fisico totale) HP."
+                "text": "Consumare una Sfera sacra fa sì che il successivo attacco base recuperi 20 (+ 3 x livello eroe) (+ 20% attacco fisico totale) HP."
               }
             ]
           },
           {
-            "name": "Valkyrie Descent",
-            "category": "Definitivo",
+            "name": "Definitivo",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
@@ -272,7 +299,7 @@
               },
               {
                 "label": "Danni dell'attacco base potenziato (durante la Ultimate)",
-                "before": "30-60 (+100% Total Physical Attack)",
+                "before": "30-60 (+ 100% Total Physical Attack)",
                 "after": "100-200 (+70% Total Physical Attack)"
               },
               {
@@ -286,11 +313,11 @@
       {
         "name": "Gloo",
         "type": "nerf",
-        "intro": "",
+        "intro": "Abbiamo notato che Gloo era un po' troppo forte, rendendo difficile per gli avversari contrastarlo. Abbiamo deciso di ridurre la sua forza.",
         "sections": [
           {
-            "name": "Slam, Slam",
-            "category": "Abilità 1",
+            "name": "Abilità 1",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
@@ -306,8 +333,8 @@
             ]
           },
           {
-            "name": "Split, Split",
-            "category": "Abilità 3",
+            "name": "Abilità 3",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
@@ -321,114 +348,70 @@
         "slug": "gloo"
       },
       {
-        "name": "Kagura",
-        "type": "adjust",
-        "intro": "",
+        "name": "Masha",
+        "type": "nerf",
+        "intro": "Per migliorare la corsia di Masha e aiutarla a spingere le ondate di servitori più velocemente, abbiamo spostato l'effetto di rallentamento sull'abilità 2. Ciò le permette di continuare a inseguire dopo essere scattato verso un nemico e proseguire con gli attacchi base per infliggere danni spezzando ferite. Abbiamo anche ristretto il percorso dell'abilità 2 per ridurre i casi in cui i nemici vicini bloccano il suo scatto durante la ritirata. Per bilanciare questo, abbiamo ridotto il danno dell'Abilità 1 e dell'Abilità 2. Abbiamo anche ottimizzato il modo in cui vengono attivate le ferite. Abbiamo leggermente ridotto l'efficacia dei suoi colpi con gli artigli.",
         "sections": [
           {
-            "name": "Seimei Umbrella Open",
-            "category": "Abilità 1",
+            "name": "Passivo",
+            "category": null,
             "type": "adjust",
             "changes": [
               {
-                "text": "Ottimizzato l'indicatore visivo per la massima distanza di separazione tra l'ombrello Seimei e Kagura."
-              }
-            ]
-          }
-        ],
-        "slug": "kagura"
-      },
-      {
-        "name": "Kaja",
-        "type": "buff",
-        "intro": "Modificato il modo in cui gli eroi nemici possono rispondere alla Ultimate di Kaja. Ora hanno più tempo per lasciare l'area prima che la Ultimate abbia effetto, ma non possono più usare le abilità di immunità al controllo per evitare la restrizione dell'area. Abbiamo aggiunto più modi in cui Kaja può rimanere più a lungo nello stato di volo alto e aumentato la sua mobilità durante il volo alto.",
-        "sections": [
-          {
-            "name": "Soaring Wings",
-            "category": "Abilità 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Aumentata la velocità di virata di Kaja mentre vola per controlli più reattivi."
+                "text": "Nuovo effetto: i colpi di abilità sostituiscono casualmente una delle ferite esistenti del bersaglio con una nuova nella direzione del colpo."
               },
               {
-                "text": "Nuovo effetto: mentre voli in volo, gli attacchi base potenziati estendono leggermente la durata dello stato quando colpiscono i nemici."
+                "label": "Danni fisici aggiuntivi",
+                "before": "(3 + 1% Extra Physical Attack + 0.3 x Hero Level)% Max HP",
+                "after": "(2 + 0.5% Extra Physical Attack + 0.2 x Hero Level)% Max HP"
               },
               {
-                "text": "Nuovo effetto: mentre si vola in volo, colpire i servitori nemici con l'abilità 2 ora estende anche la durata dello stato."
+                "label": "HP rigenerazione",
+                "before": "4-10% Max HP",
+                "after": "3-6% Max HP"
               }
             ]
           },
           {
-            "name": "Divine Binding",
-            "category": "Definitivo",
+            "name": "Abilità 1",
+            "category": null,
             "type": "adjust",
             "changes": [
               {
-                "text": "Aumentato leggermente il ritardo dell'Ultimate."
+                "label": "Bonus danni",
+                "before": "70%",
+                "after": "55%"
               },
               {
-                "text": "Nuovo effetto: i bersagli con immunità al controllo non possono più sfuggire all'area della Ultimate quando ha effetto."
-              }
-            ]
-          }
-        ],
-        "slug": "kaja"
-      },
-      {
-        "name": "Karrie",
-        "type": "adjust",
-        "intro": "Migliorata l'abilità di combattimento di Karrie durante la sua Ultimate e modificata l'Abilità 1 per concentrarsi maggiormente sul rallentamento dei nemici e costringerli a riposizionarsi a fine partita. Abbiamo anche migliorato la chiarezza e la logica di attivazione di alcune delle sue abilità.",
-        "sections": [
-          {
-            "name": "Spinning Light Wheel",
-            "category": "Abilità 1",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "Ottimizzati gli effetti visivi della sfera e la frequenza di rilevamento delle collisioni, rendendo più facile sia per gli alleati che per i nemici capire se l'abilità 1 li colpirà."
+                "label": "Danni ai servitori",
+                "before": "100%-150%",
+                "after": "150%-200%"
               },
               {
-                "label": "Bonus attacco fisico (danno base)",
-                "before": "90%",
-                "after": "20%"
-              },
-              {
-                "label": "Bonus attacco fisico (danno prolungato)",
-                "before": "20%",
-                "after": "10%"
+                "text": "Effetto rimosso: colpire un eroe nemico lo rallentava del 50% per 1 secondo."
               }
             ]
           },
           {
-            "name": "Phantom Step",
-            "category": "Abilità 2",
+            "name": "Abilità 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "Ora rileva gli eroi nemici vicini durante lo scatto. Se non vengono rilevati eroi nemici, rileva mostri e servitori alla fine dello scatto."
-              }
-            ]
-          },
-          {
-            "name": "Speedy Lightwheel",
-            "category": "Definitivo",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Danno base per Ruotaleggera",
-                "before": "40",
-                "after": "50"
+                "text": "Nuovo effetto: colpire un eroe nemico con il taglio lo rallenta del 50% per 1 secondo."
               },
               {
-                "label": "Aumento della velocità di movimento durante la Ultimate",
-                "before": "20%",
-                "after": "30%"
+                "text": "Modifica dell'effetto: ridotta la larghezza del percorso dell'abilità 2 del 20%."
+              },
+              {
+                "label": "Danno",
+                "before": "120-240 (+ 80% Extra Physical Attack)",
+                "after": "60-240 (+40% Extra Physical Attack)"
               }
             ]
           }
         ],
-        "slug": "karrie"
+        "slug": "masha"
       },
       {
         "name": "Lukas",
@@ -453,14 +436,14 @@
             ]
           },
           {
-            "name": "Flash Combo",
-            "category": "Abilità 1",
+            "name": "Abilità 1",
+            "category": null,
             "type": "adjust",
             "changes": [
               {
                 "label": "Polverizzare il danno",
-                "before": "280-580 (+120% Total Physical Attack)",
-                "after": "400-800 (+60% Total Physical Attack)"
+                "before": "280-580 (+ 120% Total Physical Attack)",
+                "after": "400-800 (+ 60% Total Physical Attack)"
               },
               {
                 "label": "Danno da rotazione",
@@ -478,123 +461,158 @@
         "slug": "lukas"
       },
       {
-        "name": "Lunox",
+        "name": "Aldous",
         "type": "buff",
-        "intro": "La passiva di Lunox ha avuto un impatto minimo fino alla fine della partita e poche opzioni di equipaggiamento hanno funzionato bene con la conversione delle statistiche. Lo abbiamo adattato di conseguenza. Abbiamo anche aumentato i danni a inizio partita dell'abilità 2 di Lunox e migliorato la sensazione di controllo della sua Ultimate. Queste modifiche mirano a garantire che abbia abbastanza danni nella prima metà del gioco.",
+        "intro": "Ridotto il tempo morto di Aldous tra gli scambi durante la fase in corsia e aumentata la sua riduzione del danno a fine partita.",
         "sections": [
           {
-            "name": "Dreamland Twist",
-            "category": "Passivo",
+            "name": "Abilità 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "Quando l'equilibrio viene spostato sul Potere dell'Ordine, ottieni immediatamente il 10% di Vamp Magico."
+                "label": "Raffreddare",
+                "before": "12-9.5s",
+                "after": "8s at all levels"
               },
               {
-                "text": "Quando l'equilibrio si sposta sul Potere del Caos, ottieni immediatamente il 10% di Penetrazione magica."
+                "label": "Riduzione dei danni",
+                "before": "30% at all levels",
+                "after": "30%-55%"
               }
             ]
-          },
+          }
+        ],
+        "slug": "aldous"
+      },
+      {
+        "name": "Atlas",
+        "type": "nerf",
+        "intro": "La passiva di Atlas congelava i nemici troppo spesso, quindi abbiamo ridotto la durata di Soffio Frigido e aumentato il tempo di recupero del congelamento. Per compensare, abbiamo aumentato i suoi bonus di difesa fisica e magica per aiutarlo a sopportare più danni dopo l'ingaggio.",
+        "sections": [
           {
-            "name": "Chaos Assault",
-            "category": "Abilità 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Danno percentuale extra",
-                "before": "2.5%-5%",
-                "after": "3.5%-5%"
-              },
-              {
-                "label": "Percentuale di danni extra ai creep",
-                "before": "1.5%-3%",
-                "after": "2.1%-3%"
-              }
-            ]
-          },
-          {
-            "name": "Power of Chaos: Darkening",
-            "category": "Definitivo",
+            "name": "Passivo",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
-                "text": "Ridotto il tempo di oscillazione anteriore del cruscotto del 50%."
+                "label": "Durata del respiro gelido",
+                "before": "5s",
+                "after": "4s"
               },
               {
-                "label": "Danno",
-                "before": "250-450 (+100% Total Magic Power)",
-                "after": "150-300 (+135% Total Magic Power)"
+                "label": "Congelamento del tempo di recupero",
+                "before": "2.5s",
+                "after": "4s"
+              },
+              {
+                "label": "Difesa fisica e magica ottenuta durante Respiro Frigido",
+                "before": "20 (+0.5% Extra HP)",
+                "after": "20 (+0.7% Extra HP)"
               }
             ]
           }
         ],
-        "slug": "lunox"
+        "slug": "atlas"
       },
       {
-        "name": "Masha",
-        "type": "nerf",
-        "intro": "Per migliorare la corsia di Masha e aiutarla a spingere le ondate di servitori più velocemente, abbiamo spostato l'effetto di rallentamento sull'abilità 2. Ciò le permette di continuare a inseguire dopo essere scattato verso un nemico e proseguire con gli attacchi base per infliggere danni spezzando ferite. Abbiamo anche ristretto il percorso dell'abilità 2 per ridurre i casi in cui i nemici vicini bloccano il suo scatto durante la ritirata. Per bilanciare questo, abbiamo ridotto il danno dell'Abilità 1 e dell'Abilità 2. Abbiamo anche ottimizzato il modo in cui vengono attivate le ferite. Abbiamo leggermente ridotto l'efficacia dei suoi colpi con gli artigli.",
+        "name": "Karrie",
+        "type": "adjust",
+        "intro": "Migliorata l'abilità di combattimento di Karrie durante la sua Ultimate e modificata l'Abilità 1 per concentrarsi maggiormente sul rallentamento dei nemici e costringerli a riposizionarsi a fine partita. Abbiamo anche migliorato la chiarezza e la logica di attivazione di alcune delle sue abilità.",
         "sections": [
           {
-            "name": "Primal Pact",
-            "category": "Passivo",
-            "type": "adjust",
+            "name": "Abilità 1",
+            "category": null,
+            "type": "nerf",
             "changes": [
               {
-                "text": "Nuovo effetto: i colpi di abilità sostituiscono casualmente una delle ferite esistenti del bersaglio con una nuova nella direzione del colpo."
+                "text": "Ottimizzati gli effetti visivi della sfera e la frequenza di rilevamento delle collisioni, rendendo più facile sia per gli alleati che per i nemici capire se l'abilità 1 li colpirà."
               },
               {
-                "label": "Danni fisici aggiuntivi",
-                "before": "(3 + 1% Extra Physical Attack + 0.3 * Hero Level)% Max HP",
-                "after": "(2 + 0.5% Extra Physical Attack + 0.2 * Hero Level)% Max HP"
-              },
-              {
-                "label": "HP rigenerazione",
-                "before": "4-10% Max HP",
-                "after": "3-6% Max HP"
+                "text": "Bonus attacco fisico (danno base): 90% → 20%; Bonus attacco fisico (danno prolungato): 20% → 10%"
               }
             ]
           },
           {
-            "name": "Feral Swipe",
-            "category": "Abilità 1",
-            "type": "adjust",
-            "changes": [
-              {
-                "label": "Bonus danni",
-                "before": "70%",
-                "after": "55%"
-              },
-              {
-                "label": "Danni ai servitori",
-                "before": "100%-150%",
-                "after": "150%-200%"
-              },
-              {
-                "text": "Effetto rimosso: colpire un eroe nemico lo rallentava del 50% per 1 secondo."
-              }
-            ]
-          },
-          {
-            "name": "Claw Strike",
-            "category": "Abilità 2",
+            "name": "Abilità 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "Nuovo effetto: colpire un eroe nemico con il taglio lo rallenta del 50% per 1 secondo."
+                "text": "Ora rileva gli eroi nemici vicini durante lo scatto. Se non vengono rilevati eroi nemici, rileva mostri e servitori alla fine dello scatto."
+              }
+            ]
+          },
+          {
+            "name": "Definitivo",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Danno base per Ruotaleggera",
+                "before": "40",
+                "after": "50"
               },
               {
-                "text": "Modifica dell'effetto: ridotta la larghezza del percorso dell'abilità 2 del 20%."
-              },
-              {
-                "label": "Danno",
-                "before": "120-240 (+80% Extra Physical Attack)",
-                "after": "60-240 (+40% Extra Physical Attack)"
+                "label": "Aumento della velocità di movimento durante la Ultimate",
+                "before": "20%",
+                "after": "30%"
               }
             ]
           }
         ],
-        "slug": "masha"
+        "slug": "karrie"
+      },
+      {
+        "name": "Kaja",
+        "type": "buff",
+        "intro": "Modificato il modo in cui gli eroi nemici possono rispondere alla Ultimate di Kaja. Ora hanno più tempo per lasciare l'area prima che la Ultimate abbia effetto, ma non possono più usare le abilità di immunità al controllo per evitare la restrizione dell'area. Abbiamo aggiunto più modi in cui Kaja può rimanere più a lungo nello stato di volo alto e aumentato la sua mobilità durante il volo alto.",
+        "sections": [
+          {
+            "name": "Abilità 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Aumentata la velocità di virata di Kaja mentre vola per controlli più reattivi."
+              },
+              {
+                "text": "Nuovo effetto: mentre voli in volo, gli attacchi base potenziati estendono leggermente la durata dello stato quando colpiscono i nemici."
+              },
+              {
+                "text": "Nuovo effetto: mentre si vola in volo, colpire i servitori nemici con l'abilità 2 ora estende anche la durata dello stato."
+              }
+            ]
+          },
+          {
+            "name": "Definitivo",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Aumentato leggermente il ritardo dell'Ultimate."
+              },
+              {
+                "text": "Nuovo effetto: i bersagli con immunità al controllo non possono più sfuggire all'area della Ultimate quando ha effetto."
+              }
+            ]
+          }
+        ],
+        "slug": "kaja"
+      },
+      {
+        "name": "Kagura",
+        "type": "adjust",
+        "intro": "Ottimizzato l'indicatore visivo per la massima distanza di separazione tra l'ombrello Seimei e Kagura.",
+        "sections": [],
+        "slug": "kagura"
+      },
+      {
+        "name": "Uranus",
+        "type": "adjust",
+        "intro": "Danni ad area dell'attacco base modificati in danni magici.",
+        "sections": [],
+        "slug": "uranus"
       },
       {
         "name": "Melissa",
@@ -602,8 +620,8 @@
         "intro": "Le modifiche dell'ultima patch hanno indebolito Melissa più del previsto, quindi le abbiamo parzialmente ripristinate. Ciò dovrebbe tenere sotto controllo la sua forza a inizio partita preservando al tempo stesso i danni a fine partita.",
         "sections": [
           {
-            "name": "Eyes on You!",
-            "category": "Abilità 2",
+            "name": "Abilità 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
@@ -620,82 +638,16 @@
           }
         ],
         "slug": "melissa"
-      },
-      {
-        "name": "Uranus",
-        "type": "adjust",
-        "intro": "",
-        "sections": [
-          {
-            "name": "Attributi",
-            "category": null,
-            "type": "adjust",
-            "changes": [
-              {
-                "text": "Danni ad area dell'attacco base modificati in danni magici."
-              }
-            ]
-          }
-        ],
-        "slug": "uranus"
-      },
-      {
-        "name": "Xavier",
-        "type": "buff",
-        "intro": "Per aiutare Xavier a infliggere danni AOE più consistenti nei combattimenti di squadra, abbiamo spostato il danno dell'abilità 2 (Barriera mistica) all'attivazione del Campo mistico. Abbiamo anche migliorato la sensazione delle sue abilità per migliorare la sua mobilità.",
-        "sections": [
-          {
-            "name": "Transcendence",
-            "category": "Passivo",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Bonus velocità di movimento",
-                "before": "50%",
-                "after": "60%. The bonus now decays more slowly."
-              }
-            ]
-          },
-          {
-            "name": "Infinite Extension",
-            "category": "Abilità 1",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Ridotto il tempo di backswing del 50%."
-              }
-            ]
-          },
-          {
-            "name": "Mystic Field",
-            "category": "Abilità 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Ridotto il tempo di backswing del 50%."
-              },
-              {
-                "text": "Rimosso il danno diretto di Mystic Barrier."
-              },
-              {
-                "label": "Danno del campo mistico",
-                "before": "220-345 (+65% Total Magic Power)",
-                "after": "440-690 (+130% Total Magic Power)"
-              },
-              {
-                "text": "Risolto un problema per cui il danno del campo mistico non poteva attivare il bonus alla velocità di movimento della passiva."
-              }
-            ]
-          }
-        ],
-        "slug": "xavier"
       }
     ],
     "balance": {
-      "buff": 6,
+      "buff": 7,
       "nerf": 3,
       "adjust": 4
-    }
+    },
+    "date": "2026-11-11",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23"
   },
   "2.2.16a": {
     "version": "2.2.16a",

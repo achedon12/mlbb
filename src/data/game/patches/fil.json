@@ -1,11 +1,8 @@
 {
   "2.2.23": {
     "version": "2.2.23",
-    "title": "Patch 2.2.23",
-    "date": "2026-11-11",
-    "link": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
-    "source": "liquipedia",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
+    "title": "Patch Notes 2.2.23",
+    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.2.23",
     "toc": [
       {
         "level": 2,
@@ -16,6 +13,11 @@
         "level": 2,
         "title": "I. Binagong Hero",
         "anchor": "i-revamped-hero"
+      },
+      {
+        "level": 3,
+        "title": "1. Binagong Hero: Popol and Kupa, ang Icefield Companions",
+        "anchor": "1-revamped-hero-popol-and-kupa-the-icefield-companions"
       },
       {
         "level": 2,
@@ -29,28 +31,28 @@
       },
       {
         "level": 3,
-        "title": "Kagamitan",
-        "anchor": "equipment"
+        "title": "A. Kagamitan",
+        "anchor": "a-equipment"
       },
       {
         "level": 3,
-        "title": "Mga talento",
-        "anchor": "talents"
+        "title": "B. Mga talento",
+        "anchor": "b-talents"
       },
       {
         "level": 3,
-        "title": "Battle Spell",
-        "anchor": "battle-spell"
+        "title": "C. Battle Spells",
+        "anchor": "c-battle-spells"
       },
       {
         "level": 3,
-        "title": "Mythical Honor Battlefield",
-        "anchor": "mythical-honor-battlefield"
+        "title": "D. Mythical Honor Battlefield",
+        "anchor": "d-mythical-honor-battlefield"
       },
       {
         "level": 3,
-        "title": "Mga Epekto sa larangan ng digmaan",
-        "anchor": "battlefield-effects"
+        "title": "E. Mga Epekto sa Battlefield",
+        "anchor": "e-battlefield-effects"
       },
       {
         "level": 2,
@@ -59,53 +61,63 @@
       },
       {
         "level": 3,
-        "title": "Mga Pag-optimize ng Auction House",
-        "anchor": "auction-house-optimizations"
+        "title": "A. Mga Pag-optimize ng Auction House",
+        "anchor": "a-auction-house-optimizations"
       },
       {
         "level": 3,
-        "title": "Available ang Screen ng Bagong Pagpili ng Mode",
-        "anchor": "new-mode-selection-screen-available"
+        "title": "B. Bagong Mode Selection Screen Available",
+        "anchor": "b-new-mode-selection-screen-available"
       },
       {
         "level": 3,
-        "title": "Suporta sa Tablet",
-        "anchor": "tablet-support"
+        "title": "C. Suporta sa Tablet",
+        "anchor": "c-tablet-support"
       },
       {
         "level": 2,
-        "title": "V. Mga Pagsasaayos ng Mode",
-        "anchor": "v-mode-adjustments"
+        "title": "V. Mga Mode ng Laro/Pagsasaayos ng Mode",
+        "anchor": "v-game-modes-mode-adjustments"
       },
       {
         "level": 3,
-        "title": "Card Brawl",
-        "anchor": "card-brawl"
+        "title": "A. Card Brawl",
+        "anchor": "a-card-brawl"
       },
       {
         "level": 3,
-        "title": "awayan",
-        "anchor": "brawl"
+        "title": "B. awayan",
+        "anchor": "b-brawl"
+      },
+      {
+        "level": 2,
+        "title": "Mga hindi dokumentadong pagbabago",
+        "anchor": "undocumented-changes"
+      },
+      {
+        "level": 2,
+        "title": "Mga sanggunian",
+        "anchor": "references"
       }
     ],
     "sections": [
       {
         "anchor": null,
         "title": null,
-        "html": "<p>Mga highlight ng patch 2.2.23:</p>\n<ul><li>Binagong Hero Popol and Kupa, Icefield Companions. Hero Feature: Isang marksman na nakikipaglaban sa tabi ni Kupa at gumagamit ng mga bitag para kontrolin ang larangan ng digmaan.</li><li>Mga Pagsasaayos ng Hero</li><li>Mga Pagsasaayos sa larangan ng digmaan</li><li>Mga Pagsasaayos ng System</li><li>Mga Pagsasaayos ng Mode</li></ul>",
+        "html": "<dl><dd><i>Ang page na ito ay naglalaman ng mga patch notes na inilabas sa Opisyal na Server.</i></dd></dl>\n\n<p><br>\nIsang update para sa <i><a href=\"https://mobilelegends.fandom.com/wiki/Mobile_Legends:_Bang_Bang\" title=\"Mobile Legends: Bang Bang\" rel=\"noreferrer nofollow\" target=\"_blank\">Mobile Legends: Bang Bang</a></i> ay inilabas sa Orihinal na Server para sa buwan ng Nobyembre, taong 2026. Kabilang dito ang binagong hero <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol and Kupa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Popol_and_Kupa\" title=\"Popol and Kupa\" rel=\"noreferrer nofollow\" target=\"_blank\">Popol and Kupa</a></span></span>, kasama ang mga pagsasaayos ng hero, mga pagbabago sa kagamitan, at ang pagpapakilala ng Card Brawl mode.\n</p><p>Ang update ay inilabas noong 11 Nobyembre 2026, 00:00 <a href=\"https://mobilelegends.fandom.com/wiki/Server_time\" title=\"Server time\" rel=\"noreferrer nofollow\" target=\"_blank\">server time</a>.\n</p>",
         "role": null
       },
       {
         "anchor": "from-the-designers",
         "title": "Mula sa The Designers",
-        "html": "<p>Sa patch na ito, gumawa kami ng mga pagsasaayos sa ilang napakalakas na hero at na-optimize ang ilang hindi gaanong ginagamit na hero.</p>\n<p>Gumawa rin kami ng mga pagbabago bilang tugon sa lumalagong trend sa mataas na ranggo na mga laban, kung saan ang Fighters ay sumasakay sa Gold Lane at Roaming Tanks ay dumaan sa EXP Lane.</p>\n<p>Ang mga pagbabagong ito ay naglalayong tulungan ang mga tradisyunal na hero sa magkabilang linya na mabawi ang kanilang mga posisyon. Patuloy naming susubaybayan ang epekto ng mga pagbabagong ito.</p>",
+        "html": "<p>Sa patch na ito, gumawa kami ng mga pagsasaayos sa ilang napakalakas na hero at na-optimize ang ilang hindi gaanong ginagamit na hero.\n</p><p>Gumawa rin kami ng mga pagbabago bilang tugon sa lumalagong trend sa mataas na ranggo na mga laban, kung saan ang Fighters ay dumaan sa Gold Lane at Roaming Tanks ay dumaan sa EXP Lane. Ang mga pagbabagong ito ay naglalayong tulungan ang mga tradisyunal na hero sa magkabilang linya na mabawi ang kanilang mga posisyon. Patuloy naming susubaybayan ang epekto ng mga pagbabagong ito.\n</p>",
         "role": null
       },
       {
         "anchor": "i-revamped-hero",
         "title": "I. Binagong Hero",
-        "html": "",
-        "role": "newHeroes"
+        "html": "<h3 id=\"1-revamped-hero-popol-and-kupa-the-icefield-companions\"><span></span><span>1. Binagong Hero: Popol and Kupa, ang Icefield Companions</span></h3>\n<p><b>Hero Feature:</b> Isang marksman na nakikipaglaban sa tabi ni Kupa at gumagamit ng mga bitag para kontrolin ang larangan ng digmaan.\n</p><p>Sa pagbabagong ito, nilalayon naming tugunan ang mga sumusunod na isyu at pagbutihin ang pangkalahatang karanasan sa gameplay ng Popol and Kupa:\n</p><p>Popol and Kupa dating kulang sa mobility at may limitadong skill combo potential. Upang matugunan ito, pinahusay namin ang kanilang mga pinag-ugnay na pag-atake at binigyang-daan ang Popol na sumakay sa Kupa upang habulin ang mga kaaway o umatras.\n</p><p>Dati, si Popol ay kailangang lumaban nang wala ang kanyang kasama nang napakatagal matapos talunin si Kupa. Upang matugunan ito, pinahusay namin ang pag-scale ng Kupa at ang HP Regen.\n</p><p>Pinahusay namin ang pagtanggi at utility sa lugar ng mga bitag, na nagbibigay-daan sa kanila na bawasan ang Physical Defense ng mga kaaway. Dinagdagan din namin ang maximum na bilang ng mga bitag na maaaring maging aktibo sa parehong oras.\n</p><p><b>Passive - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"We Are Friends\"></span></span></span> <span><span>Kami ay Magkaibigan</span></span></span></b>\n</p>\n<ul><li>Ang mga kaliskis ng HP ng Kupa ay may antas ng Popol, at minana nito ang iba pang mga katangian at epekto ng kagamitan ng Popol.</li>\n<li>Ang Kupa ay patuloy na nakakabawi ng HP habang wala sa labanan. Kung bumagsak si Kupa, maaaring magdasal si Popol na ibalik si Kupa sa larangan ng digmaan. Nagbibigay ang Kupa ng dagdag na True Damage sa mga kilabot.</li></ul>\n<p><b>Skill 1 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bite &#39;em, Kupa!\"></span></span></span> <span><span>Kagatin mo sila, Kupa!</span></span></span></b>\n</p>\n<ul><li>Inihagis ni Popol ng sibat ang target na kaaway, humarap sa damage, at inutusan si Kupa na suntukin ang target at kagatin sila, na lubhang nagpapabagal sa kanila.</li>\n<li>Sa Alpha Wolf Form, tinamaan ng Kupa ang target na lugar, tinutumbok ang mga kalapit na kaaway sa eruplano at nagdudulot ng mas mataas na damage.</li></ul>\n<p><b>Skill 2 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kupa, Help!\"></span></span></span> <span><span>Kupa, Tulong!</span></span></span></b>\n</p>\n<ul><li>Tinawag ni Popol si Kupa pabalik sa kanyang tabi, nakakuha ng isang kalasag. Maari na niyang sakyan si Kupa para mabilis na gumalaw, kung saan patuloy na binabawi ni Kupa ang HP.</li>\n<li>Sa Alpha Wolf Form, nakakuha si Popol ng mas malakas na shield, at nakabawi si Kupa sa buong HP habang naka-mount.</li></ul>\n<p><b>Skill 3 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol&#39;s Surprise\"></span></span></span> <span><span>Popol's Sorpresa</span></span></span></b>\n</p>\n<ul><li>Nagtakda si Popol ng bitag sa target na lokasyon na panandaliang nagpapatigil sa kaaway na tumapak dito. Pagkatapos ay sumabog ito at lumilikha ng frost zone na nagpapabagal sa mga kaaway sa loob.</li></ul>\n<p><b>Ultimate - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"We Are Angry!\"></span></span></span> <span><span>Galit Kami!</span></span></span></b>\n</p>\n<ul><li>Popol and Kupa ipasok ang Enraged state para sa 9s.</li>\n<li>Agad na nakabawi si Kupa sa buong HP at nag-transform sa Alpha Wolf Form, na nakakuha ng dagdag na Max HP at pinahusay ang kanyang iba pang mga skill.</li></ul>",
+        "role": null
       },
       {
         "anchor": "ii-hero-adjustments",
@@ -116,150 +128,165 @@
       {
         "anchor": "iii-battlefield-adjustments",
         "title": "III. Mga Pagsasaayos sa larangan ng digmaan",
-        "html": "<h3 id=\"equipment\">Kagamitan</h3>\n<p><b>Chastise Pauldron</b> <strong>▼ Nerf</strong></p>\n<p><i>Masyadong epektibo ang kagamitang ito sa pagkontra sa mga hero na nakabatay sa Attack speed.</i></p>\n<p><b>Unique Passive - Chastise</b> <strong>▼ Nerf</strong><br>Pinababawasan ang Attack Speed ​​at Attack Speed ​​cap ng attacker sa 75% → 80%.</p>\n<p><b>Antique Cuirass</b> <strong>▲ Buff</strong></p>\n<p><i>Hindi maganda ang performance ng kagamitang ito kumpara sa Chastise Pauldron.</i></p>\n<p><b>Unique Passive - Deter</b> <strong>▲ Buff</strong><br>Pinababawasan ang Pisikal na Damage ng attacker ng 6% → 8%.</p>\n<h3 id=\"talents\">Mga talento</h3>\n<p><b>Concussive Blast</b> <strong>◆ Inayos</strong></p>\n<p><i>Nalaman namin na dumaraming bilang ng mga roaming tank hero ang lumilipat sa Exp Lane. Sa early-to-mid game, mayroon silang mas malakas na kontrol at tibay kaysa sa karamihan ng mga fighter, habang humaharap sa halos kasing dami ng damage.</i></p>\n<p>Binabawasan namin ang kakayahan sa pag-clear ng minion ng ilang mga tank hero na ibalik ang mga fighter sa Exp Lane.<br>Damage: 100 (+7% Total HP) → 100 (+8% Total HP) (deal 50% less damage to minions)</p>\n<h3 id=\"battle-spell\">Battle Spell</h3>\n<p><b>Sprint</b> <strong>▲ Buff</strong></p>\n<p>Cooldown: 100s → 75s</p>\n<h3 id=\"mythical-honor-battlefield\">Mythical Honor Battlefield</h3>\n<p>Gold Lane Siege Minion <strong>▲ Buff</strong><br>Napansin namin na ang mga fighter ay pumalit sa Gold Lane sa parehong high-tier na Rank at propesyonal na mga laban. Upang matulungan ang mga marksmen na magsaka nang mas mabilis, dinagdagan namin ang Gold na ibinigay ng Gold Lane sa unang bahagi ng laro.</p>\n<p>Dagdag na Ginto: 40% → 60%</p>\n<h3 id=\"battlefield-effects\">Mga Epekto sa larangan ng digmaan</h3>\n<p><b>Golden Turret</b> <strong>◆ Inayos</strong></p>\n<p><i>Napansin namin na ang mga team na nasa likod ay nahihirapang bumalik sa ganitong battlefield effect. Inayos namin ang ilang value habang pinapanatili ang mga natatanging feature nito.</i></p>\n<p>Pagtaas ng HP ng Base Turret: 1,000 → 2,000<br>Team Gold na ibinigay ng Outer Turret: 100 → 90<br>Team Gold na ibinigay ng Inner Turret: 140 → 120</p>\n<p><b>Healing Turtle</b> <strong>◆ Adjusted</strong></p>\n<p><i>Napansin namin na ang kita mula sa pagpatay sa Turtle sa isang lane ay makabuluhang mas mababa kaysa sa isang minion wave, na nag-iiwan sa nagtatanggol na koponan sa isang karagdagang kawalan sa ekonomiya. Samakatuwid, nadagdagan namin nang husto ang Gold at EXP mula sa pagpatay sa isang kaaway na Turtle. Ang kita na ito ay ibinabahagi sa mga kaalyadong hero na nasa saklaw at ngayon ay halos tumutugma sa isang minion wave.</i></p>\n<p>Samakatuwid, nadagdagan namin nang husto ang Gold at EXP mula sa pagpatay sa isang kaaway na Turtle. Ang kita na ito ay ibinabahagi sa mga kaalyadong hero sa loob ng saklaw at ngayon ay halos tumutugma sa isang minion wave.</p>",
+        "html": "<h3 id=\"a-equipment\"><span>A. Kagamitan</span></h3>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Chastise_Pauldron\" title=\"Chastise Pauldron\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span>&#160;<a href=\"https://mobilelegends.fandom.com/wiki/Chastise_Pauldron\" title=\"Chastise Pauldron\" rel=\"noreferrer nofollow\" target=\"_blank\">Chastise Pauldron</a> <span>NERF&#160;↓</span>\n</p>\n<dl><dd>Masyadong epektibo ang kagamitang ito sa pagkontra sa mga hero na nakabatay sa Attack speed.</dd></dl>\n<ul><li><b>Natatanging Passive - Chastise <span>NERF ↓</span></b>\n<ul><li>Binabawasan ang Attack Speed ​​at Attack Speed ​​cap ng attacker sa 75% → 80%.</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Antique_Cuirass\" title=\"Antique Cuirass\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span>&#160;<a href=\"https://mobilelegends.fandom.com/wiki/Antique_Cuirass\" title=\"Antique Cuirass\" rel=\"noreferrer nofollow\" target=\"_blank\">Antique Cuirass</a> <span>BUFF&#160;↑</span>\n</p>\n<dl><dd>Hindi maganda ang pagganap ng kagamitang ito kumpara sa Chastise Pauldron.</dd></dl>\n<ul><li><b>Natatanging Passive - Deter <span>BUFF ↑</span></b>\n<ul><li>Binabawasan ang Pisikal na Damage ng umaatake ng 6% → 8%.</li></ul></li></ul>\n<h3 id=\"b-talents\"><span>B. Mga Talento</span></h3>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Concussive_Blast\" title=\"Concussive Blast\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span>&#160;<span title=\"Concussive Blast (page does not exist)\" data-uncrawlable-url=\"L3dpa2kvQ29uY3Vzc2l2ZV9CbGFzdD9hY3Rpb249ZWRpdCZyZWRsaW5rPTE=\">Concussive Blast</span> <span>ADJUST&#160;~</span><b></b>\n</p>\n<dl><dd>Nalaman namin na dumaraming bilang ng mga roaming tank hero ang lumilipat sa Exp Lane. Sa early-to-mid game, mayroon silang mas malakas na kontrol at tibay kaysa sa karamihan ng mga fighter, habang humaharap sa halos kasing dami ng damage.</dd>\n<dd>Binabawasan namin ang kakayahan sa minion-clearing ng ilang mga hero ng tank upang ibalik ang mga fighter sa Exp Lane.</dd></dl>\n<ul><li>Damage: 100 (+7% Kabuuang HP) → 100 (+8% Kabuuang HP) (nagbibigay ng 50% na mas kaunting damage sa mga minions)</li></ul>\n<h3 id=\"c-battle-spells\"><span>C. Battle Spells</span></h3>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Sprint\"></span></span></span><span><span>Sprint</span></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>Cooldown: 100s → 75s</li></ul>\n<h3 id=\"d-mythical-honor-battlefield\"><span>D. Mythical Honor Battlefield</span></h3>\n<p><b>[Gold Lane Siege Minion] <span>BUFF&#160;↑</span></b>\n</p>\n<dl><dd>Napansin namin na ang mga fighter ay pumalit sa Gold Lane sa parehong mataas na antas ng Ranggo at propesyonal na mga laban. Upang matulungan ang mga marksmen na magsasaka nang mas mabilis, dinagdagan namin ang Gold na ibinigay ng Gold Lane sa unang bahagi ng laro.</dd></dl>\n<ul><li>Dagdag na Ginto: 40% → 60%</li></ul>\n<h3 id=\"e-battlefield-effects\"><span>E. Battlefield Effects</span></h3>\n<p><b>[Golden Turret] <span>ADJUST&#160;~</span></b>\n</p>\n<dl><dd>Napansin namin na ang mga team na nasa likod ay nahihirapang makabalik gamit ang battlefield effect na ito. Inayos namin ang ilang value habang pinapanatili ang mga natatanging feature nito.</dd></dl>\n<ul><li>Pagtaas ng HP ng Base Turret: 1,000 → 2,000</li>\n<li>Team Gold na ibinigay ng Outer Turret: 100 → 90</li>\n<li>Team Gold na ibinigay ng Inner Turret: 140 → 120</li></ul>\n<p><b>[Healing Turtle] <span>ADJUST&#160;~</span></b>\n</p>\n<dl><dd>Napansin namin na ang kita mula sa pagpatay sa Turtle sa isang lane ay makabuluhang mas mababa kaysa doon sa isang minion wave, na nag-iiwan sa nagtatanggol na koponan sa isang karagdagang kawalan sa ekonomiya. Samakatuwid, nadagdagan namin nang husto ang Gold at EXP mula sa pagpatay sa isang kaaway na Turtle. Ang kita na ito ay ibinabahagi sa mga kaalyadong hero sa loob ng saklaw at ngayon ay halos tumutugma sa isang minion wave.</dd></dl>",
         "role": null
       },
       {
         "anchor": "iv-system-adjustments",
         "title": "IV. Mga Pagsasaayos ng System",
-        "html": "<h3 id=\"auction-house-optimizations\">Mga Pag-optimize ng Auction House</h3>\n<p>Nagdagdag ng entry na Mga Pinagmumulan ng Item sa Auction House sa screen ng Auction House, na nagpapakita ng listahan ng mga item sa Auction House na available mula sa kaganapan ng Bang Bang Card.</p>\n<h3 id=\"new-mode-selection-screen-available\">Available ang Screen ng Bagong Pagpili ng Mode</h3>\n<p>Upang gawing mas madaling ma-enjoy ang Arcade mode, na-optimize namin ang screen ng pagpili ng mode. Hinahayaan ka pa rin ng bagong interface na mabilis na ma-access ang mga karaniwang mode, gayundin ang madaling mahanap ang Arcade mode na gusto mong laruin.</p>\n<h3 id=\"tablet-support\">Suporta sa Tablet</h3>\n<p>Mga na-optimize na layout ng interface sa mga tablet device.</p>",
+        "html": "<h3 id=\"a-auction-house-optimizations\"><span>A. Auction House Optimizations</span></h3>\n<ul><li>Nagdagdag ng entry na Mga Pinagmumulan ng Item sa Auction House sa screen ng Auction House, na nagpapakita ng listahan ng mga item sa Auction House na available mula sa kaganapan ng Bang Bang Card.</li></ul>\n<h3 id=\"b-new-mode-selection-screen-available\"><span>B. Bagong Mode Selection Screen Available</span></h3>\n<ul><li>Upang gawing mas madaling ma-enjoy ang Arcade mode, na-optimize namin ang screen ng pagpili ng mode. Hinahayaan ka pa rin ng bagong interface na mabilis na ma-access ang mga karaniwang mode, gayundin ang madaling mahanap ang Arcade mode na gusto mong laruin.</li></ul>\n<h3 id=\"c-tablet-support\"><span>C. Suporta sa Tablet</span></h3>\n<ul><li>Mga na-optimize na layout ng interface sa mga tablet device.</li></ul>",
         "role": null
       },
       {
-        "anchor": "v-mode-adjustments",
-        "title": "V. Mga Pagsasaayos ng Mode",
-        "html": "<h3 id=\"card-brawl\">Card Brawl</h3>\n<p>Maligayang pagdating sa Card Brawl! Sa Necrokeep, pumili mula sa mga random na inaalok na card sa mga partikular na antas ng hero, hanggang limang beses. Pagsamahin ang mga card upang palakasin, hubugin ang iyong istilo ng paglalaro, at gawin ang mga kapana-panabik na paglalaro! Hinahayaan ka rin ng Card Brawl na kumpletuhin ang mga gawain sa aktibidad, kumita ng mga Bangbang Card, at pataasin ang iyong StarLight level!</p>\n<h3 id=\"brawl\">awayan</h3>\n<h4 id=\"hero-balance-adjustments\">Mga Pagsasaayos ng Balanse ng Hero</h4>\n<p>Batay sa kamakailang Brawl hero win at pick rate, ginawa namin ang mga sumusunod na pagsasaayos ng balanse.</p>\n<p><strong>▼ Nerf</strong><br>Aulus<br>DMG Kinuha +4% → +8%</p>\n<p>Barats<br>(Bago) DMG -2%</p>\n<p>Brody<br>(Bago) DMG Kinuha +2%</p>\n<p>Bruno<br>DMG -10% → -12%; (Bago) DMG Kinuha +4%</p>\n<p>Cici<br>DMG Kinuha -8% → -4%</p>\n<p>Cyclops<br>DMG Kinuha +6% → +10%</p>\n<p>Edith<br>DMG Kinuha +4% → +8%</p>\n<p>Hilda<br>DMG Kinuha -8% → -6%</p>\n<p>Lukas<br>DMG -2% → -6%</p>\n<p>Martis<br>DMG +6% → +4%</p>\n<p>Minotaur<br>DMG Kinuha +8% → +4%; (Bago) Pagpapagaling -6%</p>\n<p>Natan<br>DMG Kinuha +8% → +10%</p>\n<p>Phoveus<br>DMG Kinuha +6% → +10%</p>\n<p>Popol and Kupa<br>(Bago) DMG Kinuha +2%</p>\n<p>Rafaela<br>DMG Kinuha +10% → +12%</p>\n<p>Roger<br>DMG Kinuha -6% → -4%</p>\n<p>Terizla<br>DMG Kinuha +14% → +18%</p>\n<p>Valir<br>(Bago) DMG Taken +2%</p>\n<p>Yu Zhong<br>DMG Kinuha -4% → -2%</p>\n<p><strong>▲ Buff</strong><br>Aamon<br>(Bago) Kinuha ang DMG -2%</p>\n<p>Chip<br>DMG +6% → +8%</p>\n<p>Franco<br>Skill DMG +10%</p>\n<p>Gatotkaca<br>DMG Kinuha +10% → +8%</p>\n<p>Helcurt<br>DMG +10% → +12%</p>\n<p>Joy<br>DMG +10% → +12%</p>\n<p>Lancelot<br>DMG Kinuha -4% → -6%</p>\n<p>Lunox<br>(Bago) Kinuha ang DMG -2%</p>\n<p>Luo Yi<br>DMG Kinuha -2% → -4%</p>\n<p>Masha<br>(Bago) Kinuha ang DMG -4%</p>\n<p>Melissa<br>DMG -12% → -10%</p>\n<p>Nolan<br>Binawasan ang Gastos sa Enerhiya ng Mga Skill 1 at 2</p>\n<p>Yi Sun-shin<br>(Bago) DMG Taken -4%</p>\n<p>Zhuxin<br>DMG +16% → +20%</p>",
+        "anchor": "v-game-modes-mode-adjustments",
+        "title": "V. Mga Mode ng Laro/Pagsasaayos ng Mode",
+        "html": "<h3 id=\"a-card-brawl\"><span>A. Card Brawl</span></h3>\n<p><b>[Gabay]</b>\nMaligayang pagdating sa Card Brawl! Sa Necrokeep, pumili mula sa mga random na inaalok na card sa mga partikular na antas ng hero, hanggang limang beses. Pagsamahin ang mga card para palakasin, hubugin ang iyong istilo ng paglalaro, at gawin ang mga kapana-panabik na dula! Hinahayaan ka rin ng Card Brawl na kumpletuhin ang mga gawain sa aktibidad, kumita ng mga Bangbang Card, at pataasin ang iyong StarLight level!\n</p><p><b>[Available Time]</b>\n</p>\n<ul><li>11/20 00:00:00 - 12/15 00:00:00 (Oras ng Server)</li></ul>\n<h3 id=\"b-brawl\"><span>B. away</span></h3>\n<p><b>[Mga Pagsasaayos ng Balanse ng Hero]</b>\n</p>\n<dl><dd>Batay sa kamakailang Brawl hero win at pick rate, ginawa namin ang mga sumusunod na pagsasaayos ng balanse:</dd></dl>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bruno\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Bruno\" title=\"Bruno\" rel=\"noreferrer nofollow\" target=\"_blank\">Bruno</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG -10% → -12%; (Bago) DMG Kinuha +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Edith\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Edith\" title=\"Edith\" rel=\"noreferrer nofollow\" target=\"_blank\">Edith</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>Kinuha ang DMG +4% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Phoveus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Phoveus\" title=\"Phoveus\" rel=\"noreferrer nofollow\" target=\"_blank\">Phoveus</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>Kinuha ang DMG +6% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aulus\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Aulus\" title=\"Aulus\" rel=\"noreferrer nofollow\" target=\"_blank\">Aulus</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>Kinuha ang DMG +4% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cyclops\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Cyclops\" title=\"Cyclops\" rel=\"noreferrer nofollow\" target=\"_blank\">Cyclops</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>Kinuha ang DMG +6% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lukas\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Lukas\" title=\"Lukas\" rel=\"noreferrer nofollow\" target=\"_blank\">Lukas</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>DMG -2% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Terizla\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Terizla\" title=\"Terizla\" rel=\"noreferrer nofollow\" target=\"_blank\">Terizla</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>Kinuha ang DMG +14% → +18%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cici\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Cici\" title=\"Cici\" rel=\"noreferrer nofollow\" target=\"_blank\">Cici</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>Kinuha ang DMG -8% → -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Martis\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Martis\" title=\"Martis\" rel=\"noreferrer nofollow\" target=\"_blank\">Martis</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>DMG +6% → +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yu Zhong\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Yu_Zhong\" title=\"Yu Zhong\" rel=\"noreferrer nofollow\" target=\"_blank\">Yu Zhong</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>Kinuha ang DMG -4% → -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Rafaela\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Rafaela\" title=\"Rafaela\" rel=\"noreferrer nofollow\" target=\"_blank\">Rafaela</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>Kinuha ang DMG +10% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Natan\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Natan\" title=\"Natan\" rel=\"noreferrer nofollow\" target=\"_blank\">Natan</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>Kinuha ang DMG +8% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Barats\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Barats\" title=\"Barats\" rel=\"noreferrer nofollow\" target=\"_blank\">Barats</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Bago) DMG -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Minotaur\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Minotaur\" title=\"Minotaur\" rel=\"noreferrer nofollow\" target=\"_blank\">Minotaur</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG Kinuha +8% → +4%; (Bago) Pagpapagaling -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hilda\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Hilda\" title=\"Hilda\" rel=\"noreferrer nofollow\" target=\"_blank\">Hilda</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>Kinuha ang DMG -8% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Brody\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Brody\" title=\"Brody\" rel=\"noreferrer nofollow\" target=\"_blank\">Brody</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(Bago) DMG Kinuha +2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Valir\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Valir\" title=\"Valir\" rel=\"noreferrer nofollow\" target=\"_blank\">Valir</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(Bago) DMG Kinuha +2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Roger\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Roger\" title=\"Roger\" rel=\"noreferrer nofollow\" target=\"_blank\">Roger</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>Kinuha ang DMG -6% → -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol and Kupa\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Popol_and_Kupa\" title=\"Popol and Kupa\" rel=\"noreferrer nofollow\" target=\"_blank\">Popol and Kupa</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(Bago) DMG Kinuha +2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lunox\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Lunox\" title=\"Lunox\" rel=\"noreferrer nofollow\" target=\"_blank\">Lunox</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>(Bago) Kinuha ang DMG -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Melissa\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Melissa\" title=\"Melissa\" rel=\"noreferrer nofollow\" target=\"_blank\">Melissa</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>DMG -12% → -10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gatotkaca\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Gatotkaca\" title=\"Gatotkaca\" rel=\"noreferrer nofollow\" target=\"_blank\">Gatotkaca</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>Kinuha ang DMG +10% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Helcurt\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Helcurt\" title=\"Helcurt\" rel=\"noreferrer nofollow\" target=\"_blank\">Helcurt</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>DMG +10% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Joy\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Joy\" title=\"Joy\" rel=\"noreferrer nofollow\" target=\"_blank\">Joy</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>DMG +10% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lancelot\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Lancelot\" title=\"Lancelot\" rel=\"noreferrer nofollow\" target=\"_blank\">Lancelot</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>Kinuha ang DMG -4% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aamon\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Aamon\" title=\"Aamon\" rel=\"noreferrer nofollow\" target=\"_blank\">Aamon</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>(Bago) Kinuha ang DMG -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Luo Yi\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Luo_Yi\" title=\"Luo Yi\" rel=\"noreferrer nofollow\" target=\"_blank\">Luo Yi</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>Kinuha ang DMG -2% → -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Chip\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Chip\" title=\"Chip\" rel=\"noreferrer nofollow\" target=\"_blank\">Chip</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>DMG +6% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yi Sun-shin\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Yi_Sun-shin\" title=\"Yi Sun-shin\" rel=\"noreferrer nofollow\" target=\"_blank\">Yi Sun-shin</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>(Bago) Kinuha ang DMG -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zhuxin\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Zhuxin\" title=\"Zhuxin\" rel=\"noreferrer nofollow\" target=\"_blank\">Zhuxin</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>DMG +16% → +20%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Franco\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Franco\" title=\"Franco\" rel=\"noreferrer nofollow\" target=\"_blank\">Franco</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>Skill DMG +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Masha\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Masha\" title=\"Masha\" rel=\"noreferrer nofollow\" target=\"_blank\">Masha</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>(Bago) Kinuha ang DMG -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Nolan\"></span></span></span><span><a href=\"https://mobilelegends.fandom.com/wiki/Nolan\" title=\"Nolan\" rel=\"noreferrer nofollow\" target=\"_blank\">Nolan</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>Binawasan ang Gastos ng Enerhiya ng Mga Skill 1 at 2</li></ul>\n\n<p><br>\n</p>\n―Mobile Legends: Bang Bang",
+        "role": null
+      },
+      {
+        "anchor": "undocumented-changes",
+        "title": "Mga hindi dokumentadong pagbabago",
+        "html": "<p>-\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "references",
+        "title": "Mga sanggunian",
+        "html": "",
         "role": null
       }
     ],
-    "newHeroes": [
-      {
-        "name": "Popol and Kupa",
-        "epithet": "Icefield Companions",
-        "anchor": "revamp-icefield-companions-popol-and-kupa",
-        "lore": [
-          "Popol and Kupa dating kulang sa mobility at may limitadong skill combo potential. Upang matugunan ito, pinahusay namin ang kanilang mga pinag-ugnay na pag-atake at binigyang-daan ang Popol na sumakay sa Kupa upang habulin ang mga kaaway o umatras.",
-          "Dati, si Popol ay kailangang lumaban nang wala ang kanyang kasama nang napakatagal matapos talunin si Kupa. Upang matugunan ito, pinahusay namin ang pag-scale ng Kupa at ang HP Regen."
-        ],
-        "feature": "Isang marksman na nakikipaglaban sa tabi ni Kupa at gumagamit ng mga bitag upang kontrolin ang larangan ng digmaan. Sa pagbabagong ito, nilalayon naming tugunan ang mga sumusunod na isyu at pagbutihin ang pangkalahatang karanasan sa gameplay ng Popol and Kupa:",
-        "skills": [
-          {
-            "role": "Passive",
-            "name": "We are friends V2",
-            "description": [
-              "Ang mga kaliskis ng HP ng Kupa ay may antas ng Popol, at minana nito ang iba pang mga katangian at epekto ng kagamitan ng Popol.",
-              "Ang Kupa ay patuloy na nakakabawi ng HP habang wala sa labanan. Kung bumagsak si Kupa, maaaring magdasal si Popol na ibalik si Kupa sa larangan ng digmaan. Nagbibigay ang Kupa ng dagdag na True Damage sa mga kilabot."
-            ]
-          },
-          {
-            "role": "Skill 1",
-            "name": "Bite 'em, Kupa! V2",
-            "description": [
-              "Inihagis ni Popol ng sibat ang target na kaaway, humarap sa damage, at inutusan si Kupa na suntukin ang target at kagatin sila, na lubhang nagpapabagal sa kanila.",
-              "Sa Alpha Wolf Form, tinamaan ng Kupa ang target na lugar, tinutumbok ang mga kalapit na kaaway sa eruplano at nagdudulot ng mas mataas na damage."
-            ]
-          },
-          {
-            "role": "Skill 2",
-            "name": "Kupa, Help! V2",
-            "description": [
-              "Tinawag ni Popol si Kupa pabalik sa kanyang tabi, nakakuha ng isang kalasag. Maari na niyang sakyan si Kupa para mabilis na gumalaw, kung saan patuloy na binabawi ni Kupa ang HP.",
-              "Sa Alpha Wolf Form, nakakuha si Popol ng mas malakas na shield, at nakabawi si Kupa sa buong HP habang naka-mount."
-            ]
-          },
-          {
-            "role": "Skill 3",
-            "name": "Popol's Surprise V2",
-            "description": [
-              "Nagtakda si Popol ng bitag sa target na lokasyon na panandaliang nagpapatigil sa kaaway na tumapak dito. Pagkatapos ay sumabog ito at lumilikha ng frost zone na nagpapabagal sa mga kaaway sa loob."
-            ]
-          },
-          {
-            "role": "Ultimate",
-            "name": "We Are Angry! V2",
-            "description": [
-              "Popol and Kupa ipasok ang Enraged state para sa 9s.",
-              "Agad na nakabawi si Kupa sa buong HP at nag-transform sa Alpha Wolf Form, na nakakuha ng dagdag na Max HP at pinahusay ang kanyang iba pang mga skill."
-            ]
-          }
-        ],
-        "slug": "popol-and-kupa"
-      }
-    ],
+    "newHeroes": [],
     "adjustments": [
       {
-        "name": "Aldous",
+        "name": "Xavier",
         "type": "buff",
-        "intro": "Binawasan ang downtime ni Aldous sa pagitan ng mga trade sa yugto ng laning at pinataas ang kanyang late-game Damage Reduction.",
+        "intro": "",
+        "sections": [],
+        "slug": "xavier"
+      },
+      {
+        "name": "Xavier",
+        "type": "buff",
+        "intro": "Para matulungan si Xavier na harapin ang mas malaking damage sa AOE sa mga teamfight, inilipat namin ang damage ng Skill 2 (Mystic Barrier) sa pag-activate ng Mystic Field. Pinahusay din namin ang pakiramdam ng kanyang mga skill upang mapabuti ang kanyang kadaliang kumilos.",
         "sections": [
           {
-            "name": "Contract: Explosion",
-            "category": "Skill 2",
+            "name": "Passive",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "label": "Cooldown",
-                "before": "12-9.5s",
-                "after": "8s at all levels"
+                "label": "Bonus sa Movement speed",
+                "before": "50%",
+                "after": "60%. The bonus now decays more slowly."
+              }
+            ]
+          },
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Binawasan ang oras ng backswing ng 50%."
+              }
+            ]
+          },
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Binawasan ang oras ng backswing ng 50%."
               },
               {
-                "label": "Pagbawas ng Damage",
-                "before": "30% at all levels",
-                "after": "30%-55%"
+                "text": "Inalis ang direktang damage ng Mystic Barrier."
+              },
+              {
+                "label": "Mystic Field Damage",
+                "before": "220-345 (+65% Total Magic Power)",
+                "after": "440-690 (+130% Total Magic Power)"
+              },
+              {
+                "text": "Inayos ang isang isyu kung saan hindi ma-trigger ng Mystic Field Damage ang bonus ng Movement Speed ​​ng passive."
               }
             ]
           }
         ],
-        "slug": "aldous"
+        "slug": "xavier"
       },
       {
-        "name": "Atlas",
-        "type": "nerf",
-        "intro": "Masyadong madalas na pinapalamig ng Passive ng Atlas ang mga kaaway, kaya pinaikli namin ang tagal ng Frigid Breath at pinataas ang cooldown ng freeze. Para makabawi, dinagdagan namin ang kanyang mga bonus sa Physical at Magic Defense para tulungan siyang makatiis ng mas maraming damage pagkatapos makipag-ugnayan.",
+        "name": "Lunox",
+        "type": "buff",
+        "intro": "Ang Passive ng Lunox ay nagkaroon ng kaunting epekto hanggang sa huli na laro, at ilang mga opsyon sa kagamitan ang gumana nang maayos sa stat conversion nito. Inayos namin ito nang naaayon. Nadagdagan din namin ang damage sa maagang laro ng Skill 2 ni Lunox at pinahusay ang control feel ng kanyang Ultimate. Nilalayon ng mga pagbabagong ito na matiyak na mayroon siyang sapat na damage output sa early-to-mid game.",
         "sections": [
           {
-            "name": "Frigid Breath",
-            "category": "Passive",
+            "name": "Passive",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Kapag nalipat ang balanse sa Power of Order, agad na makakuha ng 10% Spell Vamp."
+              },
+              {
+                "text": "Kapag nalipat ang balanse sa Power of Chaos, agad na makakuha ng 10% Magic Penetration."
+              }
+            ]
+          },
+          {
+            "name": "Skill 2 (Power of Chaos)",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Karagdagang Porsyento ng Damage",
+                "before": "2.5%-5%",
+                "after": "3.5%-5%"
+              },
+              {
+                "label": "Porsiyento ng Karagdagang Damage sa Mga Kilabot",
+                "before": "1.5%-3%",
+                "after": "2.1%-3%"
+              }
+            ]
+          },
+          {
+            "name": "Ultimate (Power of Chaos)",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
-                "label": "Tagal ng Malamig na Hininga",
-                "before": "5s",
-                "after": "4s"
+                "text": "Binawasan ng 50% ang oras ng foreswing ng dash."
               },
               {
-                "label": "I-freeze ang Cooldown",
-                "before": "2.5s",
-                "after": "4s"
-              },
-              {
-                "label": "Nakuha ang Physical at Magic Defense sa panahon ng Frigid Breath",
-                "before": "20 (+0.5% Extra HP)",
-                "after": "20 (+0.7% Extra HP)"
+                "label": "Damage",
+                "before": "250-450 (+ 100% Total Magic Power)",
+                "after": "150-300 (+135% Total Magic Power)"
               }
             ]
           }
         ],
-        "slug": "atlas"
+        "slug": "lunox"
       },
       {
         "name": "Freya",
         "type": "buff",
-        "intro": "",
+        "intro": "Upang matulungan ang Freya na sumikat sa Exp Lane, pinalakas namin ang kanyang lakas sa labas ng kanyang Ultimate habang binabawasan kung gaano kadalas niya ito magagamit.",
         "sections": [
           {
-            "name": "Power of Einherjar",
-            "category": "Passive",
+            "name": "Passive",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "Ang pagkonsumo ng Sacred Orb ay nagiging sanhi ng susunod na Basic Attack na makabawi ng 20 (+3* Hero Level) (+20% Total Physical Attack) HP."
+                "text": "Ang pagkonsumo ng Sacred Orb ay nagiging sanhi ng susunod na Basic Attack na makabawi ng 20 (+ 3 x Hero Level) (+20% Total Physical Attack) HP."
               }
             ]
           },
           {
-            "name": "Valkyrie Descent",
-            "category": "Ultimate",
+            "name": "Ultimate",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
@@ -272,7 +299,7 @@
               },
               {
                 "label": "Damage ng Pinahusay na Basic Attack (Sa Panahon ng Ultimate)",
-                "before": "30-60 (+100% Total Physical Attack)",
+                "before": "30-60 (+ 100% Total Physical Attack)",
                 "after": "100-200 (+70% Total Physical Attack)"
               },
               {
@@ -286,11 +313,11 @@
       {
         "name": "Gloo",
         "type": "nerf",
-        "intro": "",
+        "intro": "Napansin namin na medyo masyadong malakas si Gloo, kaya nahihirapan ang mga kalaban na kontrahin siya. Nagpasya kaming bawasan ang kanyang lakas.",
         "sections": [
           {
-            "name": "Slam, Slam",
-            "category": "Skill 1",
+            "name": "Skill 1",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
@@ -306,8 +333,8 @@
             ]
           },
           {
-            "name": "Split, Split",
-            "category": "Skill 3",
+            "name": "Skill 3",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
@@ -321,114 +348,70 @@
         "slug": "gloo"
       },
       {
-        "name": "Kagura",
-        "type": "adjust",
-        "intro": "",
+        "name": "Masha",
+        "type": "nerf",
+        "intro": "Para pahusayin ang lane ni Masha at tulungan siyang itulak ang minion wave nang mas mabilis, inilipat namin ang mabagal na epekto sa Skill 2. Nagbibigay-daan ito sa kanya na patuloy na humabol sa isang kaaway at mag-follow up gamit ang Mga Basic Attack upang harapin ang damage sa pamamagitan ng pagsira ng mga Sugat. Pinaliit din namin ang landas ng Skill 2 para mabawasan ang mga kaso kung saan hinaharangan ng mga kalapit na kaaway ang kanyang gitling kapag umaatras. Para balansehin ito, binawasan namin ang damage ng Skill 1 at Skill 2. Na-optimize din namin kung paano na-trigger ang mga Sugat. Bahagyang nabawasan namin ang bisa ng kanyang mga claw strike.",
         "sections": [
           {
-            "name": "Seimei Umbrella Open",
-            "category": "Skill 1",
+            "name": "Passive",
+            "category": null,
             "type": "adjust",
             "changes": [
               {
-                "text": "Na-optimize ang visual indicator para sa maximum na distansya ng paghihiwalay sa pagitan ng Seimei Umbrella at Kagura."
-              }
-            ]
-          }
-        ],
-        "slug": "kagura"
-      },
-      {
-        "name": "Kaja",
-        "type": "buff",
-        "intro": "Inayos kung paano makakatugon ang mga hero ng kaaway sa Ultimate ni Kaja. Mayroon na silang mas maraming oras upang umalis sa lugar bago magkabisa ang Ultimate, ngunit hindi na magagamit ang mga skill sa Control Immunity upang maiwasan ang paghihigpit sa lugar. Nagdagdag kami ng higit pang mga paraan para manatili si Kaja sa kanyang Soaring state nang mas matagal at pinataas ang kanyang mobility habang Soaring.",
-        "sections": [
-          {
-            "name": "Soaring Wings",
-            "category": "Skill 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Pinataas ang bilis ng pagliko ni Kaja habang Soaring para sa mas tumutugon na mga kontrol."
+                "text": "Bagong Epekto: Ang mga hit ng Skill ay random na pinapalitan ang isa sa mga kasalukuyang Sugat ng target ng bago sa direksyon ng tama."
               },
               {
-                "text": "Bagong Epekto: Habang Pumataas, ang pinahusay na Basic Attack ay bahagyang nagpapahaba sa tagal ng estado kapag natamaan nila ang mga kaaway."
+                "label": "Dagdag Pisikal na Damage",
+                "before": "(3 + 1% Extra Physical Attack + 0.3 x Hero Level)% Max HP",
+                "after": "(2 + 0.5% Extra Physical Attack + 0.2 x Hero Level)% Max HP"
               },
               {
-                "text": "Bagong Epekto: Habang Soaring, ang pagtama sa mga minions ng kaaway gamit ang Skill 2 ngayon ay nagpapahaba din sa tagal ng estado."
+                "label": "HP Regen",
+                "before": "4-10% Max HP",
+                "after": "3-6% Max HP"
               }
             ]
           },
           {
-            "name": "Divine Binding",
-            "category": "Ultimate",
+            "name": "Skill 1",
+            "category": null,
             "type": "adjust",
             "changes": [
               {
-                "text": "Bahagyang nadagdagan ang pagkaantala ng Ultimate."
+                "label": "Bonus sa Damage",
+                "before": "70%",
+                "after": "55%"
               },
               {
-                "text": "Bagong Epekto: Ang mga Target na may Control Immunity ay hindi na makakatakas sa lugar ng Ultimate kapag nagkabisa ito."
-              }
-            ]
-          }
-        ],
-        "slug": "kaja"
-      },
-      {
-        "name": "Karrie",
-        "type": "adjust",
-        "intro": "Pinahusay ang kakayahan ni Karrie sa pakikipaglaban sa panahon ng kanyang Ultimate, at inayos ang Skill 1 para mas mag-focus sa pagpapabagal ng mga kaaway at pagpilit sa kanila na mag-reposition sa late game. Pinahusay din namin ang kalinawan at pag-trigger ng lohika ng ilan sa kanyang mga skill.",
-        "sections": [
-          {
-            "name": "Spinning Light Wheel",
-            "category": "Skill 1",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "Na-optimize ang mga visual effect ng globo at dalas ng pagtuklas ng banggaan, na ginagawang mas madali para sa parehong mga kaalyado at kaaway na malaman kung tatamaan sila ng Skill 1."
+                "label": "Damage sa Minions",
+                "before": "100%-150%",
+                "after": "150%-200%"
               },
               {
-                "label": "Bonus sa Pisikal na Pag-atake (Base na Damage)",
-                "before": "90%",
-                "after": "20%"
-              },
-              {
-                "label": "Bonus sa Pisikal na Pag-atake (Patuloy na Damage)",
-                "before": "20%",
-                "after": "10%"
+                "text": "Inalis na Epekto: Ang pagtama sa isang hero ng kaaway ay nagpabagal sa kanila ng 50% sa loob ng 1s."
               }
             ]
           },
           {
-            "name": "Phantom Step",
-            "category": "Skill 2",
+            "name": "Skill 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "Nakikita na ngayon ang mga kalapit na hero ng kaaway sa buong dash. Kung walang makikitang mga hero ng kaaway, nakakakita ito ng mga gumagapang at minions sa dulo ng gitling."
-              }
-            ]
-          },
-          {
-            "name": "Speedy Lightwheel",
-            "category": "Ultimate",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Base Damage bawat Lightwheel",
-                "before": "40",
-                "after": "50"
+                "text": "Bagong Epekto: Ang pagtama sa isang hero ng kaaway gamit ang slash ay nagpapabagal sa kanila ng 50% para sa 1s."
               },
               {
-                "label": "Pagpapalakas ng Movement speed sa panahon ng Ultimate",
-                "before": "20%",
-                "after": "30%"
+                "text": "Pagsasaayos ng Epekto: Binawasan ng 20% ​​ang lapad ng landas ng Skill 2."
+              },
+              {
+                "label": "Damage",
+                "before": "120-240 (+ 80% Extra Physical Attack)",
+                "after": "60-240 (+40% Extra Physical Attack)"
               }
             ]
           }
         ],
-        "slug": "karrie"
+        "slug": "masha"
       },
       {
         "name": "Lukas",
@@ -453,14 +436,14 @@
             ]
           },
           {
-            "name": "Flash Combo",
-            "category": "Skill 1",
+            "name": "Skill 1",
+            "category": null,
             "type": "adjust",
             "changes": [
               {
                 "label": "Damage ang Damage",
-                "before": "280-580 (+120% Total Physical Attack)",
-                "after": "400-800 (+60% Total Physical Attack)"
+                "before": "280-580 (+ 120% Total Physical Attack)",
+                "after": "400-800 (+ 60% Total Physical Attack)"
               },
               {
                 "label": "Damage ng Spin",
@@ -478,123 +461,158 @@
         "slug": "lukas"
       },
       {
-        "name": "Lunox",
+        "name": "Aldous",
         "type": "buff",
-        "intro": "Ang Passive ng Lunox ay nagkaroon ng kaunting epekto hanggang sa huli na laro, at ilang mga opsyon sa kagamitan ang gumana nang maayos sa stat conversion nito. Inayos namin ito nang naaayon. Nadagdagan din namin ang damage sa maagang laro ng Skill 2 ni Lunox at pinahusay ang control feel ng kanyang Ultimate. Nilalayon ng mga pagbabagong ito na matiyak na mayroon siyang sapat na damage output sa early-to-mid game.",
+        "intro": "Binawasan ang downtime ni Aldous sa pagitan ng mga trade sa yugto ng laning at pinataas ang kanyang late-game Damage Reduction.",
         "sections": [
           {
-            "name": "Dreamland Twist",
-            "category": "Passive",
+            "name": "Skill 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "Kapag nalipat ang balanse sa Power of Order, agad na makakuha ng 10% Spell Vamp."
+                "label": "Cooldown",
+                "before": "12-9.5s",
+                "after": "8s at all levels"
               },
               {
-                "text": "Kapag nalipat ang balanse sa Power of Chaos, agad na makakuha ng 10% Magic Penetration."
+                "label": "Pagbawas ng Damage",
+                "before": "30% at all levels",
+                "after": "30%-55%"
               }
             ]
-          },
+          }
+        ],
+        "slug": "aldous"
+      },
+      {
+        "name": "Atlas",
+        "type": "nerf",
+        "intro": "Masyadong madalas na pinapalamig ng Passive ng Atlas ang mga kaaway, kaya pinaikli namin ang tagal ng Frigid Breath at pinataas ang cooldown ng freeze. Para makabawi, dinagdagan namin ang kanyang mga bonus sa Physical at Magic Defense para tulungan siyang makatiis ng mas maraming damage pagkatapos makipag-ugnayan.",
+        "sections": [
           {
-            "name": "Chaos Assault",
-            "category": "Skill 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Karagdagang Porsyento ng Damage",
-                "before": "2.5%-5%",
-                "after": "3.5%-5%"
-              },
-              {
-                "label": "Porsiyento ng Karagdagang Damage sa Mga Kilabot",
-                "before": "1.5%-3%",
-                "after": "2.1%-3%"
-              }
-            ]
-          },
-          {
-            "name": "Power of Chaos: Darkening",
-            "category": "Ultimate",
+            "name": "Passive",
+            "category": null,
             "type": "nerf",
             "changes": [
               {
-                "text": "Binawasan ng 50% ang oras ng foreswing ng dash."
+                "label": "Tagal ng Malamig na Hininga",
+                "before": "5s",
+                "after": "4s"
               },
               {
-                "label": "Damage",
-                "before": "250-450 (+100% Total Magic Power)",
-                "after": "150-300 (+135% Total Magic Power)"
+                "label": "I-freeze ang Cooldown",
+                "before": "2.5s",
+                "after": "4s"
+              },
+              {
+                "label": "Nakuha ang Physical at Magic Defense sa panahon ng Frigid Breath",
+                "before": "20 (+0.5% Extra HP)",
+                "after": "20 (+0.7% Extra HP)"
               }
             ]
           }
         ],
-        "slug": "lunox"
+        "slug": "atlas"
       },
       {
-        "name": "Masha",
-        "type": "nerf",
-        "intro": "Para pahusayin ang lane ni Masha at tulungan siyang itulak ang minion wave nang mas mabilis, inilipat namin ang mabagal na epekto sa Skill 2. Nagbibigay-daan ito sa kanya na patuloy na humabol sa isang kaaway at mag-follow up gamit ang Mga Basic Attack upang harapin ang damage sa pamamagitan ng pagsira ng mga Sugat. Pinaliit din namin ang landas ng Skill 2 para mabawasan ang mga kaso kung saan hinaharangan ng mga kalapit na kaaway ang kanyang gitling kapag umaatras. Para balansehin ito, binawasan namin ang damage ng Skill 1 at Skill 2. Na-optimize din namin kung paano na-trigger ang mga Sugat. Bahagyang nabawasan namin ang bisa ng kanyang mga claw strike.",
+        "name": "Karrie",
+        "type": "adjust",
+        "intro": "Pinahusay ang kakayahan ni Karrie sa pakikipaglaban sa panahon ng kanyang Ultimate, at inayos ang Skill 1 para mas mag-focus sa pagpapabagal ng mga kaaway at pagpilit sa kanila na mag-reposition sa late game. Pinahusay din namin ang kalinawan at pag-trigger ng lohika ng ilan sa kanyang mga skill.",
         "sections": [
           {
-            "name": "Primal Pact",
-            "category": "Passive",
-            "type": "adjust",
+            "name": "Skill 1",
+            "category": null,
+            "type": "nerf",
             "changes": [
               {
-                "text": "Bagong Epekto: Ang mga hit ng Skill ay random na pinapalitan ang isa sa mga kasalukuyang Sugat ng target ng bago sa direksyon ng tama."
+                "text": "Na-optimize ang mga visual effect ng globo at dalas ng pagtuklas ng banggaan, na ginagawang mas madali para sa parehong mga kaalyado at kaaway na malaman kung tatamaan sila ng Skill 1."
               },
               {
-                "label": "Dagdag Pisikal na Damage",
-                "before": "(3 + 1% Extra Physical Attack + 0.3 * Hero Level)% Max HP",
-                "after": "(2 + 0.5% Extra Physical Attack + 0.2 * Hero Level)% Max HP"
-              },
-              {
-                "label": "HP Regen",
-                "before": "4-10% Max HP",
-                "after": "3-6% Max HP"
+                "text": "Bonus sa Pisikal na Pag-atake (Base Damage): 90% → 20%; Bonus sa Pisikal na Pag-atake (Sustained Damage): 20% → 10%"
               }
             ]
           },
           {
-            "name": "Feral Swipe",
-            "category": "Skill 1",
-            "type": "adjust",
-            "changes": [
-              {
-                "label": "Bonus sa Damage",
-                "before": "70%",
-                "after": "55%"
-              },
-              {
-                "label": "Damage sa Minions",
-                "before": "100%-150%",
-                "after": "150%-200%"
-              },
-              {
-                "text": "Inalis na Epekto: Ang pagtama sa isang hero ng kaaway ay nagpabagal sa kanila ng 50% sa loob ng 1s."
-              }
-            ]
-          },
-          {
-            "name": "Claw Strike",
-            "category": "Skill 2",
+            "name": "Skill 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
-                "text": "Bagong Epekto: Ang pagtama sa isang hero ng kaaway gamit ang slash ay nagpapabagal sa kanila ng 50% para sa 1s."
+                "text": "Nakikita na ngayon ang mga kalapit na hero ng kaaway sa buong dash. Kung walang makikitang mga hero ng kaaway, nakakakita ito ng mga gumagapang at minions sa dulo ng gitling."
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Base Damage bawat Lightwheel",
+                "before": "40",
+                "after": "50"
               },
               {
-                "text": "Pagsasaayos ng Epekto: Binawasan ng 20% ​​ang lapad ng landas ng Skill 2."
-              },
-              {
-                "label": "Damage",
-                "before": "120-240 (+80% Extra Physical Attack)",
-                "after": "60-240 (+40% Extra Physical Attack)"
+                "label": "Pagpapalakas ng Movement speed sa panahon ng Ultimate",
+                "before": "20%",
+                "after": "30%"
               }
             ]
           }
         ],
-        "slug": "masha"
+        "slug": "karrie"
+      },
+      {
+        "name": "Kaja",
+        "type": "buff",
+        "intro": "Inayos kung paano makakatugon ang mga hero ng kaaway sa Ultimate ni Kaja. Mayroon na silang mas maraming oras upang umalis sa lugar bago magkabisa ang Ultimate, ngunit hindi na magagamit ang mga skill sa Control Immunity upang maiwasan ang paghihigpit sa lugar. Nagdagdag kami ng higit pang mga paraan para manatili si Kaja sa kanyang Soaring state nang mas matagal at pinataas ang kanyang mobility habang Soaring.",
+        "sections": [
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Pinataas ang bilis ng pagliko ni Kaja habang Soaring para sa mas tumutugon na mga kontrol."
+              },
+              {
+                "text": "Bagong Epekto: Habang Pumataas, ang pinahusay na Basic Attack ay bahagyang nagpapahaba sa tagal ng estado kapag natamaan nila ang mga kaaway."
+              },
+              {
+                "text": "Bagong Epekto: Habang Soaring, ang pagtama sa mga minions ng kaaway gamit ang Skill 2 ngayon ay nagpapahaba din sa tagal ng estado."
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Bahagyang nadagdagan ang pagkaantala ng Ultimate."
+              },
+              {
+                "text": "Bagong Epekto: Ang mga Target na may Control Immunity ay hindi na makakatakas sa lugar ng Ultimate kapag nagkabisa ito."
+              }
+            ]
+          }
+        ],
+        "slug": "kaja"
+      },
+      {
+        "name": "Kagura",
+        "type": "adjust",
+        "intro": "Na-optimize ang visual indicator para sa maximum na distansya ng paghihiwalay sa pagitan ng Seimei Umbrella at Kagura.",
+        "sections": [],
+        "slug": "kagura"
+      },
+      {
+        "name": "Uranus",
+        "type": "adjust",
+        "intro": "Binago ang Splash Damage ng Basic Attack sa Magic Damage.",
+        "sections": [],
+        "slug": "uranus"
       },
       {
         "name": "Melissa",
@@ -602,8 +620,8 @@
         "intro": "Ang mga pagsasaayos ng huling patch ay nagpapahina kay Melissa nang higit sa nilalayon, kaya bahagyang ibinabalik namin ang mga ito. Ito ay dapat panatilihin ang kanyang maagang-laro lakas sa check habang pinapanatili ang kanyang huli-laro damage.",
         "sections": [
           {
-            "name": "Eyes on You!",
-            "category": "Skill 2",
+            "name": "Skill 2",
+            "category": null,
             "type": "buff",
             "changes": [
               {
@@ -620,82 +638,16 @@
           }
         ],
         "slug": "melissa"
-      },
-      {
-        "name": "Uranus",
-        "type": "adjust",
-        "intro": "",
-        "sections": [
-          {
-            "name": "Mga Katangian",
-            "category": null,
-            "type": "adjust",
-            "changes": [
-              {
-                "text": "Binago ang Splash Damage ng Basic Attack sa Magic Damage."
-              }
-            ]
-          }
-        ],
-        "slug": "uranus"
-      },
-      {
-        "name": "Xavier",
-        "type": "buff",
-        "intro": "Para matulungan si Xavier na harapin ang mas malaking damage sa AOE sa mga teamfight, inilipat namin ang damage ng Skill 2 (Mystic Barrier) sa pag-activate ng Mystic Field. Pinahusay din namin ang pakiramdam ng kanyang mga skill upang mapabuti ang kanyang kadaliang kumilos.",
-        "sections": [
-          {
-            "name": "Transcendence",
-            "category": "Passive",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Bonus sa Movement speed",
-                "before": "50%",
-                "after": "60%. The bonus now decays more slowly."
-              }
-            ]
-          },
-          {
-            "name": "Infinite Extension",
-            "category": "Skill 1",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Binawasan ang oras ng backswing ng 50%."
-              }
-            ]
-          },
-          {
-            "name": "Mystic Field",
-            "category": "Skill 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Binawasan ang oras ng backswing ng 50%."
-              },
-              {
-                "text": "Inalis ang direktang damage ng Mystic Barrier."
-              },
-              {
-                "label": "Mystic Field Damage",
-                "before": "220-345 (+65% Total Magic Power)",
-                "after": "440-690 (+130% Total Magic Power)"
-              },
-              {
-                "text": "Inayos ang isang isyu kung saan hindi ma-trigger ng Mystic Field Damage ang bonus ng Movement Speed ​​ng passive."
-              }
-            ]
-          }
-        ],
-        "slug": "xavier"
       }
     ],
     "balance": {
-      "buff": 6,
+      "buff": 7,
       "nerf": 3,
       "adjust": 4
-    }
+    },
+    "date": "2026-11-11",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23"
   },
   "2.2.16a": {
     "version": "2.2.16a",
