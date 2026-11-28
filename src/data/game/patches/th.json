@@ -645,9 +645,9 @@
       "nerf": 3,
       "adjust": 4
     },
-    "date": "2026-11-11",
+    "date": "2026-11-26",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23"
+    "liquipedia": null
   },
   "2.2.16a": {
     "version": "2.2.16a",
@@ -2152,9 +2152,9 @@
       "nerf": 6,
       "adjust": 5
     },
-    "date": "2026-09-16",
+    "date": "2026-10-03",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.16"
+    "liquipedia": null
   },
   "2.1.95a": {
     "version": "2.1.95a",
@@ -2628,344 +2628,15 @@
       }
     ],
     "newHeroes": [],
-    "adjustments": [
-      {
-        "name": "Akai",
-        "type": "nerf",
-        "intro": "ลดความเร็วป่าของ Akai แต่เพิ่มความเสียหายต่อเนื่องเพื่อชดเชย",
-        "sections": [
-          {
-            "name": "Tai Chi",
-            "category": "เฉยๆ",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "เอฟเฟกต์ใหม่: การโจมตีพื้นฐานต่อเป้าหมายที่ถูกทำเครื่องหมายจะลบเครื่องหมายออก"
-              },
-              {
-                "label": "ความเสียหายพิเศษ",
-                "before": "25 (+ 5% Total HP)",
-                "after": "35 (+6% Total HP)"
-              }
-            ]
-          }
-        ],
-        "slug": "akai"
-      },
-      {
-        "name": "Argus",
-        "type": "nerf",
-        "intro": "เราได้ตัดสินใจที่จะปรับปรุงความสามารถในการต่อสู้และเลนในเกมตั้งแต่ต้นถึงกลางของ Argus \"Fallen Angel\" ผู้ยิ่งใหญ่ไม่ควรจำกัดอยู่แค่ช่วงท้ายเกมเท่านั้น",
-        "sections": [
-          {
-            "name": "Warmonger",
-            "category": "เฉยๆ",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "ความเสียหายของ Demonic Slash",
-                "before": "80 (+50% Total Physical Attack)",
-                "after": "120 (+25% Total Physical Attack)"
-              },
-              {
-                "label": "Demonic Slash รีเจน",
-                "before": "100 (+10% Total Physical Attack)",
-                "after": "140"
-              }
-            ]
-          },
-          {
-            "name": "Meteoric Sword",
-            "category": "สกิล 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "ความเสียหายพื้นฐาน",
-                "before": "60-180",
-                "after": "120-180"
-              }
-            ]
-          }
-        ],
-        "slug": "argus"
-      },
-      {
-        "name": "Aulus",
-        "type": "buff",
-        "intro": "เพื่อเสริมบทบาทของเขาในฐานะ Fighter ที่ต้องอาศัยการโจมตีพื้นฐานอย่างต่อเนื่อง เราได้ปรับปรุงความยั่งยืนและความสามารถของ Aulus ในการตามล่าเป้าหมาย ในขณะเดียวกันก็ลดความเสียหายในช่วงกลางถึงท้ายเกมลงเล็กน้อยเพื่อความสมดุล",
-        "sections": [
-          {
-            "name": "Fighting Spirit",
-            "category": "เฉยๆ",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "เอฟเฟกต์ใหม่: การโจมตีพื้นฐานที่ได้รับการปรับปรุงจะลดความเร็วในการเคลื่อนที่ของเป้าหมายลง 15% เป็นเวลา 1 วินาที"
-              },
-              {
-                "label": "ปรับปรุงความเสียหายพื้นฐานของการโจมตีพื้นฐาน",
-                "before": "135 (+ 20* Hero Level)",
-                "after": "135 (+ 15* Hero Level)"
-              }
-            ]
-          },
-          {
-            "name": "The Power of Axe",
-            "category": "สกิล 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "เอฟเฟกต์ใหม่: ระยะแรกของความเสียหายรูปพัดจะมอบการดูดเลือดแบบไฮบริด 20% เป็นเวลา 2.5 วินาทีเมื่อโจมตีโดน"
-              },
-              {
-                "text": "ลบเอฟเฟกต์: ระยะแรกของความเสียหายรูปพัดจะลดความเร็วเคลื่อนที่ของเป้าหมายเมื่อโจมตีโดน"
-              },
-              {
-                "label": "คูลดาวน์",
-                "before": "5s",
-                "after": "7s"
-              }
-            ]
-          },
-          {
-            "name": "Cleaving Axe",
-            "category": "สุดยอด",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "ลดเวลาแบ็คสวิงลงเล็กน้อย"
-              }
-            ]
-          }
-        ],
-        "slug": "aulus"
-      },
-      {
-        "name": "Baxia",
-        "type": "buff",
-        "intro": "ลดความเสียหายที่ส่งออกและความเร็วของป่าของ Baxia",
-        "sections": [
-          {
-            "name": "Shield of Spirit",
-            "category": "สกิล 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "ความเสียหาย",
-                "before": "140-265 (+120% Magic Power) (+ 6% target's Max HP)",
-                "after": "120-220 (+100% Magic Power) (+ 5% target's Max HP)"
-              },
-              {
-                "label": "เอฟเฟกต์ใหม่",
-                "before": "Max Damage to Creeps: 350-800",
-                "after": "250-575"
-              }
-            ]
-          }
-        ],
-        "slug": "baxia"
-      },
-      {
-        "name": "Esmeralda",
-        "type": "buff",
-        "intro": "เพิ่มประสิทธิภาพเกมช่วงต้นถึงกลางเกมของ Esmeralda เล็กน้อย",
-        "sections": [
-          {
-            "name": "คุณสมบัติ",
-            "category": null,
-            "type": "buff",
-            "changes": [
-              {
-                "label": "HP พื้นฐาน",
-                "before": "2464",
-                "after": "2660"
-              },
-              {
-                "label": "การป้องกันทางกายภาพขั้นพื้นฐาน",
-                "before": "21",
-                "after": "25"
-              }
-            ]
-          },
-          {
-            "name": "Frostmoon Shield",
-            "category": "สกิล 1",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "คูลดาวน์",
-                "before": "8.5s",
-                "after": "8s"
-              },
-              {
-                "label": "โล่ฐาน",
-                "before": "400-900",
-                "after": "500-1000"
-              }
-            ]
-          },
-          {
-            "name": "Stardust Dance",
-            "category": "สกิล 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "เอฟเฟกต์ช้า",
-                "before": "10%",
-                "after": "20%"
-              }
-            ]
-          }
-        ],
-        "slug": "esmeralda"
-      },
-      {
-        "name": "Eudora",
-        "type": "buff",
-        "intro": "ลด Mana Cost ของฮีโร่ลงเล็กน้อย",
-        "sections": [
-          {
-            "name": "Forked Lightning",
-            "category": "สกิล 1",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "ค่ามานา",
-                "before": "60-90",
-                "after": "40-65"
-              }
-            ]
-          }
-        ],
-        "slug": "eudora"
-      },
-      {
-        "name": "Fredrinn",
-        "type": "nerf",
-        "intro": "ลดความเร็วในการเคลียร์ป่าของ Fredrinn และความทนทานในช่วงต้นเกมลงเล็กน้อย",
-        "sections": [
-          {
-            "name": "คุณสมบัติ",
-            "category": null,
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "HP พื้นฐาน",
-                "before": "2600",
-                "after": "2500"
-              }
-            ]
-          },
-          {
-            "name": "Piercing Strike",
-            "category": "สกิล 1",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "ความเสียหายเพิ่มขึ้นต่อครีป",
-                "before": "200%",
-                "after": "170%"
-              }
-            ]
-          }
-        ],
-        "slug": "fredrinn"
-      },
-      {
-        "name": "Melissa",
-        "type": "buff",
-        "intro": "ลด Mana Cost ของฮีโร่ลงเล็กน้อย",
-        "sections": [
-          {
-            "name": "Eyes on You!",
-            "category": "สกิล 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "ค่ามานา",
-                "before": "90",
-                "after": "70"
-              }
-            ]
-          }
-        ],
-        "slug": "melissa"
-      },
-      {
-        "name": "Minsitthar",
-        "type": "buff",
-        "intro": "ลดคูลดาวน์ในช่วงต้นถึงกลางเกมของ Ultimate และเพิ่มความเสียหายในช่วงท้ายเกม",
-        "sections": [
-          {
-            "name": "King's Calling",
-            "category": "สุดยอด",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "คูลดาวน์",
-                "before": "55-45s",
-                "after": "45s at all levels"
-              },
-              {
-                "label": "โบนัสกายภาพและอัตราส่วนเอฟเฟกต์การโจมตีของอัลติเมท",
-                "before": "40% at all levels",
-                "after": "30%-50%"
-              }
-            ]
-          }
-        ],
-        "slug": "minsitthar"
-      },
-      {
-        "name": "Nolan",
-        "type": "buff",
-        "intro": "เพิ่มความยั่งยืนของ Nolan เล็กน้อย",
-        "sections": [
-          {
-            "name": "Dimensional Rift",
-            "category": "เฉยๆ",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "การฟื้นฟูพลังงานเมื่อโจมตีศัตรูด้วยรอยแยก",
-                "before": "20",
-                "after": "25"
-              }
-            ]
-          }
-        ],
-        "slug": "nolan"
-      },
-      {
-        "name": "Zhuxin",
-        "type": "nerf",
-        "intro": "ลดระยะร่ายของ Skill 2 ลงเล็กน้อย",
-        "sections": [
-          {
-            "name": "Lantern Flare",
-            "category": "สกิล 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "ช่วงการคัดเลือกนักแสดง",
-                "before": "4.5",
-                "after": "4.2"
-              }
-            ]
-          }
-        ],
-        "slug": "zhuxin"
-      }
-    ],
+    "adjustments": [],
     "balance": {
-      "buff": 7,
-      "nerf": 4,
+      "buff": 0,
+      "nerf": 0,
       "adjust": 0
     },
-    "date": "2026-07-02",
+    "date": "2026-07-15",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.90",
-    "adjustmentsSource": "liquipedia"
+    "liquipedia": null
   },
   "2.1.88": {
     "version": "2.1.88",
@@ -4958,9 +4629,9 @@
       "nerf": 11,
       "adjust": 5
     },
-    "date": "2026-06-17",
+    "date": "2026-06-18",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.88"
+    "liquipedia": null
   },
   "2.1.67a": {
     "version": "2.1.67a",
@@ -6654,9 +6325,9 @@
       "nerf": 5,
       "adjust": 14
     },
-    "date": "2026-04-22",
+    "date": "2026-05-01",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.67"
+    "liquipedia": null
   },
   "2.1.61": {
     "version": "2.1.61",
@@ -8723,9 +8394,9 @@
       "nerf": 6,
       "adjust": 17
     },
-    "date": "2026-03-11",
+    "date": "2026-05-01",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.61"
+    "liquipedia": null
   },
   "2.1.47": {
     "version": "2.1.47",
@@ -9160,9 +8831,9 @@
       "nerf": 4,
       "adjust": 0
     },
-    "date": "2026-01-28",
+    "date": "2026-05-03",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.47"
+    "liquipedia": null
   },
   "2.1.40a": {
     "version": "2.1.40a",

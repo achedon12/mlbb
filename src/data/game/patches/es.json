@@ -645,9 +645,9 @@
       "nerf": 3,
       "adjust": 4
     },
-    "date": "2026-11-11",
+    "date": "2026-11-26",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23"
+    "liquipedia": null
   },
   "2.2.16a": {
     "version": "2.2.16a",
@@ -2152,9 +2152,9 @@
       "nerf": 6,
       "adjust": 5
     },
-    "date": "2026-09-16",
+    "date": "2026-10-03",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.16"
+    "liquipedia": null
   },
   "2.1.95a": {
     "version": "2.1.95a",
@@ -2628,344 +2628,15 @@
       }
     ],
     "newHeroes": [],
-    "adjustments": [
-      {
-        "name": "Akai",
-        "type": "nerf",
-        "intro": "Se redujo la velocidad de Akai en la jungla, pero se aumentó su daño explosivo como compensación.",
-        "sections": [
-          {
-            "name": "Tai Chi",
-            "category": "Pasivo",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "Nuevo efecto: los ataques básicos contra objetivos marcados eliminan la marca."
-              },
-              {
-                "label": "Daño adicional",
-                "before": "25 (+ 5% Total HP)",
-                "after": "35 (+6% Total HP)"
-              }
-            ]
-          }
-        ],
-        "slug": "akai"
-      },
-      {
-        "name": "Argus",
-        "type": "nerf",
-        "intro": "Hemos decidido mejorar las capacidades de combate y líneas de Argus desde el principio hasta la mitad del juego. El poderoso \"ángel caído\" no debería limitarse al final del juego.",
-        "sections": [
-          {
-            "name": "Warmonger",
-            "category": "Pasivo",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Daño de corte demoníaco",
-                "before": "80 (+50% Total Physical Attack)",
-                "after": "120 (+25% Total Physical Attack)"
-              },
-              {
-                "label": "Regeneración de corte demoníaco",
-                "before": "100 (+10% Total Physical Attack)",
-                "after": "140"
-              }
-            ]
-          },
-          {
-            "name": "Meteoric Sword",
-            "category": "Habilidad 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Daño básico",
-                "before": "60-180",
-                "after": "120-180"
-              }
-            ]
-          }
-        ],
-        "slug": "argus"
-      },
-      {
-        "name": "Aulus",
-        "type": "buff",
-        "intro": "Para reforzar su papel como luchador que depende de ataques básicos sostenidos, hemos mejorado la sostenibilidad de Aulus y su capacidad para permanecer en los objetivos, al mismo tiempo que reducimos ligeramente su daño en la mitad y el final del juego para mantener el equilibrio.",
-        "sections": [
-          {
-            "name": "Fighting Spirit",
-            "category": "Pasivo",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "Nuevo efecto: el ataque básico mejorado reduce la velocidad de movimiento del objetivo en un 15 % durante 1 s."
-              },
-              {
-                "label": "Daño base del ataque básico mejorado",
-                "before": "135 (+ 20* Hero Level)",
-                "after": "135 (+ 15* Hero Level)"
-              }
-            ]
-          },
-          {
-            "name": "The Power of Axe",
-            "category": "Habilidad 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Nuevo efecto: la primera fase de daño en forma de abanico otorga un 20 % de robo de vida híbrido durante 2,5 s al golpear."
-              },
-              {
-                "text": "Efecto eliminado: la primera fase de daño en forma de abanico reduce la velocidad de movimiento del objetivo al golpear."
-              },
-              {
-                "label": "Enfriarse",
-                "before": "5s",
-                "after": "7s"
-              }
-            ]
-          },
-          {
-            "name": "Cleaving Axe",
-            "category": "Último",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Ligeramente reducido el tiempo de retroceso."
-              }
-            ]
-          }
-        ],
-        "slug": "aulus"
-      },
-      {
-        "name": "Baxia",
-        "type": "buff",
-        "intro": "Se redujo la producción de daño de Baxia y la velocidad de jungla.",
-        "sections": [
-          {
-            "name": "Shield of Spirit",
-            "category": "Habilidad 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Daño",
-                "before": "140-265 (+120% Magic Power) (+ 6% target's Max HP)",
-                "after": "120-220 (+100% Magic Power) (+ 5% target's Max HP)"
-              },
-              {
-                "label": "Nuevo efecto",
-                "before": "Max Damage to Creeps: 350-800",
-                "after": "250-575"
-              }
-            ]
-          }
-        ],
-        "slug": "baxia"
-      },
-      {
-        "name": "Esmeralda",
-        "type": "buff",
-        "intro": "Aumentó ligeramente el rendimiento de Esmeralda desde el principio hasta la mitad del juego.",
-        "sections": [
-          {
-            "name": "Atributos",
-            "category": null,
-            "type": "buff",
-            "changes": [
-              {
-                "label": "HP básicos",
-                "before": "2464",
-                "after": "2660"
-              },
-              {
-                "label": "Defensa física básica",
-                "before": "21",
-                "after": "25"
-              }
-            ]
-          },
-          {
-            "name": "Frostmoon Shield",
-            "category": "Habilidad 1",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Enfriarse",
-                "before": "8.5s",
-                "after": "8s"
-              },
-              {
-                "label": "Escudo básico",
-                "before": "400-900",
-                "after": "500-1000"
-              }
-            ]
-          },
-          {
-            "name": "Stardust Dance",
-            "category": "Habilidad 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Efecto lento",
-                "before": "10%",
-                "after": "20%"
-              }
-            ]
-          }
-        ],
-        "slug": "esmeralda"
-      },
-      {
-        "name": "Eudora",
-        "type": "buff",
-        "intro": "Se redujo ligeramente el costo de maná del héroe.",
-        "sections": [
-          {
-            "name": "Forked Lightning",
-            "category": "Habilidad 1",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Costo de maná",
-                "before": "60-90",
-                "after": "40-65"
-              }
-            ]
-          }
-        ],
-        "slug": "eudora"
-      },
-      {
-        "name": "Fredrinn",
-        "type": "nerf",
-        "intro": "Se redujo ligeramente la velocidad de despeje de la jungla de Fredrinn y su durabilidad al principio del juego.",
-        "sections": [
-          {
-            "name": "Atributos",
-            "category": null,
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "HP básicos",
-                "before": "2600",
-                "after": "2500"
-              }
-            ]
-          },
-          {
-            "name": "Piercing Strike",
-            "category": "Habilidad 1",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Aumento de daño contra creeps",
-                "before": "200%",
-                "after": "170%"
-              }
-            ]
-          }
-        ],
-        "slug": "fredrinn"
-      },
-      {
-        "name": "Melissa",
-        "type": "buff",
-        "intro": "Se redujo ligeramente el costo de maná del héroe.",
-        "sections": [
-          {
-            "name": "Eyes on You!",
-            "category": "Habilidad 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Costo de maná",
-                "before": "90",
-                "after": "70"
-              }
-            ]
-          }
-        ],
-        "slug": "melissa"
-      },
-      {
-        "name": "Minsitthar",
-        "type": "buff",
-        "intro": "Se redujo el tiempo de reutilización del juego definitivo desde el principio hasta la mitad del juego y se aumentó su daño al final del juego.",
-        "sections": [
-          {
-            "name": "King's Calling",
-            "category": "Último",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Enfriarse",
-                "before": "55-45s",
-                "after": "45s at all levels"
-              },
-              {
-                "label": "Bonificación física de Ultimate y relación de efecto de ataque",
-                "before": "40% at all levels",
-                "after": "30%-50%"
-              }
-            ]
-          }
-        ],
-        "slug": "minsitthar"
-      },
-      {
-        "name": "Nolan",
-        "type": "buff",
-        "intro": "Aumentó ligeramente la sostenibilidad de Nolan.",
-        "sections": [
-          {
-            "name": "Dimensional Rift",
-            "category": "Pasivo",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Regeneración de energía al golpear a un enemigo con una grieta",
-                "before": "20",
-                "after": "25"
-              }
-            ]
-          }
-        ],
-        "slug": "nolan"
-      },
-      {
-        "name": "Zhuxin",
-        "type": "nerf",
-        "intro": "Se redujo ligeramente el alcance de lanzamiento de la Habilidad 2.",
-        "sections": [
-          {
-            "name": "Lantern Flare",
-            "category": "Habilidad 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Rango de fundición",
-                "before": "4.5",
-                "after": "4.2"
-              }
-            ]
-          }
-        ],
-        "slug": "zhuxin"
-      }
-    ],
+    "adjustments": [],
     "balance": {
-      "buff": 7,
-      "nerf": 4,
+      "buff": 0,
+      "nerf": 0,
       "adjust": 0
     },
-    "date": "2026-07-02",
+    "date": "2026-07-15",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.90",
-    "adjustmentsSource": "liquipedia"
+    "liquipedia": null
   },
   "2.1.88": {
     "version": "2.1.88",
@@ -4958,9 +4629,9 @@
       "nerf": 11,
       "adjust": 5
     },
-    "date": "2026-06-17",
+    "date": "2026-06-18",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.88"
+    "liquipedia": null
   },
   "2.1.67a": {
     "version": "2.1.67a",
@@ -6654,9 +6325,9 @@
       "nerf": 5,
       "adjust": 14
     },
-    "date": "2026-04-22",
+    "date": "2026-05-01",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.67"
+    "liquipedia": null
   },
   "2.1.61": {
     "version": "2.1.61",
@@ -8723,9 +8394,9 @@
       "nerf": 6,
       "adjust": 17
     },
-    "date": "2026-03-11",
+    "date": "2026-05-01",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.61"
+    "liquipedia": null
   },
   "2.1.47": {
     "version": "2.1.47",
@@ -9160,9 +8831,9 @@
       "nerf": 4,
       "adjust": 0
     },
-    "date": "2026-01-28",
+    "date": "2026-05-03",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.47"
+    "liquipedia": null
   },
   "2.1.40a": {
     "version": "2.1.40a",

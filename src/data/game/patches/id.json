@@ -645,9 +645,9 @@
       "nerf": 3,
       "adjust": 4
     },
-    "date": "2026-11-11",
+    "date": "2026-11-26",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23"
+    "liquipedia": null
   },
   "2.2.16a": {
     "version": "2.2.16a",
@@ -2152,9 +2152,9 @@
       "nerf": 6,
       "adjust": 5
     },
-    "date": "2026-09-16",
+    "date": "2026-10-03",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.16"
+    "liquipedia": null
   },
   "2.1.95a": {
     "version": "2.1.95a",
@@ -2628,344 +2628,15 @@
       }
     ],
     "newHeroes": [],
-    "adjustments": [
-      {
-        "name": "Akai",
-        "type": "nerf",
-        "intro": "Mengurangi kecepatan jungling Akai, namun meningkatkan damage burstnya sebagai kompensasi.",
-        "sections": [
-          {
-            "name": "Tai Chi",
-            "category": "Pasif",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "Efek Baru: Serangan Dasar terhadap target yang ditandai menghilangkan tanda tersebut."
-              },
-              {
-                "label": "Damage Ekstra",
-                "before": "25 (+ 5% Total HP)",
-                "after": "35 (+6% Total HP)"
-              }
-            ]
-          }
-        ],
-        "slug": "akai"
-      },
-      {
-        "name": "Argus",
-        "type": "nerf",
-        "intro": "Kami memutuskan untuk meningkatkan kemampuan pertarungan dan laning Argus di awal hingga pertengahan game. \"Malaikat Jatuh\" yang perkasa tidak boleh terbatas pada late game.",
-        "sections": [
-          {
-            "name": "Warmonger",
-            "category": "Pasif",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Damage Tebasan Setan",
-                "before": "80 (+50% Total Physical Attack)",
-                "after": "120 (+25% Total Physical Attack)"
-              },
-              {
-                "label": "Regen Tebasan Iblis",
-                "before": "100 (+10% Total Physical Attack)",
-                "after": "140"
-              }
-            ]
-          },
-          {
-            "name": "Meteoric Sword",
-            "category": "Skill 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Damage Dasar",
-                "before": "60-180",
-                "after": "120-180"
-              }
-            ]
-          }
-        ],
-        "slug": "argus"
-      },
-      {
-        "name": "Aulus",
-        "type": "buff",
-        "intro": "Untuk memperkuat perannya sebagai Fighter yang bergantung pada Serangan Dasar berkelanjutan, kami telah meningkatkan ketahanan dan kemampuan Aulus untuk tetap mengenai target, sekaligus sedikit mengurangi damage di pertengahan hingga akhir game demi keseimbangan.",
-        "sections": [
-          {
-            "name": "Fighting Spirit",
-            "category": "Pasif",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "Efek Baru: Peningkatan Serangan Dasar mengurangi Kecepatan Gerakan target sebesar 15% selama 1 d."
-              },
-              {
-                "label": "Meningkatkan Damage Dasar Serangan Dasar",
-                "before": "135 (+ 20* Hero Level)",
-                "after": "135 (+ 15* Hero Level)"
-              }
-            ]
-          },
-          {
-            "name": "The Power of Axe",
-            "category": "Skill 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Efek Baru: Fase pertama dari damage berbentuk kipas memberikan 20% Hybrid Lifesteal selama 2,5 detik saat terkena."
-              },
-              {
-                "text": "Efek yang Dihapus: Fase pertama dari damage berbentuk kipas mengurangi Kecepatan Gerakan target saat terkena."
-              },
-              {
-                "label": "Pendinginan",
-                "before": "5s",
-                "after": "7s"
-              }
-            ]
-          },
-          {
-            "name": "Cleaving Axe",
-            "category": "Terakhir",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Sedikit mengurangi waktu ayunan ke belakang."
-              }
-            ]
-          }
-        ],
-        "slug": "aulus"
-      },
-      {
-        "name": "Baxia",
-        "type": "buff",
-        "intro": "Mengurangi damage output dan kecepatan jungling Baxia.",
-        "sections": [
-          {
-            "name": "Shield of Spirit",
-            "category": "Skill 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Damage",
-                "before": "140-265 (+120% Magic Power) (+ 6% target's Max HP)",
-                "after": "120-220 (+100% Magic Power) (+ 5% target's Max HP)"
-              },
-              {
-                "label": "Efek Baru",
-                "before": "Max Damage to Creeps: 350-800",
-                "after": "250-575"
-              }
-            ]
-          }
-        ],
-        "slug": "baxia"
-      },
-      {
-        "name": "Esmeralda",
-        "type": "buff",
-        "intro": "Sedikit meningkatkan performa Esmeralda di early hingga mid game.",
-        "sections": [
-          {
-            "name": "Atribut",
-            "category": null,
-            "type": "buff",
-            "changes": [
-              {
-                "label": "HP Dasar",
-                "before": "2464",
-                "after": "2660"
-              },
-              {
-                "label": "Pangkalan Pertahanan Fisik",
-                "before": "21",
-                "after": "25"
-              }
-            ]
-          },
-          {
-            "name": "Frostmoon Shield",
-            "category": "Skill 1",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Pendinginan",
-                "before": "8.5s",
-                "after": "8s"
-              },
-              {
-                "label": "Perisai Dasar",
-                "before": "400-900",
-                "after": "500-1000"
-              }
-            ]
-          },
-          {
-            "name": "Stardust Dance",
-            "category": "Skill 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Efek Lambat",
-                "before": "10%",
-                "after": "20%"
-              }
-            ]
-          }
-        ],
-        "slug": "esmeralda"
-      },
-      {
-        "name": "Eudora",
-        "type": "buff",
-        "intro": "Sedikit mengurangi Mana Cost hero.",
-        "sections": [
-          {
-            "name": "Forked Lightning",
-            "category": "Skill 1",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Biaya Mana",
-                "before": "60-90",
-                "after": "40-65"
-              }
-            ]
-          }
-        ],
-        "slug": "eudora"
-      },
-      {
-        "name": "Fredrinn",
-        "type": "nerf",
-        "intro": "Sedikit mengurangi kecepatan membersihkan hutan dan daya tahan permainan awal Fredrinn.",
-        "sections": [
-          {
-            "name": "Atribut",
-            "category": null,
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "HP Dasar",
-                "before": "2600",
-                "after": "2500"
-              }
-            ]
-          },
-          {
-            "name": "Piercing Strike",
-            "category": "Skill 1",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Damage Meningkat Terhadap Creep",
-                "before": "200%",
-                "after": "170%"
-              }
-            ]
-          }
-        ],
-        "slug": "fredrinn"
-      },
-      {
-        "name": "Melissa",
-        "type": "buff",
-        "intro": "Sedikit mengurangi Mana Cost hero.",
-        "sections": [
-          {
-            "name": "Eyes on You!",
-            "category": "Skill 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Biaya Mana",
-                "before": "90",
-                "after": "70"
-              }
-            ]
-          }
-        ],
-        "slug": "melissa"
-      },
-      {
-        "name": "Minsitthar",
-        "type": "buff",
-        "intro": "Mengurangi cooldown Ultimate di awal hingga pertengahan game dan meningkatkan damage di akhir game.",
-        "sections": [
-          {
-            "name": "King's Calling",
-            "category": "Terakhir",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Pendinginan",
-                "before": "55-45s",
-                "after": "45s at all levels"
-              },
-              {
-                "label": "Rasio Bonus Fisik & Efek Serangan Ultimate",
-                "before": "40% at all levels",
-                "after": "30%-50%"
-              }
-            ]
-          }
-        ],
-        "slug": "minsitthar"
-      },
-      {
-        "name": "Nolan",
-        "type": "buff",
-        "intro": "Sedikit meningkatkan keberlanjutan Nolan.",
-        "sections": [
-          {
-            "name": "Dimensional Rift",
-            "category": "Pasif",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Pemulihan Energi Saat Menyerang Musuh dengan Rift",
-                "before": "20",
-                "after": "25"
-              }
-            ]
-          }
-        ],
-        "slug": "nolan"
-      },
-      {
-        "name": "Zhuxin",
-        "type": "nerf",
-        "intro": "Jarak penggunaan Skill 2 sedikit berkurang.",
-        "sections": [
-          {
-            "name": "Lantern Flare",
-            "category": "Skill 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Rentang Pemeran",
-                "before": "4.5",
-                "after": "4.2"
-              }
-            ]
-          }
-        ],
-        "slug": "zhuxin"
-      }
-    ],
+    "adjustments": [],
     "balance": {
-      "buff": 7,
-      "nerf": 4,
+      "buff": 0,
+      "nerf": 0,
       "adjust": 0
     },
-    "date": "2026-07-02",
+    "date": "2026-07-15",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.90",
-    "adjustmentsSource": "liquipedia"
+    "liquipedia": null
   },
   "2.1.88": {
     "version": "2.1.88",
@@ -4958,9 +4629,9 @@
       "nerf": 11,
       "adjust": 5
     },
-    "date": "2026-06-17",
+    "date": "2026-06-18",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.88"
+    "liquipedia": null
   },
   "2.1.67a": {
     "version": "2.1.67a",
@@ -6654,9 +6325,9 @@
       "nerf": 5,
       "adjust": 14
     },
-    "date": "2026-04-22",
+    "date": "2026-05-01",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.67"
+    "liquipedia": null
   },
   "2.1.61": {
     "version": "2.1.61",
@@ -8723,9 +8394,9 @@
       "nerf": 6,
       "adjust": 17
     },
-    "date": "2026-03-11",
+    "date": "2026-05-01",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.61"
+    "liquipedia": null
   },
   "2.1.47": {
     "version": "2.1.47",
@@ -9160,9 +8831,9 @@
       "nerf": 4,
       "adjust": 0
     },
-    "date": "2026-01-28",
+    "date": "2026-05-03",
     "source": "fandom",
-    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.47"
+    "liquipedia": null
   },
   "2.1.40a": {
     "version": "2.1.40a",
